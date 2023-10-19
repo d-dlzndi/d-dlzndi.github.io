@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(../../public/font/SUIT-Variable.css);
+
+* {
+  font-family: 'SUIT Variable', 'SUIT', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

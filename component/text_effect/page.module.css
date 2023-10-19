@@ -11,10 +11,11 @@
 }
 
 .lineMask {
-    overflow: hidden;
+    overflow:visible;
+    margin: 0px;
+        font-weight: 700;
 }
 
-.lineMask p {
-    margin: 0px;
-    font-weight: 700;
+.lineMaskSpan {
+    display: inline-block;
 }

@@ -2,15 +2,14 @@
 
 import styles from "./page.module.css";
 import { useInView, motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
-export default function SlideShowText() {
-  const phrases = ["안녕하세요 반갑습니다", "룰루랄라", "아주 멋진 날씨예요"];
-  useEffect(() => {
-    console.log(
-      "******************* socket provider useEffect *******************"
-    );
-  }, []);
+export default function SlideShowText({ text }: { text?: string[] }) {
+  const phrases = text || [
+    "안녕하세요 반갑습니다",
+    "룰루랄라",
+    "아주 멋진 날씨예요",
+  ];
 
   return (
     <div className={styles.main}>
@@ -24,30 +23,26 @@ export default function SlideShowText() {
 
 function MaskText({ pharases }: { pharases: string[] }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-10%",
+  });
 
   const animate = {
-    initial: { y: "100%" },
+    initial: { y: "-100%", opacity: 0 },
     open: (index: number) => ({
       y: "0%",
-      transition: { duration: 1, delay: 0.1 * index },
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        delay: 0.1 * index,
+        ease: [0.33, 1, 0.68, 1],
+      },
     }),
   };
 
-  const [hello, sethello] = useState(false);
-  useEffect(() => {
-    console.log(hello);
-    return () => {};
-  }, [hello]);
-
-  useEffect(() => {
-    console.log(isInView);
-  }, [isInView]);
-
   return (
     <div className={styles.body} ref={ref}>
-      <button onClick={() => sethello(!hello)}>아아아~~</button>
-      <input type="checkbox" onChange={() => sethello(!hello)} />
       {pharases.map((phrase, index) => {
         return (
           <div key={index} className={styles.lineMask}>
@@ -55,12 +50,13 @@ function MaskText({ pharases }: { pharases: string[] }) {
               {phrase.split("").map((char, idx) => (
                 <motion.span
                   key={idx}
-                  custom={(index + 1) * idx}
+                  className={styles.lineMaskSpan}
+                  custom={index * 4 + idx}
                   variants={animate}
                   initial="initial"
                   animate={isInView ? "open" : ""}
                 >
-                  {char}
+                  {char == " " ? "ㅤ" : char}
                 </motion.span>
               ))}
             </motion.p>
