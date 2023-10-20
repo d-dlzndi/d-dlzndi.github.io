@@ -8,29 +8,28 @@ type headerContentType = {
   title: string;
   url: string;
 };
+const headerContent: headerContentType[] = [
+  {
+    title: "Home",
+    url: "/",
+  },
+  {
+    title: "Work",
+    url: "/work",
+  },
+  {
+    title: "Contact",
+    url: "/contact",
+  },
+];
 
 export default function MainHeader() {
-  const headerContent: headerContentType[] = [
-    {
-      title: "Home",
-      url: "/",
-    },
-    {
-      title: "Work",
-      url: "/work",
-    },
-    {
-      title: "Contact",
-      url: "/contact",
-    },
-  ];
-
   const path = usePathname();
 
   return (
-    <header>
+    <header className="fixed right-10 top-10 z-50">
       <nav>
-        <ol className="flex font-bold uppercase fixed right-0 top-0 gap-[20px] z-50">
+        <ol className="flex font-bold uppercase gap-[20px]">
           {headerContent.map((content, idx) => (
             <li key={idx}>
               <Link className="relative block" href={content.url}>

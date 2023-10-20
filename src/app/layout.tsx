@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MainHeader from "./MainHeader";
+import Link from "next/link";
+
+const HOME_TITLE = "SEO YUN KIM";
 
 /*
 import { Inter } from "next/font/google";
@@ -20,8 +23,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head />
-      <body className="overflow-clip">
+      <body>
         <div className="main">
+          <div className="fixed top-10 left-10 z-50 w-auto h-auto">
+            <h1 className=" font-extrabold text-2lg">
+              <Link href={"/"}>{HOME_TITLE}</Link>
+            </h1>
+          </div>
           <MainHeader />
           {children}
         </div>
