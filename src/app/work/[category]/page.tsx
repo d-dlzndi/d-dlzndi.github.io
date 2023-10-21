@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { getAllPosts } from "../../../lib/post_api";
+import { getAllPostsInCategory } from "../../../../lib/post_api";
 
-export default function Work() {
-  const galleryContentList: any[] = getAllPosts(["title", "image", "category"]);
+export default function WorkCategory(params: any) {
+  const galleryContentList: any[] = getAllPostsInCategory(
+    ["title", "image", "category"],
+    params.params.category
+  );
 
   return (
     <div className="gallery-contents w-2/3 flex flex-row flex-wrap content-start">

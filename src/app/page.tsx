@@ -2,8 +2,8 @@
 import { PageWrapper } from "../../component/PageWrapper";
 import SlideShowText from "../../component/text_effect/SlideShowText";
 
-import { FullPage, Slide } from "react-full-page";
 import MainPage from "./MainPage";
+import MainBackground from "./MainBackground";
 
 export default function Home() {
   const fullpages = [
@@ -19,29 +19,13 @@ export default function Home() {
 
   return (
     <main className="">
-      <div
-        id="bg"
-        className="fixed bottom-[-50vh] left-0 h-screen w-screen -z-10 bg-indigo-200"
-      ></div>
       <PageWrapper>
-        <div>
-          <MainPage />
+        <MainBackground type="middle" />
+        <div id="container">
+          {fullpages.map((page, idx) => {
+            return <MainPage key={idx} data-anchor={`page-${idx}`} />;
+          })}
         </div>
-        {/*}
-        <FullPage
-          controls
-          duration={900}
-          controlsProps={{ className: "flex-col fixed top-[50%] right-[20px]" }}
-        >
-          {fullpages.map(({ text }) => (
-            <Slide key={text}>
-              <div className="section">
-                <h1>{text}</h1>
-              </div>
-            </Slide>
-          ))}
-        </FullPage>
-          {*/}
       </PageWrapper>
     </main>
   );

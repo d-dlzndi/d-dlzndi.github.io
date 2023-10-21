@@ -25,8 +25,8 @@ export default function MainPage() {
 
   return (
     <article className="w-screen h-screen">
-      <div className="w-full h-full flex flex-col">
-        <div className="fixed top-0 right-0 w-1/2 h-screen z-10">
+      <div className="relative w-full h-full flex flex-col">
+        <div className="absolute top-0 right-0 w-1/2 h-screen z-10">
           <div className="main-img absolute bg-indigo-300 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden">
             <img
               className="object-cover object-center"

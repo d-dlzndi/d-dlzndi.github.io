@@ -1,15 +1,14 @@
 import Head from "next/head";
-import Layout from "./layout";
-import Date from "../../../../component/date";
+import Date from "../../../../../component/date";
 import {
   getAllPostIds,
   getPostData,
   getSortedPostsData,
-} from "../../../../lib/post";
+} from "../../../../../lib/post";
 
 export default function Post({ postData }: { postData: any }) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
         <meta charSet="UTF-8" />
@@ -39,7 +38,7 @@ export default function Post({ postData }: { postData: any }) {
       <Date dateString={postData.date} />
       <br />
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </Layout>
+    </>
   );
 }
 
