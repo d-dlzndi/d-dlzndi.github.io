@@ -13,10 +13,14 @@ export type PostItem = {
  * @returns
  */
 export function getAllCategories() {
-  return fs
-    .readdirSync(postsDirectory, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
+  try {
+    return fs
+      .readdirSync(postsDirectory, { withFileTypes: true })
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name);
+  } catch (error) {
+    return [];
+  }
 }
 
 /**
@@ -25,10 +29,14 @@ export function getAllCategories() {
  * @returns
  */
 function getPostSlugs(path = postsDirectory) {
-  return fs
-    .readdirSync(path, { withFileTypes: true })
-    .filter((dirent) => dirent.isFile())
-    .map((dirent) => dirent.name);
+  try {
+    return fs
+      .readdirSync(path, { withFileTypes: true })
+      .filter((dirent) => dirent.isFile())
+      .map((dirent) => dirent.name);
+  } catch (error) {
+    return [];
+  }
 }
 
 /**

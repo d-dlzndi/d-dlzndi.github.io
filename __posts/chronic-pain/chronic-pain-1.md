@@ -1,9 +1,9 @@
 ---
-title: 'Chronic Pain 1'
-date: '2019-01-01'
-description: 'This is my first article about chronic pain.'
-image: '/images/chronic-pain-1.jpg'
-url: 'https://herenowbody.com/chronic-pain/chronic-pain-1'
+title: "Chronic Pain 1"
+date: "2019-01-01"
+description: "This is my first article about chronic pain."
+image: "/images/chronic-pain-1.jpg"
+url: "https://herenowbody.com/chronic-pain/chronic-pain-1"
 ---
 
 CHRONIC PAIN two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
@@ -13,6 +13,6 @@ CHRONIC PAIN two forms of pre-rendering: **Static Generation** and **Server-side
 
 Importantly, Next.js lets you **choose** which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
 
-![Low-Back-Pain](/images/low-back-pain-1.jpg)
+<!--![Low-Back-Pain](/images/low-back-pain-1.jpg)
 
-<img src="/images/low-back-pain-1.jpg" alt="low-back-pain" style="width:200px;"/>
+<img src="/images/low-back-pain-1.jpg" alt="low-back-pain" style="width:200px;"/>-->

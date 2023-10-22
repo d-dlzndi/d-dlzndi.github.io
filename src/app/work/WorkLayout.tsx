@@ -4,13 +4,18 @@ import Image from "next/image";
 import { PageWrapper } from "../../../component/PageWrapper";
 import MainBackground from "../MainBackground";
 import { getAllCategories } from "../../../lib/post_api";
+import { motion } from "framer-motion";
+
+export const category_all: string = "all";
 
 export default function WorkLayout({
   children,
+  selectedCategory = "",
 }: {
   children: React.ReactNode;
+  selectedCategory: string;
 }) {
-  const categoryList = ["all"].concat(getAllCategories());
+  const categoryList = [category_all].concat(getAllCategories());
 
   return (
     <PageWrapper>
@@ -28,7 +33,11 @@ export default function WorkLayout({
                   {categoryList.map((category, idx) => (
                     <li key={idx}>
                       <Link
-                        className="inline-block w-auto px-3 pt-1 pb-1 rounded-full bg-slate-100 "
+                        className={`relative inline-block w-auto px-3 pt-1 pb-1 rounded-full ${
+                          category == selectedCategory
+                            ? "bg-black text-cyan-50"
+                            : "bg-slate-100"
+                        }`}
                         href={`/work${category == "all" ? "" : "/" + category}`}
                       >
                         {category.replaceAll("-", " ").toUpperCase()}
