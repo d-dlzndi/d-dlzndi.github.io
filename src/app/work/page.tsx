@@ -1,11 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { getAllPosts } from "../../../lib/post_api";
+import { getAllPosts } from "../../lib/post_api";
 import WorkLayout, { category_all } from "./WorkLayout";
 
 export default function Work() {
-  const galleryContentList: any[] = getAllPosts(["title", "image", "category"]);
+  const galleryContentList: any[] = getAllPosts([
+    "slug",
+    "title",
+    "image",
+    "category",
+  ]);
 
   return (
     <WorkLayout selectedCategory={category_all}>
@@ -16,11 +21,7 @@ export default function Work() {
               key={idx}
               className=" w-1/2 max-h-[28.125%]  overflow-hidden"
             >
-              <Link
-                href={`/work/${encodeURI(article.category)}/${encodeURI(
-                  article.title
-                )}`}
-              >
+              <Link href={`/work/${article.category}/${article.slug}`}>
                 <img
                   src={
                     "https://images.unsplash.com/photo-1682685797140-c17807f8f217?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { PageWrapper } from "../../../component/PageWrapper";
+import { PageWrapper } from "../../component/PageWrapper";
 import MainBackground from "../MainBackground";
-import { getAllCategories } from "../../../lib/post_api";
+import { getAllCategories } from "../../lib/post_api";
 import { motion } from "framer-motion";
 
 export const category_all: string = "all";
@@ -19,7 +19,6 @@ export default function WorkLayout({
 
   return (
     <PageWrapper>
-      <MainBackground type="right" />
       <section>
         <div className="flex flex-row min-h-screen justify-stretch">
           <header className="header relative w-1/3">

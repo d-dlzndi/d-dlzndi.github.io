@@ -1,6 +1,8 @@
 "use client";
 
+import MainBackground, { backgroundType } from "@/app/MainBackground";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export const PageWrapper = ({
   children,
@@ -9,12 +11,26 @@ export const PageWrapper = ({
   children: React.ReactNode;
   className?: string;
 }) => {
+  const path = usePathname();
+  let bgType: backgroundType = "bottom";
+  [
+    { p: "/", b: "middle" },
+    { p: "/work", b: "right" },
+    { p: "/about", b: "top" },
+  ].forEach((e) => {
+    if (path == e.p || path?.includes(e.p || " ")) {
+      bgType = e.b as backgroundType;
+      return;
+    }
+  });
+
   return (
     <>
+      <MainBackground type={bgType} />
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
+        exit={{ opacity: 0, y: 0 }}
         className={className}
       >
         {children}

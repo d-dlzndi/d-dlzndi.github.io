@@ -1,32 +1,46 @@
 "use client";
-import { PageWrapper } from "../../component/PageWrapper";
-import SlideShowText from "../../component/text_effect/SlideShowText";
+import { PageWrapper } from "../component/PageWrapper";
 
-import MainPage from "./MainPage";
-import MainBackground from "./MainBackground";
+import MainPage from "../pages/index/MainPage";
+import MainWorkPosts from "../../_posts/_main_work_posts";
+import FullPageLayout from "../component/fullPage/FullPageLayout";
+import IntroPage from "../pages/index/IntroPage";
 
 export default function Home() {
-  const fullpages = [
-    { text: "a~~~~~~~~~~~~~~~~~~~~~~~~" },
-    { text: "b123123123123123123" },
-    { text: "a" },
-    { text: "b" },
-    { text: "a" },
-    { text: "b" },
-    { text: "a" },
-    { text: "b" },
-  ];
-
   return (
     <main className="">
       <PageWrapper>
-        <MainBackground type="middle" />
-        <div id="container">
-          {fullpages.map((page, idx) => {
-            return <MainPage key={idx} data-anchor={`page-${idx}`} />;
-          })}
-        </div>
+        <FullPageLayout
+          pages={[
+            IntroPage(),
+            ...MainWorkPosts.map((page, idx) => {
+              return (
+                <MainPage
+                  key={`${idx}_${page.slug}`}
+                  category={page.category}
+                  slug={page.slug}
+                />
+              );
+            }),
+          ]}
+        />
       </PageWrapper>
     </main>
   );
 }
+
+/*
+
+getAllPostsInCategory(
+            ["category", "slug"],
+            "3D-Animation"
+          ).map((page, idx) => {
+            return (
+              <MainPage
+                key={page.slug + "_" + idx}
+                category={page.category}
+                slug={page.slug}
+              />
+            );
+          })
+          */

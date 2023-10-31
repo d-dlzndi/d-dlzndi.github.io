@@ -2,14 +2,21 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
-const postsDirectory = join(process.cwd(), "__posts");
+const postsDirectory = join(process.cwd(), "_posts");
 
 export type PostItem = {
+  content: string;
   [key: string]: string;
 };
 
+export type awardDataType = {
+  name: string;
+  special: boolean;
+  href?: string;
+};
+
 /**
- * __posts 안에 있는 "폴더명"만 읽고 카테고리 목록을 반환함.
+ * _posts 안에 있는 "폴더명"만 읽고 카테고리 목록을 반환함.
  * @returns
  */
 export function getAllCategories() {
@@ -46,9 +53,9 @@ function getPostSlugs(path = postsDirectory) {
  * @param category
  * @returns Item[]
  */
-export function getPostBySlug(
+function getPostBySlug(
   slug: string,
-  fields: string[] = [],
+  fields: string[],
   category: string
 ): PostItem {
   const realSlug = slug.replace(/\.md$/, "");
@@ -58,7 +65,7 @@ export function getPostBySlug(
   // 여기서 matter는 마크다운 파일의 front-matter(앞머리)를 파싱해주는 역할
   const { data, content } = matter(fileContents);
 
-  const items: PostItem = {};
+  const items: PostItem = { content: "" };
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -71,7 +78,7 @@ export function getPostBySlug(
     if (field === "category") {
       items[field] = category;
     }
-    if (typeof data[field] !== "undefined") {
+    if (items[field] == undefined && typeof data[field] !== undefined) {
       // font matter 데이터 필드가 안 비어있다면
       items[field] = data[field];
     }
@@ -79,6 +86,12 @@ export function getPostBySlug(
   return items;
 }
 
+/**
+ * 포스트 기본 정렬 방식 (날짜순)
+ * @param post1
+ * @param post2
+ * @returns
+ */
 const postSort = (post1: any, post2: any) => (post1.date > post2.date ? -1 : 1);
 
 /**
@@ -113,17 +126,33 @@ export function getAllPostsInCategory(
 }
 
 /**
- * 특정 글만 읽어오기 (로직이 굉장히 구리므로 나중에 수정할 것)
- * @param title 제목
+ * 특정 글 목록 불러오기
+ * @param list 카테고리명, 글 이름은 필수
+ * @param fields 공통 필드
+ * @param sort 정렬 안함이 기본값
+ * @returns
+ */
+export function getPostList(
+  list: { category: string; slug: string }[],
+  fields: string[],
+  sort: boolean = false
+) {
+  return list
+    .map((post) => getOnePost(post.category, post.slug, fields))
+    .sort(sort ? postSort : undefined);
+}
+
+/**
+ * 특정 글만 읽어오기
+ * @param category 카테고리
+ * @param slug 슬러그
  * @param fields 사용할 필드
  * @returns Items 1개
  */
 export function getOnePost(
   category: string,
-  title: string,
+  slug: string,
   fields: string[] = []
-) {
-  return getAllPostsInCategory(fields, category, false).find(
-    (post) => post.title == title
-  );
+): PostItem {
+  return getPostBySlug(slug, fields, category);
 }
