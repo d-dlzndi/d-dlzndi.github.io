@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { PageWrapper } from "../../component/PageWrapper";
+import { PageWrapper } from "../../components/PageWrapper";
 
 export default function Contact() {
   return (

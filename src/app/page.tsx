@@ -1,10 +1,10 @@
 "use client";
-import { PageWrapper } from "../component/PageWrapper";
+import { PageWrapper } from "../components/PageWrapper";
 
-import MainPage from "../pages/index/MainPage";
+import IntroPostPage from "../components/index/IntroPostPage";
 import MainWorkPosts from "../../_posts/_main_work_posts";
-import FullPageLayout from "../component/fullPage/FullPageLayout";
-import IntroPage from "../pages/index/IntroPage";
+import FullPageLayout from "../components/fullPage/FullPageLayout";
+import IntroPage from "../components/index/IntroPage";
 
 export default function Home() {
   return (
@@ -12,10 +12,10 @@ export default function Home() {
       <PageWrapper>
         <FullPageLayout
           pages={[
-            IntroPage(),
+            <IntroPage key={"Intro"} />,
             ...MainWorkPosts.map((page, idx) => {
               return (
-                <MainPage
+                <IntroPostPage
                   key={`${idx}_${page.slug}`}
                   category={page.category}
                   slug={page.slug}
@@ -28,19 +28,3 @@ export default function Home() {
     </main>
   );
 }
-
-/*
-
-getAllPostsInCategory(
-            ["category", "slug"],
-            "3D-Animation"
-          ).map((page, idx) => {
-            return (
-              <MainPage
-                key={page.slug + "_" + idx}
-                category={page.category}
-                slug={page.slug}
-              />
-            );
-          })
-          */

@@ -12,7 +12,7 @@ export default function ProgramList({
       {list.map((program, idx) => (
         <li
           key={idx}
-          className="block font-thin uppercase px-4 pt-[2px] pb-[3px] rounded-full bg-white whitespace-nowrap"
+          className="block font-thin select-none uppercase px-4 pt-[2px] pb-[3px] rounded-full bg-white whitespace-nowrap"
         >
           {program}
         </li>

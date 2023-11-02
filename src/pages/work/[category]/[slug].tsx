@@ -6,11 +6,11 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 
 import Link from "next/link";
-import CircleButton from "@/component/button/CircleButton";
+import CircleButton from "@/components/button/CircleButton";
 import { useRouter } from "next/router";
-import Date from "../../../component/Date";
-import ProgramList from "../../../component/dataList/ProgramList";
-import AwardList from "../../../component/dataList/AwardList";
+import Date from "../../../components/Date";
+import ProgramList from "../../../components/dataList/ProgramList";
+import AwardList from "../../../components/dataList/AwardList";
 import { scrollToTop } from "@/lib/scrollEvent";
 
 export default function Post(params: any) {

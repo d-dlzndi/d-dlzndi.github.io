@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { PageWrapper } from "../../component/PageWrapper";
+import { getAllCategories } from "@/lib/post_api";
+import { PageWrapper } from "@/components/PageWrapper";
 import MainBackground from "../MainBackground";
-import { getAllCategories } from "../../lib/post_api";
-import { motion } from "framer-motion";
 
-export const category_all: string = "all";
+export const category_all: string = "All";
 
 export default function WorkLayout({
   children,

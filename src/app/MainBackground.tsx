@@ -14,7 +14,7 @@ export default function MainBackground({ type }: { type: backgroundType }) {
     },
     middle: {
       scaleX: 1,
-      scaleY: 0.5,
+      scaleY: 0.4,
       originX: 0.5,
       originY: 1,
     },

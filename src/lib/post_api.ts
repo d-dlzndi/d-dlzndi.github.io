@@ -1,5 +1,5 @@
 import fs from "fs";
-import { join } from "path";
+import path, { join } from "path";
 import matter from "gray-matter";
 
 const postsDirectory = join(process.cwd(), "_posts");
@@ -56,18 +56,23 @@ function getPostSlugs(path = postsDirectory) {
 function getPostBySlug(
   slug: string,
   fields: string[],
-  category: string
+  category?: string
 ): PostItem {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, category, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  let pathList = [postsDirectory, `${realSlug}.md`];
+  if (category != undefined) pathList = [pathList[0], category, pathList[1]];
+  const fullPath = join(...pathList);
+  let fileContents: any = null;
+  try {
+    fileContents = fs.readFileSync(fullPath, "utf8");
+  } catch (error) {
+    console.log("오류! " + error);
+  }
 
   // 여기서 matter는 마크다운 파일의 front-matter(앞머리)를 파싱해주는 역할
   const { data, content } = matter(fileContents);
 
   const items: PostItem = { content: "" };
-
-  // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === "slug") {
       items[field] = realSlug;
@@ -75,7 +80,7 @@ function getPostBySlug(
     if (field === "content") {
       items[field] = content;
     }
-    if (field === "category") {
+    if (category != undefined && field === "category") {
       items[field] = category;
     }
     if (items[field] == undefined && typeof data[field] !== undefined) {
@@ -150,7 +155,7 @@ export function getPostList(
  * @returns Items 1개
  */
 export function getOnePost(
-  category: string,
+  category: string | undefined,
   slug: string,
   fields: string[] = []
 ): PostItem {
