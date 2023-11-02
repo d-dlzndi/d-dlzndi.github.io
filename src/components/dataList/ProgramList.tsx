@@ -8,7 +8,7 @@ export default function ProgramList({
   if (programList == undefined) return null;
   const list = programList.split(",").map((t: string) => t.trim()) as string[];
   return (
-    <ol className={"flex flex-row flex-nowrap gap-1 " + className}>
+    <ol className={"flex flex-row flex-wrap gap-1 " + className}>
       {list.map((program, idx) => (
         <li
           key={idx}

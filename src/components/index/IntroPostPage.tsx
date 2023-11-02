@@ -6,12 +6,15 @@ import { MDXRemote } from "next-mdx-remote";
 import AwardList from "@/components/dataList/AwardList";
 import ProgramList from "@/components/dataList/ProgramList";
 import Date from "@/components/Date";
-import { useState } from "react";
-import next from "next";
-import Image from "next/image";
+import IntroImageSlide from "./IntroImageSlide";
+import { TextCircle } from "./TextCircle";
 
-export default function IntroPostPage(params: any) {
-  const post = {
+export default function IntroPostPage({
+  post,
+}: {
+  post: { [key: string]: string };
+}) {
+  post = {
     content:
       '\nCHRONIC PAIN two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.\n\n- **Static Generation** is the pre-rendering method that generates the HTML at **build time**. The pre-rendered HTML is then _reused_ on each request.\n- **Server-side Rendering** is the pre-rendering method that generates the HTML on **each request**.\n\nImportantly, Next.js lets you **choose** which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.\n',
     slug: "A-Metal-Flower",
@@ -21,7 +24,8 @@ export default function IntroPostPage(params: any) {
     startDate: "2020-10-20",
     date: "2019-01-01",
     award: "룰루랄라",
-    programs: "Maya, Unreal Engine 5, Substance Painter",
+    programs:
+      "Maya, Unreal Engine 5, Substance Painter, After Effect, Photoshop, Premiere",
   };
   /*await getOnePost(params.category, encodeURI(params.slug), [
     "slug",
@@ -43,8 +47,8 @@ export default function IntroPostPage(params: any) {
     <article className="w-screen h-screen flex justify-center">
       <div className="relative w-screen max-w-[var(--width-m)] h-screen flex flex-row justify-stretch">
         <div className="flex-1 relative basis-0">
-          <IntroImageSlide />
-          <div className="absolute top-10 left-[70%] font-bold text-4xl">
+          <IntroImageSlide imageUrls={[]} />
+          <div className="absolute top-20 left-[65%] font-bold text-4xl z-10">
             <Date dateString={post.startDate} />
             <br />
             {"\u00A0\u00A0\u00A0"}
@@ -84,82 +88,14 @@ export default function IntroPostPage(params: any) {
               </div>
             </div>
           </div>
+          <div className="absolute bottom-10 right-10 p-10">
+            <Link href={url} className="font-medium text-xl ">
+              MORE
+            </Link>
+          </div>
+          <TextCircle />
         </header>
-        <div className="absolute bottom-10 right-10 p-10">
-          <Link href={url} className="font-medium text-xl ">
-            MORE
-          </Link>
-        </div>
       </div>
     </article>
   );
-
-  function IntroImageSlide() {
-    const imageUrls = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg"];
-    const [focus, setFocus] = useState(0);
-
-    const focusNext = () => {
-      focusSetAt(focus + 1);
-    };
-    const focusBefore = () => {
-      focusSetAt(focus - 1);
-    };
-    const focusSetAt = (next: number) => {
-      if (next >= imageUrls.length) next = 0;
-      else if (next < 0) next = imageUrls.length - 1;
-      setFocus(next);
-    };
-    const getMyFocus = (add: number) => {
-      if (focus + add >= imageUrls.length) add -= imageUrls.length;
-      else if (focus + add < 0) add += imageUrls.length;
-      return focus + add;
-    };
-
-    return (
-      <div className="slide w-full h-full flex flex-col items-center">
-        <div className="main-img w-[400px] h-[400px] bg-indigo-300 overflow-hidden rounded-t-full">
-          {imageUrls.map((url, idx) => (
-            <Image
-              key={url}
-              src={url}
-              alt={"image"}
-              className={
-                (idx == focus ? "" : "hidden") +
-                " object-cover object-center w-[500px] h-[500px]"
-              }
-              width={500}
-              height={500}
-            />
-          ))}
-        </div>
-        {imageUrls.slice(1).map((btnUrl, idx) => {
-          const width = 400 - idx * 50;
-          const height = 50;
-          return (
-            <button
-              key={btnUrl}
-              className={`main-img block w-[${width}px] h-[${height}px] max-h-[${height}px] bg-indigo-300 overflow-hidden rounded-full`}
-              onClick={() => setFocus(getMyFocus(idx + 1))}
-            >
-              {imageUrls.map((url, imgIdx) => (
-                <Image
-                  key={url}
-                  src={url}
-                  alt={"image"}
-                  className={
-                    (imgIdx == getMyFocus(idx + 1) ? "" : "hidden") +
-                    ` object-cover object-center w-[${width}px] h-[${height}px]`
-                  }
-                  width={width}
-                  height={height}
-                />
-              ))}
-            </button>
-          );
-        })}
-        <button onClick={() => focusBefore()}>이전</button>
-        <button onClick={() => focusNext()}>다음</button>
-      </div>
-    );
-  }
 }

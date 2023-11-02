@@ -41,5 +41,9 @@ function Page({ id, children }: { id: number; children: React.ReactNode }) {
   const { scrollYProgress } = useScroll({ target: ref, layoutEffect: false });
   const y = useParallax(scrollYProgress, 100);
 
-  return <section className="fullpage">{children}</section>;
+  return (
+    <section className="fullpage" ref={ref}>
+      {children}
+    </section>
+  );
 }

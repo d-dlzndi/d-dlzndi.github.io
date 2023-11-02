@@ -2,7 +2,7 @@
 title: 철로 이루어진 꽃
 startDate: "2020-10-20"
 date: "2019-01-01"
-programs: Maya, Unreal Engine 5, Substance Painter
+programs: Maya, Unreal Engine 5, Substance Painter, After Effect, Photoshop, Premiere
 description: This is my first article about chronic pain.
 image: /images/chronic-pain-1.jpg
 url: https://herenowbody.com/chronic-pain/chronic-pain-1
