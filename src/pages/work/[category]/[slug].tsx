@@ -71,7 +71,7 @@ export async function getStaticProps({ params }: any) {
     //"award",
     //"programs",
   ]);
-  const mdxSource = await serialize(post.content);
+  const mdxSource = await serialize(post.content || "");
 
   return { props: { post, source: mdxSource } };
 }

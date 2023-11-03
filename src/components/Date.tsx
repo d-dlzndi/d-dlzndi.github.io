@@ -5,13 +5,13 @@ export default function Date({
   dateFormat = "yyyy.MM.",
   className = "",
 }: {
-  dateString: string;
+  dateString?: string | null;
   dateFormat?: string;
   className?: string;
 }) {
-  const date = parseISO(dateString);
+  const date = parseISO(dateString || "1999-01-01");
   return (
-    <time className={className} dateTime={dateString}>
+    <time className={className} dateTime={date.toDateString()}>
       {format(date, dateFormat)}
     </time>
   );

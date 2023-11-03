@@ -1,7 +1,9 @@
-import "./style.css";
+import "./IntroImageSlide.css";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import ArrowNextButton from "../button/ArrowNextButton";
+import ImgWithPlaceholder from "../ImgWithPlaceholder";
 
 export default function IntroImageSlide({
   imageUrls,
@@ -57,12 +59,12 @@ export default function IntroImageSlide({
     );
 
     return () => {};
-  }, [focusBefore, focus]);
+  }, [focusBefore, focus, nowControl]);
 
   return (
     <div className="slide flex-1 w-full h-full flex flex-col items-center">
       <div className="slide_main_box w-full h-[60vh] flex items-end justify-center overflow-hidden">
-        <div className="slide_main w-[400px] h-[400px] bg-indigo-300">
+        <div className="slide_main bg-indigo-300">
           {
             <Images
               imageUrls={imageUrls}
@@ -78,16 +80,18 @@ export default function IntroImageSlide({
             />
           }
         </div>
-        <button
-          className="absolute bottom-0 left-[50%] mx-auto"
+        <ArrowNextButton
+          className={"absolute bottom-0 left-1/2 transform -translate-x-1/2"}
           onClick={focusNext}
-        >
-          아래
-        </button>
+          direction="bottom"
+          width={80}
+          height={80}
+          strokeWidth={2}
+        />
       </div>
       <div className="flex flex-col justify-around items-center gap-2 p-2">
         {imageUrls.slice(1).map((btnUrl, idx) => {
-          const max_width = 450;
+          const max_width = 500;
           const min_width = 150;
           const width =
             max_width -
@@ -139,10 +143,10 @@ function Images({
   height: number;
 }) {
   return imageUrls.map((url, imgIdx) => (
-    <Image
+    <ImgWithPlaceholder
       key={url}
       src={url}
-      alt={"image"}
+      alt={url}
       className={`slide_img w-[${width}px] h-[${height}px] ${className(
         imgIdx
       )}`}

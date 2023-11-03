@@ -5,14 +5,16 @@ div.slide_main_box {
 div.slide_main {
     position:relative;
     overflow: hidden;
-    width: 400px;
+    width: 600px;
     height: 600px;
+    /* 
     border-radius: 9999px;
+    */
     margin-bottom: -200px;
-    /*
+    
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
-    */
+    
     animation: main_show 2s normal forwards;
 }
 

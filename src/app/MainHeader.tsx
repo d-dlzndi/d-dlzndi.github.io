@@ -28,7 +28,7 @@ const headerContent: headerContentType[] = [
 export default function MainHeader() {
   const path = usePathname();
   return (
-    <header className="fixed inset-x-0 mx-auto max-w-[var(--width)] top-0 p-10 z-50 flex justify-between">
+    <header className="fixed inset-x-0 mx-auto max-w-[var(--width)] top-0 px-10 pt-10 z-50 flex justify-between">
       <Logo />
       <HeaderNavigation path={path} />
     </header>

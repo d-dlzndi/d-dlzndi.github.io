@@ -2,11 +2,10 @@ import fs from "fs";
 import path, { join } from "path";
 import matter from "gray-matter";
 
-const postsDirectory = join(process.cwd(), "_posts");
+const postsDirectory = () => join(process.cwd(), "_posts");
 
 export type PostItem = {
-  content: string;
-  [key: string]: string;
+  [key: string]: string | null;
 };
 
 export type awardDataType = {
@@ -22,7 +21,7 @@ export type awardDataType = {
 export function getAllCategories() {
   try {
     return fs
-      .readdirSync(postsDirectory, { withFileTypes: true })
+      .readdirSync(postsDirectory(), { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name);
   } catch (error) {
@@ -35,7 +34,7 @@ export function getAllCategories() {
  * @param path 기본값: postDirectory
  * @returns
  */
-function getPostSlugs(path = postsDirectory) {
+function getPostSlugs(path = postsDirectory()) {
   try {
     return fs
       .readdirSync(path, { withFileTypes: true })
@@ -59,7 +58,7 @@ function getPostBySlug(
   category?: string
 ): PostItem {
   const realSlug = slug.replace(/\.md$/, "");
-  let pathList = [postsDirectory, `${realSlug}.md`];
+  let pathList = [postsDirectory(), `${realSlug}.md`];
   if (category != undefined) pathList = [pathList[0], category, pathList[1]];
   const fullPath = join(...pathList);
   let fileContents: any = null;
@@ -72,7 +71,7 @@ function getPostBySlug(
   // 여기서 matter는 마크다운 파일의 front-matter(앞머리)를 파싱해주는 역할
   const { data, content } = matter(fileContents);
 
-  const items: PostItem = { content: "" };
+  const items: PostItem = {};
   fields.forEach((field) => {
     if (field === "slug") {
       items[field] = realSlug;
@@ -83,9 +82,9 @@ function getPostBySlug(
     if (category != undefined && field === "category") {
       items[field] = category;
     }
-    if (items[field] == undefined && typeof data[field] !== undefined) {
-      // font matter 데이터 필드가 안 비어있다면
-      items[field] = data[field];
+    if (items[field] == undefined) {
+      // 이랬는데도 값이 없으면 null 지정함.
+      items[field] = data[field] || null;
     }
   });
   return items;
@@ -124,7 +123,7 @@ export function getAllPostsInCategory(
   sort: boolean = true
 ) {
   const posts: PostItem[] = [];
-  const slugs = getPostSlugs(join(postsDirectory, category));
+  const slugs = getPostSlugs(join(postsDirectory(), category));
   slugs.map((slug) => posts.push(getPostBySlug(slug, fields, category)));
   if (!sort) return posts;
   else return posts.sort(postSort);
