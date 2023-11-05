@@ -1,12 +1,16 @@
 import "./globals.css";
 
+import "dayjs/locale/ko";
+import dayjs from "dayjs";
+dayjs.locale("ko");
+
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "PORTFOLIO",
   description: "어쩌고 개발자 어쩌고의 포트폴리오 사이트",
 };
 
-import MainHeader from "./intro/MainHeader";
+import MainHeader from "../components/main/MainHeader";
 
 export default function RootLayout({
   children,

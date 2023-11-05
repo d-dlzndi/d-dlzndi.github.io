@@ -1,14 +1,19 @@
 import Link from "next/link";
-import { headers } from "next/headers";
+import { PageWrapper } from "@/components/common/PageWrapper";
 
 export default function NotFound() {
-  const headersList = headers();
-  const domain = headersList.get("host");
   return (
-    <div>
-      <h2>Not Found {domain}</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
-    </div>
+    <PageWrapper>
+      <div className="w-screen h-screen flex flex-col items-center justify-center">
+        <h2 className=" font-black text-8xl uppercase">
+          404 - <br />
+          Not Found
+        </h2>
+        <p className=" text-2xl p-5 pb-24">
+          이 페이지는 아직 준비되지 않았습니다. :(
+        </p>
+        <Link href="/">↩ 첫 화면으로 돌아가기</Link>
+      </div>
+    </PageWrapper>
   );
 }

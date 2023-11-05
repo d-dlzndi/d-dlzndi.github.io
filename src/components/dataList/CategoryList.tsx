@@ -2,19 +2,18 @@
 
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { motion } from "framer-motion";
+import useWorkPosts from "@/hooks/useWorkPosts";
 
 export const CATEGORY_ALL: string = "All";
 
 export default function CategoryList({
   selectedCategory,
-  categoryList,
 }: {
   selectedCategory?: string;
-  categoryList: string[];
 }) {
   const segment = useSelectedLayoutSegment();
-  categoryList = [CATEGORY_ALL, ...categoryList];
+  const { categories, getCategoryUrl } = useWorkPosts();
+  const categoryList = [CATEGORY_ALL, ...categories];
   selectedCategory = selectedCategory || segment || CATEGORY_ALL;
 
   return (
@@ -27,7 +26,7 @@ export default function CategoryList({
                 ? " bg-[var(--color)] text-[var(--background)]"
                 : " bg-[var(--background)]"
             }`}
-            href={`/work${cate == CATEGORY_ALL ? "" : `/${cate}`}`}
+            href={getCategoryUrl(cate)}
           >
             {cate.replaceAll("-", " ").toUpperCase()}
           </Link>

@@ -3,8 +3,8 @@ import "./IntroImageSlide.css";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import ArrowNextButton from "../button/ArrowNextButton";
-import ImgWithPlaceholder from "../ImgWithPlaceholder";
+import ArrowNextButton from "../common/button/ArrowNextButton";
+import ImgWithPlaceholder from "../common/ImgWithPlaceholder";
 
 export default function IntroImageSlide({
   imageUrls,
@@ -65,6 +65,18 @@ export default function IntroImageSlide({
   return (
     <div className="slide flex-1 w-full h-full flex flex-col items-center">
       <div className="slide_main_box w-full h-[60vh] flex items-end justify-center overflow-hidden">
+        <ArrowNextButton
+          className={
+            "absolute bottom-0 left-1/2 transform -translate-x-1/2 z-50"
+          }
+          onClick={() => {
+            focusNext();
+          }}
+          direction="bottom"
+          width={80}
+          height={80}
+          strokeWidth={2}
+        />
         <div className="slide_main bg-indigo-300">
           {
             <Images
@@ -81,14 +93,6 @@ export default function IntroImageSlide({
             />
           }
         </div>
-        <ArrowNextButton
-          className={"absolute bottom-0 left-1/2 transform -translate-x-1/2"}
-          onClick={focusNext}
-          direction="bottom"
-          width={80}
-          height={80}
-          strokeWidth={2}
-        />
       </div>
       <div className="flex flex-col justify-around items-center gap-2 p-2">
         {imageUrls.slice(1).map((btnUrl, idx) => {

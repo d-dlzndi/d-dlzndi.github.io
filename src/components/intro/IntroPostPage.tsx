@@ -1,17 +1,20 @@
 import Link from "next/link";
-import { PostItem } from "@/lib/post_api";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { Suspense } from "react";
-
 import AwardList from "@/components/dataList/AwardList";
 import ProgramList from "@/components/dataList/ProgramList";
-import Date from "@/components/Date";
-import IntroImageSlide from "../../components/intro/IntroImageSlide";
-import MouseFollowBox from "../../components/intro/MouseFollowBox";
+import Date from "@/components/common/Date";
+import IntroImageSlide from "./IntroImageSlide";
+import MouseFollowBox from "../common/effect/MouseFollowBox";
+import { WorkPost } from "contentlayer/generated";
+import NotFound from "../../app/not-found";
+import useWorkPosts from "@/hooks/useWorkPosts";
 
-export default function IntroPostPage({ post }: { post: PostItem }) {
-  const categoryUrl = `/work/${post.category}`;
-  const url = `${categoryUrl}/${post.slug}`;
+export default function IntroPostPage({ post }: { post?: WorkPost }) {
+  const { getCategoryUrl } = useWorkPosts();
+
+  if (!post) return <NotFound />;
+
+  const categoryUrl = getCategoryUrl(post.category);
+  const url = post.url || "/";
 
   return (
     <article className="w-screen h-screen flex justify-center">
@@ -30,13 +33,11 @@ export default function IntroPostPage({ post }: { post: PostItem }) {
         <MouseFollowBox className="flex flex-1 basis-0 relative">
           <header className="flex-1 basis-0 relative">
             <div className="top-box h-[60vh] gap-10 relative py-7 flex flex-col justify-end">
+              <AwardList awardList={post.awards} />
               <div className="flex flex-row gap-3 w-3/4">
                 <div className="description1 flex-1 break-all text-justify opacity-20 max-w-[340px]">
-                  <Suspense fallback={<>Loading...</>}>
-                    <MDXRemote
-                      source={post.content?.substring(0, 200) + "..."}
-                    />
-                  </Suspense>
+                  {post.body.html?.replace(/<[^>]+>/g, "").substring(0, 200) +
+                    "..."}
                 </div>
               </div>
               <div>

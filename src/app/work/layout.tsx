@@ -1,15 +1,12 @@
 import Link from "next/link";
 
-import { PageWrapper } from "@/components/PageWrapper";
+import { PageWrapper } from "@/components/common/PageWrapper";
 import CategoryList from "../../components/dataList/CategoryList";
-import { getAllCategories } from "@/lib/post_api";
 
 export default function WorkLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { category: string };
 }) {
   return (
     <PageWrapper>
@@ -21,7 +18,7 @@ export default function WorkLayout({
             </h2>
             <nav className="absolute left-10 top-[30vh]">
               <h4 className="pb-1 font-thin text-lg">CATEGORY</h4>
-              <CategoryList categoryList={getAllCategories()} />
+              <CategoryList />
             </nav>
           </div>
         </header>

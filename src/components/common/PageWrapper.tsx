@@ -1,6 +1,8 @@
 "use client";
 
-import MainBackground, { backgroundType } from "@/app/MainBackground";
+import MainBackground, {
+  backgroundType,
+} from "@/components/main/MainBackground";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 

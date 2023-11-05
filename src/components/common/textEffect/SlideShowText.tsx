@@ -1,27 +1,23 @@
 "use client";
 
-import styles from "./page.module.css";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 
-export default function SlideShowText({ text }: { text?: string[] }) {
-  const phrases = text || [
+export default function SlideShowText({
+  textSource,
+  className,
+  childClassName = "",
+}: {
+  textSource?: string[];
+  className: string;
+  childClassName?: string;
+}) {
+  const phrases = textSource || [
     "안녕하세요 반갑습니다",
     "룰루랄라",
     "아주 멋진 날씨예요",
   ];
 
-  return (
-    <div className={styles.main}>
-      <MaskText pharases={phrases} />
-      <MaskText pharases={phrases} />
-      <MaskText pharases={phrases} />
-      <MaskText pharases={phrases} />
-    </div>
-  );
-}
-
-function MaskText({ pharases }: { pharases: string[] }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
@@ -42,21 +38,21 @@ function MaskText({ pharases }: { pharases: string[] }) {
   };
 
   return (
-    <div className={styles.body} ref={ref}>
-      {pharases.map((phrase, index) => {
+    <div ref={ref} className={className}>
+      {phrases.map((phrase, index) => {
         return (
-          <div key={index} className={styles.lineMask}>
+          <div key={index} className={"overflow-visible m-0 " + childClassName}>
             <motion.p>
               {phrase.split("").map((char, idx) => (
                 <motion.span
                   key={idx}
-                  className={styles.lineMaskSpan}
+                  className={"inline-block"}
                   custom={index * 4 + idx}
                   variants={animate}
                   initial="initial"
                   animate={isInView ? "open" : ""}
                 >
-                  {char == " " ? "ㅤ" : char}
+                  {char == " " ? "\u00A0" : char}
                 </motion.span>
               ))}
             </motion.p>

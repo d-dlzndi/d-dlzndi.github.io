@@ -1,12 +1,22 @@
 ---
 title: 철로 이루어진 꽃
-startDate: "2020-10-20"
-date: "2019-01-01"
-programs: Maya, Unreal Engine 5, Substance Painter, After Effect, Photoshop, Premiere
-description: This is my first article about chronic pain.
+startDate: 2022-12-01
+date: 2023-06-31
+programs:
+  - Maya
+  - Unreal Engine 5
+  - Substance Painter
+  - After Effect
+  - Photoshop
+  - Premiere Pro
+awards:
+  - name: 안녕하세요
+    special: true
+    href: "http://naver.com"
+  - name: 으아앙
+  - name: 룰루랄라
 image: /images/chronic-pain-1.jpg
-url: https://herenowbody.com/chronic-pain/chronic-pain-1
-award: 룰루랄라
+description: 간단한 설명을 입력해요 **룰루랄라**
 ---
 
 CHRONIC PAIN two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.

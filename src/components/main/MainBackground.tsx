@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export type backgroundType = "middle" | "top" | "bottom" | "right";
 
@@ -39,14 +39,17 @@ export default function MainBackground({ type }: { type: backgroundType }) {
   };
 
   return (
-    <motion.div
-      layoutId="main-bg"
-      id="bg"
-      initial={varients.initial}
-      animate={type}
-      variants={varients}
-      transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
-      className={`fixed top-0 left-[calc((100vw - var(--width))/2)] h-screen w-screen -z-10 bg-[var(--gray)] origin-bottom`}
-    ></motion.div>
+    <AnimatePresence>
+      <motion.div
+        // layoutId="main-bg"
+        key={"main_bg_" + type}
+        initial={"initial"}
+        animate={type}
+        exit={"initial"}
+        variants={varients}
+        transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
+        className={`fixed top-0 left-[calc((100vw - var(--width))/2)] h-screen w-screen -z-10 bg-[var(--gray)] origin-bottom opacity-50`}
+      ></motion.div>
+    </AnimatePresence>
   );
 }

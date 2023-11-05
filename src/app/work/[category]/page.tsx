@@ -1,26 +1,19 @@
-import {
-  PostItem,
-  getAllCategories,
-  getAllPostsInCategory,
-} from "@/lib/post_api";
-import WorkList, { postProps } from "../page";
+import useWorkPosts from "@/hooks/useWorkPosts";
+import WorkList from "../page";
+import { getAllCategories } from "@/utils/post_api";
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
 
   return categories.map((ct) => ({
-    category: ct,
-    // posts: getAllPostsInCategory(postProps, ct, true), 이거안됨
+    category: encodeURI(ct),
   }));
 }
 
 export default function WorkCategoryPage({
   params,
 }: {
-  params: { category: string; posts: PostItem[] };
+  params: { category: string };
 }) {
-  params.posts =
-    params.posts || getAllPostsInCategory(postProps, params.category, true);
-
   return <WorkList params={params} />;
 }

@@ -3,10 +3,10 @@ export default function ProgramList({
   programList,
 }: {
   className?: string;
-  programList?: string;
+  programList?: string[];
 }) {
   if (programList == undefined) return null;
-  const list = programList.split(",").map((t: string) => t.trim()) as string[];
+  const list = programList;
   return (
     <ol className={"flex flex-row flex-wrap gap-1 " + className}>
       {list.map((program, idx) => (

@@ -1,9 +1,6 @@
 ---
-title: 'Chronic Pain 2'
-date: '2018-01-02'
-description: 'This is my second article about chronic pain.'
-image: '/images/chronic-pain-2.jpg'
-url: 'https://herenowbody.com/chronic-pain/chronic-pain-2'
+title: Chronic Pain 2
+date: 2018-01-02
 ---
 
 CHRONIC PAIN We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.

@@ -25,14 +25,14 @@
 }
 
 /* 썸네일 */
-figure.work-thumb {
+.work-thumb {
     color: var(--background);
     overflow: hidden;
     position: relative;
     display: block;
 }
 
-figure.work-thumb .img {
+.work-thumb .img {
     width: 100%;
     height: inherit;
     transform-origin: center;
@@ -40,7 +40,7 @@ figure.work-thumb .img {
     transition: transform .5s ease-in-out, opacity 1s ease-in-out;
 }
 
-figure.work-thumb:hover .img {
+.work-thumb:hover .img {
     transform: scale(1.2);
     transition: transform 5s ease-in-out, opacity .5s ease-in-out;
 }
@@ -57,20 +57,20 @@ figure.work-thumb:hover .img {
     transition: top .5s cubic-bezier(0, 0.55, 0.45, 1), opacity .5s linear;
 }
 
-figure.work-thumb .work-thumb-text.bg {
+.work-thumb .work-thumb-text.bg {
     top: -100%;
 }
 
-figure.work-thumb:hover .work-thumb-text.bg {
+.work-thumb:hover .work-thumb-text.bg {
     top: 0;
 }
 
-figure.work-thumb .work-thumb-text.inner {
+.work-thumb .work-thumb-text.inner {
     top: 0;
     opacity: 0;
 }
 
-figure.work-thumb:hover .work-thumb-text.inner {
+.work-thumb:hover .work-thumb-text.inner {
     opacity: 1;
 }
 
@@ -85,19 +85,19 @@ figure.work-thumb:hover .work-thumb-text.inner {
     background-position: 50% 300%;
 }
 
-figure.work-thumb:hover .work-thumb-text.inner>* {
+.work-thumb:hover .work-thumb-text.inner>* {
     background-position: 50% 0%;
 }
 
-figure.work-thumb:hover .work-thumb-text.inner>.category {
+.work-thumb:hover .work-thumb-text.inner>.category {
     transition-duration: 1s;
     transition-delay: 0s;
 }
-figure.work-thumb:hover .work-thumb-text.inner>.date {
+.work-thumb:hover .work-thumb-text.inner>.date {
     transition-duration: .4s;
     transition-delay: .3s;
 }
-figure.work-thumb:hover .work-thumb-text.inner>.title {
+.work-thumb:hover .work-thumb-text.inner>.title {
     transition-duration: .7s;
     transition-delay: .1s;
 }
