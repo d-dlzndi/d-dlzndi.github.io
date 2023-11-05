@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { getPlaiceholder } from "plaiceholder";
 
 const getBase64 = async (src: string, size: number = 10) => {
-  const buffer = await fs.readFileSync(path.join(process.cwd(), "public", src));
+  const buffer = await readFileSync(join(process.cwd(), "public", src));
 
   const {
     metadata: { height, width },

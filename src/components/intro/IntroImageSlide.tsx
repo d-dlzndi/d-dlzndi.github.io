@@ -1,3 +1,4 @@
+"use client";
 import "./IntroImageSlide.css";
 
 import { useEffect, useState } from "react";

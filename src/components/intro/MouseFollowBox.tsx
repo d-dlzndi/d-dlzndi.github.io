@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import {
   motion,
@@ -38,11 +39,16 @@ export default function MouseFollowBox({
 
   const [isMouseEnter, setIsMouseEnter] = useState(false);
   const boxRef = useRef<HTMLInputElement>(null);
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: any, reset: boolean = false) => {
     const { x, y, movementLength } = getRelativeCoordinates(e, boxRef.current);
     mouse.movement.set(movementLength);
     mouse.x.set(x);
     mouse.y.set(y);
+    if (reset) {
+      // smooth한 값 초기화
+      mouseSmooth.x.jump(x);
+      mouseSmooth.y.jump(y);
+    }
   };
 
   const varients = {
@@ -61,17 +67,19 @@ export default function MouseFollowBox({
       style={{ perspective: 600 }}
       onTouchStart={(e) => {
         setIsMouseEnter(true);
-        handleMouseMove(e);
+        handleMouseMove(e, true);
       }}
       onTouchEnd={(e) => setIsMouseEnter(false)}
       onTouchMove={(e) => handleMouseMove(e)}
       onMouseEnter={(e) => {
         setIsMouseEnter(true);
-        handleMouseMove(e);
+        handleMouseMove(e, true);
       }}
       onMouseLeave={(e) => setIsMouseEnter(false)}
       onMouseMove={(e) => handleMouseMove(e)}
-      onScroll={(e) => setIsMouseEnter(false)}
+      onScroll={(e) => {
+        setIsMouseEnter(false);
+      }}
     >
       {children}
       <motion.div

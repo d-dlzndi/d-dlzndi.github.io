@@ -1,40 +1,44 @@
-"use client";
 import { PageWrapper } from "../components/PageWrapper";
 
-import IntroPostPage from "@/components/index/IntroPostPage";
+import IntroPostPage from "@/app/intro/IntroPostPage";
 import MainWorkPosts from "../../_posts/_main_work_posts";
 import FullPageLayout from "../components/fullPage/FullPageLayout";
-import IntroPage from "../components/index/IntroPage";
+import IntroPage from "./intro/IntroPage";
 import { getOnePost } from "@/lib/post_api";
 
-export default function Index() {
-  /*
-  const posts = MainWorkPosts.map((page) =>
-    getOnePost(page.category, encodeURI(page.slug), [
-      "slug",
-      "title",
-      "image",
-      "category",
-      "content",
-      "startDate",
-      "date",
-      "award",
-      "programs",
-    ])
-  );*/
+const indexPost = getOnePost(undefined, "Intro", [
+  "slug",
+  "description",
+  "title",
+  "image",
+  "content",
+]);
 
+const posts = MainWorkPosts.map((page) =>
+  getOnePost(page.category, encodeURI(page.slug), [
+    "slug",
+    "title",
+    "image",
+    "category",
+    "content",
+    "startDate",
+    "date",
+    "award",
+    "programs",
+  ])
+);
+
+export default function Index() {
   return (
-    <main className="">
-      <PageWrapper>
-        <FullPageLayout
-          pages={[
-            <IntroPage key={"Intro"} />,
-            ...MainWorkPosts.map((page, idx) => {
-              return <IntroPostPage key={`${idx}_${page.slug}`} post={{}} />;
-            }),
-          ]}
-        />
-      </PageWrapper>
-    </main>
+    <PageWrapper>
+      <FullPageLayout
+        pages={[
+          <IntroPage key={indexPost.slug} post={indexPost} />,
+          ...posts.map((page, idx) => {
+            return <IntroPostPage key={`${idx}_${page.slug}`} post={page} />;
+          }),
+        ]}
+      />
+    </PageWrapper>
   );
 }

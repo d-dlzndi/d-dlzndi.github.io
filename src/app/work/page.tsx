@@ -25,31 +25,30 @@ export default function WorkList({
   if (params.category == undefined) params.category = CATEGORY_ALL;
 
   return (
-    <div className="gallery-contents w-2/3 flex flex-row flex-wrap content-start">
+    <div className="gallery-contents w-full pt-24 pr-5 pb-32">
       {params.posts.map((post, idx) => {
         return (
           <figure
             key={post.slug}
-            className="work-thumb block relative w-1/2 max-h-[28.125%] overflow-hidden rounded-2xl"
+            className="work-thumb rounded-2xl" /*w-1/2 max-h-[28.125%]*/
           >
             <Link
               href={`/work/${post.category}/${post.slug}`}
-              className="block relative w-full h-[inherit] overflow-hidden"
+              className="block relative w-full h-full"
             >
               <ImgWithPlaceholder
-                src={"/3.jpg"}
+                src={"/" + (idx / 5 + 1).toFixed() + ".jpg"}
                 alt={post.title}
                 width={400}
                 height={300}
-                style={{ width: 500, height: 300 }}
-                className="w-full h-full object-center object-cover scale-110"
+                className="img w-full h-full object-center object-cover scale-110"
                 unoptimized={false}
               />
               <div className="work-thumb-text bg backdrop-blur-sm backdrop-grayscale-0 backdrop-brightness-50 "></div>
               <div className="work-thumb-text inner bg-clip-text">
                 {post.category && (
                   <span
-                    className="category block w-2/3 absolute top-5 left-5 font-extrabold uppercase text-4xl"
+                    className="category block absolute top-5 left-5 font-extrabold uppercase text-4xl break-keep"
                     dangerouslySetInnerHTML={{
                       __html: post.category.replaceAll("-", "<br />"),
                     }}

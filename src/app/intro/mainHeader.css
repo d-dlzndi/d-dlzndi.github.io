@@ -1,0 +1,10 @@
+.hover-a-anim {
+    transition: font-weight .7s linear;
+    text-align: center;
+}
+
+.hover-a-anim:hover {
+    font-weight: 900;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(0.24, -0.3, 0.43, 1.52);
+}

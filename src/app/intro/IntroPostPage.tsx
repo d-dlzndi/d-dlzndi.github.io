@@ -1,46 +1,15 @@
 import Link from "next/link";
-import { getOnePost } from "@/lib/post_api";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
+import { PostItem } from "@/lib/post_api";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { Suspense } from "react";
 
 import AwardList from "@/components/dataList/AwardList";
 import ProgramList from "@/components/dataList/ProgramList";
 import Date from "@/components/Date";
-import IntroImageSlide from "./IntroImageSlide";
-import TextCircle from "./TextCircle";
-import MouseFollowBox from "./MouseFollowBox";
+import IntroImageSlide from "../../components/intro/IntroImageSlide";
+import MouseFollowBox from "../../components/intro/MouseFollowBox";
 
-export default function IntroPostPage({
-  post,
-}: {
-  post: { [key: string]: string };
-}) {
-  post = {
-    content:
-      '\nCHRONIC PAIN two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.\n\n- **Static Generation** is the pre-rendering method that generates the HTML at **build time**. The pre-rendered HTML is then _reused_ on each request.\n- **Server-side Rendering** is the pre-rendering method that generates the HTML on **each request**.\n\nImportantly, Next.js lets you **choose** which pre-rendering form to use for each page. You can create a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.\n',
-    slug: "A-Metal-Flower",
-    title: "철로 이루어진 꽃",
-    image: "/images/chronic-pain-1.jpg",
-    category: "3D-Animation",
-    startDate: "2020-10-20",
-    date: "2019-01-01",
-    award: "룰루랄라",
-    programs:
-      "Maya, Unreal Engine 5, Substance Painter, After Effect, Photoshop, Premiere",
-  };
-  /*await getOnePost(params.category, encodeURI(params.slug), [
-    "slug",
-    "title",
-    "image",
-    "category",
-    "content",
-    "startDate",
-    "date",
-    "award",
-    "programs",
-  ]);*/
-  console.log(post.title, post.category);
-
+export default function IntroPostPage({ post }: { post: PostItem }) {
   const categoryUrl = `/work/${post.category}`;
   const url = `${categoryUrl}/${post.slug}`;
 
@@ -63,17 +32,21 @@ export default function IntroPostPage({
             <div className="top-box h-[60vh] gap-10 relative py-7 flex flex-col justify-end">
               <div className="flex flex-row gap-3 w-3/4">
                 <div className="description1 flex-1 break-all text-justify opacity-20 max-w-[340px]">
-                  {post.content.substring(0, 200) + "..."}
+                  <Suspense fallback={<>Loading...</>}>
+                    <MDXRemote
+                      source={post.content?.substring(0, 200) + "..."}
+                    />
+                  </Suspense>
                 </div>
               </div>
               <div>
                 <p className="sub-title font-thin uppercase text-3xl">
                   <Link href={categoryUrl}>
-                    {post.category.replaceAll("-", " ").toUpperCase()}
+                    {post.category?.replaceAll("-", " ").toUpperCase()}
                   </Link>
                 </p>
                 <div className="eng-title absolute -z-10 select-none bottom-0 left-20 font-extrabold break-keep text-7xl opacity-5">
-                  {post.slug.replaceAll("-", " ")}
+                  {post.slug?.replaceAll("-", " ")}
                 </div>
                 <h2 className="main-title">
                   <Link
@@ -89,7 +62,10 @@ export default function IntroPostPage({
               <div className="program-box">
                 <h5 className="mb-2">PROGRAM</h5>
                 <div className="w-2/3">
-                  <ProgramList programList={post.programs} className="" />
+                  <ProgramList
+                    programList={post.programs || undefined}
+                    className=""
+                  />
                 </div>
               </div>
             </div>

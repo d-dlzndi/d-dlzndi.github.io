@@ -31,9 +31,9 @@ export default function MainBackground({ type }: { type: backgroundType }) {
       originY: 1,
     },
     right: {
-      scaleX: 0.2,
+      scaleX: 0.9,
       scaleY: 1,
-      originX: 0,
+      originX: 1,
       originY: 1,
     },
   };
@@ -46,7 +46,7 @@ export default function MainBackground({ type }: { type: backgroundType }) {
       animate={type}
       variants={varients}
       transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
-      className={`fixed top-0 left-0 h-screen w-screen -z-10 bg-[var(--gray)] origin-bottom`}
+      className={`fixed top-0 left-[calc((100vw - var(--width))/2)] h-screen w-screen -z-10 bg-[var(--gray)] origin-bottom`}
     ></motion.div>
   );
 }

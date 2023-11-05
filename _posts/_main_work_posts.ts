@@ -4,16 +4,16 @@ const MainWorkPosts: { category: string; slug: string }[] = [
     slug: "A-Metal-Flower",
   },
   {
-    category: "3D-Animation",
-    slug: "A-Metal-Flower",
+    category: "3D-Modeling",
+    slug: "pelvic-health-1",
   },
   {
-    category: "3D-Animation",
-    slug: "A-Metal-Flower",
+    category: "Graphic-Design",
+    slug: "low-back-pain-2",
   },
   {
-    category: "3D-Animation",
-    slug: "A-Metal-Flower",
+    category: "Programming",
+    slug: "portfolio-git-blog",
   },
 ];
 
