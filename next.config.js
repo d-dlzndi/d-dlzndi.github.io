@@ -1,6 +1,6 @@
 // @ts-check
-import withPlaiceholder from "@plaiceholder/next";
-import { withContentlayer } from "next-contentlayer";
+// import withPlaiceholder from "@plaiceholder/next";
+const { withContentlayer } = require("next-contentlayer");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,5 +14,5 @@ const nextConfig = {
   /* config options here */
 };
 
-export default withPlaiceholder(withContentlayer(nextConfig));
-// module.exports = nextConfig;
+// export default (withContentlayer(nextConfig));
+module.exports = withContentlayer(nextConfig);
