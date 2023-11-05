@@ -1,5 +1,5 @@
 1:HL["/_next/static/css/9ad58899596e3fb6.css","style",{"crossOrigin":""}]
-0:["VDa_0xdgkDrIDSM2rpaji",[[["",{"children":[["category","Programming","d"],{"children":[["slug","neck-pain-2","d"],{"children":["__PAGE__?{\"category\":\"Programming\",\"slug\":\"neck-pain-2\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9ad58899596e3fb6.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["DJjUrN07hXBu-lwhZGSED",[[["",{"children":[["category","Programming","d"],{"children":[["slug","neck-pain-2","d"],{"children":["__PAGE__?{\"category\":\"Programming\",\"slug\":\"neck-pain-2\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/9ad58899596e3fb6.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[5826,["454","static/chunks/454-6f7c37f2193378c3.js","326","static/chunks/326-a388d73ae3af771c.js","185","static/chunks/app/layout-d5f2582bd187bae6.js"],""]
 5:I[6954,[],""]
 6:I[7264,[],""]
