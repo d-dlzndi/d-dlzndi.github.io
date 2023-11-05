@@ -37,7 +37,9 @@ export default function Post({
 }) {
   const { allPosts } = useWorkPosts();
   const currentPostIndex = allPosts.findIndex(
-    (allPost) => allPost.slug === decodeURI(params.slug)
+    (allPost) =>
+      allPost.slug === decodeURI(params.slug) &&
+      allPost.category === decodeURI(params.category)
   );
 
   const post = allPosts[currentPostIndex];

@@ -30,7 +30,7 @@ export const WorkPost = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => encodeURI(`/${post._raw.flattenedPath}`),
+      resolve: (post) => encodeURI(`/${post._raw.flattenedPath.trim()}`),
     },
     slug: {
       type: "string",

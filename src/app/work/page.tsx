@@ -16,7 +16,7 @@ export default function WorkList({ params }: { params: { category: string } }) {
   if (!filterPosts || filterPosts.length == 0) return notFound();
 
   return (
-    <div className="gallery-contents w-full pt-24 pr-5 pb-32">
+    <div className="gallery-contents w-full pt-24 pr-10 pb-32">
       <AnimatePresence>
         {filterPosts.map((post, idx) => {
           return (

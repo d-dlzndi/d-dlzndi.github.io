@@ -1,9 +1,9 @@
 ---
-title: 'Low Back Pain 2'
-date: '2020-01-02'
-description: 'This is my second article about low back pain.'
-image: '/images/low-back-pain-2.jpg'
-url: 'https://herenowbody.com/low-back-pain/low-back-pain-2'
+title: "Low Back Pain 2"
+date: 2020-01-02
+description: 냐히히 This is my second article about low back pain.
+image: "/images/low-back-pain-2.jpg"
+url: "https://herenowbody.com/low-back-pain/low-back-pain-2"
 ---
 
 LOW BACK PAIN We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.

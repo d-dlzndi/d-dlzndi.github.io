@@ -1,4 +1,3 @@
-import useWorkPosts from "@/hooks/useWorkPosts";
 import WorkList from "../page";
 import { getAllCategories } from "@/utils/post_api";
 

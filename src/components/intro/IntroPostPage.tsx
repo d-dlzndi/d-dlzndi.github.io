@@ -18,7 +18,7 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
 
   return (
     <article className="w-screen h-screen flex justify-center">
-      <div className="relative w-screen max-w-[var(--width)] h-screen flex flex-row justify-stretch">
+      <div className="relative w-screen max-w-[var(--width)] h-screen flex flex-row justify-stretch pl-20">
         <div className="flex-1 relative basis-0">
           <IntroImageSlide imageUrls={[]} />
           <div className="absolute top-20 left-[65%] font-bold text-4xl z-10">

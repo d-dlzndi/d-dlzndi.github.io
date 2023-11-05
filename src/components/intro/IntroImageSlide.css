@@ -5,11 +5,8 @@ div.slide_main_box {
 div.slide_main {
     position:relative;
     overflow: hidden;
-    width: 600px;
-    height: 600px;
-    /* 
-    border-radius: 9999px;
-    */
+    width: 90%;
+    height: 120%;
     margin-bottom: -200px;
     
     border-top-left-radius: 9999px;
