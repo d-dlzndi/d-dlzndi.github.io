@@ -1,8 +1,8 @@
-div.slide_main_box {
+.slide_main_box {
     position: relative;
 }
 
-div.slide_main {
+.slide_main {
     position:relative;
     overflow: hidden;
     width: 90%;

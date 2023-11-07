@@ -1,5 +1,5 @@
 "use client";
-import "./IntroImageSlide.css";
+import styles from "./IntroImageSlide.module.css";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -46,7 +46,7 @@ export default function IntroImageSlide({
     ((focus < focusBefore &&
       !(focusBefore == imageUrls.length - 1 && focus == 0)) ||
       (focusBefore == 0 && focus == imageUrls.length - 1))
-      ? "back"
+      ? styles.back
       : "";
 
   useEffect(() => {
@@ -64,7 +64,12 @@ export default function IntroImageSlide({
 
   return (
     <div className="slide flex-1 w-full h-full flex flex-col items-center">
-      <div className="slide_main_box w-full h-[60vh] flex items-end justify-center overflow-hidden">
+      <div
+        className={
+          styles.slide_main_box +
+          " w-full h-[60vh] flex items-end justify-center overflow-hidden"
+        }
+      >
         <ArrowNextButton
           className={
             "absolute bottom-0 left-1/2 transform -translate-x-1/2 z-50"
@@ -77,15 +82,15 @@ export default function IntroImageSlide({
           height={80}
           strokeWidth={2}
         />
-        <div className="slide_main bg-indigo-300">
+        <div className={styles.slide_main + " bg-indigo-300"}>
           {
             <Images
               imageUrls={imageUrls}
               className={(idx) =>
                 idx == focus
-                  ? "focus " + getBackClass()
+                  ? styles.focus + " " + getBackClass()
                   : idx == focusBefore
-                  ? "focus_before " + getBackClass()
+                  ? styles.focus_before + " " + getBackClass()
                   : ""
               }
               width={500}
@@ -106,7 +111,7 @@ export default function IntroImageSlide({
             <button
               key={btnUrl}
               style={{ width: width, height: height }}
-              className={`slide_btn`}
+              className={styles.slide_btn}
               onClick={() => {
                 setNowControl(true);
                 focusSetAt(getMyFocus(focus, idx + 1));
@@ -117,9 +122,9 @@ export default function IntroImageSlide({
                   imageUrls={imageUrls}
                   className={(imgIdx) =>
                     imgIdx == getMyFocus(focus, idx + 1)
-                      ? "focus " + getBackClass()
+                      ? styles.focus + " " + getBackClass()
                       : imgIdx == getMyFocus(focusBefore, idx + 1)
-                      ? "focus_before " + getBackClass()
+                      ? styles.focus_before + " " + getBackClass()
                       : ""
                   }
                   width={width}
@@ -152,9 +157,9 @@ function Images({
       key={url}
       src={url}
       alt={url}
-      className={`slide_img w-[${width}px] h-[${height}px] ${className(
-        imgIdx
-      )}`}
+      className={`${
+        styles.slide_img
+      } w-[${width}px] h-[${height}px] ${className(imgIdx)}`}
       width={width}
       height={height}
     />

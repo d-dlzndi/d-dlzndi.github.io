@@ -1,4 +1,6 @@
-import "./globals.css";
+import "../styles/tailwind.css";
+import "../styles/globals.css";
+import { DefaultFont } from "@/styles/Fonts";
 
 import "dayjs/locale/ko";
 import dayjs from "dayjs";
@@ -20,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
-      <body>
+      <body className={DefaultFont.className}>
         <MainHeader />
         <div className="flex justify-center items-center w-screen relative">
           <div className="max-w-[var(--width)] w-full">{children}</div>

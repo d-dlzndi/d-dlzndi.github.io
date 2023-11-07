@@ -21,7 +21,7 @@ export default function CategoryList({
       {categoryList.map((cate, idx) => (
         <li key={idx}>
           <Link
-            className={`relative inline-block w-auto px-3 pt-1 pb-1 rounded-full transition ${
+            className={`relative inline-block w-auto px-3 pt-1 pb-1 rounded-full transition border border-current ${
               cate == selectedCategory
                 ? " bg-[var(--color)] text-[var(--background)]"
                 : " bg-[var(--background)]"

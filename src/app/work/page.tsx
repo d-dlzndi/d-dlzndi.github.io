@@ -1,5 +1,5 @@
 "use client";
-import "./style.css";
+import styles from "./style.module.css";
 
 import Link from "next/link";
 import ImgWithPlaceholder from "@/components/common/ImgWithPlaceholder";
@@ -16,7 +16,7 @@ export default function WorkList({ params }: { params: { category: string } }) {
   if (!filterPosts || filterPosts.length == 0) return notFound();
 
   return (
-    <div className="gallery-contents w-full pt-24 pr-10 pb-32">
+    <div className={styles["gallery-contents"] + " w-full pt-24 pr-10 pb-32"}>
       <AnimatePresence>
         {filterPosts.map((post, idx) => {
           return (
@@ -30,7 +30,7 @@ export default function WorkList({ params }: { params: { category: string } }) {
                 ease: [0.76, 0, 0.24, 1],
                 duration: 0.5,
               }}
-              className="work-thumb rounded-2xl origin-center" /*w-1/2 max-h-[28.125%]*/
+              className={styles["work-thumb"] + " rounded-2xl origin-center"}
             >
               <Link
                 href={post.url || "/"}
@@ -41,27 +41,52 @@ export default function WorkList({ params }: { params: { category: string } }) {
                   alt={post.title}
                   width={400}
                   height={300}
-                  className="img w-full h-full object-center object-cover scale-110"
+                  className={
+                    styles["img"] +
+                    " w-full h-full object-center object-cover scale-110"
+                  }
                   unoptimized={false}
                 />
-                <div className="work-thumb-text bg backdrop-blur-sm backdrop-grayscale-0 backdrop-brightness-50 "></div>
-                <div className="work-thumb-text inner bg-clip-text">
+                <div
+                  className={
+                    styles["work-thumb-text"] +
+                    " " +
+                    styles["bg"] +
+                    " backdrop-blur-sm backdrop-grayscale-0 backdrop-brightness-50 "
+                  }
+                ></div>
+                <div
+                  className={`${styles["work-thumb-text"]} ${styles["inner"]} bg-clip-text`}
+                >
                   {post.category && (
                     <span
-                      className="category block absolute top-5 left-5 font-extrabold uppercase text-4xl break-keep"
+                      className={
+                        styles["category"] +
+                        " block absolute top-5 left-5 font-extrabold uppercase text-4xl break-keep"
+                      }
                       dangerouslySetInnerHTML={{
                         __html: post.category.replaceAll("-", "<br />"),
                       }}
                     />
                   )}
-                  <p className="date absolute bottom-5 left-5 font-extralight">
+                  <p
+                    className={
+                      styles["date"] +
+                      " absolute bottom-5 left-5 font-extralight"
+                    }
+                  >
                     <Date dateString={post.startDate} />
                     <br />
                     -
                     <br />
                     <Date dateString={post.date} />
                   </p>
-                  <h4 className="title max-w-2/3 w-auto absolute bottom-5 right-5 font-medium text-right text-2xl">
+                  <h4
+                    className={
+                      styles["title"] +
+                      " max-w-2/3 w-auto absolute bottom-5 right-5 font-medium text-right text-2xl"
+                    }
+                  >
                     {post.title}
                   </h4>
                 </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./TextCircle.css";
+import styles from "./TextCircle.module.css";
 import { MotionValue, circInOut, motion, useTransform } from "framer-motion";
 
 export default function TextCircle({
@@ -26,7 +26,7 @@ export default function TextCircle({
 
   return (
     <motion.div
-      className={`circle_container ${className}`}
+      className={`${styles.circle_container} ${className}`}
       style={{
         width: width,
         height: width,
@@ -39,7 +39,7 @@ export default function TextCircle({
       {str.split("").map((s, idx) => (
         <span
           key={s + "_" + idx}
-          className={`circle select-none`}
+          className={`${styles.circle} select-none`}
           style={{
             rotate: `${((360 / str.length) * idx).toFixed(2)}deg`,
             zIndex: 100,

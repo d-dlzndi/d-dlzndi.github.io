@@ -28,9 +28,12 @@ const useWorkPosts = ({ category }: Props = {}) => {
   const categories = useMemo<string[]>(() => {
     return Object.entries(postsByCategory)
       .sort((prev, next) => {
+        /* 
         const nextPosts = next[1];
         const prevPosts = prev[1];
-        return nextPosts.length - prevPosts.length;
+        return nextPosts.length - prevPosts.length; 
+        */
+        return prev[0].localeCompare(next[0]);
       })
       .map(([category]) => category);
   }, [postsByCategory]);

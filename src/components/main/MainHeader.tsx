@@ -1,5 +1,5 @@
 "use client";
-import "./mainHeader.css";
+import styles from "./mainHeader.module.css";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -40,7 +40,7 @@ export function Logo() {
   return (
     <div className="w-auto h-auto pointer-events-auto">
       <h1 className="font-extrabold text-2lg">
-        <Link href={"/"} className="hover-a-anim">
+        <Link href={"/"} className={styles["hover-a-anim"]}>
           {HOME_LOGO}
         </Link>
       </h1>
@@ -56,7 +56,7 @@ export function HeaderNavigation({ path }: { path: string | null }) {
           <motion.li key={idx}>
             <Link
               href={content.url}
-              className="relative block w-16 hover-a-anim"
+              className={styles["hover-a-anim"] + " relative block w-16"}
             >
               {path &&
                 ((content.url == "/" && path == content.url) ||

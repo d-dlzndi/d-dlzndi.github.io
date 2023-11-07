@@ -1,5 +1,4 @@
 "use client";
-import "./style.css";
 
 import { Children, useRef } from "react";
 import {
@@ -43,7 +42,13 @@ function Page({ id, children }: { id: number; children: React.ReactNode }) {
   const y = useParallax(scrollYProgress, 100);
 
   return (
-    <section className="fullpage" ref={ref}>
+    <section
+      className={
+        "h-screen flex justify-center items-center relative snap-center"
+        // perspective: 500px;
+      }
+      ref={ref}
+    >
       {children}
     </section>
   );

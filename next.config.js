@@ -1,11 +1,11 @@
 // @ts-check
-// import withPlaiceholder from "@plaiceholder/next";
 const { withContentlayer } = require("next-contentlayer");
+// const withTM = require("next-transpile-modules")(["@plaiceholder/next"]);
+// const { withPlaiceholder } = require("@plaiceholder/next");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  // trailingSlash: true, // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   reactStrictMode: true,
   swcMinify: false, // contentLayer
   images: {
@@ -13,5 +13,4 @@ const nextConfig = {
   },
 };
 
-// export default (withContentlayer(nextConfig));
 module.exports = withContentlayer(nextConfig);
