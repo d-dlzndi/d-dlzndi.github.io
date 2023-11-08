@@ -3,12 +3,22 @@
   --width-m: 1280px;
   --width-s: 1024px;
 
-  --background: #e2e2e2;
+--background: #fffff2;
+  --gray: #41D3BD;
+  --color: #791E94;
+  --accent: #DE6449;
+
+  /*--background: #E1D6B8;
+    --gray: #95E1DB;
+    --color: #B68355;
+    --accent: #0083A7;
+    --point: #FD5964;
+    
+    --background: #e2e2e2;
     --gray: #605f5e;
     --color: #630a0a;
     --accent: #3643fb;
 
-  /*
   --background: #fbfbff;
     --gray: #657ed4;
     --color: #0d0106;
@@ -19,10 +29,6 @@
     --color: #0a2463;
     --accent: #fb3640;
 
-  --background: #fffff2;
-    --gray: #41D3BD;
-    --color: #791E94;
-    --accent: #DE6449;
 
   --background: #fffff5;
     --gray: #ffda8e;

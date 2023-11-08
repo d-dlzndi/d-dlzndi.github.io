@@ -1,0 +1,7 @@
+.titleLink {
+    position: inherit;
+}
+
+.titleLink::before {
+    content: none;
+}

@@ -1,5 +1,5 @@
 "use client";
-import styles from "./style.module.css";
+import styles from "./worklist.module.css";
 
 import Link from "next/link";
 import ImgWithPlaceholder from "@/components/common/ImgWithPlaceholder";

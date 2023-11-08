@@ -36,8 +36,9 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
               <AwardList awardList={post.awards} />
               <div className="flex flex-row gap-3 w-3/4">
                 <div className="description1 flex-1 break-all text-justify opacity-20 max-w-[340px]">
-                  {post.body.html?.replace(/<[^>]+>/g, "").substring(0, 200) +
-                    "..."}
+                  {post.description?.html
+                    ?.replace(/<[^>]+>/g, "")
+                    .substring(0, 200) + "..."}
                 </div>
               </div>
               <div>

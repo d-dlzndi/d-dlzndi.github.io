@@ -1,7 +1,7 @@
 import { PageWrapper } from "../components/common/PageWrapper";
 
 import IntroPostPage from "@/components/intro/IntroPostPage";
-import MainWorkPosts from "../../_posts/_main_work_posts";
+import MainWorkPosts from "../../_works/_main_works";
 import FullPageLayout from "../components/common/fullPage/FullPageLayout";
 import IntroPage from "../components/intro/IntroPage";
 import usePosts from "@/hooks/usePosts";

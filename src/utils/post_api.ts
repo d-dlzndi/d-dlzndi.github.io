@@ -2,7 +2,7 @@ import fs from "fs";
 import path, { join } from "path";
 import matter from "gray-matter";
 
-const postsDirectory = () => join(process.cwd(), "_posts");
+const postsDirectory = () => join(process.cwd(), "_works");
 
 export type PostItem = {
   [key: string]: string | null;
@@ -15,7 +15,7 @@ export type awardDataType = {
 };
 
 /**
- * _posts 안에 있는 "폴더명"만 읽고 카테고리 목록을 반환함.
+ * 포스트 디렉토리 안에 있는 "폴더명"만 읽고 카테고리 목록을 반환함.
  * @returns
  */
 export function getAllCategories() {

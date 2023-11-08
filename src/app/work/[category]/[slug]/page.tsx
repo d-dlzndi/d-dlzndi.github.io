@@ -10,6 +10,7 @@ import Date from "@/components/common/Date";
 import { allWorkPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import useWorkPosts from "@/hooks/useWorkPosts";
+import ImgWithPlaceholder from "@/components/common/ImgWithPlaceholder";
 
 export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   return {
@@ -28,11 +29,82 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Post({
+export default function WorkPost({
   params,
 }: {
   params: { category: string; slug: string };
 }) {
+  const { allPosts, getCategoryUrl } = useWorkPosts();
+  const currentPostIndex = allPosts.findIndex(
+    (allPost) =>
+      allPost.slug === decodeURI(params.slug) &&
+      allPost.category === decodeURI(params.category)
+  );
+
+  const post = allPosts[currentPostIndex];
+  const prevPost = allPosts[currentPostIndex + 1];
+  const nextPost = allPosts[currentPostIndex - 1];
+
+  return (
+    <div>
+      <article
+        id={post._id}
+        className="flex flex-col justify-center items-center"
+      >
+        <header className="flex flex-col justify-center items-center gap-5">
+          <div className="w-screen h-[50vh] relative">
+            <ImgWithPlaceholder
+              className="w-full h-full object-cover"
+              src={post.image}
+              width={500}
+              height={500}
+            />
+          </div>
+          <AwardList awardList={post.awards} />
+          <Link href={getCategoryUrl(post.category)}>
+            {post.category.replaceAll("-", " ").toUpperCase()}
+          </Link>
+          <h1 className="max-w-[var(--width-s)] text-7xl break-keep font-extrabold">
+            {post.title}
+          </h1>
+          <div>
+            <Date dateString={post.startDate} />
+            {" - "}
+            <Date dateString={post.date} />
+          </div>
+          <ProgramList programList={post.programs} />
+        </header>
+        <div
+          className="max-w-[var(--width-s)] prose prose-neutral lg:prose-xl "
+          dangerouslySetInnerHTML={{ __html: post.body.html }}
+        />
+      </article>
+      <div>
+        {prevPost && prevPost.url && (
+          <Link href={prevPost.url}>
+            이전 글 <br />
+            {prevPost.title}
+          </Link>
+        )}
+        <br />
+        {nextPost && nextPost.url && (
+          <Link href={nextPost.url}>
+            다음 글 <br />
+            {nextPost.title}
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** *****************************************************************
+ * 레거시 코드
+ * @param param0
+ * @returns
+ */
+
+function Post({ params }: { params: { category: string; slug: string } }) {
   const { allPosts } = useWorkPosts();
   const currentPostIndex = allPosts.findIndex(
     (allPost) =>

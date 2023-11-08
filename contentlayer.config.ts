@@ -30,7 +30,7 @@ export const WorkPost = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => encodeURI(`/${post._raw.flattenedPath.trim()}`),
+      resolve: (post) => encodeURI(`/work/${post._raw.flattenedPath.trim()}`),
     },
     slug: {
       type: "string",
@@ -49,6 +49,7 @@ export const Post = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
+    data_set: { type: "list", of: { type: "markdown" } },
   },
   computedFields: {
     slug: {
@@ -59,6 +60,6 @@ export const Post = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: "_posts",
+  contentDirPath: "_works",
   documentTypes: [Post, WorkPost],
 });

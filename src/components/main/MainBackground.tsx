@@ -20,13 +20,13 @@ export default function MainBackground({ type }: { type: backgroundType }) {
     },
     top: {
       scaleX: 1,
-      scaleY: 0.9,
+      scaleY: 0.8,
       originX: 0.5,
       originY: 1,
     },
     bottom: {
       scaleX: 1,
-      scaleY: 0.1,
+      scaleY: 0.2,
       originX: 0.5,
       originY: 1,
     },
