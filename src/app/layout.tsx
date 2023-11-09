@@ -1,6 +1,6 @@
 import "../styles/tailwind.css";
 import "../styles/globals.css";
-import { DefaultFont } from "@/styles/Fonts";
+import "highlight.js/styles/github-dark-dimmed.min.css";
 
 import "dayjs/locale/ko";
 import dayjs from "dayjs";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "어쩌고 개발자 어쩌고의 포트폴리오 사이트",
 };
 
-import MainHeader from "../components/main/MainHeader";
+import HomeLayout from "@/components/page/HomeLayout";
 
 export default function RootLayout({
   children,
@@ -22,11 +22,8 @@ export default function RootLayout({
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
-      <body className={DefaultFont.className}>
-        <MainHeader />
-        <div className="flex justify-center items-center w-screen relative">
-          <div className="max-w-[var(--width)] w-full">{children}</div>
-        </div>
+      <body>
+        <HomeLayout>{children}</HomeLayout>
       </body>
     </html>
   );

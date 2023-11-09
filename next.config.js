@@ -1,6 +1,6 @@
 // @ts-check
 const { withContentlayer } = require("next-contentlayer");
-// const withTM = require("next-transpile-modules")(["@plaiceholder/next"]);
+// import withPlaiceholder from "@plaiceholder/next";
 // const { withPlaiceholder } = require("@plaiceholder/next");
 
 /** @type {import('next').NextConfig} */
@@ -16,7 +16,6 @@ const nextConfig = {
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
-
     return config;
   },
 };

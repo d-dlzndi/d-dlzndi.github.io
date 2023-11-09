@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { getPlaiceholder } from "plaiceholder";
+import { useMemo } from "react";
 
 const getBase64 = async (src: string, size: number = 10) => {
   const buffer = await readFileSync(join(process.cwd(), "public", src));

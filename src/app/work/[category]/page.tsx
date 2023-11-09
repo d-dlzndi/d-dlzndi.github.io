@@ -1,4 +1,4 @@
-import WorkList from "../page";
+import WorkPage from "@/components/page/WorkPage";
 import { getAllCategories } from "@/utils/post_api";
 
 export async function generateStaticParams() {
@@ -14,5 +14,5 @@ export default function WorkCategoryPage({
 }: {
   params: { category: string };
 }) {
-  return <WorkList params={params} />;
+  return <WorkPage params={params} />;
 }

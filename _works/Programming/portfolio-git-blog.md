@@ -1,10 +1,16 @@
 ---
-title: 'Neck Pain 1'
-date: '2015-03-01'
-description: 'This is my first article about neck pain.'
-image: '/images/neck-pain-1.jpg'
-url: 'https://herenowbody.com/neck-pain/neck-pain-1'
+title: "Neck Pain 1"
+date: "2015-03-01"
+description: "This is my first article about neck pain."
+image: "/images/neck-pain-1.jpg"
+url: "https://herenowbody.com/neck-pain/neck-pain-1"
 ---
+
+```javascript
+import "dayjs/locale/ko";
+import dayjs from "dayjs";
+dayjs.locale("ko");
+```
 
 neck pain Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
 

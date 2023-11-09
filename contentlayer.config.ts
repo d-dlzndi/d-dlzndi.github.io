@@ -5,6 +5,13 @@ import {
 } from "contentlayer/source-files";
 import path from "path";
 
+import remarkFrontmatter from "remark-frontmatter";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
+
 const Award = defineNestedType(() => ({
   name: "Award",
   fields: {
@@ -62,4 +69,6 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "_works",
   documentTypes: [Post, WorkPost],
+  //@ts-ignore //작동잘됨..
+  markdown: { rehypePlugins: [rehypeSlug, rehypeHighlight, rehypeStringify] },
 });
