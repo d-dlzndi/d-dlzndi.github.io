@@ -3,12 +3,18 @@
   --width-m: 1280px;
   --width-s: 1024px;
 
+--background: #E0E2E2;
+  --gray: #768496;
+  --color: #3D415C;
+  --accent: #0000F5;
+
+    /*
 --background: #fffff2;
   --gray: #41D3BD;
   --color: #791E94;
   --accent: #DE6449;
 
-  /*--background: #E1D6B8;
+  --background: #E1D6B8;
     --gray: #95E1DB;
     --color: #B68355;
     --accent: #0083A7;
