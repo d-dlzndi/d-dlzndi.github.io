@@ -9,7 +9,7 @@ programs:
   - Framer Motion
   - Contentlayer
   - SWR
-image: /img/work/GameJam-SmileGate/title.jpg
+image: /img/work/Portfolio-Blog-With-NextJs/concept01.png
 description: 23년 하반기동안 진행된 포트폴리오 블로그 제작 프로젝트.
 typora-root-url: ../../public/
 ---
@@ -31,7 +31,7 @@ typora-root-url: ../../public/
 
 ### CONCEPT
 
-![concept1](./img/work/Portfolio-Blog-With-NextJs/concept01.png)
+![concept1](/img/work/Portfolio-Blog-With-NextJs/concept01.png)
 
 ![concept2](/img/work/Portfolio-Blog-With-NextJs/concept02.png)
 
@@ -40,4 +40,3 @@ typora-root-url: ../../public/
 수평선 요소를 극대화하는 방향.
 
 컴퓨터에선 수평선이 강조되고 핸드폰에선 수직선이 강조되는 구조...
-

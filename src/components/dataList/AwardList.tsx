@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Award } from "contentlayer/generated";
+import { AwardData } from "contentlayer/generated";
 
 export default function AwardList({
   className,
   awardList,
 }: {
   className?: string;
-  awardList: Award[] | undefined;
+  awardList: AwardData[] | undefined;
 }) {
   if (awardList == undefined) return <></>;
   return (
@@ -18,7 +18,7 @@ export default function AwardList({
               className={`w-[8em] h-[8em] p-3 rounded-[100%] text-center table-cell align-middle break-keep ${
                 award.special
                   ? "bg-[var(--accent)] text-[var(--background)]"
-                  : "bg-slate-300"
+                  : "bg-[var(--gray)]"
               }`}
             >
               {award.name}

@@ -4,12 +4,12 @@ import SlideShowText from "../common/textEffect/SlideShowText";
 
 export default function IntroPage({ post }: { post: Post }) {
   return (
-    <div className="w-full h-full justify-center items-center flex p-10">
+    <div className="w-full h-full justify-center items-center flex flex-col-reverse lg:flex-row p-10">
       <div className="flex-1 p-10">
         <h1>
           <SlideShowText
             textSource={post.title.split("<br />").map((v) => v.toUpperCase())}
-            className="text-7xl break-keep font-extrabold"
+            className=" text-4xl lg:text-7xl break-keep font-extrabold"
             childClassName="mb-2"
           />
         </h1>
@@ -21,7 +21,7 @@ export default function IntroPage({ post }: { post: Post }) {
       <div className="flex-1 flex justify-start p-10">
         <div className=" w-full h-[60vh] overflow-hidden rounded-full">
           <ImgWithPlaceholder
-            src={"/3.jpg"}
+            src={""}
             width={300}
             height={300}
             className="w-full h-full object-cover object-center"

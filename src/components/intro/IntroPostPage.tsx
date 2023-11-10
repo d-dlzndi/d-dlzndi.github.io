@@ -17,11 +17,14 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
   const url = post.url || "/";
 
   return (
-    <article className="w-screen h-screen flex justify-center">
-      <div className="relative w-screen max-w-[var(--width)] h-screen flex flex-row justify-stretch pl-20">
+    <article className="w-screen h-screen flex justify-center px-10">
+      <div className="relative w-screen max-w-[var(--width)] h-screen flex flex-row justify-stretch gap-10">
         <div className="flex-1 relative basis-0">
-          <IntroImageSlide imageUrls={[]} />
-          <div className="absolute top-20 left-[65%] font-bold text-4xl z-10">
+          <IntroImageSlide imageArray={post.imageList.slice(0, 8)} />
+          <div
+            className="absolute top-20 left-[65%] font-bold text-4xl z-10 pointer-events-none"
+            style={{ textShadow: "1px 2px var(--background)" }}
+          >
             <Date dateString={post.startDate} />
             <br />
             {"\u00A0\u00A0\u00A0"}
@@ -30,7 +33,7 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
             <Date dateString={post.date} />
           </div>
         </div>
-        <MouseFollowBox className="flex flex-1 basis-0 relative">
+        <MouseFollowBox className="flex flex-1 max-w-[40%] basis-0 relative">
           <header className="flex-1 basis-0 relative">
             <div className="top-box h-[60vh] gap-10 relative py-7 flex flex-col justify-end">
               <AwardList awardList={post.awards} />

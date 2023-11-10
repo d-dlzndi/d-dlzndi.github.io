@@ -10,6 +10,7 @@ import { allWorkPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import ImgWithPlaceholder from "@/components/common/ImgWithPlaceholder";
+import useImgPreview from "@/hooks/useImgPreview";
 
 export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   return {
@@ -39,10 +40,11 @@ export default function WorkPost({
       allPost.slug === decodeURI(params.slug) &&
       allPost.category === decodeURI(params.category)
   );
+  const post = allPosts[currentPostIndex];
+  const { getProp } = useImgPreview();
 
   if (currentPostIndex < 0) return notFound();
 
-  const post = allPosts[currentPostIndex];
   const prevPost = allPosts[currentPostIndex + 1];
   const nextPost = allPosts[currentPostIndex - 1];
 
@@ -50,17 +52,20 @@ export default function WorkPost({
     <div>
       <article
         id={post.slug}
-        className="flex flex-col justify-center items-center"
+        className="flex flex-col justify-center items-center pb-20"
       >
         <header className="flex flex-col justify-center items-center gap-5">
-          <div className="w-screen h-[50vh] relative">
+          <Link
+            href={getProp({ src: post.image, alt: post.title })}
+            className="w-screen h-[50vh] relative cursor-pointer"
+          >
             <ImgWithPlaceholder
               className="w-full h-full object-cover"
               src={post.image}
               width={500}
               height={500}
             />
-          </div>
+          </Link>
           <AwardList awardList={post.awards} />
           <Link href={getCategoryUrl(post.category)}>
             {post.category.replaceAll("-", " ").toUpperCase()}
@@ -76,22 +81,21 @@ export default function WorkPost({
           <ProgramList programList={post.programs} />
         </header>
         <div
-          className="max-w-[var(--width-s)] "
+          className="max-w-[720px] py-10 prose prose-stone lg:prose-xl"
           dangerouslySetInnerHTML={{ __html: post.body.html }}
         />
       </article>
-      <div>
-        {prevPost && prevPost.url && (
-          <Link href={prevPost.url}>
-            이전 글 <br />
-            {prevPost.title}
+      <div className="flex flex-row items-center justify-center gap-10">
+        {nextPost && nextPost.url && (
+          <Link href={nextPost.url} className="block p-20 border rounded-full">
+            다음 글 <br />
+            <span className=" font-bold text-4xl">{nextPost.title}</span>
           </Link>
         )}
-        <br />
-        {nextPost && nextPost.url && (
-          <Link href={nextPost.url}>
-            다음 글 <br />
-            {nextPost.title}
+        {prevPost && prevPost.url && (
+          <Link href={prevPost.url} className="block p-20 border rounded-full">
+            이전 글 <br />
+            <span className=" font-bold text-4xl">{prevPost.title}</span>
           </Link>
         )}
       </div>

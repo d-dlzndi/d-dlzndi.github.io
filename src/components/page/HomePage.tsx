@@ -1,11 +1,11 @@
 import { PageWrapper } from "../common/PageWrapper";
 
 import IntroPostPage from "@/components/intro/IntroPostPage";
-import MainWorkPosts from "../../../_works/_main_works";
 import FullPageLayout from "../common/fullPage/FullPageLayout";
 import IntroPage from "../intro/IntroPage";
 import usePosts from "@/hooks/usePosts";
 import useWorkPosts from "@/hooks/useWorkPosts";
+import MainWorkPosts from "@/libs/main_works";
 
 export default function HomePage() {
   const { allPosts } = usePosts();

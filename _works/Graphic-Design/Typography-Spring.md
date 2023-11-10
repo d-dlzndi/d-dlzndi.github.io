@@ -1,10 +1,20 @@
 ---
 title: 타이포그래피 〈봄〉
-date: 2023-06-31
+date: 2020-10-08
 programs:
   - Adobe Illustrator
-image: /img/work/asdf/main.jpg
-description: 봄 컨셉으로 어쩌고
+image: /img/work/Typography-Spring/LightboxMockup.jpg
+description: 봄에 볼 수 있는 얇고 긴 나뭇가지의 가벼운 느낌을 살린 타이포그래피.
 ---
 
-![]()
+### Concept
+
+기본적인 형태는 봄에 볼 수 있는 얇고 긴 나뭇가지의 가벼운 느낌을 따랐다. 그리고 그 위에 새로 자라기 시작한 나뭇잎의 형태로 라운드 처리를 했다. 봄의 'ㅁ' 받침엔 대각선을 하나 넣어 줌으로써 나뭇잎의 형태를 더 확실히 알아볼 수 있도록 했다.
+
+### Sketch
+
+![스케치](/img/work/Typography-Spring/sketch.jpg)
+
+### Final
+
+![소개 이미지](/img/work/Typography-Spring/main.jpg)

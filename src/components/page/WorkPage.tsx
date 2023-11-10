@@ -16,7 +16,12 @@ export default function WorkPage({ params }: { params: { category: string } }) {
   if (!filterPosts || filterPosts.length == 0) return notFound();
 
   return (
-    <div className={styles["gallery-contents"] + " w-full pt-24 pr-10 pb-32"}>
+    <div
+      className={
+        styles["gallery-contents"] +
+        " w-full pt-24 pr-10 pb-32 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+      }
+    >
       <AnimatePresence>
         {filterPosts.map((post, idx) => {
           return (
@@ -37,7 +42,7 @@ export default function WorkPage({ params }: { params: { category: string } }) {
                 className="block relative w-full h-full"
               >
                 <ImgWithPlaceholder
-                  src={"/" + (idx / 5 + 1).toFixed() + ".jpg"}
+                  src={post.image}
                   alt={post.title}
                   width={400}
                   height={300}
@@ -84,7 +89,7 @@ export default function WorkPage({ params }: { params: { category: string } }) {
                   <h4
                     className={
                       styles["title"] +
-                      " max-w-2/3 w-auto absolute bottom-5 right-5 font-medium text-right text-2xl"
+                      " bottom-5 right-5 font-medium text-right text-2xl"
                     }
                   >
                     {post.title}

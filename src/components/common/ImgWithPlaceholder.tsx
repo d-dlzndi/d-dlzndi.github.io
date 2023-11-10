@@ -4,7 +4,7 @@ import getBase64 from "@/utils/getBase64";
 import Image, { StaticImageData } from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { useMemo } from "react";
-import nullImg from "@/../public/5.jpg";
+import nullImg from "@/../public/img/no-img.gif";
 
 type returnType = {
   base64: any;
@@ -16,8 +16,8 @@ export default function Img(params: { [key: string]: any }) {
     base64: "",
     img: {
       src: params.src,
-      width: params?.width || 500,
-      height: params?.height || 500,
+      width: params?.width ? params?.width : 1,
+      height: params?.height ? params?.height : 1,
     },
   });
 
@@ -46,7 +46,7 @@ export default function Img(params: { [key: string]: any }) {
         currentTarget.onerror = null;
         currentTarget.src = nullImg.src;
       }}
-      placeholder="blur"
+      placeholder={!data.base64 ? "empty" : "blur"}
       blurDataURL={data.base64 || params.src}
       style={{ backgroundColor: "#ffffff80" }}
       {...params}

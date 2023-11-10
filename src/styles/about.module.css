@@ -2,6 +2,8 @@
     position: inherit;
 }
 
-.titleLink::before {
-    content: none;
+.titleLink a::after {
+    content: "↗";
+    vertical-align: super;
+    font-size: .6em;
 }

@@ -14,16 +14,18 @@ export const metadata: Metadata = {
 
 import HomeLayout from "@/components/page/HomeLayout";
 
-export default function RootLayout({
-  children,
-}: {
+export default function RootLayout(props: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
       <body>
-        <HomeLayout>{children}</HomeLayout>
+        <HomeLayout>
+          {props.children}
+          {props.modal}
+        </HomeLayout>
       </body>
     </html>
   );
