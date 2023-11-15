@@ -1,3 +1,4 @@
+/*
 import WorkPage from "@/components/page/WorkPage";
 import { getAllCategories } from "@/utils/post_api";
 
@@ -16,3 +17,4 @@ export default function WorkCategoryPage({
 }) {
   return <WorkPage params={params} />;
 }
+*/

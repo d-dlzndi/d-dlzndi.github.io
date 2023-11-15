@@ -22,10 +22,8 @@ export default function RootLayout(props: {
     <html lang="ko" className="scroll-smooth">
       <head />
       <body>
-        <HomeLayout>
-          {props.children}
-          {props.modal}
-        </HomeLayout>
+        {props.children}
+        {props.modal}
       </body>
     </html>
   );

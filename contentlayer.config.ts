@@ -13,7 +13,9 @@ import remark2rehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
 
 const AwardData = defineNestedType(() => ({
   name: "AwardData",
@@ -52,7 +54,8 @@ export const WorkPost = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => encodeURI(`/work/${post._raw.flattenedPath.trim()}`),
+      resolve: (post) =>
+        encodeURI(`/portfolio/work/${post._raw.flattenedPath.trim()}`),
     },
     slug: {
       type: "string",
@@ -92,12 +95,23 @@ export default makeSource({
   contentDirPath: "_works",
   documentTypes: [Post, WorkPost],
   markdown: {
-    remarkPlugins: [],
-    rehypePlugins: [rehypeHighlight, rehypeSlug],
+    remarkPlugins: [remarkGfm, remarkBreaks],
+    rehypePlugins: [rehypeSlug, rehypeHighlight, rehypeAutolinkHeadings],
   },
 });
 
 /*
+
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["anchor"],
+          },
+        },
+      ],
+      ,
+
     // parses out the frontmatter (which is needed for full-document parsing)
     builder.use(remarkFrontmatter);
     // parse markdown

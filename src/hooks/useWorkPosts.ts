@@ -31,9 +31,9 @@ const useWorkPosts = ({ category }: Props = {}) => {
         /* 
         const nextPosts = next[1];
         const prevPosts = prev[1];
-        return nextPosts.length - prevPosts.length; 
+        return nextPosts.length - prevPosts.length; // 글의 개수 순으로 반환
         */
-        return prev[0].localeCompare(next[0]);
+        return prev[0].localeCompare(next[0]); // 문자열을 비교하여 반환
       })
       .map(([category]) => category);
   }, [postsByCategory]);
