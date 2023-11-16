@@ -1,1 +1,0 @@
-self.__BUILD_MANIFEST={__rewrites:{afterFiles:[],beforeFiles:[{has:[{type:"header",key:"Next-Url",value:"(?:\\/(.*))?[\\/#\\?]?"}],source:"/preview",destination:"/(.)preview"}],fallback:[]},"/_error":["static/chunks/pages/_error-680160a0550d53a2.js"],sortedPages:["/_app","/_error"]},self.__BUILD_MANIFEST_CB&&self.__BUILD_MANIFEST_CB();
