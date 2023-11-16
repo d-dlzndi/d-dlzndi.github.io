@@ -4,7 +4,7 @@ date: 2022-06-29
 programs:
   - Adobe Illustrator
 image: /img/work/Info-GlobalWarming/mockup01.jpg
-description: 봄 컨셉으로 어쩌고
+description: 일러스트를 활용하여 초등 3~4학년의 아이들이 글을 쉽게 이해하도록 하며, 독자 참여형 문제지를 스페셜 페이지로 수록하여 배운 내용을 복습할 수 있도록 한다.
 ---
 
 ## 목적

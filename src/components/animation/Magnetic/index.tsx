@@ -37,7 +37,6 @@ export default function FramerMagnetic({
   return (
     <motion.div
       style={{
-        position: "relative",
         width: "fit-content",
         height: "fit-content",
       }}

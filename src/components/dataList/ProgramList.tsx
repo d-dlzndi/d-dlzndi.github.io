@@ -8,7 +8,7 @@ export default function ProgramList({
   if (programList == undefined) return null;
   const list = programList;
   return (
-    <ol className={"flex flex-row flex-wrap gap-1 " + className}>
+    <ol className={"flex flex-row flex-wrap gap-1 justify-center " + className}>
       {list.map((program, idx) => (
         <li
           key={idx}

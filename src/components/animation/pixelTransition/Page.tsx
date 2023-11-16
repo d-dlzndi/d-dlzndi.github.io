@@ -12,7 +12,7 @@ export default function PixelHome() {
 
   return (
     <div className={styles.main}>
-      <Header menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
+      <Header menuIsActive={menuIsActive} />
       <PixelBackground menuIsActive={menuIsActive} />
     </div>
   );

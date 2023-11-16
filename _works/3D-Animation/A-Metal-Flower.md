@@ -15,7 +15,7 @@ image: /img/work/A-Metal-Flower/Poster.png
 description: 졸업 작품으로 진행한 애니메이션 제작 프로젝트. 어쩌고저쩌고...
 ---
 
-단독 1인 애니메이션 제작 프로젝트.
+애니메이션 제작 프로젝트.
 
 ---
 

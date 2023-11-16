@@ -2,13 +2,17 @@ import { Icons } from "@/components/common/Icons/Icons";
 
 const baseUrl = "/portfolio";
 
-const urls = [
-  { name: "About", href: "/", icon: Icons.mic },
+type urlType = { name: string; href: string; url?: string; icon: any };
+
+const urls: urlType[] = [
+  { name: "About", href: "/", icon: Icons.home },
   { name: "Work", href: "/work", icon: Icons.mic },
   { name: "Contact", href: "/contact", icon: Icons.link },
 ];
 
-export default urls.map((url) => ({
-  ...url,
-  url: (url.href = baseUrl + url.href),
-}));
+export default urls.map(
+  (url): urlType => ({
+    ...url,
+    url: (url.href = baseUrl + url.href),
+  })
+);

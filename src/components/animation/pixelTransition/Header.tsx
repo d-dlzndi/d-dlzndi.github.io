@@ -1,22 +1,17 @@
 import styles from "./style.module.scss";
 
-export default function Header({
+export default function MenuButton({
   menuIsActive,
-  setMenuIsActive,
+  className,
 }: {
   menuIsActive: boolean;
-  setMenuIsActive: any;
+  className?: string;
 }) {
   return (
-    <div className={styles.header}>
-      <div
-        onClick={() => {
-          setMenuIsActive(!menuIsActive);
-        }}
-        className={`${styles.burger} ${
-          menuIsActive ? styles.burgerActive : ""
-        }`}
-      ></div>
-    </div>
+    <div
+      className={`${styles.burger} ${
+        menuIsActive ? styles.burgerActive : ""
+      } ${className}`}
+    ></div>
   );
 }

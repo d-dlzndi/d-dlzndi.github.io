@@ -99,33 +99,3 @@ export default makeSource({
     rehypePlugins: [rehypeSlug, rehypeHighlight, rehypeAutolinkHeadings],
   },
 });
-
-/*
-
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ["anchor"],
-          },
-        },
-      ],
-      ,
-
-    // parses out the frontmatter (which is needed for full-document parsing)
-    builder.use(remarkFrontmatter);
-    // parse markdown
-    builder.use(remarkParse);
-    // other remark plugins as you wish
-    builder.use(remarkGfm, { singleTilde: false });
-    // remark -> rehype
-    builder.use(remark2rehype, { allowDangerousHtml: true });
-    // other rehype plugins as you wish
-    builder.use(rehypeHighlight);
-    builder.use(rehypeSlug);
-    // rehype to html
-    builder.use(rehypeStringify);
-    */
-
-//@ts-ignore //작동잘됨..
-// remarkPlugins: [remarkGfm],

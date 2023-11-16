@@ -9,7 +9,7 @@ export const CATEGORY_ALL: string = "All";
 export default function CategoryList({
   selectedCategory,
 }: {
-  selectedCategory?: string;
+  selectedCategory?: string | null;
 }) {
   const segment = useSelectedLayoutSegment();
   const { categories, getCategoryUrl } = useWorkPosts();
@@ -26,7 +26,10 @@ export default function CategoryList({
                 ? " bg-[var(--color)] text-[var(--background)]"
                 : " bg-[var(--background)]"
             }`}
-            href={getCategoryUrl(cate)}
+            href={{
+              href: getCategoryUrl(cate),
+              query: { category: cate },
+            }}
           >
             {cate.replaceAll("-", " ").toUpperCase()}
           </Link>

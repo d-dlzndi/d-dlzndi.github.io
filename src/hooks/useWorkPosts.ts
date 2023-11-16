@@ -5,7 +5,7 @@ type PostsByCategory = Record<string, WorkPost[]>;
 type CategoryUrlType = Record<string, string>;
 
 type Props = {
-  category?: string;
+  category?: string | null;
 };
 
 const useWorkPosts = ({ category }: Props = {}) => {
@@ -23,7 +23,10 @@ const useWorkPosts = ({ category }: Props = {}) => {
     }, {} as PostsByCategory);
   }, [basePosts]);
 
-  const filterPosts = !category ? basePosts : postsByCategory[category];
+  const filterPosts =
+    category && Object.keys(postsByCategory).includes(category)
+      ? postsByCategory[category]
+      : basePosts;
 
   const categories = useMemo<string[]>(() => {
     return Object.entries(postsByCategory)
@@ -39,10 +42,10 @@ const useWorkPosts = ({ category }: Props = {}) => {
   }, [postsByCategory]);
 
   const getCategoryUrl = (category: string) => {
-    if (categories.includes(category)) {
-      return `/work/${category}`;
-    }
-    return `/work/`;
+    //if (categories.includes(category)) {
+    //  return `/portfolio/work/${category}`;
+    //}
+    return `/portfolio/work/`;
   };
 
   return {

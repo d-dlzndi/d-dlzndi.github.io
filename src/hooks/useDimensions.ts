@@ -1,6 +1,10 @@
+import { usePathname, useSearchParams } from "next/navigation";
 import { MutableRefObject, useEffect, useState } from "react";
 
 export default function useDimensions(targetRef: MutableRefObject<any>) {
+  const pathname = usePathname(); // 라우터가 변경되었을 때도 작동되어야 하므로 추가.
+  const params = useSearchParams();
+
   const [dimensions, setDimensions] = useState({
     width: 0,
     height: 0,
@@ -25,7 +29,7 @@ export default function useDimensions(targetRef: MutableRefObject<any>) {
 
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
+  }, [pathname, params, targetRef]); // Empty array ensures that effect is only run on mount
 
   return dimensions;
 }
