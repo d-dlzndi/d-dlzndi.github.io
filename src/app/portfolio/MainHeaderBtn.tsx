@@ -62,7 +62,10 @@ export default function MainHeaderBtn() {
           </motion.div>
         )}
       </AnimatePresence>
-      <FramerMagnetic className={` absolute top-5 ${pos}-5`} max={20}>
+      <FramerMagnetic
+        className={` absolute rounded-full top-5 ${pos}-5`}
+        max={50}
+      >
         <button
           onClick={() => toggleShow()}
           className="btn btn-primary rounded-full p-5 w-16 h-16"

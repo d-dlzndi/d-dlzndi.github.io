@@ -5,6 +5,7 @@ programs:
   - Adobe Illustrator
 image: /img/work/Info-Pasta/TrifoldBrochure.jpg
 description: 파스타 전문 집
+color: orange
 ---
 
 # 제목

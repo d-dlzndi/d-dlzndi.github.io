@@ -22,7 +22,6 @@
     transform: scale(.9); /* 인라인에서 결정됨 */
     transform-origin: center bottom;
     line-height: 1;
-    color: var(--background);
 }
 
 @keyframes circle_spin {

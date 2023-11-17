@@ -1,9 +1,5 @@
 :root {
-  --width: 1920px;
-  --width-m: 1280px;
-  --width-s: 1024px;
-
---background: #E0E2E2;
+  --background: #E0E2E2;
   --gray: #768496;
   --color: #3D415C;
   --accent: #0000F5;
@@ -48,7 +44,7 @@
   */
 }
 
-* {
+*, *::before, *::after {
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
   color: inherit;
@@ -59,37 +55,25 @@ html {
   scroll-snap-type: y mandatory;
 }
 
-/*
 ::-webkit-scrollbar {
     height: 5px;
     width: 5px;
-    background: var(--background);
+    background: oklch(var(--pc));
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--accent);
+    background: oklch(var(--p));
     -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-    background: var(--background);
+    background: oklch(var(--pc));
 }
-*/
 
 body {
   margin: 0;
   padding: 0;
   position: relative;
-  max-width: var(--width)
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #3D415C;
-    --gray: #768496;
-    --color: #E0E2E2;
-    --accent: #0000F5;
-  }
 }
 
 h1,

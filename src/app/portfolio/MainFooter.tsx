@@ -39,7 +39,7 @@ export function FooterContents() {
         <p className="font-bold fill-none stroke-base-100">
           <Icons.logo width={50} height={50} />
         </p>
-        <p>Copyright D-DL © 2023 - All right reserved</p>
+        <p>Copyright SEO © 2023 - All right reserved</p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">

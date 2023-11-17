@@ -1,0 +1,36 @@
+"use client";
+import useWorkPosts from "@/hooks/useWorkPosts";
+import Link from "next/link";
+import s from "./categorylist.module.scss";
+
+export const CATEGORY_ALL: string = "All";
+
+export function CategoryList({
+  selectedCategory,
+}: {
+  selectedCategory?: string | null;
+}) {
+  const { categories, getCategoryUrl } = useWorkPosts();
+  const categoryList = [CATEGORY_ALL, ...categories];
+  selectedCategory = selectedCategory || CATEGORY_ALL;
+
+  return (
+    <ul className=" flex gap-3 flex-wrap">
+      {categoryList.map((cate, idx) => (
+        <li key={idx}>
+          <Link
+            className={`${cate == selectedCategory ? s.selected : ""} ${
+              s.link
+            }`}
+            href={{
+              href: getCategoryUrl(cate),
+              query: { category: cate },
+            }}
+          >
+            {cate}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}

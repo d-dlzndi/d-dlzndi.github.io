@@ -65,8 +65,9 @@ export function WorkImage({ post }: { post: WorkPost }) {
           styles["work-thumb-text"] +
           " " +
           styles["bg"] +
-          " backdrop-blur-sm backdrop-grayscale-0 backdrop-brightness-50 "
+          " backdrop-blur-sm backdrop-saturate-50 mix-blend-multiply "
         }
+        style={{ backgroundColor: post?.color || "oklch(var(--p))" }}
       ></div>
       <div
         className={`${styles["work-thumb-text"]} ${styles["inner"]} bg-clip-text`}

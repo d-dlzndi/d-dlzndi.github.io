@@ -66,8 +66,9 @@ export default function CircleButton({
         initial={{ translateY: `-${gap * 3}px`, opacity: 0 }}
         animate={{ translateY: 0, opacity: 1 }}
         exit={{ translateY: `${gap * 3}px` }}
-        className={`${className} w-[${width}] h-[${height}] rounded-full bg-${color} z-40`}
+        className={`${className} rounded-full bg-${color}`}
         transition={transition}
+        style={{ width: width, height: height }}
       >
         {array.map((v, idx) => {
           return (

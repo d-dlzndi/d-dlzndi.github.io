@@ -11,14 +11,14 @@ export default function TextCircle({
   text?: string;
   width: number;
   className?: string;
-  aniDuration: MotionValue;
+  aniDuration?: MotionValue;
 }) {
   const str = text || "MORE MORE MORE MORE MORE ";
   const [rotate, setRotate] = useState(0);
 
   useEffect(() => {
     const timeout = setTimeout(
-      () => setRotate((rotate) => rotate + aniDuration.get()),
+      () => setRotate((rotate) => rotate + aniDuration?.get()),
       100
     );
     return () => clearTimeout(timeout);
@@ -42,7 +42,7 @@ export default function TextCircle({
           className={`${styles.circle} select-none`}
           style={{
             rotate: `${((360 / str.length) * idx).toFixed(2)}deg`,
-            zIndex: 100,
+            // zIndex: 1,
           }}
         >
           {s}

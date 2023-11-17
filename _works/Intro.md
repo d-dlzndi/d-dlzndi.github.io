@@ -1,10 +1,8 @@
 ---
-title: Hello! <br />I'm SEO YUN, <br />Designer.
+title: Hello! <br />I'm SEO YUN, <br />3D Designer.
 date: 2023-11-05
 ---
 
-Nisi culpa sunt sint enim ut incididunt do aliqua. Velit incididunt sunt consequat excepteur consectetur aute culpa mollit.
-
-Sit ipsum pariatur nostrud quis nostrud excepteur officia nulla cupidatat nostrud officia.
-
-Aliquip nisi aliqua sint ad aliqua laboris eiusmod nulla tempor.
+안녕하세요!
+늘 새로운 도전을 하는
+3D 디자이너 김서윤입니다.

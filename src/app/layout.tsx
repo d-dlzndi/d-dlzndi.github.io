@@ -8,11 +8,18 @@ dayjs.locale("ko");
 
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "PORTFOLIO",
-  description: "어쩌고 개발자 어쩌고의 포트폴리오 사이트",
+  title: "SEO'S",
+  // description: "새내기 디자이너의 포트폴리오 사이트",
+  generator: "Next.js",
+  applicationName: "SEO'S",
+  referrer: "no-referrer",
+  // keywords: ["Next.js", "React", "JavaScript"],
+  // authors: [{ name: "Seo Yun Kim", url: "https://d-dlzndi.github.io" }],
+  // creator: "Seo Yun Kim",
 };
 
-import HomeLayout from "@/components/page/HomeLayout";
+import HomeLayout from "@/components/legacy/page/HomeLayout";
+import { DefaultFont } from "@/styles/Fonts";
 
 export default function RootLayout(props: {
   children: React.ReactNode;
@@ -21,7 +28,7 @@ export default function RootLayout(props: {
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
-      <body>
+      <body className={DefaultFont.className}>
         {props.children}
         {props.modal}
       </body>

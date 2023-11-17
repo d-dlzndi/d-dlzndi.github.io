@@ -50,6 +50,7 @@ export const WorkPost = defineDocumentType(() => ({
     programs: { type: "list", of: { type: "string" } },
     awards: { type: "list", of: AwardData },
     url: { type: "string" },
+    color: { type: "string" },
   },
   computedFields: {
     url: {

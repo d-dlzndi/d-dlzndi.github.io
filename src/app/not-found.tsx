@@ -14,8 +14,16 @@ export default function NotFound() {
       <p className=" md:text-2xl p-5 pb-24 text-secondary">
         이 페이지는 아직 준비되지 않았습니다. :(
       </p>
-      <button onClick={() => router.back()}>
-        <Icons.uturnLeft width={30} height={30} className=" fill-neutral" />
+      <button
+        onClick={() => router.back()}
+        className="btn btn-ghost text-neutral"
+      >
+        <Icons.uturnLeft
+          width={30}
+          height={30}
+          className=" fill-neutral inline-block"
+        />{" "}
+        뒤로 가기
       </button>
     </div>
   );

@@ -18,6 +18,7 @@ export default function FixedFooter({
   const footerDimension = useDimensions(ref);
 
   const totalHeight = useTransform(() => {
+    if (body.height == 0 || window.height == 0) return 0;
     const h = body.height - window.height - footerDimension.height;
     if (scrollY.get() < h) return 0;
     return scrollY.get() - h;
@@ -31,7 +32,7 @@ export default function FixedFooter({
         style={{
           height: height,
           minHeight: height,
-          backgroundColor: "red",
+          backgroundColor: "black",
         }}
       />
       <motion.div
@@ -39,7 +40,6 @@ export default function FixedFooter({
         style={{
           height: totalHeight,
           maxHeight: height,
-          backgroundColor: "green",
         }} // test color
       >
         <div

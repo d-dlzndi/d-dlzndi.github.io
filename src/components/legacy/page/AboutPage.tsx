@@ -1,5 +1,5 @@
 import { Post } from "contentlayer/generated";
-import { PageWrapper } from "../common/PageWrapper";
+import { PageWrapper } from "../../common/PageWrapper";
 import usePosts from "@/hooks/usePosts";
 import { notFound } from "next/navigation";
 

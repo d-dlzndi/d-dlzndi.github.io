@@ -12,6 +12,7 @@ programs:
 awards:
   - name: 졸업작품
 image: /img/work/A-Metal-Flower/Poster.png
+color: "#C5E7FA"
 description: 졸업 작품으로 진행한 애니메이션 제작 프로젝트. 어쩌고저쩌고...
 ---
 

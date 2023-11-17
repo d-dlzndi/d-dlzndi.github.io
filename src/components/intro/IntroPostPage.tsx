@@ -7,6 +7,7 @@ import MouseFollowBox from "../common/effect/MouseFollowBox";
 import { WorkPost } from "contentlayer/generated";
 import NotFound from "../../app/not-found";
 import useWorkPosts from "@/hooks/useWorkPosts";
+import HtmlRemover from "@/utils/htmlRemover";
 
 export default function IntroPostPage({ post }: { post?: WorkPost }) {
   const { getCategoryUrl } = useWorkPosts();
@@ -39,9 +40,8 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
               <AwardList awardList={post.awards} />
               <div className="flex flex-row gap-3 w-3/4">
                 <div className="description1 flex-1 break-all text-justify opacity-20 max-w-[340px]">
-                  {post.description?.html
-                    ?.replace(/<[^>]+>/g, "")
-                    .substring(0, 200) + "..."}
+                  {HtmlRemover(post.description?.html).substring(0, 200) +
+                    "..."}
                 </div>
               </div>
               <div>

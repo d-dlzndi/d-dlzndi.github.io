@@ -5,7 +5,7 @@ export default function Date({
   dateFormat = "YYYY.MM.",
   className = " ",
 }: {
-  dateString?: string | Date;
+  dateString?: string | Date | undefined;
   dateFormat?: string;
   className?: string;
 }) {

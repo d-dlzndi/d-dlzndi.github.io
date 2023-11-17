@@ -1,5 +1,10 @@
 import ScreenWorkList from "./ScreenWorkList";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "WORK",
+};
+
 export default function MainWorkPage() {
   return (
     <div className=" w-full p-10 pt-[30vh]">

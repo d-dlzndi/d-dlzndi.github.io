@@ -2,7 +2,7 @@
 
 import MainBackground, {
   backgroundType,
-} from "@/components/main/MainBackground";
+} from "@/components/legacy/main/MainBackground";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 

@@ -1,8 +1,8 @@
-import { PageWrapper } from "../common/PageWrapper";
+import { PageWrapper } from "../../common/PageWrapper";
 
 import IntroPostPage from "@/components/intro/IntroPostPage";
-import FullPageLayout from "../common/fullPage/FullPageLayout";
-import IntroPage from "../intro/IntroPage";
+import FullPageLayout from "../../common/fullPage/FullPageLayout";
+import IntroPage from "../../intro/IntroPage";
 import usePosts from "@/hooks/usePosts";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import MainWorkPosts from "@/libs/main_works";
