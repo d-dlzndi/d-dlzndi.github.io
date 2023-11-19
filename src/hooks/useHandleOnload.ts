@@ -15,5 +15,5 @@ export default function useHandleOnload(handleOnLoad: Handler) {
     return () => {
       router.events.off("routeChangeComplete", handleOnLoad);
     };
-  }, []);
+  }, [handleOnLoad, router.events]);
 }

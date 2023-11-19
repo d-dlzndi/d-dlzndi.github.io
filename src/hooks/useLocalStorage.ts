@@ -19,7 +19,7 @@ const useLocalStorage = <T>(key: string, initialValue: T) => {
     } catch (error) {
       console.log(error);
     }
-  }, []); // 최초 1회만 실행
+  }, [key]); // 최초 1회만 실행
 
   const setValue = (value: T | ((state: T) => T)): void => {
     try {

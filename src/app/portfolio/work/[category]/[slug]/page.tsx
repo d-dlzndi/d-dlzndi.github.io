@@ -45,5 +45,9 @@ export default function WorkPage({
   const prevPost = allPosts[currentPostIndex + 1];
   const nextPost = allPosts[currentPostIndex - 1];
 
-  return <WorkPostPage post={post} prevPost={prevPost} nextPost={nextPost} />;
+  return (
+    <>
+      <WorkPostPage post={post} prevPost={prevPost} nextPost={nextPost} />
+    </>
+  );
 }

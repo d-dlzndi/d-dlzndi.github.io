@@ -21,16 +21,12 @@ export const metadata: Metadata = {
 import HomeLayout from "@/components/legacy/page/HomeLayout";
 import { DefaultFont } from "@/styles/Fonts";
 
-export default function RootLayout(props: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-}) {
+export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
       <body className={DefaultFont.className} suppressHydrationWarning>
         {props.children}
-        {props.modal}
       </body>
     </html>
   );

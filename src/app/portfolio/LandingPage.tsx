@@ -1,7 +1,6 @@
 "use client";
 
 import Img from "@/components/common/ImgWithPlaceholder";
-import CircleButton from "@/components/common/button/CircleButton";
 import TextCircle from "@/components/common/textCircle/TextCircle";
 import usePosts from "@/hooks/usePosts";
 import { notFound } from "next/navigation";
@@ -11,7 +10,7 @@ import { default as DateTime } from "@/components/common/Date";
 import HtmlRemover from "@/utils/htmlRemover";
 import Link from "next/link";
 
-export default function LandingPage() {
+export default function LandingPage(params: any) {
   return (
     <>
       <FirstPage />

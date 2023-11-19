@@ -1,14 +1,14 @@
-"use client";
-
 import Img from "@/components/common/ImgWithPlaceholder";
 import Modal from "@/components/common/modal/Modal";
-import { useSearchParams } from "next/navigation";
 import useImgPreview from "@/hooks/useImgPreview";
+import nullImg from "@/../public/img/no-img.gif";
 
-export default function PreviewPage() {
-  const params = useSearchParams();
+export default function PreviewPage(params: any) {
   const { getImg } = useImgPreview();
-  const img = getImg(params.get("img") || "");
+  const img =
+    "img" in params.searchParams
+      ? getImg(params.searchParams["img"])
+      : { src: nullImg, alt: "NO Image" };
 
   return (
     <Modal>
