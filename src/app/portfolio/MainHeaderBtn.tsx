@@ -64,7 +64,7 @@ export default function MainHeaderBtn() {
       </AnimatePresence>
       <FramerMagnetic
         className={` absolute rounded-full top-5 ${pos}-5`}
-        max={50}
+        max={20}
       >
         <button
           onClick={() => toggleShow()}

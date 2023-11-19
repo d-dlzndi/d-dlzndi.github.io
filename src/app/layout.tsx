@@ -28,7 +28,7 @@ export default function RootLayout(props: {
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
-      <body className={DefaultFont.className}>
+      <body className={DefaultFont.className} suppressHydrationWarning>
         {props.children}
         {props.modal}
       </body>

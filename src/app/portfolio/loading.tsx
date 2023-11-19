@@ -3,6 +3,7 @@ export default function Loading() {
     <>
       <div className="w-full py-60 text-center text-primary">
         <span className="font-black text-2xl">NOW LOADING</span>
+        <br />
         <span className="loading loading-dots loading-lg "></span>
       </div>
     </>

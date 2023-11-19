@@ -14,6 +14,7 @@ import {
   ChevronDoubleUpIcon,
   XMarkIcon,
   XCircleIcon,
+  ArrowUpRightIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
@@ -41,4 +42,5 @@ export const Icons = {
   chevronDoubleUp: (props: IconProps) => <ChevronDoubleUpIcon {...props} />,
   email: (props: IconProps) => <AtSymbolIcon {...props} />,
   github: (props: IconProps) => <GithubIcon {...props} />,
+  arrowUpRight: (props: IconProps) => <ArrowUpRightIcon {...props} />,
 };
