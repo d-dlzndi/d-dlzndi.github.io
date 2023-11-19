@@ -15,7 +15,7 @@ export function CategoryList({
   selectedCategory = selectedCategory || CATEGORY_ALL;
 
   return (
-    <ul className=" flex gap-3 flex-wrap">
+    <ul className=" flex gap-3 flex-wrap text-xl font-medium">
       {categoryList.map((cate, idx) => (
         <li key={idx}>
           <Link
@@ -27,7 +27,7 @@ export function CategoryList({
               query: { category: cate },
             }}
           >
-            {cate}
+            {cate.replaceAll("-", " ")}
           </Link>
         </li>
       ))}

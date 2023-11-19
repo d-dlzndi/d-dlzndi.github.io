@@ -1,0 +1,22 @@
+.loader {
+    z-index: 30;
+    height: calc(100vh + 200px);
+    width: 100vw;
+    top:0;
+    left:0;
+    position: fixed;
+    pointer-events: none;
+}
+
+.loader svg {
+    height: 100%;
+    width: 100%;
+}
+
+/*
+.loader svg path {
+    // stroke: black;
+    stroke: yellow;
+    stroke-width: 1px;
+}
+*/

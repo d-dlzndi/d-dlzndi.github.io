@@ -2,10 +2,6 @@ import "../styles/tailwind.css";
 import "../styles/globals.css";
 import "highlight.js/styles/github-dark-dimmed.min.css";
 
-import "dayjs/locale/ko";
-import dayjs from "dayjs";
-dayjs.locale("ko");
-
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "SEO'S",

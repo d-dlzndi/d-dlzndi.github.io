@@ -44,10 +44,14 @@
   */
 }
 
-*, *::before, *::after {
-  font-family: inherit;
+* {
   -webkit-font-smoothing: antialiased;
   color: inherit;
+}
+
+*::before,
+*::after {
+  font-family: inherit;
 }
 
 html {

@@ -24,10 +24,10 @@ export default function ScreenWorkList() {
     <>
       <div
         id="work-header"
-        className="flex flex-col lg:flex-row gap-2 justify-between mb-4"
+        className="flex flex-col lg:flex-row gap-2 justify-between mb-4 items-center"
       >
         <CategoryList selectedCategory={category} />
-        <div id="work-btn-set" className=" flex gap-2">
+        <div id="work-btn-set" className=" flex gap-2 justify-end">
           <button onClick={() => setMode("list")} className={`btn btn-ghost`}>
             <Icons.list
               width={20}

@@ -49,7 +49,10 @@ export default function WorkPage({ params }: { params: { category: string } }) {
 
 export function WorkImage({ post }: { post: WorkPost }) {
   return (
-    <Link href={post.url || "/"} className="block relative w-full h-full">
+    <Link
+      href={post.url || "/"}
+      className="block relative w-full h-full aspect-w-16 aspect-h-9"
+    >
       <ImgWithPlaceholder
         src={post.image}
         alt={post.title}

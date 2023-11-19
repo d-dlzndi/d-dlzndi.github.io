@@ -35,7 +35,9 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
                     }}
                     className={styles.categoryLink}
                   >
-                    <span className={styles.ctspan}>{post.category}</span>
+                    <span className={styles.ctspan}>
+                      {post.category.replaceAll("-", " ")}
+                    </span>
                     <span className={styles.ctmore}>
                       <Icons.chevronDoubleUp
                         width={15}

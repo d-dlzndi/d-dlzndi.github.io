@@ -2,7 +2,7 @@ import { Icons } from "@/components/common/Icons/Icons";
 
 const baseUrl = "/portfolio";
 
-type urlType = { name: string; href: string; url?: string; icon: any };
+export type urlType = { name: string; href: string; url?: string; icon: any };
 
 const urls: urlType[] = [
   { name: "About", href: "/", icon: Icons.home },

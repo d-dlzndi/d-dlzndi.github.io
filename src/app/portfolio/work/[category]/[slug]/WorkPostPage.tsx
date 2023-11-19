@@ -14,6 +14,7 @@ import HtmlRemover from "@/utils/htmlRemover";
 import { Next_PrevPosts } from "./Next_PrevPosts";
 import prose from "./prose.module.scss";
 import { Icons } from "@/components/common/Icons/Icons";
+import getTimeDiff from "@/utils/getTimeDiff";
 
 export default function WorkPostPage({
   post,
@@ -26,6 +27,8 @@ export default function WorkPostPage({
 }) {
   const { getCategoryUrl } = useWorkPosts();
   const { getProp } = useImgPreview();
+
+  if (!post) return notFound();
   return (
     <div className="w-screen max-w-[1920px] bg-base-300 text-base-content">
       <div className=" w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
@@ -118,19 +121,30 @@ export default function WorkPostPage({
                 </div>
               )}
               <div>
-                <h2>기간</h2>
+                <h2>제작일</h2>
                 <p>
+                  <span>
+                    {post.startDate && (
+                      <>
+                        <Date
+                          dateString={post.startDate}
+                          dateFormat="YYYY.MM.DD."
+                        />
+                        {" - "}
+                      </>
+                    )}
+                    <Date dateString={post.date} dateFormat="YYYY.MM.DD." />
+                  </span>
+                  <br />
+                  <span>{getTimeDiff(post.date)} 전</span>
                   {post.startDate && (
                     <>
-                      <Date
-                        dateString={post.startDate}
-                        dateFormat="YYYY.MM.DD."
-                      />
-                      {" - "}
                       <br />
+                      <span>
+                        총 {getTimeDiff(post.startDate, post.date)} 간
+                      </span>
                     </>
                   )}
-                  <Date dateString={post.date} dateFormat="YYYY.MM.DD." />
                 </p>
               </div>
             </header>

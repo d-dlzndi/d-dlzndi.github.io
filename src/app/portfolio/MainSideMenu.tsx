@@ -1,0 +1,149 @@
+"use client";
+
+import FramerMagnetic from "@/components/animation/Magnetic";
+import _navigation, { urlType } from "./_navigation";
+import Link from "next/link";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+import { useState } from "react";
+import { FooterContents } from "./MainFooter";
+import { Icons } from "@/components/common/Icons/Icons";
+import MenuButton from "@/components/animation/pixelTransition/Header";
+import styles from "./mainSideMenu.module.scss";
+import useWindowSize from "@/hooks/useWindowSize";
+
+type positionType = "left" | "right";
+const pos: positionType = "left";
+
+export default function MainSideMenu() {
+  const [show, setShow] = useState(false);
+  const toggleShow = () => {
+    setShow((s) => !s);
+  };
+  const nav = _navigation;
+  return (
+    <div className={`fixed flex top-0 ${pos}-0 p-10 z-50 select-none`}>
+      <AnimatePresence mode="wait">
+        {show && (
+          <motion.div
+            key="side-menu-bg"
+            className=" w-screen h-screen absolute top-0 left-0 cursor-pointer bg-base-100"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.4 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+            onClick={() => setShow(false)}
+          />
+        )}
+        {show && (
+          <motion.div
+            key="side-menu"
+            initial={{
+              translateX: `calc(${pos == "left" ? "-" : ""}100% - 100px)`,
+            }}
+            animate={{ translateX: 0 }}
+            exit={{
+              translateX: `calc(${pos == "left" ? "-" : ""}100% - 100px)`,
+            }}
+            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+            className={`absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex`}
+          >
+            <SvgCurveBackground />
+            <nav className=" w-full p-[20%] text-base-100 flex flex-col justify-center">
+              <ul className="flex flex-col gap-5 min-w-fit min-h-fit">
+                {nav.map((url, idx) => (
+                  <MenuTextAnimation
+                    url={url}
+                    idx={idx}
+                    key={url.name}
+                    onClick={() => setShow(false)}
+                  />
+                ))}
+              </ul>
+              <hr className="my-10" />
+              <div className="text-xs footer text-primary-content">
+                <FooterContents />
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <FramerMagnetic
+        className={` absolute rounded-full top-5 ${pos}-5`}
+        max={20}
+      >
+        <button
+          onClick={() => toggleShow()}
+          className="btn btn-primary rounded-full p-5 w-16 h-16"
+        >
+          <MenuButton menuIsActive={show} className=" top-[.6rem]" />
+        </button>
+      </FramerMagnetic>
+    </div>
+  );
+}
+
+function SvgCurveBackground() {
+  const initialPath = `M0 0 L0 ${window.innerHeight} Q200 ${
+    window.innerHeight / 2
+  } 0 0`;
+  const targetPath = `M0 0 L0 ${window.innerHeight} Q0 ${
+    window.innerHeight / 2
+  } 0 0`;
+  const finalPath = `M50 0 L0 0 V${window.innerHeight} H50 Q0 ${
+    window.innerHeight / 2
+  } 50 0`;
+
+  const pathAnimation: Variants = {
+    initial: {
+      d: initialPath,
+    },
+    enter: {
+      d: targetPath,
+    },
+    exit: {
+      d: initialPath,
+    },
+  };
+
+  return (
+    <svg className={styles.svgCurve + " fill-primary"}>
+      <motion.path
+        variants={pathAnimation}
+        initial={"initial"}
+        animate={"enter"}
+        exit={"exit"}
+        transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+      />
+    </svg>
+  );
+}
+
+function MenuTextAnimation({
+  url,
+  idx,
+  onClick,
+}: {
+  url: urlType;
+  idx: number;
+  onClick: () => void;
+}) {
+  return (
+    <motion.li
+      key={url.name}
+      initial={{ translateX: -200 }}
+      animate={{ translateX: 0 }}
+      exit={{ translateX: 100, transition: { duration: 0.4 + 0.1 * idx } }}
+      transition={{
+        delay: 0.3 + 0.1 * idx,
+        duration: 0.6,
+        ease: [0.33, 1, 0.68, 1],
+      }}
+      onClick={onClick}
+    >
+      <Link href={url.url || "/"} className="text-5xl w-full block relative">
+        <Icons.arrowRight width={30} height={30} className="inline-block " />{" "}
+        {url.name}
+      </Link>
+    </motion.li>
+  );
+}

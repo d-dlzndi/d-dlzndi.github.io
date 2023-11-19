@@ -63,6 +63,7 @@
 
 .work-thumb:hover .work-thumb-text.bg {
     top: 0;
+    height: 102%;
 }
 
 .work-thumb .work-thumb-text.inner {

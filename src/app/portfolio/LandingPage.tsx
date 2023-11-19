@@ -63,9 +63,9 @@ function FirstPage() {
           />
         </div>
         <div id="rightContents" className="relative w-2/3">
-          <div className="w-full h-[95vh] mb-10 relative">
+          <div className="w-full h-[100vh] mt-[5vh] relative">
             <Img
-              src=""
+              src="/5.jpg"
               width={1000}
               height={1000}
               className={`absolute top-0 left-0 w-full h-full object-cover`}
@@ -197,7 +197,7 @@ function AboutPage() {
               <tbody>
                 {/* row 1 */}
                 {skills.map((skill, idx) => (
-                  <tr key={skill.name}>
+                  <tr key={skill.name + "_" + idx}>
                     <th>{idx + 1}</th>
                     <td>{skill.name}</td>
                     <td>
@@ -228,10 +228,10 @@ function AboutPage() {
             <li className="step">Receive Product</li>
           </ul>
 
-          <p>
+          <div>
             {skills.map((skill, idx) => (
               <div
-                key={skill.name}
+                key={skill.name + "_" + idx}
                 className="radial-progress text-primary"
                 style={{
                   //@ts-ignore
@@ -244,7 +244,7 @@ function AboutPage() {
                 {skill.name}
               </div>
             ))}
-          </p>
+          </div>
           <div className="stats shadow">
             <div className="stat">
               <div className="stat-figure text-secondary">
