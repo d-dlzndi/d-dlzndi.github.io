@@ -7,8 +7,6 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import { CategoryList } from "./CategoryList";
 import { GalleryList } from "./GalleryList";
 import { LineList } from "./LineList";
-import { Suspense } from "react";
-import Loading from "../loading";
 
 export default function ScreenWorkList() {
   const searchParam = useSearchParams();
@@ -24,7 +22,7 @@ export default function ScreenWorkList() {
     <>
       <div
         id="work-header"
-        className="flex flex-col lg:flex-row gap-2 justify-between mb-4 items-center"
+        className="flex flex-col lg:flex-row gap-2 justify-between mb-4 items-start lg:items-center"
       >
         <CategoryList selectedCategory={category} />
         <div id="work-btn-set" className=" flex gap-2 justify-end">
@@ -50,10 +48,8 @@ export default function ScreenWorkList() {
         </div>
       </div>
       <div className=" min-h-[100px] border-primary">
-        <Suspense fallback={<Loading />}>
           {mode == "list" && <LineList posts={posts} />}
           {mode == "gallery" && <GalleryList posts={posts} />}
-        </Suspense>
       </div>
     </>
   );

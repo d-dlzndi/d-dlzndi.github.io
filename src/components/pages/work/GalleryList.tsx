@@ -9,7 +9,7 @@ export function GalleryList({ posts }: { posts: WorkPost[] }) {
     <motion.div
       layout
       layoutRoot
-      className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[1px]"
+      className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-[1px]" // xl:grid-cols-3 
     >
       <AnimatePresence>
         {posts.map((post, idx) => (

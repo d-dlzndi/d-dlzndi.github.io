@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { WorkPost } from "contentlayer/generated";
 import Date from "@/components/common/Date";
-import styles from "./workpage.module.scss";
+import styles from "./lineList.module.scss";
 
 export function LineList({ posts }: { posts: WorkPost[] }) {
   return (

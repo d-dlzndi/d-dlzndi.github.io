@@ -5,12 +5,14 @@
     "body": [
       "---",
       "title: '$1'",
+      "startDate: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND GMT+9",
+      "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND GMT+9",
       "description: '$2'",
       "image: ''",
-      "tags:",
+      "programs:",
       "  - $3",
+      "color: '#ffffff'",
       "draft: false",
-      "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
       "---",
       "",
       "$0"
@@ -20,11 +22,11 @@
   "Current DateTime": {
     "prefix": ["current_date_time", "cdt"],
     "description": "Output current DateTime YYYY-MM-DD HH:mm:ss",
-    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND GMT+9"
   },
   "Current Date": {
     "prefix": ["current_date", "cd"],
     "description": "Output current Date YYYY-MM-DD",
-    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE GMT+9"
   }
 }

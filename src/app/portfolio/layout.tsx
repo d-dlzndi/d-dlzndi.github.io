@@ -1,11 +1,10 @@
 import Link from "next/link";
 import _navigation from "./_navigation";
-import SlideTransition from "@/components/animation/slideTransition";
-import { MainFooter } from "./MainFooter";
-import MainSideMenu from "./MainSideMenu";
+import { MainFooter } from "../../components/pages/index/MainFooter";
+import MainSideMenu from "../../components/pages/index/MainSideMenu";
 
 import type { Metadata } from "next";
-import SvgCurveLoader from "@/components/animation/svg-curve-loader";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | SEO'S PORTFOLIO",

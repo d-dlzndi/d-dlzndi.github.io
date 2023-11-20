@@ -4,8 +4,10 @@ import { useRef, useEffect, useState } from "react";
 
 export default function SvgCurveLoader({
   children,
+  colorName = "oklch(var(--p))"
 }: {
   children: React.ReactNode;
+  colorName?: string
 }) {
   const loader = useRef<any>(null);
   const path = useRef<any>(null);
@@ -67,12 +69,12 @@ export default function SvgCurveLoader({
     );
   };
 
-  const [divClass, setDivClass] = useState(" bg-primary");
+  const [divClass, setDivClass] = useState(colorName);
 
   return (
     <>
       {children}
-      <div ref={loader} className={styles.loader + " fill-primary " + divClass}>
+      <div ref={loader} className={styles.loader} style={{backgroundColor: divClass, fill: colorName}}>
         <svg>
           <path ref={path}></path>
         </svg>

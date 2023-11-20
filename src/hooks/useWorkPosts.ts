@@ -9,7 +9,8 @@ type Props = {
 };
 
 const useWorkPosts = ({ category }: Props = {}) => {
-  const basePosts = [...allWorkPosts].sort((prev, next) => {
+  const basePosts = [...allWorkPosts].filter
+  ((post) => post.draft == false).sort((prev, next) => {
     return Date.parse(next.date) - Date.parse(prev.date);
   });
 

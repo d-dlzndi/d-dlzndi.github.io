@@ -1,4 +1,5 @@
-import ContactPage from "./ContactPage";
+import SvgCurveLoader from "@/components/animation/svg-curve-loader";
+import ContactPage from "@/components/pages/contact/ContactPage";
 
 import type { Metadata } from "next";
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function about(params: any) {
-  return <ContactPage {...params} />;
+  return <SvgCurveLoader><ContactPage {...params} /></SvgCurveLoader>;
 }

@@ -1,5 +1,5 @@
 import SvgCurveLoader from "@/components/animation/svg-curve-loader";
-import ScreenWorkList from "./ScreenWorkList";
+import ScreenWorkList from "../../../components/pages/work/ScreenWorkList";
 
 import type { Metadata } from "next";
 export const metadata: Metadata = {

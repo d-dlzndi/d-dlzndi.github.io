@@ -48,6 +48,7 @@ export const WorkPost = defineDocumentType(() => ({
     awards: { type: "list", of: AwardData },
     url: { type: "string" },
     color: { type: "string" },
+    draft: {type: 'boolean', default: false}
   },
   computedFields: {
     url: {

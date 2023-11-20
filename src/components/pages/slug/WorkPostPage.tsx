@@ -13,6 +13,7 @@ import getTimeDiff from "@/utils/getTimeDiff";
 import GoBackBtn from "./GoBackBtn";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import ZoomImage from "@/components/common/mdx/ZoomImage";
+import SvgCurveLoader from "@/components/animation/svg-curve-loader";
 
 const mdxComponents = {
   img: ZoomImage,
@@ -31,10 +32,12 @@ export default function WorkPostPage({
   const { getCategoryUrl } = useWorkPosts();
   const { getProp } = useImgPreview();
 
+  const postColor = post.color ? post.color : "oklch(var(--p))"
   const MDXContent = useMDXComponent(post.body.code);
 
   if (!post) return notFound();
   return (
+    <SvgCurveLoader colorName={postColor}>
     <div className="w-screen min-h-screen !bg-base-content !text-base-100">
       <div className="max-w-[1920px] w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
         <article
@@ -55,7 +58,13 @@ export default function WorkPostPage({
               />
               목록으로
             </GoBackBtn>
+              <svg width={50} height={50} className="absolute top-0 left-0"  style={{fill: postColor, fillOpacity: .1,}}>
+                <path d="M0 0 L50 0 L0 50 L0 0" />
+              </svg>
             <header className="flex flex-col gap-5 top-[20vh] sticky">
+              <svg width={50} height={50} style={{fill: postColor,fillOpacity: 0, stroke: postColor}}>
+                <path d="M0 0 L50 0 L0 50 L0 0" />
+              </svg>
               <div>
                 <p className=" font-bold text-xl pb-3">
                   <Link href={getCategoryUrl() + "?category=" + post.category}>
@@ -67,7 +76,7 @@ export default function WorkPostPage({
                     />
                   </Link>
                 </p>
-                <h1 className=" text-6xl font-extrabold break-keep">
+                <h1 className=" text-6xl font-extrabold break-keep" style={{textShadow: "3px 3px 0 " + postColor}}>
                   {post.title}
                 </h1>
               </div>
@@ -76,7 +85,8 @@ export default function WorkPostPage({
                   {post.programs?.map((p, idx) => (
                     <li
                       key={p + "_" + idx}
-                      className=" text-sm border border-inherit rounded-full px-3 py-[.1em] block"
+                      className={`text-sm border rounded-full px-3 py-[.1em] block`}
+                      style={{borderColor: postColor}}
                     >
                       {p}
                     </li>
@@ -134,5 +144,6 @@ export default function WorkPostPage({
         <Next_PrevPosts nextPost={nextPost} prevPost={prevPost} />
       </div>
     </div>
+    </SvgCurveLoader>
   );
 }

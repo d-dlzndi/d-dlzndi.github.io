@@ -1,7 +1,7 @@
 "use client";
 
 import FramerMagnetic from "@/components/animation/Magnetic";
-import _navigation, { urlType } from "./_navigation";
+import _navigation, { urlType } from "../../../app/portfolio/_navigation";
 import Link from "next/link";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useState } from "react";
