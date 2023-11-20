@@ -12,7 +12,7 @@ export default function Modal({ children }: { children: any }) {
   return (
     <>
       <div
-        className=" w-screen h-screen fixed top-0 left-0 bg-primary-content opacity-50 cursor-pointer"
+        className=" w-screen h-screen fixed top-0 left-0 bg-base-100 opacity-50 cursor-pointer"
         style={{ zIndex: 9999 }}
         onClick={() => router.back()}
       />

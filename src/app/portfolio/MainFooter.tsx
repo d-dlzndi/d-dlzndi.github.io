@@ -8,7 +8,7 @@ export function MainFooter() {
     <FixedFooter height={h}>
       <div
         style={{ height: h }}
-        className={`footer footer-center p-10 bg-primary text-primary-content min-h-fit min-w-fit`}
+        className={`footer footer-center p-10 bg-primary text-base-100 min-h-fit min-w-fit`}
       >
         <FooterContents />
       </div>

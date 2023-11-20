@@ -12,7 +12,7 @@ import styles from "./mainSideMenu.module.scss";
 import useWindowSize from "@/hooks/useWindowSize";
 
 type positionType = "left" | "right";
-const pos: positionType = "left";
+const pos: positionType = "right";
 
 export default function MainSideMenu() {
   const [show, setShow] = useState(false);
@@ -21,12 +21,14 @@ export default function MainSideMenu() {
   };
   const nav = _navigation;
   return (
-    <div className={`fixed flex top-0 ${pos}-0 p-10 z-50 select-none`}>
+    <div
+      className={`fixed flex w-screen h-screen top-0 left-0 p-10 z-50 select-none pointer-events-none`}
+    >
       <AnimatePresence mode="wait">
         {show && (
           <motion.div
             key="side-menu-bg"
-            className=" w-screen h-screen absolute top-0 left-0 cursor-pointer bg-base-100"
+            className=" pointer-events-auto w-screen h-screen absolute top-0 left-0 cursor-pointer bg-base-100"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.4 }}
             exit={{ opacity: 0 }}
@@ -38,14 +40,18 @@ export default function MainSideMenu() {
           <motion.div
             key="side-menu"
             initial={{
-              translateX: `calc(${pos == "left" ? "-" : ""}100% - 100px)`,
+              translateX: `calc(${pos == "left" ? "-" : ""}100% ${
+                pos == "left" ? "-" : "+"
+              } 100px)`,
             }}
             animate={{ translateX: 0 }}
             exit={{
-              translateX: `calc(${pos == "left" ? "-" : ""}100% - 100px)`,
+              translateX: `calc(${pos == "left" ? "-" : ""}100% ${
+                pos == "left" ? "-" : "+"
+              } 100px)`,
             }}
             transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
-            className={`absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex`}
+            className={`absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex pointer-events-auto`}
           >
             <SvgCurveBackground />
             <nav className=" w-full p-[20%] text-base-100 flex flex-col justify-center">
@@ -60,7 +66,7 @@ export default function MainSideMenu() {
                 ))}
               </ul>
               <hr className="my-10" />
-              <div className="text-xs footer text-primary-content">
+              <div className="text-xs footer text-base-100">
                 <FooterContents />
               </div>
             </nav>
@@ -68,7 +74,7 @@ export default function MainSideMenu() {
         )}
       </AnimatePresence>
       <FramerMagnetic
-        className={` absolute rounded-full top-5 ${pos}-5`}
+        className={` absolute rounded-full top-5 ${pos}-5 pointer-events-auto`}
         max={20}
       >
         <button
@@ -106,7 +112,17 @@ function SvgCurveBackground() {
   };
 
   return (
-    <svg className={styles.svgCurve + " fill-primary"}>
+    <svg
+      className={
+        styles.svgCurve +
+        " fill-primary pointer-events-none " +
+        (pos == "left" ? "" : "-scale-x-100")
+      }
+      style={{
+        right: pos == "left" ? "-99px" : "none",
+        left: pos == "left" ? "none" : "-99px",
+      }}
+    >
       <motion.path
         variants={pathAnimation}
         initial={"initial"}
@@ -130,9 +146,12 @@ function MenuTextAnimation({
   return (
     <motion.li
       key={url.name}
-      initial={{ translateX: -200 }}
+      initial={{ translateX: -200 * (pos == "left" ? 1 : -1) }}
       animate={{ translateX: 0 }}
-      exit={{ translateX: 100, transition: { duration: 0.4 + 0.1 * idx } }}
+      exit={{
+        translateX: 100 * (pos == "left" ? 1 : -1),
+        transition: { duration: 0.4 + 0.1 * idx },
+      }}
       transition={{
         delay: 0.3 + 0.1 * idx,
         duration: 0.6,

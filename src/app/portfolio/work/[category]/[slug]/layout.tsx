@@ -5,10 +5,7 @@ export default function WorkPostLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <PostHomeBtn />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
+
+// <PostHomeBtn />

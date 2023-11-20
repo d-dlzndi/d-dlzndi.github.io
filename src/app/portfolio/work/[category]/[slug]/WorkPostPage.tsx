@@ -1,20 +1,23 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
-
 import Date from "@/components/common/Date";
-
 import { WorkPost, allWorkPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import useWorkPosts from "@/hooks/useWorkPosts";
-import ImgWithPlaceholder from "@/components/common/ImgWithPlaceholder";
 import useImgPreview from "@/hooks/useImgPreview";
-
-import styles from "./WorkPostPage.module.scss";
-import HtmlRemover from "@/utils/htmlRemover";
 import { Next_PrevPosts } from "./Next_PrevPosts";
 import prose from "./prose.module.scss";
 import { Icons } from "@/components/common/Icons/Icons";
 import getTimeDiff from "@/utils/getTimeDiff";
+import GoBackBtn from "./GoBackBtn";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import ZoomImage from "@/components/common/mdx/ZoomImage";
+
+const mdxComponents = {
+  img: ZoomImage,
+  //pre: CodeBlock,
+};
 
 export default function WorkPostPage({
   post,
@@ -28,135 +31,104 @@ export default function WorkPostPage({
   const { getCategoryUrl } = useWorkPosts();
   const { getProp } = useImgPreview();
 
+  const MDXContent = useMDXComponent(post.body.code);
+
   if (!post) return notFound();
   return (
-    <div className="w-screen max-w-[1920px] bg-base-300 text-base-content">
-      <div className=" w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
-        <div
-          className={styles.bgImg}
-          style={{ backgroundColor: post?.color || "oklch(var(--p))" }}
-        >
-          <ImgWithPlaceholder
-            className="w-full h-full object-cover"
-            src={post.image}
-            width={100}
-            height={100}
-          />
-        </div>
-        <div className={styles.topImgDiv}>
-          <p
-            className={styles.topImgTitle}
-            style={post.color ? { color: post.color } : {}}
-          >
-            {post.title}
-          </p>
-          <div className={styles.topImgImg}>
-            <ImgWithPlaceholder
-              className="w-full h-full object-cover"
-              src={post.image}
-              width={1200}
-              height={1200}
-            />
-          </div>
-        </div>
+    <div className="w-screen min-h-screen !bg-base-content !text-base-100">
+      <div className="max-w-[1920px] w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
         <article
           id={post.slug}
-          className="flex flex-nowrap flex-col lg:flex-row-reverse place-items-stretch gap-5 w-full"
+          className=" flex flex-nowrap flex-col pt-[20vh] lg:flex-row place-items-stretch gap-5 w-full"
         >
-          <div className={styles.headerbox}>
-            <header className="flex flex-col gap-5 top-10 sticky">
-              <h1>{post.title}</h1>
+          <div className={` max-w-[100%] w-[200%] 2xl:mr-[12.5%] relative`}>
+            <GoBackBtn
+              className={
+                "btn btn-ghost max-w-fit p-0 opacity-20 hover:opacity-70 transition-opacity absolute -top-20 left-0"
+              }
+              push={getCategoryUrl()}
+            >
+              <Icons.uturnLeft
+                width={20}
+                height={20}
+                className="inline-block"
+              />
+              목록으로
+            </GoBackBtn>
+            <header className="flex flex-col gap-5 top-[20vh] sticky">
               <div>
-                <h2>분류</h2>
-                <p>
-                  <Link
-                    href={{
-                      href: getCategoryUrl(post.category),
-                      query: { category: post.category },
-                    }}
-                  >
+                <p className=" font-bold text-xl pb-3">
+                  <Link href={getCategoryUrl() + "?category=" + post.category}>
                     {post.category.replaceAll("-", " ")}
-                    <Icons.arrowUpRight width={16} height={16} />
+                    <Icons.arrowUpRight
+                      width={16}
+                      height={16}
+                      className="inline-block align-text-top"
+                    />
                   </Link>
                 </p>
+                <h1 className=" text-6xl font-extrabold break-keep">
+                  {post.title}
+                </h1>
               </div>
-              {post.awards && (
-                <div>
-                  <h2>주요 내역</h2>
-                  <ol className=" list-disc list-inside">
-                    {post.awards?.map((p, idx) => (
-                      <li key={p.name + "_" + idx}>
-                        {p.href ? (
-                          <a href={p.href} target="_blank">
-                            {p.name}
-                            <Icons.link width={16} height={16} />
-                          </a>
-                        ) : (
-                          <>{p.name}</>
-                        )}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              )}
               {post.programs && (
-                <div>
-                  <h2>프로그램</h2>
-                  <ol className=" list-disc list-inside">
-                    {post.programs?.map((p, idx) => (
-                      <li key={p + "_" + idx}>{p}</li>
-                    ))}
-                  </ol>
-                </div>
+                <ol className="flex flex-wrap gap-1">
+                  {post.programs?.map((p, idx) => (
+                    <li
+                      key={p + "_" + idx}
+                      className=" text-sm border border-inherit rounded-full px-3 py-[.1em] block"
+                    >
+                      {p}
+                    </li>
+                  ))}
+                </ol>
               )}
               {post.description && (
-                <div>
-                  <h2>요약</h2>
+                <>
                   <div
+                    className="opacity-50"
                     dangerouslySetInnerHTML={{
                       __html: post.description?.html || "",
                     }}
                     suppressHydrationWarning
                   />
-                </div>
+                </>
               )}
-              <div>
-                <h2>제작일</h2>
-                <p>
-                  <span>
-                    {post.startDate && (
-                      <>
-                        <Date
-                          dateString={post.startDate}
-                          dateFormat="YYYY.MM.DD."
-                        />
-                        {" - "}
-                      </>
-                    )}
-                    <Date dateString={post.date} dateFormat="YYYY.MM.DD." />
-                  </span>
-                  <br />
-                  <span>{getTimeDiff(post.date)} 전</span>
+              <p className="text-sm opacity-30">
+                <span>
                   {post.startDate && (
                     <>
-                      <br />
-                      <span>
-                        총 {getTimeDiff(post.startDate, post.date)} 간
-                      </span>
+                      <Date
+                        dateString={post.startDate}
+                        dateFormat="YYYY.MM.DD."
+                      />
+                      {" - "}
                     </>
                   )}
-                </p>
-              </div>
+                  <Date dateString={post.date} dateFormat="YYYY.MM.DD." />
+                </span>
+                <br />
+                <span>
+                  {getTimeDiff(post.date)} 전{post.startDate && "에"}
+                </span>
+                {post.startDate && (
+                  <>
+                    {` - `}
+                    <span>
+                      총 {getTimeDiff(post.startDate, post.date)} 동안
+                    </span>
+                  </>
+                )}
+              </p>
             </header>
           </div>
-          <div className={styles.bodybox + " max-w-full w-full lg:max-w-none"}>
-            <div
-              className={
-                prose.prose +
-                " max-w-none px-5 md:px-0 prose prose-invert lg:prose-lg"
-              }
-              dangerouslySetInnerHTML={{ __html: post.body.html }}
-            />
+          <div
+            className={
+              prose.prose +
+              " prose prose-invert lg:prose-lg w-[500%] max-w-full overflow-visible lg:max-w-none"
+            }
+          >
+            <MDXContent components={mdxComponents} />
           </div>
         </article>
         <Next_PrevPosts nextPost={nextPost} prevPost={prevPost} />

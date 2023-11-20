@@ -1,18 +1,41 @@
 .prose {
+    &, * {
+        color: inherit;
+    }
+
     p {
-        // line-height: 1.1;
-        margin: 0;
+        //line-height: 1.1;
+        &:has(img:only-child) {
+            margin: 0;
+        }
     }
 
     img {
         width: 100%;
-        max-height: 95vh;
+        // max-height: 95vh;
         object-fit: contain;
+        margin: 0;
     }
 
     hr {
         border: 0;
         @apply divider;
+        height: 1px;
+        opacity: .3;
+    }
+ 
+    li::marker {
+        color: oklch(var(--p));
+    }
+
+    h1, h2 {
+        font-size: xx-large;
+    }
+    h3,h4 {
+    font-size: x-large;
+    }
+    h5,h6 {
+    font-size: large;
     }
 
     h1,
@@ -21,11 +44,18 @@
     h4,
     h5,
     h6 {
+        //position: sticky;
+        //padding: 1em 0 .5em;
+        //background: linear-gradient(to bottom, oklch(var(--bc)) 90%, transparent 100%);
+        //top: 0;
+        color:inherit;
         font-weight: 900;
         scroll-margin-top: 20vh;
 
-        a[aria-hidden] {
+        a[aria-label] {
             position: relative;
+            opacity: 0;
+            transition: all .5s;
 
             &::before {
                 content: "#";
@@ -41,13 +71,16 @@
                 vertical-align: middle;
                 line-height: 1.3em;
                 transition: font-weight 1s ease-out;
-                text-shadow: 0 0 1px oklch(var(--pc));
+                // text-shadow: 0 0 1px oklch(var(--pc));
             }
 
             &:hover::before {
                 transition-duration: 0s;
                 font-weight: 900;
             }
+        }
+        &:hover a[aria-label] {
+            opacity: 1;
         }
     }
 

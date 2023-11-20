@@ -46,13 +46,13 @@ function FirstPage() {
   if (!indexPost) return notFound();
 
   return (
-    <LandingBox className={"h-screen bg-primary text-primary-content"}>
+    <LandingBox className={"h-screen bg-primary text-base-100"}>
       <div className="flex place-items-stretch w-full h-full">
         <div
           id="LeftContents"
           className=" w-1/3 flex flex-col pt-14 gap-8 justify-center"
         >
-          <div className="w-32 h-px bg-primary-content"></div>
+          <div className="w-32 h-px bg-base-100"></div>
           <h1
             className="text-7xl"
             dangerouslySetInnerHTML={{ __html: indexPost.title || "" }}

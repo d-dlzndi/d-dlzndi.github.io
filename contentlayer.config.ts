@@ -6,16 +6,12 @@ import {
 } from "contentlayer/source-files";
 import path from "path";
 import getImgInMd from "./src/utils/getImgInMd";
-
-import remarkFrontmatter from "remark-frontmatter";
-import remarkParse from "remark-parse";
-import remark2rehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
+import rehypeExternalLinks from "rehype-external-links";
 
 const AwardData = defineNestedType(() => ({
   name: "AwardData",
@@ -40,7 +36,8 @@ const ImageData = defineNestedType(() => ({
 
 export const WorkPost = defineDocumentType(() => ({
   name: "WorkPost",
-  filePathPattern: `./**/*.md`,
+  filePathPattern: `./**/*.mdx`,
+  contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     image: { type: "string", required: true },
@@ -95,8 +92,27 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "_works",
   documentTypes: [Post, WorkPost],
-  markdown: {
+  mdx: {
     remarkPlugins: [remarkGfm, remarkBreaks],
-    rehypePlugins: [rehypeSlug, rehypeHighlight, rehypeAutolinkHeadings],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeHighlight,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["anchor"],
+            ariaLabel: "anchor",
+          },
+        },
+      ],
+      [
+        rehypeExternalLinks,
+        {
+          target: "_blank",
+          rel: ["noopener noreferrer"],
+        },
+      ],
+    ],
   },
 });

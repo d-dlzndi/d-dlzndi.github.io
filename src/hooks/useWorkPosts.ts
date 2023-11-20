@@ -41,10 +41,7 @@ const useWorkPosts = ({ category }: Props = {}) => {
       .map(([category]) => category);
   }, [postsByCategory]);
 
-  const getCategoryUrl = (category: string) => {
-    //if (categories.includes(category)) {
-    //  return `/portfolio/work/${category}`;
-    //}
+  const getCategoryUrl = (category?: string) => {
     return `/portfolio/work/`;
   };
 

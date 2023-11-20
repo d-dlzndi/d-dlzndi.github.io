@@ -21,7 +21,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="ko" className="scroll-smooth">
       <head />
-      <body className={DefaultFont.className} suppressHydrationWarning>
+      <body
+        className={DefaultFont.className + " bg-base-100"}
+        suppressHydrationWarning
+      >
         {props.children}
       </body>
     </html>

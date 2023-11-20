@@ -32,7 +32,7 @@ export default function SvgCurveLoader({
 
     if (loader)
       loader.current.style.top =
-        easeOutQuad(elapsed, 0, -loaderHeight(), duration) + "px";
+        easeOutQuad(elapsed, 0, -loaderHeight() - 1, duration) + "px";
 
     if (elapsed < duration) {
       requestAnimationFrame(animate);
