@@ -3,7 +3,7 @@ import { allWorkPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import HtmlRemover from "@/utils/htmlRemover";
-import WorkPostPage from "@/components/pages/slug/WorkPostPage";
+import WorkPostPage from "@/components/pages/workPost/WorkPostPage";
 
 export const generateMetadata = async ({ params }: any): Promise<Metadata> => {
   const category = encodeURI(params.category);

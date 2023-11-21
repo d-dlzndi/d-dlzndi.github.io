@@ -2,8 +2,8 @@
 title: About
 data_set:
   - "[sksoyks@naver.com](mailto:sksoyks@naver.com)"
-  - "[blog.com](https://react.dev/)"
-  - "[LinkedIn](https://houhou/)"
+  - "[Linked.In](https://houhou/)"
+  - "[+82 10-2923-8734](tel:821029238734)"
 date: 2023-11-09
 ---
 

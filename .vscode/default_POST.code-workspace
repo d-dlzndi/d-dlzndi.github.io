@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "_works"
+			"path": "../_works"
 		},
 		{
-			"path": "public"
+			"path": "../public"
 		}
 	],
 	"settings": {}

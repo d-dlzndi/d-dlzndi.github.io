@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { WorkPost } from "contentlayer/generated";
 import Date from "@/components/common/Date";
-import styles from "./lineList.module.scss";
+import styles from "./lineList.module.css";
 
 export function LineList({ posts }: { posts: WorkPost[] }) {
   return (
@@ -60,7 +60,7 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
                       READ MORE
                     </span>
                   </div>
-                  <div className={styles.thumb + " hidden md:block"}>
+                  <div className={styles.thumb + " hidden lg:block"}>
                     <div className={"aspect-w-4 aspect-h-3 w-full"}>
                       <Img
                         src={post.image}
@@ -70,7 +70,7 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
                     </div>
                   </div>
                   <div className={styles.date}>
-                    <div className=" pl-[50%]">
+                    <div className="lg:pl-[50%]">
                       {post.startDate && (
                         <>
                           <Date dateString={post.startDate} /> <br />

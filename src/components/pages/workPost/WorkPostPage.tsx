@@ -14,9 +14,11 @@ import GoBackBtn from "./GoBackBtn";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import ZoomImage from "@/components/common/mdx/ZoomImage";
 import SvgCurveLoader from "@/components/animation/svg-curve-loader";
+import NextPrevPostBtns from "./NextPrevPostBtns";
+import ScrollShowImage from "@/components/common/mdx/ScrollShowImage";
 
 const mdxComponents = {
-  img: ZoomImage,
+  img: ScrollShowImage,
   //pre: CodeBlock,
 };
 

@@ -7,7 +7,7 @@ import LinkImgUrl from "@/assets/svg/link.svg";
 
 export default function AboutPage() {
   const { allPosts } = usePosts();
-  const post: Post | undefined = allPosts.find((p) => p.slug == "About");
+  const post: Post | undefined = allPosts.find((p) => p.slug == "Contact");
   if (!post) notFound();
 
   return (

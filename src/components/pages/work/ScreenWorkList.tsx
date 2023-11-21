@@ -47,7 +47,7 @@ export default function ScreenWorkList() {
           </button>
         </div>
       </div>
-      <div className=" min-h-[100px] border-primary">
+      <div className=" min-h-[100px] lg:pb-[10vh]">
           {mode == "list" && <LineList posts={posts} />}
           {mode == "gallery" && <GalleryList posts={posts} />}
       </div>

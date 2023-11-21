@@ -12,6 +12,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import rehypeExternalLinks from "rehype-external-links";
+import remarkComment from '@slorber/remark-comment';
 
 const AwardData = defineNestedType(() => ({
   name: "AwardData",
@@ -94,7 +95,7 @@ export default makeSource({
   contentDirPath: "_works",
   documentTypes: [Post, WorkPost],
   mdx: {
-    remarkPlugins: [remarkGfm, remarkBreaks],
+    remarkPlugins: [remarkComment, remarkGfm, remarkBreaks],
     rehypePlugins: [
       rehypeSlug,
       rehypeHighlight,

@@ -28,10 +28,10 @@ export default function MainSideMenu() {
         {show && (
           <motion.div
             key="side-menu-bg"
-            className=" pointer-events-auto w-screen h-screen absolute top-0 left-0 cursor-pointer bg-base-100"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
-            exit={{ opacity: 0 }}
+            className=" pointer-events-auto w-screen h-screen absolute top-0 left-0 cursor-pointer"
+            initial={{ backdropFilter: 'none'}}
+            animate={{ backdropFilter: 'blur(1px)' }}
+            exit={{ backdropFilter: 'none' }}
             transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
             onClick={() => setShow(false)}
           />
@@ -83,6 +83,11 @@ export default function MainSideMenu() {
         >
           <MenuButton menuIsActive={show} className=" top-[.6rem]" />
         </button>
+      </FramerMagnetic>
+      <FramerMagnetic
+      className={`absolute rounded-full top-8 left-8 pointer-events-auto`}
+      max={20}>
+        <Link href="/portfolio" className=" text-2xl font-black text-primary">PORTFOLIO</Link>
       </FramerMagnetic>
     </div>
   );

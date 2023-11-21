@@ -19,6 +19,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@plaiceholder/next": "^3.0.0",
+    "@slorber/remark-comment": "^1.0.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
