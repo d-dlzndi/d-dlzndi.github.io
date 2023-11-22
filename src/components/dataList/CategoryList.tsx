@@ -26,10 +26,7 @@ export default function CategoryList({
                 ? " bg-[var(--color)] text-[var(--background)]"
                 : " bg-[var(--background)]"
             }`}
-            href={{
-              href: getCategoryUrl(cate),
-              query: { category: cate },
-            }}
+            href={getCategoryUrl(cate)}
           >
             {cate.replaceAll("-", " ").toUpperCase()}
           </Link>

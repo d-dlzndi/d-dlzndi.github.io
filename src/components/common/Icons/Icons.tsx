@@ -15,6 +15,7 @@ import {
   XMarkIcon,
   XCircleIcon,
   ArrowUpRightIcon,
+  HashtagIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
@@ -43,4 +44,5 @@ export const Icons = {
   email: (props: IconProps) => <AtSymbolIcon {...props} />,
   github: (props: IconProps) => <GithubIcon {...props} />,
   arrowUpRight: (props: IconProps) => <ArrowUpRightIcon {...props} />,
+  sharp: (props: IconProps) => <HashtagIcon {...props} />,
 };

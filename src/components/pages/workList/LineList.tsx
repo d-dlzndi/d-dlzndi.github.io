@@ -6,8 +6,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { WorkPost } from "contentlayer/generated";
 import Date from "@/components/common/Date";
 import styles from "./lineList.module.css";
+import useWorkPosts from "@/hooks/useWorkPosts";
 
-export function LineList({ posts }: { posts: WorkPost[] }) {
+export function LineList({
+  posts,
+  categoryUse = true,
+}: {
+  posts: WorkPost[];
+  categoryUse?: boolean;
+}) {
+  const { getCategoryUrl } = useWorkPosts();
   return (
     <>
       <motion.ul layout layoutRoot className="flex flex-col">
@@ -27,27 +35,26 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
               className=" min-h-fit min-w-fit border-t last:border-b relative"
             >
               <motion.div className={styles.listdiv}>
-                <div className={styles.category}>
-                  <Link
-                    href={{
-                      href: "/portfolio/work",
-                      query: { category: post.category },
-                    }}
-                    className={styles.categoryLink}
-                  >
-                    <span className={styles.ctspan}>
-                      {post.category.replaceAll("-", " ")}
-                    </span>
-                    <span className={styles.ctmore}>
-                      <Icons.chevronDoubleUp
-                        width={15}
-                        height={15}
-                        className=" inline-block"
-                      />{" "}
-                      MORE POSTS
-                    </span>
-                  </Link>
-                </div>
+                {categoryUse && (
+                  <div className={styles.category}>
+                    <Link
+                      href={getCategoryUrl(post.category)}
+                      className={styles.categoryLink}
+                    >
+                      <span className={styles.ctspan}>
+                        {post.category.replaceAll("-", " ")}
+                      </span>
+                      <span className={styles.ctmore}>
+                        <Icons.chevronDoubleUp
+                          width={15}
+                          height={15}
+                          className=" inline-block"
+                        />{" "}
+                        MORE POSTS
+                      </span>
+                    </Link>
+                  </div>
+                )}
                 <Link href={post.url || ""} className={styles.listlink}>
                   <div className={styles.title}>
                     <h4 className={styles.titlespan}>{post.title}</h4>
@@ -87,9 +94,12 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
           ))}
         </AnimatePresence>
       </motion.ul>
-      <div
-        className="w-full h-32" // 아래 여유공간용
-      />
     </>
   );
 }
+
+/*
+  <div
+        className="w-full h-32" // 아래 여유공간용
+      />
+*/

@@ -1,10 +1,10 @@
 const MainWorkPosts: { category: string; slug: string }[] = [
   {
-    category: "3D-Animation",
+    category: "Animation",
     slug: "A-Metal-Flower",
   },
   {
-    category: "3D-Modeling",
+    category: "Digital-Sculpting",
     slug: "Background-Room",
   },
   {
@@ -13,7 +13,7 @@ const MainWorkPosts: { category: string; slug: string }[] = [
   },
   {
     category: "Programming",
-    slug: "Portfolio-Blog-With-NextJs",
+    slug: "Library-Of-Star",
   },
 ];
 

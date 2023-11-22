@@ -45,8 +45,8 @@ export const WorkPost = defineDocumentType(() => ({
     date: { type: "date", required: true },
     startDate: { type: "date" },
     description: { type: "markdown" },
-    programs: { type: "list", of: { type: "string" } },
-    awards: { type: "list", of: AwardData },
+    tag: { type: "list", of: { type: "string" } },
+    award: { type: "list", of: AwardData },
     url: { type: "string" },
     color: { type: "string" },
     draft: {type: 'boolean', default: false}

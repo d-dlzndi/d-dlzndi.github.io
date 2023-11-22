@@ -37,7 +37,7 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
         <MouseFollowBox className="flex flex-1 max-w-[40%] basis-0 relative">
           <header className="flex-1 basis-0 relative">
             <div className="top-box h-[60vh] gap-10 relative py-7 flex flex-col justify-end">
-              <AwardList awardList={post.awards} />
+              <AwardList awardList={post.award} />
               <div className="flex flex-row gap-3 w-3/4">
                 <div className="description1 flex-1 break-all text-justify opacity-20 max-w-[340px]">
                   {HtmlRemover(post.description?.html).substring(0, 200) +
@@ -68,7 +68,7 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
                 <h5 className="mb-2">PROGRAM</h5>
                 <div className="w-2/3">
                   <ProgramList
-                    programList={post.programs || undefined}
+                    programList={post.tag || undefined}
                     className=""
                   />
                 </div>

@@ -9,10 +9,11 @@ type Props = {
 };
 
 const useWorkPosts = ({ category }: Props = {}) => {
-  const basePosts = [...allWorkPosts].filter
-  ((post) => post.draft == false).sort((prev, next) => {
-    return Date.parse(next.date) - Date.parse(prev.date);
-  });
+  const basePosts = [...allWorkPosts]
+    .filter((post) => post.draft == false)
+    .sort((prev, next) => {
+      return Date.parse(next.date) - Date.parse(prev.date);
+    });
 
   const postsByCategory = useMemo<PostsByCategory>(() => {
     return basePosts.reduce((postsByCategory, post) => {
@@ -43,7 +44,7 @@ const useWorkPosts = ({ category }: Props = {}) => {
   }, [postsByCategory]);
 
   const getCategoryUrl = (category?: string) => {
-    return `/portfolio/work/`;
+    return { href: "/portfolio/work", query: { category: category } };
   };
 
   return {

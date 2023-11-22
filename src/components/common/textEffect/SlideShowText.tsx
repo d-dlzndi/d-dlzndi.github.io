@@ -7,10 +7,12 @@ export default function SlideShowText({
   textSource,
   className,
   childClassName = "",
+  delay = 0,
 }: {
   textSource?: string[];
   className: string;
   childClassName?: string;
+  delay?: number;
 }) {
   const phrases = textSource || [
     "안녕하세요 반갑습니다",
@@ -25,13 +27,13 @@ export default function SlideShowText({
   });
 
   const animate = {
-    initial: { y: "-100%", opacity: 0 },
+    initial: { y: "-20%", opacity: 0 },
     open: (index: number) => ({
       y: "0%",
       opacity: 1,
       transition: {
         duration: 0.7,
-        delay: 0.1 * index,
+        delay: 0.1 * index + delay,
         ease: [0.33, 1, 0.68, 1],
       },
     }),

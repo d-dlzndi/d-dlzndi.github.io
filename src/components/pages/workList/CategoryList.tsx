@@ -22,10 +22,7 @@ export function CategoryList({
             className={`${cate == selectedCategory ? s.selected : ""} ${
               s.link
             }`}
-            href={{
-              href: getCategoryUrl(cate),
-              query: { category: cate },
-            }}
+            href={getCategoryUrl(cate)}
           >
             {cate.replaceAll("-", " ")}
           </Link>

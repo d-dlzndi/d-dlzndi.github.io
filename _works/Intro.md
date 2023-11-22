@@ -1,5 +1,5 @@
 ---
-title: Hello! <br />I'm SEO YUN, <br />3D Designer.
+title: HELLO! \nI'm SEO YUN, \n3D-DESIGNER.
 date: 2023-11-05
 ---
 

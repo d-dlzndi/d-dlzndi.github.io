@@ -28,10 +28,10 @@ export default function MainSideMenu() {
         {show && (
           <motion.div
             key="side-menu-bg"
-            className=" pointer-events-auto w-screen h-screen absolute top-0 left-0 cursor-pointer"
-            initial={{ backdropFilter: 'none'}}
-            animate={{ backdropFilter: 'blur(1px)' }}
-            exit={{ backdropFilter: 'none' }}
+            className="block lg:hidden pointer-events-auto w-screen h-screen absolute top-0 left-0 cursor-pointer"
+            initial={{ backdropFilter: "none" }}
+            animate={{ backdropFilter: "blur(1px)" }}
+            exit={{ backdropFilter: "none" }}
             transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
             onClick={() => setShow(false)}
           />
@@ -51,7 +51,7 @@ export default function MainSideMenu() {
               } 100px)`,
             }}
             transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
-            className={`absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex pointer-events-auto`}
+            className={`block lg:hidden absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex pointer-events-auto`}
           >
             <SvgCurveBackground />
             <nav className=" w-full p-[20%] text-base-100 flex flex-col justify-center">
@@ -74,7 +74,7 @@ export default function MainSideMenu() {
         )}
       </AnimatePresence>
       <FramerMagnetic
-        className={` absolute rounded-full top-5 ${pos}-5 pointer-events-auto`}
+        className={`block lg:hidden absolute rounded-full top-5 ${pos}-5 pointer-events-auto`}
         max={20}
       >
         <button
@@ -85,10 +85,27 @@ export default function MainSideMenu() {
         </button>
       </FramerMagnetic>
       <FramerMagnetic
-      className={`absolute rounded-full top-8 left-8 pointer-events-auto`}
-      max={20}>
-        <Link href="/portfolio" className=" text-2xl font-black text-primary">PORTFOLIO</Link>
+        className={`absolute rounded-full top-8 left-8 pointer-events-auto`}
+        max={10}
+      >
+        <Link href="/portfolio" className=" text-2xl font-black text-primary">
+          PORTFOLIO
+        </Link>
       </FramerMagnetic>
+      <nav
+        className={`hidden lg:block absolute top-8 right-8 pointer-events-auto`}
+      >
+        <ol className="flex gap-8 text-primary">
+          {_navigation.map((url, idx) => (
+            <li
+              key={url.name}
+              className={`uppercase w-24 text-center font-bold hover:font-black text-lg`}
+            >
+              <Link href={url.url || "/"}>{url.name}</Link>
+            </li>
+          ))}
+        </ol>
+      </nav>
     </div>
   );
 }
