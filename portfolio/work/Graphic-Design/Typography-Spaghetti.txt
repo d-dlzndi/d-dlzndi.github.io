@@ -1,6 +1,6 @@
 1:HL["https://d-dlzndi.github.io/_next/static/media/155ce652bb9cca31-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["https://d-dlzndi.github.io/_next/static/css/63e7c3957c2f30d8.css","style",{"crossOrigin":""}]
-0:["r_LYtoJxsWALUNsxhylMO",[[["",{"children":["portfolio",{"children":["work",{"children":[["category","Graphic-Design","d"],{"children":[["slug","Typography-Spaghetti","d"],{"children":["__PAGE__?{\"category\":\"Graphic-Design\",\"slug\":\"Typography-Spaghetti\"}",{}]}]}]}]}],"modal":["__DEFAULT__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/63e7c3957c2f30d8.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+0:["0drjQ13hFPAWbZ4G7eraX",[[["",{"children":["portfolio",{"children":["work",{"children":[["category","Graphic-Design","d"],{"children":[["slug","Typography-Spaghetti","d"],{"children":["__PAGE__?{\"category\":\"Graphic-Design\",\"slug\":\"Typography-Spaghetti\"}",{}]}]}]}]}],"modal":["__DEFAULT__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/63e7c3957c2f30d8.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:HL["https://d-dlzndi.github.io/_next/static/css/157dff2fa194f852.css","style",{"crossOrigin":""}]
 6:HL["https://d-dlzndi.github.io/_next/static/css/892f8b76de0d8a07.css","style",{"crossOrigin":""}]
 7:I[3170,[],"NotFoundBoundary"]
