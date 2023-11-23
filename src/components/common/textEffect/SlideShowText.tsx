@@ -44,7 +44,7 @@ export default function SlideShowText({
       {phrases.map((phrase, index) => {
         return (
           <div key={index} className={"overflow-visible m-0 " + childClassName}>
-            <motion.p>
+            <motion.p className=" whitespace-nowrap">
               {phrase.split("").map((char, idx) => (
                 <motion.span
                   key={idx}

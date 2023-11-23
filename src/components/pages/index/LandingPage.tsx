@@ -10,6 +10,7 @@ import Link from "next/link";
 import SlideShowText from "@/components/common/textEffect/SlideShowText";
 import { WorkPost } from "contentlayer/generated";
 import { Icons } from "@/components/common/Icons/Icons";
+import { motion } from "framer-motion";
 
 const anim_work = [
   {
@@ -21,16 +22,11 @@ const anim_work = [
     slug: "GameJam-Korea2023",
   },
 ];
-/*
-(page) =>
-    workPosts.allPosts.find(
-      (allP) => allP.category == page.category && allP.slug == page.slug
-    )
-*/
+
 export default function LandingPage(params: any) {
-  const workPosts = useWorkPosts();
+  const { allPosts, tags, getTagUrl } = useWorkPosts();
   const animPosts: WorkPost[] = anim_work.reduce((array, current) => {
-    const value = workPosts.allPosts.find(
+    const value = allPosts.find(
       (allP) => allP.category == current.category && allP.slug == current.slug
     );
     if (value) return [...array, value];
@@ -76,9 +72,13 @@ function HelloPage() {
         <SlideShowText
           textSource={indexPost.title.split("\\n")}
           className="text-5xl lg:text-[12vw] w-full my-[-0.1em] leading-none font-black"
-          delay={1}
+          delay={0.5}
         />
-        <div
+        <motion.div
+          initial={{ opacity: 0, translateY: 20 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 3, duration: 1 }}
+          viewport={{ once: true }}
           className=" lg:absolute lg:top-1/3 lg:left-3/4 w-28 break-keep whitespace-pre"
           dangerouslySetInnerHTML={{ __html: indexPost.body?.html || "" }}
         />
@@ -103,80 +103,116 @@ const keywords = [
 
 type aboutType = { title: string; content: JSX.Element };
 
-const aboutData: aboutType[] = [
-  {
-    title: "Self-Introduce",
-    content: (
-      <p>
-        자기 소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기
-        소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기 소개를
-        여기에 입력합니다.
-      </p>
-    ),
-  },
-  {
-    title: "Education",
-    content: (
-      <TimeLine
-        data={[
-          { name: "화정고등학교 졸업", year: "2019.02." },
-          { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
-        ]}
-      />
-    ),
-  },
-  {
-    title: "ability",
-    content: (
-      <>
-        {skills.map((skill, idx) => (
-          <div
-            key={idx}
-            className="radial-progress bg-primary text-secondary border-4 border-primary"
-            style={{
-              //@ts-ignore
-              "--value": skill.progress,
-              "--size": "12rem",
-              "--thickness": "1rem",
-            }}
-            role="progressbar"
-          >
-            <p className="text-center">
-              <span className=" font-bold text-xl">{skill.name}</span>
-              <br />
-              {skill.progress + "%"}
-            </p>
-          </div>
-        ))}
-      </>
-    ),
-  },
-  {
-    title: "skills",
-    content: (
-      <SkillTable
-        skills={skills}
-        colors={[
-          "progress-info",
-          "progress-success",
-          "progress-warning",
-          "progress-error",
-        ]}
-      />
-    ),
-  },
-  { title: "experience", content: <></> },
-  { title: "activity", content: <></> },
-];
-
 function AboutMePage() {
+  const { tags, getTagUrl } = useWorkPosts();
+
+  const aboutData: aboutType[] = [
+    {
+      title: "Self-Introduce",
+      content: (
+        <p>
+          자기 소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기
+          소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기 소개를
+          여기에 입력합니다.
+        </p>
+      ),
+    },
+    {
+      title: "Education",
+      content: (
+        <TimeLine
+          data={[
+            { name: "화정고등학교 졸업", year: "2019.02." },
+            { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
+          ]}
+        />
+      ),
+    },
+    {
+      title: "experience",
+      content: (
+        <ol className=" list-disc list-inside">
+          <li>안녕하세요</li>
+          <li>안녕하세요</li>
+          <li>안녕하세요</li>
+          <li>안녕하세요</li>
+        </ol>
+      ),
+    },
+    {
+      title: "activity",
+      content: (
+        <p>
+          자기 소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기
+          소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기 소개를
+          여기에 입력합니다.
+        </p>
+      ),
+    },
+    {
+      title: "ability",
+      content: (
+        <>
+          {skills.map((skill, idx) => (
+            <div
+              key={idx}
+              className="radial-progress bg-primary text-secondary border-4 border-primary"
+              style={{
+                //@ts-ignore
+                "--value": skill.progress,
+                "--size": "12rem",
+                "--thickness": "1rem",
+              }}
+              role="progressbar"
+            >
+              <p className="text-center">
+                <span className=" font-bold text-xl">{skill.name}</span>
+                <br />
+                {skill.progress + "%"}
+              </p>
+            </div>
+          ))}
+        </>
+      ),
+    },
+    {
+      title: "skills",
+      content: (
+        <SkillTable
+          skills={skills}
+          colors={[
+            "progress-info",
+            "progress-success",
+            "progress-warning",
+            "progress-error",
+          ]}
+        />
+      ),
+    },
+    {
+      title: "tags",
+      content: (
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, idx) => (
+            <Link
+              href={getTagUrl(tag)}
+              key={idx}
+              className=" bg-base-100 text-primary border rounded-full px-2 py-px"
+            >
+              {"#" + tag}
+            </Link>
+          ))}
+        </div>
+      ),
+    },
+  ];
   return (
     <LandingBox className={`bg-primary text-base-100`}>
       <div className="flex place-items-stretch min-h-screen p-10 py-20">
         <div className="w-1/4 relative">
           <Img
             src={"/3.jpg"}
-            className={` sticky block top-16 w-full h-full max-h-[90vh] object-cover`}
+            className={` sticky block top-[5vh] w-full h-full max-h-[90vh] object-cover`}
             width={1200}
             height={800}
           />

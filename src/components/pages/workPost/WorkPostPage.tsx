@@ -1,17 +1,15 @@
 "use client";
 import Link from "next/link";
 import Date from "@/components/common/Date";
-import { WorkPost, allWorkPosts } from "contentlayer/generated";
+import { WorkPost } from "contentlayer/generated";
 import { notFound } from "next/navigation";
-import useWorkPosts from "@/hooks/useWorkPosts";
+import useWorkPosts, { WORK_URL } from "@/hooks/useWorkPosts";
 import useImgPreview from "@/hooks/useImgPreview";
 import { Next_PrevPosts } from "./Next_PrevPosts";
 import prose from "./prose.module.scss";
 import { Icons } from "@/components/common/Icons/Icons";
 import getTimeDiff from "@/utils/getTimeDiff";
-import GoBackBtn from "./GoBackBtn";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import ZoomImage from "@/components/common/mdx/ZoomImage";
 import SvgCurveLoader from "@/components/animation/svg-curve-loader";
 import NextPrevPostBtns from "./NextPrevPostBtns";
 import ScrollShowImage from "@/components/common/mdx/ScrollShowImage";
@@ -30,11 +28,19 @@ export default function WorkPostPage({
   prevPost: WorkPost;
   nextPost: WorkPost;
 }) {
-  const { getCategoryUrl } = useWorkPosts();
+  const { getCategoryUrl, getTagUrl } = useWorkPosts();
   const { getProp } = useImgPreview();
 
   const postColor = post.color ? post.color : "oklch(var(--p))";
   const MDXContent = useMDXComponent(post.body.code);
+
+  const titleEnter = (title: string) => {
+    const spliter = "〈";
+    if (title.indexOf(spliter) >= 0) {
+      return title.split(spliter).join("<br />" + spliter);
+    }
+    return title;
+  };
 
   if (!post) return notFound();
   return (
@@ -50,7 +56,7 @@ export default function WorkPostPage({
                 className={
                   "btn btn-ghost max-w-fit p-0 opacity-20 hover:opacity-70 transition-opacity absolute -top-20 left-0"
                 }
-                href={getCategoryUrl(post.category)}
+                href={WORK_URL}
               >
                 <Icons.uturnLeft
                   width={20}
@@ -89,19 +95,20 @@ export default function WorkPostPage({
                   <h1
                     className=" text-6xl font-extrabold break-keep"
                     style={{ textShadow: "3px 3px 0 " + postColor }}
-                  >
-                    {post.title}
-                  </h1>
+                    dangerouslySetInnerHTML={{ __html: titleEnter(post.title) }}
+                  ></h1>
                 </div>
                 {post.tag && (
                   <ol className="flex flex-wrap gap-1">
                     {post.tag?.map((p, idx) => (
-                      <li
-                        key={p + "_" + idx}
-                        className={`text-sm border rounded-full px-3 py-[.1em] block`}
-                        style={{ borderColor: postColor }}
-                      >
-                        {p}
+                      <li key={p + "_" + idx}>
+                        <Link
+                          href={getTagUrl(p)}
+                          className={`text-sm border rounded-full px-3 py-[.1em] block`}
+                          style={{ borderColor: postColor }}
+                        >
+                          {p}
+                        </Link>
                       </li>
                     ))}
                   </ol>
@@ -109,7 +116,7 @@ export default function WorkPostPage({
                 {post.description && (
                   <>
                     <div
-                      className="opacity-50"
+                      className="opacity-50 break-keep w-3/4"
                       dangerouslySetInnerHTML={{
                         __html: post.description?.html || "",
                       }}
