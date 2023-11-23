@@ -94,12 +94,9 @@ export function LineList({
           ))}
         </AnimatePresence>
       </motion.ul>
+      <div
+        className="w-full h-[10em]" // 아래 여유공간용
+      />
     </>
   );
 }
-
-/*
-  <div
-        className="w-full h-32" // 아래 여유공간용
-      />
-*/

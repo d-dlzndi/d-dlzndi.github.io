@@ -43,25 +43,29 @@ export default function WorkCategoryPage({
       ? `#${tag?.replaceAll(" ", "-")}` || ""
       : WORK;
   return (
-    <div className="flex flex-col mt-[30vh] xl:mt-0 p-10 xl:flex-row xl:items-end xl:h-screen xl:justify-stretch">
+    <div className="flex flex-col mt-[30vh] xl:mt-0 p-10 xl:flex-row xl:min-h-screen xl:justify-stretch">
       <div className=" xl:w-1/3 relative">
-        <div className="text-6xl lg:text-7xl sticky bottom-0 break-keep">
-          <div className="flex flex-col lg:flex-row justify-between">
-            {TYPE !== "WORK" && <BackListBtn />}
-            {(TYPE == "TAG" ||
-              (TYPE == "CATEGORY" && category == CATEGORY_ALL)) && (
-              <ListGallerySwitchBtnSet mode={mode} setMode={setMode} />
-            )}
+        <div className="sticky top-10 xl:h-[90vh] h-auto flex flex-col justify-end">
+          <div className="text-6xl lg:text-7xl break-keep">
+            <div className="flex flex-col lg:flex-row justify-between">
+              {TYPE !== "WORK" && <BackListBtn />}
+              {(TYPE == "TAG" ||
+                (TYPE == "CATEGORY" && category == CATEGORY_ALL)) && (
+                <ListGallerySwitchBtnSet mode={mode} setMode={setMode} />
+              )}
+            </div>
+            <h1 className="font-black text-primary uppercase">
+              <Link href={"/portfolio/work"}>{title}</Link>
+            </h1>
           </div>
-          <h1 className="font-black text-primary uppercase">
-            <Link href={"/portfolio/work"}>{title}</Link>
-          </h1>
         </div>
       </div>
-      <hr className=" w-px h-full bg-base-200 opacity-50 mx-10" />
-      <div className="xl:w-2/3">
+
+      <hr className="w-px h-auto bg-base-200 opacity-50 mx-10" />
+
+      <div className="xl:w-2/3 w-full">
         {TYPE == "CATEGORY" || TYPE == "TAG" ? (
-          <div className="min-h-screen pt-10 xl:pt-36">
+          <div className="min-h-screen pt-10 xl:pt-36 ">
             {TYPE == "TAG" ||
             (TYPE == "CATEGORY" && category == CATEGORY_ALL) ? (
               mode == "list" ? (
@@ -76,7 +80,9 @@ export default function WorkCategoryPage({
             )}
           </div>
         ) : (
-          <CategoryPage />
+          <div className={"w-full h-full relative flex items-end"}>
+            <CategoryPage />
+          </div>
         )}
       </div>
     </div>
