@@ -8,8 +8,11 @@ import { motion } from "framer-motion";
 import { Icons } from "@/components/common/Icons/Icons";
 import useLocalStorage from "@/hooks/useLocalStorage";
 
+const CATEGORY_ALL = "All";
+const WORK = "WORK";
+
 const isLineList = (ct: string) => {
-  return ct == "Graphic-Design";
+  return ct == "Graphic-Design" || ct == CATEGORY_ALL;
 };
 
 export default function WorkCategoryPage({
@@ -20,26 +23,33 @@ export default function WorkCategoryPage({
   const searchParam = useSearchParams();
   const category = searchParam.get("category");
   const tag = searchParam.get("tag");
-  const { filterPosts } = useWorkPosts({ category, tag });
+  const { filterPosts, categories, tags } = useWorkPosts({ category, tag });
 
   const [mode, setMode] = useLocalStorage<"list" | "gallery">(
     "work_list_mode",
     "gallery"
   );
+  const TYPE =
+    category && [CATEGORY_ALL, ...categories].includes(category)
+      ? "CATEGORY"
+      : tag && tags.includes(tag)
+      ? "TAG"
+      : "WORK";
 
-  const WORK = "WORK";
-  const title = category
-    ? category.replaceAll("-", " ")
-    : tag
-    ? `#${tag.replaceAll(" ", "-")}`
-    : WORK;
+  const title =
+    TYPE == "CATEGORY"
+      ? category?.replaceAll("-", " ") || ""
+      : TYPE == "TAG"
+      ? `#${tag?.replaceAll(" ", "-")}` || ""
+      : WORK;
   return (
     <div className="flex flex-col mt-[30vh] xl:mt-0 p-10 xl:flex-row xl:items-end xl:h-screen xl:justify-stretch">
       <div className=" xl:w-1/3 relative">
         <div className="text-6xl lg:text-7xl sticky bottom-0 break-keep">
           <div className="flex flex-col lg:flex-row justify-between">
-            {title !== WORK && <BackListBtn />}
-            {title.indexOf("#") == 0 && (
+            {TYPE !== "WORK" && <BackListBtn />}
+            {(TYPE == "TAG" ||
+              (TYPE == "CATEGORY" && category == CATEGORY_ALL)) && (
               <ListGallerySwitchBtnSet mode={mode} setMode={setMode} />
             )}
           </div>
@@ -50,15 +60,16 @@ export default function WorkCategoryPage({
       </div>
       <hr className=" w-px h-full bg-base-200 opacity-50 mx-10" />
       <div className="xl:w-2/3">
-        {category || tag ? (
+        {TYPE == "CATEGORY" || TYPE == "TAG" ? (
           <div className="min-h-screen pt-10 xl:pt-36">
-            {tag ? (
+            {TYPE == "TAG" ||
+            (TYPE == "CATEGORY" && category == CATEGORY_ALL) ? (
               mode == "list" ? (
                 <LineList categoryUse={false} posts={filterPosts} />
               ) : (
                 <GalleryList posts={filterPosts} />
               )
-            ) : category && isLineList(category) ? (
+            ) : TYPE == "CATEGORY" && isLineList(category || "") ? (
               <LineList categoryUse={false} posts={filterPosts} />
             ) : (
               <GalleryList posts={filterPosts} />
@@ -76,7 +87,7 @@ function CategoryPage() {
   const { categories, getCategoryUrl } = useWorkPosts();
   return (
     <ul className="flex flex-col w-full mt-10 xl:mt-0 xl:gap-16">
-      {categories.map((c, idx) => (
+      {[CATEGORY_ALL, ...categories].map((c, idx) => (
         <motion.li
           key={c}
           initial={{ opacity: 0, translateX: -20 }}
@@ -89,7 +100,7 @@ function CategoryPage() {
           className="xl:-ml-24"
         >
           <span className=" opacity-50 align-top pr-4 xl:pr-10 text-sm xl:text-2xl">
-            {"0" + (idx + 1)}
+            {"0" + idx}
           </span>
           <Link
             href={getCategoryUrl(c)}
