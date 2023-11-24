@@ -44,8 +44,8 @@ export default function WorkCategoryPage({
       : WORK;
   return (
     <div className="flex flex-col mt-[30vh] xl:mt-0 p-10 xl:flex-row xl:min-h-screen xl:justify-stretch">
-      <div className=" xl:w-1/3 relative">
-        <div className="sticky top-10 xl:h-[90vh] h-auto flex flex-col justify-end">
+      <div className=" xl:w-1/3 shrink-0 relative">
+        <div className="sticky z-10 top-10 xl:h-[90vh] h-auto flex flex-col justify-end">
           <div className="text-6xl lg:text-7xl break-keep">
             <div className="flex flex-col lg:flex-row justify-between">
               {TYPE !== "WORK" && <BackListBtn />}
