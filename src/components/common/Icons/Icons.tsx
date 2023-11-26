@@ -12,6 +12,7 @@ import {
   ArrowRightIcon,
   ArrowLeftIcon,
   ChevronDoubleUpIcon,
+  ChevronDoubleRightIcon,
   XMarkIcon,
   XCircleIcon,
   ArrowUpRightIcon,
@@ -41,6 +42,9 @@ export const Icons = {
   arrowRight: (props: IconProps) => <ArrowRightIcon {...props} />,
   arrowLeft: (props: IconProps) => <ArrowLeftIcon {...props} />,
   chevronDoubleUp: (props: IconProps) => <ChevronDoubleUpIcon {...props} />,
+  chevronDoubleRight: (props: IconProps) => (
+    <ChevronDoubleRightIcon {...props} />
+  ),
   email: (props: IconProps) => <AtSymbolIcon {...props} />,
   github: (props: IconProps) => <GithubIcon {...props} />,
   arrowUpRight: (props: IconProps) => <ArrowUpRightIcon {...props} />,

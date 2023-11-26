@@ -54,7 +54,7 @@ export default function WorkCategoryPage({
                 <ListGallerySwitchBtnSet mode={mode} setMode={setMode} />
               )}
             </div>
-            <h1 className="font-black text-primary uppercase">
+            <h1 className=" uppercase">
               <Link href={"/portfolio/work"}>{title}</Link>
             </h1>
           </div>
@@ -92,7 +92,7 @@ export default function WorkCategoryPage({
 function CategoryPage() {
   const { categories, getCategoryUrl } = useWorkPosts();
   return (
-    <ul className="flex flex-col w-full mt-10 xl:mt-0 xl:gap-16">
+    <ul className="flex flex-col w-full mt-10 xl:mt-0 xl:gap-20">
       {[CATEGORY_ALL, ...categories].map((c, idx) => (
         <motion.li
           key={c}
@@ -110,7 +110,7 @@ function CategoryPage() {
           </span>
           <Link
             href={getCategoryUrl(c)}
-            className=" whitespace-nowrap leading-none font-bold text-4xl sm:text-[10vw] xl:text-9xl text-primary xl:leading-10 hover:underline"
+            className="whitespace-nowrap leading-none font-bold text-4xl sm:text-[10vw] xl:text-9xl text-primary xl:leading-10 hover:underline"
           >
             {c.replaceAll("-", " ")}
           </Link>

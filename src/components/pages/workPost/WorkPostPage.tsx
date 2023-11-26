@@ -49,7 +49,7 @@ export default function WorkPostPage({
         <div className="max-w-[1920px] w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
           <article
             id={post.slug}
-            className=" flex flex-nowrap flex-col pt-[20vh] lg:flex-row place-items-stretch gap-5 w-full"
+            className=" flex flex-nowrap flex-col pt-[20vh] xl:flex-row place-items-stretch gap-5 w-full"
           >
             <div className={` max-w-[100%] w-[200%] 2xl:mr-[12.5%] relative`}>
               <Link
@@ -73,7 +73,7 @@ export default function WorkPostPage({
               >
                 <path d="M0 0 L50 0 L0 50 L0 0" />
               </svg>
-              <header className="flex flex-col gap-5 top-[20vh] sticky">
+              <header className="flex flex-col gap-5 top-[20vh] sticky xl:mb-80">
                 <svg
                   width={50}
                   height={50}
@@ -155,7 +155,7 @@ export default function WorkPostPage({
             <div
               className={
                 prose.prose +
-                " prose prose-invert lg:prose-lg w-[500%] max-w-full overflow-visible lg:max-w-none"
+                " prose prose-invert xl:prose-lg w-[500%] max-w-full overflow-visible xl:max-w-none"
               }
             >
               <MDXContent components={mdxComponents} />
