@@ -17,10 +17,23 @@ import {
   XCircleIcon,
   ArrowUpRightIcon,
   HashtagIcon,
+  ArrowsRightLeftIcon,
+  ArrowsUpDownIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
 import GithubIcon from "@/assets/svg/github-mark.svg";
+import MayaIcon from "@/assets/svg/maya.svg";
+import AsepriteIcon from "@/assets/svg/aseprite.svg";
+import UnityIcon from "@/assets/svg/unity.svg";
+import UnrealIcon from "@/assets/svg/unrealengine.svg";
+import PhotoshopIcon from "@/assets/svg/adobephotoshop.svg";
+import IllustratorIcon from "@/assets/svg/adobeillustrator.svg";
+import AfterEffectIcon from "@/assets/svg/adobeaftereffects.svg";
+import PremiereIcon from "@/assets/svg/adobepremierepro.svg";
+import CsharpIcon from "@/assets/svg/csharp.svg";
+import JavascriptIcon from "@/assets/svg/javascript.svg";
+import NextJsIcon from "@/assets/svg/nextdotjs.svg";
 
 export type HeroIcon = React.ForwardRefExoticComponent<IconProps>;
 
@@ -49,4 +62,26 @@ export const Icons = {
   github: (props: IconProps) => <GithubIcon {...props} />,
   arrowUpRight: (props: IconProps) => <ArrowUpRightIcon {...props} />,
   sharp: (props: IconProps) => <HashtagIcon {...props} />,
+  arrowsSwap: (props: IconProps) => <ArrowsRightLeftIcon {...props} />,
+  arrowsSort: (props: IconProps) => <ArrowsUpDownIcon {...props} />,
+};
+
+export const BrandIcons = {
+  Maya: (props: IconProps) => (
+    <MayaIcon
+      {...props}
+      viewBox="0 0 233.55 247.89"
+      preserveAspectRatio="none"
+    />
+  ),
+  Aseprite: (props: IconProps) => <AsepriteIcon {...props} />,
+  Unity: (props: IconProps) => <UnityIcon {...props} />,
+  Unreal: (props: IconProps) => <UnrealIcon {...props} />,
+  Photoshop: (props: IconProps) => <PhotoshopIcon {...props} />,
+  Illustrator: (props: IconProps) => <IllustratorIcon {...props} />,
+  AfterEffect: (props: IconProps) => <AfterEffectIcon {...props} />,
+  Premiere: (props: IconProps) => <PremiereIcon {...props} />,
+  Csharp: (props: IconProps) => <CsharpIcon {...props} />,
+  JavaScript: (props: IconProps) => <JavascriptIcon {...props} />,
+  NextJsIcon: (props: IconProps) => <NextJsIcon {...props} />,
 };

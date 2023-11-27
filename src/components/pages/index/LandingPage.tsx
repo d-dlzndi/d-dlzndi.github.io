@@ -8,8 +8,8 @@ import { default as DateTime } from "@/components/common/Date";
 import Link from "next/link";
 import SlideShowText from "@/components/common/textEffect/SlideShowText";
 import { WorkPost } from "contentlayer/generated";
-import { Icons } from "@/components/common/Icons/Icons";
-import { motion } from "framer-motion";
+import { BrandIcons, Icons } from "@/components/common/Icons/Icons";
+import { motion, Variant, Variants } from "framer-motion";
 
 export default function LandingPage(params: any) {
   const { allPosts } = useWorkPosts();
@@ -59,8 +59,16 @@ export default function LandingPage(params: any) {
             .filter((p) => p.category == "Programming")
             .slice(0, 3)
             .map((post, idx) => (
-              <div
+              <motion.div
                 key={post.title}
+                initial={{ opacity: 0, translateX: 70 }}
+                whileInView={{ opacity: 1, translateX: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1.5,
+                  delay: idx * 0.4,
+                  ease: [0, 0.55, 0.45, 1],
+                }}
                 className="flex-1 flex flex-col justify-between pt-5 border-t h-auto"
               >
                 <div className="text-7xl font-black opacity-10">
@@ -89,7 +97,7 @@ export default function LandingPage(params: any) {
                     className={`object-cover w-full h-full`}
                   />
                 </div>
-              </div>
+              </motion.div>
             ))}
         </div>
       </WorksSection>
@@ -152,7 +160,7 @@ function MoreBtn({ url }: { url?: string }) {
   );
 }
 
-function LandingBox({
+export function LandingBox({
   children,
   className,
 }: {
@@ -197,8 +205,26 @@ function HelloPage() {
 }
 
 const skills = [
-  { name: "Maya", progress: 80 },
-  { name: "Unreal Engine", progress: 50 },
+  {
+    name: (
+      <>
+        <BrandIcons.Maya width={50} height={50} className="inline-block" />
+        <br />
+        Maya
+      </>
+    ),
+    progress: 80,
+  },
+  {
+    name: (
+      <>
+        <BrandIcons.Unreal width={50} height={50} className="inline-block" />
+        <br />
+        Unreal Engine
+      </>
+    ),
+    progress: 50,
+  },
   { name: "ZBrush", progress: 70 },
   { name: "Substance Painter", progress: 50 },
   { name: "After Effect", progress: 70 },
@@ -206,8 +232,10 @@ const skills = [
   { name: "Illustrator", progress: 70 },
   { name: "Photoshop", progress: 65 },
   { name: "Aseprite", progress: 70 },
-  { name: "Visual Studio 2022", progress: 70 },
-  { name: "Visual Studio Code", progress: 90 },
+  { name: "JavaScript", progress: 80 },
+  { name: "TypeScript", progress: 40 },
+  { name: "C#", progress: 60 },
+  { name: "Python", progress: 50 },
 ];
 
 const keywords = [
@@ -229,51 +257,50 @@ function AboutMePage() {
 
   const mainImg = "/img/index/profile.jpg";
 
-  const aboutData: aboutType[] = [
+  const abilityText = `저의 좌우명은 <code class="w-auto inline-block font-bold rounded-md bg-secondary italic text-secondary-content px-2">0보다 0.1이 낫다</code> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히기를 즐깁니다.`;
+
+  const abilityData = [
     {
-      title: "Education",
-      textContent: (
-        <TimeLine
-          data={[
-            { name: "화정고등학교 졸업", year: "2019.02." },
-            { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
-          ]}
-        />
-      ),
+      sub: "3D + 2D",
+      title: "Animation",
+      data: ["Animation"],
+      style: "bg-secondary text-secondary-content",
     },
+    {
+      sub: "WEB + GAME",
+      title: "Programming",
+      data: ["Programming"],
+      style: "bg-accent text-accent-content",
+    },
+    {
+      sub: "2D + 3D",
+      title: "DESIGN",
+      data: ["Graphic-Design", "Digital-Sculpting"],
+      style: "bg-neutral text-neutral-content",
+    },
+  ];
+
+  const educationData = [
+    { name: "화정고등학교 졸업", year: "2019.02." },
+    { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
+  ];
+
+  const aboutData: aboutType[] = [
     {
       title: "ability",
       textContent: (
-        <p>
-          자기 소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기
-          소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기 소개를
-          여기에 입력합니다.
-        </p>
+        <p
+          className=" break-keep"
+          dangerouslySetInnerHTML={{
+            __html: abilityText,
+          }}
+        />
       ),
       content: (
         <>
           <div>
             <div className="flex -mr-[1em] isolate">
-              {[
-                {
-                  sub: "3D + 2D",
-                  title: "Animation",
-                  data: ["Animation"],
-                  style: "bg-secondary text-secondary-content",
-                },
-                {
-                  sub: "WEB + GAME",
-                  title: "Programming",
-                  data: ["Programming"],
-                  style: "bg-accent text-accent-content",
-                },
-                {
-                  sub: "2D + 3D",
-                  title: "DESIGN",
-                  data: ["Graphic-Design", "Digital-Sculpting"],
-                  style: "bg-neutral text-neutral-content",
-                },
-              ].map((data, idx) => (
+              {abilityData.map((data, idx) => (
                 <div
                   key={idx}
                   className="flex flex-1 shrink-0 flex-col items-center"
@@ -295,7 +322,7 @@ function AboutMePage() {
                   <div className="mr-[1em] mt-4 pt-4 border-t w-3/4">
                     <TagOl
                       parentClassName="flex flex-col flex-wrap gap-3"
-                      childColorClassName=" bg-base-100 text-primary hover:bg-secondary"
+                      childColorClassName=" bg-base-100 fill-base-100 text-primary hover:bg-accent hover:fill-accent hover:text-base-100"
                       data={...Array.from(
                         new Set(
                           data.data.reduce(
@@ -344,24 +371,17 @@ function AboutMePage() {
       ),
     },
     {
+      title: "Education",
+      textContent: <TimeLine data={educationData} />,
+    },
+    {
       title: "experience",
       textContent: (
         <ol className=" list-disc">
           <li>안녕하세요</li>
           <li>안녕하세요</li>
           <li>안녕하세요</li>
-          <li>안녕하세요</li>
         </ol>
-      ),
-    },
-    {
-      title: "activity",
-      textContent: (
-        <p>
-          자기 소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기
-          소개를 여기에 입력합니다. 자기 소개를 여기에 입력합니다. 자기 소개를
-          여기에 입력합니다.
-        </p>
       ),
     },
   ];
@@ -369,9 +389,22 @@ function AboutMePage() {
   const data = {
     name: "김서윤",
     eng_name: "Seo Yun Kim",
-    birth: "2001.01.29.",
+    birth: "2001. 01. 29.",
     phone: "+82 10-1234-1232",
     email: "sksoyks@naver.com",
+  };
+
+  const variants: Variants = {
+    //Variants
+    start: {
+      opacity: 0,
+      translateY: 100,
+    },
+    end: (c: number) => ({
+      opacity: 1,
+      translateY: 0,
+      transition: { delay: c * 0.1, duration: 1, ease: [0, 0.55, 0.45, 1] },
+    }),
   };
 
   return (
@@ -423,21 +456,50 @@ function AboutMePage() {
           <div className="pt-44 flex justify-stretch">
             <div className="flex-1 flex flex-col">
               {aboutData.map((cont, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  variants={variants}
+                  initial={"start"}
+                  whileInView={"end"}
+                  viewport={{ once: true }}
                   className="2xl:w-[83%] xl:pl-[17%] relative pt-14 flex flex-col xl:flex-row gap-3 mb-60"
                 >
                   <div className="absolute top-0 left-0 xl:left-5 w-full xl:w-[calc(100%-1.25em)] h-px bg-base-100" />
-                  <h4 className="flex-[1] shrink-0 font-extrabold uppercase text-3xl">
+                  <motion.h4
+                    custom={1}
+                    variants={variants}
+                    initial={"start"}
+                    whileInView={"end"}
+                    viewport={{ once: true }}
+                    className="flex-[1] shrink-0 font-extrabold uppercase text-3xl"
+                  >
                     {cont.title}
-                  </h4>
+                  </motion.h4>
                   <div className="flex-[3] shrink-0 flex flex-col xl:items-end">
                     {cont.textContent && (
-                      <div className="md:w-2/3 mb-24">{cont.textContent}</div>
+                      <motion.div
+                        custom={2}
+                        variants={variants}
+                        initial={"start"}
+                        whileInView={"end"}
+                        viewport={{ once: true }}
+                        className="md:w-2/3 mb-24"
+                      >
+                        {cont.textContent}
+                      </motion.div>
                     )}
-                    <div className="w-full">{cont.content}</div>
+                    <motion.div
+                      custom={3}
+                      variants={variants}
+                      initial={"start"}
+                      whileInView={"end"}
+                      viewport={{ once: true }}
+                      className="w-full"
+                    >
+                      {cont.content}
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -475,10 +537,20 @@ function WorksSection({
   return (
     <LandingBox className={` bg-base-content text-base-100 `}>
       <div className="p-10 my-40">
-        <h1
-          className=" text-primary pb-24 text-9xl uppercase whitespace-nowrap"
-          dangerouslySetInnerHTML={{ __html: title }}
-        />
+        <h1 className="relative font-bolc text-primary pb-24 text-9xl uppercase flex gap-3">
+          <motion.span
+            initial={{ opacity: 0, translateY: 50 }}
+            whileInView={{ opacity: 1, translateY: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+              ease: [0.34, 1.56, 0.64, 1],
+            }}
+            viewport={{ once: true }}
+            className="relative origin-bottom-left inline-block"
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+        </h1>
         <div className="px-5">{children}</div>
         <div className=" w-full lg:pl-[50%] text-xl md:text-4xl lg:text-4xl 2xl:text-6xl">
           {categories.map((category) => (
@@ -582,7 +654,7 @@ function TimeLine({
   );
 }
 
-type skillType = { name: string; progress: number };
+type skillType = { name: React.ReactNode; progress: number };
 
 const testSkill: skillType[] = [
   { name: "Maya", progress: 80 },
@@ -683,13 +755,15 @@ export function RadialProgress({
 export function TagOl({
   data,
   parentClassName = "flex flex-row flex-wrap items-center gap-3",
-  childColorClassName = "bg-neutral hover:bg-accent",
+  childColorClassName = "bg-neutral fill-neutral hover:bg-accent hover:fill-accent",
+  showCount = false,
 }: {
   data: string[];
   parentClassName?: string;
   childColorClassName?: string;
+  showCount?: boolean;
 }) {
-  const { getTagUrl } = useWorkPosts();
+  const { getTagUrl, allPosts } = useWorkPosts();
   return (
     <ol className={parentClassName}>
       {data.map((tag) => (
@@ -697,12 +771,32 @@ export function TagOl({
           <Link
             href={getTagUrl(tag)}
             className={
-              "z-[1] mr-[0.15rem] decoration-clone uppercase relative break-keep pb-1 pt-[0.3rem] px-3 w-auto rounded-sm " +
+              "z-[1] font-semibold decoration-clone relative break-keep pb-1 pt-[0.3rem] px-3 w-auto rounded-sm transition-colors" +
+              " " +
               childColorClassName
             }
           >
             {tag}
-            <span className="z-[-1] absolute top-0 right-0 block w-[1.25em] h-[1.25em] origin-top-right -rotate-45 bg-inherit" />
+            {showCount && (
+              <span className=" text-[.6em] opacity-40 pl-3">
+                (
+                {allPosts.reduce(
+                  (count, post) =>
+                    post.tag?.includes(tag) ? count + 1 : count,
+                  0
+                )}
+                )
+              </span>
+            )}
+            <svg
+              className=" absolute top-0 left-[100%] block ml-[-0.5px] h-[100%] w-[.5em] origin-top-right"
+              width={"100%"}
+              height={"100%"}
+              viewBox="0 0 10 10"
+              preserveAspectRatio="none"
+            >
+              <path d="M0 0 L 10 5 L 0 10 L 0 0" />
+            </svg>
           </Link>
         </li>
       ))}

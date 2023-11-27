@@ -11,8 +11,8 @@ import { Icons } from "@/components/common/Icons/Icons";
 import getTimeDiff from "@/utils/getTimeDiff";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import SvgCurveLoader from "@/components/animation/svg-curve-loader";
-import NextPrevPostBtns from "./NextPrevPostBtns";
 import ScrollShowImage from "@/components/common/mdx/ScrollShowImage";
+import { LandingBox, TagOl } from "../index/LandingPage";
 
 const mdxComponents = {
   img: ScrollShowImage,
@@ -45,7 +45,7 @@ export default function WorkPostPage({
   if (!post) return notFound();
   return (
     <SvgCurveLoader colorName={postColor}>
-      <div className="w-screen min-h-screen !bg-base-content !text-base-100">
+      <LandingBox className={"!bg-base-content !text-base-100"}>
         <div className="max-w-[1920px] w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
           <article
             id={post.slug}
@@ -65,58 +65,32 @@ export default function WorkPostPage({
                 />
                 목록으로
               </Link>
-              <svg
-                width={50}
-                height={50}
-                className="absolute top-0 left-0"
-                style={{ fill: postColor, fillOpacity: 0.1 }}
-              >
-                <path d="M0 0 L50 0 L0 50 L0 0" />
-              </svg>
               <header className="flex flex-col gap-5 top-[20vh] sticky xl:mb-80">
-                <svg
-                  width={50}
-                  height={50}
-                  style={{ fill: postColor, fillOpacity: 0, stroke: postColor }}
-                >
-                  <path d="M0 0 L50 0 L0 50 L0 0" />
-                </svg>
                 <div>
                   <p className=" font-bold text-xl pb-3">
                     <Link href={getCategoryUrl(post.category)}>
                       {post.category.replaceAll("-", " ")}
-                      <Icons.arrowUpRight
-                        width={16}
-                        height={16}
-                        className="inline-block align-text-top"
-                      />
                     </Link>
                   </p>
                   <h1
                     className=" text-6xl font-extrabold break-keep"
                     style={{ textShadow: "3px 3px 0 " + postColor }}
-                    dangerouslySetInnerHTML={{ __html: titleEnter(post.title) }}
+                    dangerouslySetInnerHTML={{
+                      __html: titleEnter(post.title),
+                    }}
                   ></h1>
                 </div>
                 {post.tag && (
-                  <ol className="flex flex-wrap gap-1">
-                    {post.tag?.map((p, idx) => (
-                      <li key={p + "_" + idx}>
-                        <Link
-                          href={getTagUrl(p)}
-                          className={`text-sm border rounded-full px-3 py-[.1em] block`}
-                          style={{ borderColor: postColor }}
-                        >
-                          {p}
-                        </Link>
-                      </li>
-                    ))}
-                  </ol>
+                  <TagOl
+                    data={post.tag}
+                    parentClassName=" text-sm flex flex-row xl:flex-col gap-3 gap-x-4 flex-wrap order-1"
+                    childColorClassName={` bg-[${post.color}] fill-[${post.color}] text-base-100 hover:bg-primary hover:fill-primary`}
+                  />
                 )}
                 {post.description && (
                   <>
                     <div
-                      className="opacity-50 break-keep w-3/4"
+                      className="opacity-50 break-keep w-3/4 "
                       dangerouslySetInnerHTML={{
                         __html: post.description?.html || "",
                       }}
@@ -161,9 +135,10 @@ export default function WorkPostPage({
               <MDXContent components={mdxComponents} />
             </div>
           </article>
+          <div className="w-full h-20"></div>
           <Next_PrevPosts nextPost={nextPost} prevPost={prevPost} />
         </div>
-      </div>
+      </LandingBox>
     </SvgCurveLoader>
   );
 }

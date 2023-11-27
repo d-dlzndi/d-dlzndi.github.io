@@ -67,7 +67,7 @@ export function LineList({
                       READ MORE
                     </span>
                   </div>
-                  <div className={styles.thumb + " hidden lg:block"}>
+                  <div className={styles.thumb + " hidden md:block"}>
                     <div className={"aspect-w-4 aspect-h-3 w-full"}>
                       <Img
                         src={post.image}
@@ -76,27 +76,32 @@ export function LineList({
                       />
                     </div>
                   </div>
-                  <div className={styles.date}>
-                    <div className="lg:pl-[50%]">
-                      {post.startDate && (
-                        <>
-                          <Date dateString={post.startDate} /> <br />
-                          {"-"}
-                          <br />
-                        </>
-                      )}
-                      <Date dateString={post.date} />
+                  {!categoryUse && (
+                    <div className={styles.date}>
+                      <div className="lg:pl-[50%]">
+                        {post.startDate && (
+                          <>
+                            <Date dateString={post.startDate} /> <br />
+                            {"-"}
+                            <br />
+                          </>
+                        )}
+                        <Date dateString={post.date} />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </Link>
               </motion.div>
             </motion.li>
           ))}
         </AnimatePresence>
       </motion.ul>
-      <div
-        className="w-full h-[10em]" // 아래 여유공간용
-      />
     </>
   );
 }
+
+/**
+  <div
+        className="w-full h-[10em]" // 아래 여유공간용
+      />
+ */

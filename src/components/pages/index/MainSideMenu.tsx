@@ -73,39 +73,43 @@ export default function MainSideMenu() {
           </motion.div>
         )}
       </AnimatePresence>
-      <FramerMagnetic
-        className={`block lg:hidden absolute rounded-full top-5 ${pos}-5 pointer-events-auto`}
-        max={20}
+      <div
+        className={`absolute w-full max-w-[1920px] h-0 top-0 left-[50%] -translate-x-1/2`}
       >
-        <button
-          onClick={() => toggleShow()}
-          className="btn btn-primary rounded-full p-5 w-16 h-16"
+        <FramerMagnetic
+          className={`block lg:hidden absolute rounded-full top-5 ${pos}-5 pointer-events-auto`}
+          max={20}
         >
-          <MenuButton menuIsActive={show} className=" top-[.6rem]" />
-        </button>
-      </FramerMagnetic>
-      <FramerMagnetic
-        className={`absolute rounded-full top-8 left-8 pointer-events-auto`}
-        max={10}
-      >
-        <Link href="/portfolio" className=" text-2xl font-black text-primary">
-          PORTFOLIO
-        </Link>
-      </FramerMagnetic>
-      <nav
-        className={`hidden lg:block absolute top-8 right-8 pointer-events-auto`}
-      >
-        <ol className="flex gap-8 text-primary">
-          {_navigation.map((url, idx) => (
-            <li
-              key={url.name}
-              className={`uppercase w-24 text-center font-bold hover:font-black text-lg`}
-            >
-              <Link href={url.url || "/"}>{url.name}</Link>
-            </li>
-          ))}
-        </ol>
-      </nav>
+          <button
+            onClick={() => toggleShow()}
+            className="btn btn-primary rounded-full p-5 w-16 h-16"
+          >
+            <MenuButton menuIsActive={show} className=" top-[.6rem]" />
+          </button>
+        </FramerMagnetic>
+        <FramerMagnetic
+          className={`absolute rounded-full top-8 left-8 pointer-events-auto`}
+          max={10}
+        >
+          <Link href="/portfolio" className=" text-2xl font-black text-primary">
+            PORTFOLIO
+          </Link>
+        </FramerMagnetic>
+        <nav
+          className={`hidden lg:block absolute top-8 right-8 pointer-events-auto`}
+        >
+          <ol className="flex gap-8 text-primary">
+            {_navigation.map((url, idx) => (
+              <li
+                key={url.name}
+                className={`uppercase w-24 text-center font-bold hover:font-black text-lg`}
+              >
+                <Link href={url.url || "/"}>{url.name}</Link>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
     </div>
   );
 }
