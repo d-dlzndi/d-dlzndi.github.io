@@ -307,7 +307,7 @@ function AboutMePage() {
                 >
                   <div
                     className={
-                      " rounded-full mix-blend-screen w-[15em] h-[15em] text-center -ml-[1em] py-24 " +
+                      " rounded-full mix-blend-screen w-[100%] 2xl:w-[15em] 2xl:h-[15em] text-center -ml-[1em] py-24 " +
                       data.style
                     }
                   >
@@ -355,7 +355,7 @@ function AboutMePage() {
       title: "skill",
       content: (
         <>
-          <div className="flex justify-around pb-8">
+          <div className="flex justify-around flex-nowrap pb-8">
             <RadialProgress skills={skills.slice(0, 3)} />
           </div>
           <SkillTable
@@ -462,7 +462,7 @@ function AboutMePage() {
                   initial={"start"}
                   whileInView={"end"}
                   viewport={{ once: true }}
-                  className="2xl:w-[83%] xl:pl-[17%] relative pt-14 flex flex-col xl:flex-row gap-3 mb-60"
+                  className="xl:w-[83%] xl:pl-[17%] xl:flex-row relative pt-14 flex flex-col shrink-0 gap-3 mb-60"
                 >
                   <div className="absolute top-0 left-0 xl:left-5 w-full xl:w-[calc(100%-1.25em)] h-px bg-base-100" />
                   <motion.h4

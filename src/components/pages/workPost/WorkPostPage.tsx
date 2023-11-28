@@ -34,7 +34,8 @@ export default function WorkPostPage({
   const postColor = post.color ? post.color : "oklch(var(--p))";
   const MDXContent = useMDXComponent(post.body.code);
 
-  const titleEnter = (title: string) => {
+  const titleEnter = (title: string) => title;
+  const titleEnter2 = (title: string) => {
     const spliter = "〈";
     if (title.indexOf(spliter) >= 0) {
       return title.split(spliter).join("<br />" + spliter);
@@ -54,7 +55,7 @@ export default function WorkPostPage({
             <div className={` max-w-[100%] w-[200%] 2xl:mr-[12.5%] relative`}>
               <Link
                 className={
-                  "btn btn-ghost max-w-fit p-0 opacity-20 hover:opacity-70 transition-opacity absolute -top-20 left-0"
+                  "btn btn-ghost max-w-fit p-0 opacity-20 hover:opacity-70 transition-opacity absolute -top-20 left-0 group"
                 }
                 href={WORK_URL}
               >
@@ -63,28 +64,33 @@ export default function WorkPostPage({
                   height={20}
                   className="inline-block"
                 />
-                목록으로
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  Back To List
+                </span>
               </Link>
               <header className="flex flex-col gap-5 top-[20vh] sticky xl:mb-80">
                 <div>
-                  <p className=" font-bold text-xl pb-3">
-                    <Link href={getCategoryUrl(post.category)}>
-                      {post.category.replaceAll("-", " ")}
-                    </Link>
-                  </p>
                   <h1
-                    className=" text-6xl font-extrabold break-keep"
-                    style={{ textShadow: "3px 3px 0 " + postColor }}
+                    style={{ textDecorationColor: post.color }}
+                    className=" font-extrabold break-keep text-2xl w-3/4"
                     dangerouslySetInnerHTML={{
                       __html: titleEnter(post.title),
                     }}
                   ></h1>
+                  <p>
+                    <Link
+                      href={getCategoryUrl(post.category)}
+                      className=" font-bold pb-1 opacity-50 hover:opacity-100 transition-opacity"
+                    >
+                      {post.category.replaceAll("-", " ")}
+                    </Link>
+                  </p>
                 </div>
                 {post.tag && (
                   <TagOl
                     data={post.tag}
-                    parentClassName=" text-sm flex flex-row xl:flex-col gap-3 gap-x-4 flex-wrap order-1"
-                    childColorClassName={` bg-[${post.color}] fill-[${post.color}] text-base-100 hover:bg-primary hover:fill-primary`}
+                    parentClassName="py-1 text-sm flex flex-row xl:flex-col gap-3 gap-x-4 flex-wrap order-1"
+                    childColorClassName={` border-l bg-[${post.color}] fill-transparent fill-[${post.color}] text-base-100 hover:border-transparent hover:bg-accent hover:fill-accent opacity-30 hover:opacity-100 transition-opacity`}
                   />
                 )}
                 {post.description && (

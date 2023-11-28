@@ -19,7 +19,6 @@ export function Next_PrevPosts({
 }
 
 export function MorePost(nextPost: WorkPost, prev: boolean = false) {
-  const ArrowIcon = prev ? Icons.arrowRight : Icons.arrowLeft;
   return (
     <Link
       href={nextPost.url || "/"}
@@ -35,28 +34,32 @@ export function MorePost(nextPost: WorkPost, prev: boolean = false) {
           className={`w-full h-full object-cover scale-125 blur-sm brightness-50`}
         />
       </div>
-      {prev ? (
-        <>
-          이전 글{" "}
-          <ArrowIcon
-            width={15}
-            height={15}
-            className="inline-block align-[-0.1em]"
-          />
-        </>
-      ) : (
-        <>
-          <ArrowIcon
-            width={15}
-            height={15}
-            className="inline-block align-[-0.1em]"
-          />{" "}
-          다음 글
-        </>
-      )}
+      <span className="opacity-30 group-hover:opacity-0 transition-all">
+        {prev ? (
+          <>
+            PREV{" "}
+            <Icons.arrowRight
+              width={15}
+              height={15}
+              className="inline-block align-[-0.1em]"
+            />
+          </>
+        ) : (
+          <>
+            <Icons.arrowLeft
+              width={15}
+              height={15}
+              className="inline-block align-[-0.1em]"
+            />{" "}
+            NEXT
+          </>
+        )}
+      </span>
       <br />
       <br />
-      <span className=" font-bold text-4xl break-keep">{nextPost.title}</span>
+      <span className="group-hover:font-bold opacity-50 text-2xl break-keep relative bottom-0 group-hover:bottom-4 group-hover:opacity-100 transition-all">
+        {nextPost.title}
+      </span>
     </Link>
   );
 }
