@@ -21,74 +21,71 @@ export default function MainSideMenu() {
   };
   const nav = _navigation;
   return (
-    <div
-      className={`fixed flex w-screen h-screen top-0 left-0 p-10 z-50 select-none pointer-events-none`}
-    >
-      <AnimatePresence mode="wait">
+    <>
+      <div
+        className={`fixed flex w-screen h-screen top-0 left-0 p-10 z-50 select-none pointer-events-none`}
+      >
         {show && (
-          <motion.div
+          <div
             key="side-menu-bg"
             className="block lg:hidden pointer-events-auto w-screen h-screen absolute top-0 left-0 cursor-pointer"
-            initial={{ backdropFilter: "none" }}
-            animate={{ backdropFilter: "blur(1px)" }}
-            exit={{ backdropFilter: "none" }}
-            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
             onClick={() => setShow(false)}
           />
         )}
-        {show && (
-          <motion.div
-            key="side-menu"
-            initial={{
-              translateX: `calc(${pos == "left" ? "-" : ""}100% ${
-                pos == "left" ? "-" : "+"
-              } 100px)`,
-            }}
-            animate={{ translateX: 0 }}
-            exit={{
-              translateX: `calc(${pos == "left" ? "-" : ""}100% ${
-                pos == "left" ? "-" : "+"
-              } 100px)`,
-            }}
-            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
-            className={`block lg:hidden absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex pointer-events-auto`}
-          >
-            <SvgCurveBackground />
-            <nav className=" w-full p-[20%] text-base-100 flex flex-col justify-center">
-              <ul className="flex flex-col gap-5 min-w-fit min-h-fit">
-                {nav.map((url, idx) => (
-                  <MenuTextAnimation
-                    url={url}
-                    idx={idx}
-                    key={url.name}
-                    onClick={() => setShow(false)}
-                  />
-                ))}
-              </ul>
-              <hr className="my-10" />
-              <div className="text-xs footer text-base-100">
-                <FooterContents />
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <div
-        className={`absolute w-full max-w-[1920px] h-0 top-0 left-[50%] -translate-x-1/2`}
-      >
-        <FramerMagnetic
-          className={`block lg:hidden absolute rounded-full top-5 ${pos}-5 pointer-events-auto`}
-          max={20}
+        <AnimatePresence mode="wait">
+          {show && (
+            <motion.div
+              key="side-menu"
+              initial={{
+                translateX: `calc(${pos == "left" ? "-" : ""}100% ${
+                  pos == "left" ? "-" : "+"
+                } 100px)`,
+              }}
+              animate={{ translateX: 0 }}
+              exit={{
+                translateX: `calc(${pos == "left" ? "-" : ""}100% ${
+                  pos == "left" ? "-" : "+"
+                } 100px)`,
+              }}
+              transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+              className={`block lg:hidden absolute top-0 ${pos}-0 bg-primary w-[100vw] lg:w-[50vw] h-[100vh] flex pointer-events-auto`}
+            >
+              <SvgCurveBackground />
+              <nav className=" w-full p-[20%] text-base-100 flex flex-col justify-center">
+                <ul className="flex flex-col gap-5 min-w-fit min-h-fit">
+                  {nav.map((url, idx) => (
+                    <MenuTextAnimation
+                      url={url}
+                      idx={idx}
+                      key={url.name}
+                      onClick={() => setShow(false)}
+                    />
+                  ))}
+                </ul>
+                <hr className="my-10" />
+                <div className="text-xs footer text-base-100">
+                  <FooterContents />
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <div
+          className={`block lg:hidden absolute top-5 ${pos}-5 pointer-events-auto`}
         >
           <button
             onClick={() => toggleShow()}
-            className="btn btn-primary rounded-full p-5 w-16 h-16"
+            className="btn btn-primary p-5 w-16 h-16"
           >
             <MenuButton menuIsActive={show} className=" top-[.6rem]" />
           </button>
-        </FramerMagnetic>
+        </div>
+      </div>
+      <div
+        className={`fixed z-[45] w-full max-w-[1920px] h-0 top-0 left-[50%] -translate-x-1/2 mix-blend-exclusion invert bg-base-100`}
+      >
         <FramerMagnetic
-          className={`absolute rounded-full top-8 left-8 pointer-events-auto`}
+          className={`absolute rounded-full top-7 left-10 pointer-events-auto`}
           max={10}
         >
           <Link href="/portfolio" className=" text-2xl font-black text-primary">
@@ -96,7 +93,7 @@ export default function MainSideMenu() {
           </Link>
         </FramerMagnetic>
         <nav
-          className={`hidden lg:block absolute top-8 right-8 pointer-events-auto`}
+          className={`hidden lg:block absolute top-8 right-8 pointer-events-auto `}
         >
           <ol className="flex gap-8 text-primary">
             {_navigation.map((url, idx) => (
@@ -110,7 +107,7 @@ export default function MainSideMenu() {
           </ol>
         </nav>
       </div>
-    </div>
+    </>
   );
 }
 

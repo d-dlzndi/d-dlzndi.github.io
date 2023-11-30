@@ -1,0 +1,5 @@
+# Ignore artifacts:
+out
+
+# Ignore all mdx files:
+**/*.mdx

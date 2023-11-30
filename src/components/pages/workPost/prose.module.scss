@@ -1,18 +1,41 @@
+@mixin fullWidth {
+    min-width: 100%;
+    max-width: 95vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin notFullWidth {
+    min-width: none;
+    max-width: 100% !important;
+    position: static;
+    left: 0;
+    transform: none;
+}
+
 .prose {
-    &, * {
+    &,
+    * {
         color: inherit;
     }
 
     p {
         //line-height: 1.1;
-        &:has(img:only-child) {
+        &:has(img:only-child),
+        & > span:has(img:only-child) {
             margin: 0;
+        }
+
+        &[class~="flex"] > * > img {
+            @include notFullWidth();
         }
     }
 
     img {
-        &:not([class~="auto"]) {
-            width: 100%;
+        &:not([class~="auto"]):not(p[class~="flex"] > *) {
+            // width: 100%;
+            @include fullWidth();
         }
         // max-height: 95vh;
         object-fit: contain;
@@ -24,22 +47,25 @@
         @apply divider;
         border: 0;
         height: 1px;
-        opacity: .3;
+        opacity: 0.3;
         margin: 4rem 0;
     }
- 
+
     li::marker {
         color: oklch(var(--p));
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         font-size: xx-large;
     }
-    h3,h4 {
-    font-size: x-large;
+    h3,
+    h4 {
+        font-size: x-large;
     }
-    h5,h6 {
-    font-size: large;
+    h5,
+    h6 {
+        font-size: large;
     }
 
     h1,
@@ -52,14 +78,14 @@
         //padding: 1em 0 .5em;
         //background: linear-gradient(to bottom, oklch(var(--bc)) 90%, transparent 100%);
         //top: 0;
-        color:inherit;
+        color: inherit;
         font-weight: 900;
         scroll-margin-top: 20vh;
 
         a[aria-label] {
             position: relative;
             opacity: 0;
-            transition: all .5s;
+            transition: all 0.5s;
 
             &::before {
                 content: "#";
@@ -92,25 +118,31 @@
         @apply table;
     }
 
+    table :where(thead, tfoot) {
+        color: inherit;
+    }
+
     *[class~="flex"] {
-        &>* {
+        & > * {
             width: 0 !important;
             flex: 1 0 auto !important;
         }
     }
 
     mark {
-        background: linear-gradient(to top,oklch(var(--s)/ .4) 50%, transparent 52%);
+        background: linear-gradient(to top, oklch(var(--s) / 0.4) 50%, transparent 52%);
     }
 
     span {
-        border-radius: .2em;
+        border-radius: 0.2em;
     }
 
     iframe {
-        width: 100%;
+        width: 10000%;
         height: auto;
         aspect-ratio: 16 / 9;
+
+        @include fullWidth();
     }
 
     blockquote {
@@ -118,28 +150,28 @@
         display: block !important;
         //background: oklch(var(--s));
         //color: oklch(var(--sc));
-        padding: .5em 1.5em;
+        padding: 0.5em 1.5em;
         position: relative;
     }
 
-    & :where(blockquote p:first-of-type):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
+    & :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
         content: "❝";
         position: absolute;
         top: -0.5em;
         left: -0.1em;
         font-size: 5em;
-        opacity: .2;
-        color:oklch(var(--b1));
+        opacity: 0.2;
+        color: oklch(var(--b1));
     }
 
-    & :where(blockquote p:last-of-type):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
+    & :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
         content: "❞";
         position: absolute;
         bottom: -0.6em;
         right: 0.2em;
         font-size: 5em;
-        opacity: .2;
-        color:oklch(var(--b1));
+        opacity: 0.2;
+        color: oklch(var(--b1));
     }
 
     strong {

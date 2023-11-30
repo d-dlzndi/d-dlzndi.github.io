@@ -210,7 +210,7 @@ function BackListBtn({ onClick }: { onClick?: any }) {
   );
 }
 
-function ListGallerySwitchBtnSet({
+export function ListGallerySwitchBtnSet({
   mode,
   setMode,
 }: {

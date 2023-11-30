@@ -12,7 +12,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import rehypeExternalLinks from "rehype-external-links";
-import remarkComment from '@slorber/remark-comment';
+import remarkComment from "@slorber/remark-comment";
 
 const AwardData = defineNestedType(() => ({
   name: "AwardData",
@@ -49,7 +49,7 @@ export const WorkPost = defineDocumentType(() => ({
     award: { type: "list", of: AwardData },
     url: { type: "string" },
     color: { type: "string" },
-    draft: {type: 'boolean', default: false}
+    draft: { type: "boolean", default: false },
   },
   computedFields: {
     url: {
@@ -67,10 +67,14 @@ export const WorkPost = defineDocumentType(() => ({
     },
     imageList: {
       type: "list",
-      resolve: (post) => [
-        { src: post.image, alt: post.title },
-        ...getImgInMd(post.body.raw),
-      ],
+      resolve: (post) =>
+        [
+          { src: post.image, alt: post.title },
+          ...getImgInMd(post.body.raw),
+        ].reduce((list, img) => {
+          if (list.find((value) => value.src == img.src)) return list;
+          else return [...list, img];
+        }, [] as { src: string; alt: string }[]),
     },
   },
 }));

@@ -7,7 +7,6 @@ export default function ScrollShowImage({
 }: React.ComponentProps<"img">) {
   return (
     <motion.span
-      className="relative"
       initial={{ opacity: 0.01 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

@@ -32,7 +32,7 @@ export function LineList({
                 duration: 0.7,
                 ease: [0, 0.55, 0.45, 1],
               }}
-              className=" min-h-fit min-w-fit border-t last:border-b relative"
+              className=" min-h-fit min-w-fit border-t border-base-content last:border-b relative"
             >
               <motion.div className={styles.listdiv}>
                 {categoryUse && (

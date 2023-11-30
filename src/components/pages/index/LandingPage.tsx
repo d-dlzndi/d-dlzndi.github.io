@@ -118,11 +118,10 @@ export default function LandingPage(params: any) {
               }, [] as any[])
               .map((img, idx) => (
                 <div
-                  key={img.src}
+                  key={img.src + " " + idx}
                   className="inline-block w-[320px] h-[180px] relative border"
                 >
                   <Img
-                    key={img.src}
                     src={img.src}
                     alt={img.alt}
                     width={100}
@@ -188,7 +187,7 @@ function HelloPage() {
       <div className="flex flex-col mt-[30vh] lg:m-0 lg:flex-row gap-5 p-10 h-screen justify-stretch items-start lg:items-end text-primary relative">
         <SlideShowText
           textSource={indexPost.title.split("\\n")}
-          className="text-5xl lg:text-[12vw] 2xl:text-[14em] w-full my-[-0.1em] leading-none font-black"
+          className="text-5xl lg:text-[10vw] 2xl:text-[12em] w-full my-[-0.1em] leading-none font-black lg:mb-2"
           delay={0.5}
         />
         <motion.div
@@ -564,9 +563,9 @@ function WorksSection({
               </span>
               {GetCtName(category)
                 .split("")
-                .map((str) => (
+                .map((str, idx) => (
                   <span
-                    key={str}
+                    key={idx}
                     className="font-thin relative -left-[3em] group-hover:left-0 group-hover:font-extrabold group-hover:text-secondary transition-all"
                   >
                     {str.replaceAll("-", " ")}
@@ -725,7 +724,7 @@ export function RadialProgress({
   colors?: string[];
   progressTextUse?: boolean;
 }) {
-  const col = colors || ["text-secondary", "text-neutral", "text-accent"];
+  const col = colors || ["text-secondary", "text-accent", "text-neutral"];
 
   return skills.map((skill, idx) => (
     <div
@@ -757,39 +756,46 @@ export function TagOl({
   parentClassName = "flex flex-row flex-wrap items-center gap-3",
   childColorClassName = "bg-neutral fill-neutral hover:bg-accent hover:fill-accent",
   showCount = false,
+  selectedChild = "",
+  selectedChildClass = "",
 }: {
   data: string[];
   parentClassName?: string;
   childColorClassName?: string;
   showCount?: boolean;
+  selectedChild?: string;
+  selectedChildClass?: string;
 }) {
   const { getTagUrl, allPosts } = useWorkPosts();
   return (
     <ol className={parentClassName}>
       {data.map((tag) => (
-        <li key={tag} className="leading-snug">
+        <li
+          key={tag}
+          className={
+            "leading-snug " + (tag == selectedChild && selectedChildClass)
+          }
+        >
           <Link
             href={getTagUrl(tag)}
             className={
-              "z-[1] font-semibold decoration-clone relative break-keep pb-1 pt-[0.3rem] px-3 w-auto rounded-sm transition-colors" +
+              "z-[1] decoration-clone relative break-keep pb-1 pt-[0.3rem] px-3 w-auto transition-colors" +
               " " +
               childColorClassName
             }
           >
             {tag}
             {showCount && (
-              <span className=" text-[.6em] opacity-40 pl-3">
-                (
+              <span className="text-xs align-top pl-1">
                 {allPosts.reduce(
                   (count, post) =>
                     post.tag?.includes(tag) ? count + 1 : count,
                   0
                 )}
-                )
               </span>
             )}
             <svg
-              className=" absolute top-0 left-[100%] block ml-[-0.5px] h-[100%] w-[.5em] origin-top-right"
+              className=" absolute top-0 left-[100%] block h-[100%] w-[.5em] origin-top-right"
               width={"100%"}
               height={"100%"}
               viewBox="0 0 10 10"

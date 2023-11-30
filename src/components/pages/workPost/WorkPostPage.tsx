@@ -34,8 +34,7 @@ export default function WorkPostPage({
   const postColor = post.color ? post.color : "oklch(var(--p))";
   const MDXContent = useMDXComponent(post.body.code);
 
-  const titleEnter = (title: string) => title;
-  const titleEnter2 = (title: string) => {
+  const titleEnter = (title: string) => {
     const spliter = "〈";
     if (title.indexOf(spliter) >= 0) {
       return title.split(spliter).join("<br />" + spliter);
@@ -47,12 +46,16 @@ export default function WorkPostPage({
   return (
     <SvgCurveLoader colorName={postColor}>
       <LandingBox className={"!bg-base-content !text-base-100"}>
-        <div className="max-w-[1920px] w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate">
+        <div
+          //@ts-ignore
+          style={{ "--post-color": post.color }}
+          className="max-w-[1920px] w-full relative flex flex-col justify-center items-center gap-20 px-5 xl:px-10 py-20 z-10 isolate"
+        >
           <article
             id={post.slug}
-            className=" flex flex-nowrap flex-col pt-[20vh] xl:flex-row place-items-stretch gap-5 w-full"
+            className=" flex flex-col pt-[20vh] place-items-center gap-5 w-full relative"
           >
-            <div className={` max-w-[100%] w-[200%] 2xl:mr-[12.5%] relative`}>
+            <header className="w-full relative mb-10">
               <Link
                 className={
                   "btn btn-ghost max-w-fit p-0 opacity-20 hover:opacity-70 transition-opacity absolute -top-20 left-0 group"
@@ -68,80 +71,93 @@ export default function WorkPostPage({
                   Back To List
                 </span>
               </Link>
-              <header className="flex flex-col gap-5 top-[20vh] sticky xl:mb-80">
-                <div>
-                  <h1
-                    style={{ textDecorationColor: post.color }}
-                    className=" font-extrabold break-keep text-2xl w-3/4"
-                    dangerouslySetInnerHTML={{
-                      __html: titleEnter(post.title),
-                    }}
-                  ></h1>
+              <div className="w-full pb-8">
+                <h1
+                  className=" font-extrabold break-keep text-4xl w-3/4 text-[var(--post-color)]"
+                  dangerouslySetInnerHTML={{
+                    __html: titleEnter(post.title),
+                  }}
+                ></h1>
+              </div>
+              <div className="flex flex-col lg:flex-row gap-5 ">
+                {post.description && (
+                  <div className="border-t border-[var(--post-color)]  py-5 w-full">
+                    <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                      DESCRIPTION
+                    </h4>
+                    <div
+                      className=" break-keep leading-relaxed w-3/4"
+                      dangerouslySetInnerHTML={{
+                        __html: post.description?.html || "",
+                      }}
+                      suppressHydrationWarning
+                    />
+                  </div>
+                )}
+                <div className="border-t border-[var(--post-color)]  py-5 w-full">
+                  <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                    CATEGORY
+                  </h4>
                   <p>
                     <Link
                       href={getCategoryUrl(post.category)}
-                      className=" font-bold pb-1 opacity-50 hover:opacity-100 transition-opacity"
+                      className=" font-bold uppercase hover:text-primary transition-all"
                     >
                       {post.category.replaceAll("-", " ")}
                     </Link>
                   </p>
                 </div>
                 {post.tag && (
-                  <TagOl
-                    data={post.tag}
-                    parentClassName="py-1 text-sm flex flex-row xl:flex-col gap-3 gap-x-4 flex-wrap order-1"
-                    childColorClassName={` border-l bg-[${post.color}] fill-transparent fill-[${post.color}] text-base-100 hover:border-transparent hover:bg-accent hover:fill-accent opacity-30 hover:opacity-100 transition-opacity`}
-                  />
-                )}
-                {post.description && (
-                  <>
-                    <div
-                      className="opacity-50 break-keep w-3/4 "
-                      dangerouslySetInnerHTML={{
-                        __html: post.description?.html || "",
-                      }}
-                      suppressHydrationWarning
+                  <div className="border-t border-[var(--post-color)]  py-5 w-full">
+                    <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                      TAG
+                    </h4>
+                    <TagOl
+                      data={post.tag}
+                      parentClassName="py-1 text-sm flex flex-row gap-3 gap-x-4 flex-wrap"
+                      childColorClassName={`fill-transparent text-base-100 hover:bg-accent hover:fill-accent transition-opacity`}
                     />
-                  </>
+                  </div>
                 )}
-                <p className="text-sm opacity-30">
-                  <span>
+                <div className="border-t border-[var(--post-color)]  py-5 w-full">
+                  <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                    DATE
+                  </h4>
+                  <p>
+                    <span>
+                      {post.startDate && (
+                        <>
+                          <Date
+                            dateString={post.startDate}
+                            dateFormat="YYYY.MM.DD."
+                          />
+                          {" - "}
+                        </>
+                      )}
+                      <Date dateString={post.date} dateFormat="YYYY.MM.DD." />
+                    </span>
+                    <br />
+                    <span>
+                      {getTimeDiff(post.date)} 전{post.startDate && "에"}
+                    </span>
                     {post.startDate && (
                       <>
-                        <Date
-                          dateString={post.startDate}
-                          dateFormat="YYYY.MM.DD."
-                        />
-                        {" - "}
+                        {` - `}
+                        <span>
+                          총 {getTimeDiff(post.startDate, post.date)} 동안
+                        </span>
                       </>
                     )}
-                    <Date dateString={post.date} dateFormat="YYYY.MM.DD." />
-                  </span>
-                  <br />
-                  <span>
-                    {getTimeDiff(post.date)} 전{post.startDate && "에"}
-                  </span>
-                  {post.startDate && (
-                    <>
-                      {` - `}
-                      <span>
-                        총 {getTimeDiff(post.startDate, post.date)} 동안
-                      </span>
-                    </>
-                  )}
-                </p>
-              </header>
-            </div>
+                  </p>
+                </div>
+              </div>
+            </header>
             <div
-              className={
-                prose.prose +
-                " prose prose-invert xl:prose-lg w-[500%] max-w-full overflow-visible xl:max-w-none"
-              }
+              className={`${prose.prose} prose md:prose-lg 2xl:prose-xl max-w-screen-md overflow-visible prose-headings:!text-[var(--post-color)] prose-headings:uppercase`}
             >
               <MDXContent components={mdxComponents} />
             </div>
           </article>
-          <div className="w-full h-20"></div>
           <Next_PrevPosts nextPost={nextPost} prevPost={prevPost} />
         </div>
       </LandingBox>

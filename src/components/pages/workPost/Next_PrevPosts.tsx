@@ -11,9 +11,11 @@ export function Next_PrevPosts({
   prevPost: WorkPost;
 }) {
   return (
-    <div className="flex flex-col md:flex-row justify-stretch items-stretch w-full max-w-none">
+    <div className="flex flex-col md:flex-row justify-between items-stretch w-full max-w-none">
+      {prevPost && !nextPost && <div />}
       {nextPost && nextPost.url && MorePost(nextPost)}
       {prevPost && prevPost.url && MorePost(prevPost, true)}
+      {!prevPost && nextPost && <div />}
     </div>
   );
 }
@@ -22,19 +24,22 @@ export function MorePost(nextPost: WorkPost, prev: boolean = false) {
   return (
     <Link
       href={nextPost.url || "/"}
-      className={`flex-1 block px-10 py-16 md:p-20 relative group overflow-hidden w-full text-[${
+      className={`flex-1 block px-10 py-16 md:p-20 relative group overflow-hidden w-full md:max-w-xl text-[${
         nextPost.color
       }] hover:text-base-100 text-${prev ? "right" : "left"}`}
+      //@ts-ignore
+      style={{ "--post-color": nextPost.color }}
     >
       <div className="group-hover:opacity-95 transition-all absolute top-0 left-0 opacity-0 w-full h-full -z-10 overflow-hidden">
         <Img
           src={nextPost.image}
           width={400}
           height={400}
-          className={`w-full h-full object-cover scale-125 blur-sm brightness-50`}
+          className={`w-full h-full object-cover scale-125 blur-sm brightness-50 group-hover:scale-150`}
+          style={{ transitionProperty: "transform", transitionDuration: "2s" }}
         />
       </div>
-      <span className="opacity-30 group-hover:opacity-0 transition-all">
+      <span className="opacity-30 group-hover:opacity-100 relative top-0 group-hover:top-2 group-hover:text-[var(--post-color)] transition-all">
         {prev ? (
           <>
             PREV{" "}
@@ -57,7 +62,7 @@ export function MorePost(nextPost: WorkPost, prev: boolean = false) {
       </span>
       <br />
       <br />
-      <span className="group-hover:font-bold opacity-50 text-2xl break-keep relative bottom-0 group-hover:bottom-4 group-hover:opacity-100 transition-all">
+      <span className="group-hover:font-bold opacity-50 text-2xl break-keep relative bottom-0 group-hover:bottom-2 group-hover:opacity-100 transition-all">
         {nextPost.title}
       </span>
     </Link>
