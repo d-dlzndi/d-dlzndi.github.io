@@ -1,42 +1,85 @@
-import { Post } from "contentlayer/generated";
-import usePosts from "@/hooks/usePosts";
-import { notFound } from "next/navigation";
-
-import styles from "@/styles/about.module.css";
-import LinkImgUrl from "@/assets/svg/link.svg";
 import { LandingBox } from "../index/LandingPage";
+import { Icons } from "@/components/common/Icons/Icons";
+
+const contactTitle = "CONTACT";
+const urlData = [
+  {
+    title: "Email",
+    text: "sksoyks@naver.com",
+    url: "mailto:sksoyks@naver.com",
+  },
+  {
+    title: "Tel",
+    text: "+82 010-2923-8734",
+    url: "tel:01029238734",
+  },
+  {
+    title: "Email",
+    text: "sksoyks@naver.com",
+    url: "mailto:sksoyks@naver.com",
+  },
+  {
+    title: "Tel",
+    text: "+82 010-2923-8734",
+    url: "tel:01029238734",
+  },
+  {
+    title: "Email",
+    text: "sksoyks@naver.com",
+    url: "mailto:sksoyks@naver.com",
+  },
+  {
+    title: "Tel",
+    text: "+82 010-2923-8734",
+    url: "tel:01029238734",
+  },
+];
 
 export default function AboutPage() {
-  const { allPosts } = usePosts();
-  const post: Post | undefined = allPosts.find((p) => p.slug == "Contact");
-  if (!post) notFound();
-
   return (
     <LandingBox className={""}>
-      <div className="min-h-screen p-10 pt-20 ">
-        <div className=" py-20 flex flex-col gap-2 text-3xl sm:text-4xl md:text-6xl md:gap-10 xl:text-8xl uppercase font-semibold">
-          {post.data_set?.map((data, idx) => {
+      <div className="mt-56 p-10 mb-52">
+        <div className="  flex flex-col text-2xl lg:text-4xl font-light">
+          {urlData.map((data, idx) => {
             return (
-              <div key={idx} className={styles.titleLink}>
-                <LinkImgUrl
-                  width={30}
-                  height={30}
-                  className=" fill-[var(--color)] top-0 right-0 hidden"
-                />
-                <span
-                  className="hover:underline inline-block relative"
-                  dangerouslySetInnerHTML={{
-                    __html: data.html,
-                  }}
-                />
+              <div
+                key={idx}
+                className=" pt-4 pb-20 last:border-b flex flex-col md:flex-row place-items-stretch border-t border-base-content"
+              >
+                <div className="flex-[2] md:block hidden">
+                  {idx == 0 && contactTitle}
+                </div>
+                <div className="flex-[2] pb-4">{data.title}</div>
+                <div className="flex-[4] font-bold">
+                  <a
+                    href={data.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="hover:text-primary hover:underline"
+                  >
+                    {data.text}
+                    <Icons.arrowUpRight
+                      className="inline-block align-top"
+                      width={20}
+                      height={20}
+                    />
+                  </a>
+                </div>
               </div>
             );
           })}
         </div>
-        <div
-          className="prose max-w-full w-full"
-          dangerouslySetInnerHTML={{ __html: post.body.html }}
-        />
+        <div className="flex flex-row place-items-stretch pt-10">
+          <div className="flex-1"></div>
+          <div className="flex-[3]">
+            국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다.
+            국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
+            임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여
+            집회된다. 대통령후보자가 1인일 때에는 그 득표수가 선거권자 총수의
+            3분의 1 이상이 아니면 대통령으로 당선될 수 없다. 국회의원은 국회에서
+            직무상 행한 발언과 표결에 관하여 국회외에서 책임을 지지 아니한다.
+          </div>
+        </div>
       </div>
     </LandingBox>
   );

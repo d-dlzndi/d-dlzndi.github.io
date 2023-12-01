@@ -1,21 +1,27 @@
 "use client";
 
 import Img from "@/components/common/ImgWithPlaceholder";
-import usePosts from "@/hooks/usePosts";
-import { notFound } from "next/navigation";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import { default as DateTime } from "@/components/common/Date";
 import Link from "next/link";
-import SlideShowText from "@/components/common/textEffect/SlideShowText";
 import { WorkPost } from "contentlayer/generated";
 import { BrandIcons, Icons } from "@/components/common/Icons/Icons";
-import { motion, Variant, Variants } from "framer-motion";
+import {
+  motion,
+  useAnimate,
+  useInView,
+  Variant,
+  Variants,
+} from "framer-motion";
+import SvgTitle from "@/assets/svg/index/title_text.svg";
+import SvgTitle_Deco from "@/assets/svg/index/title_deco.svg";
+import { useEffect } from "react";
 
 export default function LandingPage(params: any) {
   const { allPosts } = useWorkPosts();
   return (
     <>
-      <HelloPage />
+      <HiPage />
       <AboutMePage />
       <WorksSection title={`Animation`} categories={["Animation"]}>
         <div className="flex flex-col items-center gap-60 mb-32">
@@ -177,26 +183,45 @@ export function LandingBox({
   );
 }
 
-function HelloPage() {
-  const { allPosts } = usePosts();
-  const indexPost = allPosts.find((allpost) => allpost.slug == "Intro");
-  if (!indexPost) return notFound();
+function HiPage() {
+  const [scope, animate] = useAnimate();
+  const isInView = useInView(scope);
+  const [width, height] = [550, 450];
+
+  useEffect(() => {
+    if (isInView) {
+      animate(
+        "svg:first-child",
+        { strokeDashoffset: 0 },
+        { delay: 2, duration: 2, ease: "easeOut" }
+      );
+      animate(
+        "svg:not(:first-child)",
+        { strokeDashoffset: 0 },
+        { delay: 1, duration: 2, ease: "easeOut" }
+      );
+    }
+  }, [isInView]);
 
   return (
-    <LandingBox className={`h-screen text-primary`}>
-      <div className="flex flex-col mt-[30vh] lg:m-0 lg:flex-row gap-5 p-10 h-screen justify-stretch items-start lg:items-end text-primary relative">
-        <SlideShowText
-          textSource={indexPost.title.split("\\n")}
-          className="text-5xl lg:text-[10vw] 2xl:text-[12em] w-full my-[-0.1em] leading-none font-black lg:mb-2"
-          delay={0.5}
+    <LandingBox
+      className={`h-screen bg-base-100 bg-[url('/img/index/bg.jpg')] bg-cover bg-fixed bg-blend-color-burn`}
+    >
+      <div
+        ref={scope}
+        className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full xl:w-1/3 max-w-2xl`}
+      >
+        <SvgTitle
+          width={width}
+          height={height}
+          style={{ strokeDasharray: 100, strokeDashoffset: 100 }}
+          className={`fill-primary w-full h-full`}
         />
-        <motion.div
-          initial={{ opacity: 0, translateY: 20 }}
-          whileInView={{ opacity: 1, translateY: 0 }}
-          transition={{ delay: 3, duration: 1 }}
-          viewport={{ once: true }}
-          className=" lg:absolute lg:top-1/3 lg:left-3/4 w-28 break-keep whitespace-pre"
-          dangerouslySetInnerHTML={{ __html: indexPost.body?.html || "" }}
+        <SvgTitle_Deco
+          width={width}
+          height={height}
+          style={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}
+          className={`absolute top-0 left-0 z-[-1] stroke-secondary w-full h-full`}
         />
       </div>
     </LandingBox>
@@ -418,7 +443,7 @@ function AboutMePage() {
           />
         </div>
         <div className=" xl:w-3/4 mt-40 xl:mt-[50vh] ">
-          <h1 className="pl-10 font-bold text-9xl">ABOUT ME</h1>
+          <h1 className="pl-10 font-bold text-9xl text-secondary">ABOUT ME</h1>
           <div className="pt-20 flex justify-stretch">
             <div className="flex-1"></div>
             <div className="flex-[2]">
@@ -463,14 +488,14 @@ function AboutMePage() {
                   viewport={{ once: true }}
                   className="xl:w-[83%] xl:pl-[17%] xl:flex-row relative pt-14 flex flex-col shrink-0 gap-3 mb-60"
                 >
-                  <div className="absolute top-0 left-0 xl:left-5 w-full xl:w-[calc(100%-1.25em)] h-px bg-base-100" />
+                  <div className="absolute top-0 left-0 xl:left-5 w-full xl:w-[calc(100%-1.25em)] h-px bg-secondary" />
                   <motion.h4
                     custom={1}
                     variants={variants}
                     initial={"start"}
                     whileInView={"end"}
                     viewport={{ once: true }}
-                    className="flex-[1] shrink-0 font-extrabold uppercase text-3xl"
+                    className="flex-[1] shrink-0 font-extrabold uppercase text-3xl text-secondary"
                   >
                     {cont.title}
                   </motion.h4>
