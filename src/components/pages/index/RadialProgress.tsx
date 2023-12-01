@@ -1,5 +1,5 @@
 "use client";
-import { skillType } from "./LandingPage";
+import { skillType } from "./SkillTable";
 
 export function RadialProgress({
   skills,
