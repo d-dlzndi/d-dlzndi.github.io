@@ -4,6 +4,7 @@ import {
   HomeIcon,
   ArrowUturnLeftIcon,
   AtSymbolIcon,
+  TagIcon,
 } from "@heroicons/react/24/solid";
 
 import {
@@ -56,12 +57,13 @@ export const Icons = {
   arrowLeft: (props: IconProps) => <ArrowLeftIcon {...props} />,
   chevronDoubleUp: (props: IconProps) => <ChevronDoubleUpIcon {...props} />,
   chevronDoubleRight: (props: IconProps) => (
-    <ChevronDoubleRightIcon {...props} />
+    <ChevronDoubleRightIcon {...props} stroke={undefined} />
   ),
   email: (props: IconProps) => <AtSymbolIcon {...props} />,
   github: (props: IconProps) => <GithubIcon {...props} />,
   arrowUpRight: (props: IconProps) => <ArrowUpRightIcon {...props} />,
   sharp: (props: IconProps) => <HashtagIcon {...props} />,
+  tag: (props: IconProps) => <TagIcon {...props} fill={undefined} />,
   arrowsSwap: (props: IconProps) => <ArrowsRightLeftIcon {...props} />,
   arrowsSort: (props: IconProps) => <ArrowsUpDownIcon {...props} />,
 };

@@ -5,7 +5,7 @@ import useWorkPosts from "@/hooks/useWorkPosts";
 import { default as DateTime } from "@/components/common/Date";
 import Link from "next/link";
 import { WorkPost } from "contentlayer/generated";
-import { BrandIcons, Icons } from "@/components/common/Icons/Icons";
+import { Icons } from "@/components/common/Icons/Icons";
 import {
   motion,
   useAnimate,
@@ -16,6 +16,10 @@ import {
 import SvgTitle from "@/assets/svg/index/title_text.svg";
 import SvgTitle_Deco from "@/assets/svg/index/title_deco.svg";
 import { useEffect } from "react";
+import { DesignSection } from "./DesignSection";
+import { SkillTable } from "./SkillTable";
+import { RadialProgress } from "./RadialProgress";
+import { TimeLine } from "./TimeLine";
 
 export default function LandingPage(params: any) {
   const { allPosts } = useWorkPosts();
@@ -75,7 +79,9 @@ export default function LandingPage(params: any) {
                   delay: idx * 0.4,
                   ease: [0, 0.55, 0.45, 1],
                 }}
-                className="flex-1 flex flex-col justify-between pt-5 border-t h-auto"
+                //@ts-ignore
+                style={{ "--post-color": post.color }}
+                className="flex-1 flex flex-col justify-between pt-5 border-t border-[var(--post-color)] h-auto"
               >
                 <div className="text-7xl font-black opacity-10">
                   {"0" + (idx + 1)}
@@ -90,7 +96,8 @@ export default function LandingPage(params: any) {
                   {post.tag && (
                     <TagOl
                       data={post.tag}
-                      parentClassName={`flex flex-col gap-3 mb-7 text-sm`}
+                      parentClassName={`flex flex-row gap-3 mb-7 text-sm`}
+                      childColorClassName={`text-base-100 stroke-base-300 fill-none stroke hover:bg-accent hover:stroke-transparent`}
                     />
                   )}
                   <MoreBtn url={post.url} />
@@ -107,38 +114,7 @@ export default function LandingPage(params: any) {
             ))}
         </div>
       </WorksSection>
-      <WorksSection
-        title={`Design`}
-        categories={["Digital-Sculpting", "Graphic-Design"]}
-      >
-        <>
-          <div>
-            {allPosts
-              .reduce((list, p) => {
-                if (
-                  p.category == "Digital-Sculpting" ||
-                  p.category == "Graphic-Design"
-                )
-                  return [...list, ...p.imageList];
-                return list;
-              }, [] as any[])
-              .map((img, idx) => (
-                <div
-                  key={img.src + " " + idx}
-                  className="inline-block w-[320px] h-[180px] relative border"
-                >
-                  <Img
-                    src={img.src}
-                    alt={img.alt}
-                    width={100}
-                    height={100}
-                    className={` absolute top-0 left-0 w-full h-full object-cover`}
-                  />
-                </div>
-              ))}
-          </div>
-        </>
-      </WorksSection>
+      <DesignSection />
       <WorksSection
         title={`Thank you<br />for reading!`}
         categories={[
@@ -187,18 +163,19 @@ function HiPage() {
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
   const [width, height] = [550, 450];
+  const commonEase = [0, 0.55, 0.45, 1];
 
   useEffect(() => {
     if (isInView) {
       animate(
         "svg:first-child",
         { strokeDashoffset: 0 },
-        { delay: 2, duration: 2, ease: "easeOut" }
+        { delay: 2, duration: 2, ease: [0, 0.55, 0.45, 1] }
       );
       animate(
         "svg:not(:first-child)",
         { strokeDashoffset: 0 },
-        { delay: 1, duration: 2, ease: "easeOut" }
+        { delay: 1, duration: 2, ease: [0, 0.55, 0.45, 1] }
       );
     }
   }, [isInView]);
@@ -220,7 +197,7 @@ function HiPage() {
         <SvgTitle_Deco
           width={width}
           height={height}
-          style={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}
+          style={{ strokeDasharray: 500, strokeDashoffset: 500 }}
           className={`absolute top-0 left-0 z-[-1] stroke-secondary w-full h-full`}
         />
       </div>
@@ -230,23 +207,11 @@ function HiPage() {
 
 const skills = [
   {
-    name: (
-      <>
-        <BrandIcons.Maya width={50} height={50} className="inline-block" />
-        <br />
-        Maya
-      </>
-    ),
+    name: <>Maya</>,
     progress: 80,
   },
   {
-    name: (
-      <>
-        <BrandIcons.Unreal width={50} height={50} className="inline-block" />
-        <br />
-        Unreal Engine
-      </>
-    ),
+    name: <>Unreal Engine</>,
     progress: 50,
   },
   { name: "ZBrush", progress: 70 },
@@ -294,7 +259,7 @@ function AboutMePage() {
       sub: "WEB + GAME",
       title: "Programming",
       data: ["Programming"],
-      style: "bg-accent text-accent-content",
+      style: "bg-base-300 text-secondary-content",
     },
     {
       sub: "2D + 3D",
@@ -323,30 +288,30 @@ function AboutMePage() {
       content: (
         <>
           <div>
-            <div className="flex -mr-[1em] isolate">
+            <div className="flex xl:-mr-[1em] flex-col sm:flex-row isolate">
               {abilityData.map((data, idx) => (
                 <div
                   key={idx}
-                  className="flex flex-1 shrink-0 flex-col items-center"
+                  className="flex flex-1 -my-2 sm:my-0 sm:-mx-2 shrink-0 flex-col items-center"
                 >
                   <div
                     className={
-                      " rounded-full mix-blend-screen w-[100%] 2xl:w-[15em] 2xl:h-[15em] text-center -ml-[1em] py-24 " +
+                      " rounded-full mix-blend-screen w-[100%] xl:w-[15em] xl:h-[15em] text-center py-12 sm:py-24 " +
                       data.style
                     }
                   >
                     <p>
                       <span className="opacity-50">{data.sub}</span>
                       <br />
-                      <span className=" text-2xl uppercase font-black">
+                      <span className=" xl:text-xl 2xl:text-2xl uppercase font-black">
                         {data.title}
                       </span>
                     </p>
                   </div>
-                  <div className="mr-[1em] mt-4 pt-4 border-t w-3/4">
+                  <div className=" hidden sm:block mr-[1em] mt-4 pt-4 border-t w-3/4">
                     <TagOl
                       parentClassName="flex flex-col flex-wrap gap-3"
-                      childColorClassName=" bg-base-100 fill-base-100 text-primary hover:bg-accent hover:fill-accent hover:text-base-100"
+                      childColorClassName="text-base-100 fill-accent hover:bg-accent hover:text-base-100"
                       data={...Array.from(
                         new Set(
                           data.data.reduce(
@@ -379,18 +344,13 @@ function AboutMePage() {
       title: "skill",
       content: (
         <>
-          <div className="flex justify-around flex-nowrap pb-8">
-            <RadialProgress skills={skills.slice(0, 3)} />
+          <div className="flex justify-around flex-wrap md:flex-nowrap gap-3 pb-8">
+            <RadialProgress
+              skills={skills.slice(0, 3)}
+              colors={["text-secondary"]}
+            />
           </div>
-          <SkillTable
-            skills={skills.slice(3)}
-            colors={[
-              "progress-info",
-              "progress-success",
-              "progress-warning",
-              "progress-error",
-            ]}
-          />
+          <SkillTable skills={skills.slice(3)} colors={["progress-info"]} />
         </>
       ),
     },
@@ -401,10 +361,32 @@ function AboutMePage() {
     {
       title: "experience",
       textContent: (
-        <ol className=" list-disc">
-          <li>안녕하세요</li>
-          <li>안녕하세요</li>
-          <li>안녕하세요</li>
+        <ol className=" list-disc flex flex-col gap-5">
+          {[
+            {
+              title: "제목을 입력합니다.",
+              desc: ` 국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
+          임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여
+          집회된다.`,
+            },
+            {
+              title: "제목을 입력합니다.",
+              desc: ` 국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
+          임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여
+          집회된다.`,
+            },
+            {
+              title: "제목을 입력합니다.",
+              desc: ` 국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
+          임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여
+          집회된다.`,
+            },
+          ].map((data) => (
+            <li key={data.title}>
+              <h4 className="text-lg">{data.title}</h4>
+              <p className="opacity-50 text-sm">{data.desc}</p>
+            </li>
+          ))}
         </ol>
       ),
     },
@@ -433,7 +415,7 @@ function AboutMePage() {
 
   return (
     <LandingBox className={`bg-primary text-base-100`}>
-      <div className="flex flex-col xl:flex-row place-items-stretch min-h-screen p-10 py-20">
+      <div className="flex flex-col xl:flex-row place-items-stretch min-h-screen md:px-10 md:py-20">
         <div className="h-96 xl:h-auto xl:w-1/4 relative ">
           <Img
             src={mainImg}
@@ -442,9 +424,9 @@ function AboutMePage() {
             height={800}
           />
         </div>
-        <div className=" xl:w-3/4 mt-40 xl:mt-[50vh] ">
+        <div className=" xl:w-3/4 mt-20 md:mt-40 xl:mt-[50vh] ">
           <h1 className="pl-10 font-bold text-9xl text-secondary">ABOUT ME</h1>
-          <div className="pt-20 flex justify-stretch">
+          <div className="pt-20 flex gap-3 justify-stretch flex-col md:flex-row">
             <div className="flex-1"></div>
             <div className="flex-[2]">
               <p>
@@ -538,13 +520,18 @@ type workSectionCategoryType =
   | { href: string; name: string }
   | { category: string; name: string };
 
-function WorksSection({
+export function WorksSection({
   children,
   title,
+  description = `국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다.
+  국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
+  임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여
+  집회된다.`,
   categories = [],
 }: {
   children: React.ReactNode;
   title: string;
+  description?: string;
   categories?: workSectionCategoryType[];
 }) {
   const { getCategoryUrl } = useWorkPosts();
@@ -560,8 +547,8 @@ function WorksSection({
 
   return (
     <LandingBox className={` bg-base-content text-base-100 `}>
-      <div className="p-10 my-40">
-        <h1 className="relative font-bolc text-primary pb-24 text-9xl uppercase flex gap-3">
+      <div className="p-10 my-[25vh]">
+        <h1 className="relative font-bolc text-primary text-9xl uppercase flex gap-3">
           <motion.span
             initial={{ opacity: 0, translateY: 50 }}
             whileInView={{ opacity: 1, translateY: 0 }}
@@ -575,12 +562,15 @@ function WorksSection({
             dangerouslySetInnerHTML={{ __html: title }}
           />
         </h1>
-        <div className="px-5">{children}</div>
-        <div className=" w-full lg:pl-[50%] text-xl md:text-4xl lg:text-4xl 2xl:text-6xl">
+        {description && (
+          <div className=" w-full max-w-xs mt-8 opacity-20">{description}</div>
+        )}
+        <div className="pt-24 px-5">{children}</div>
+        <div className=" w-full pt-32 flex flex-col gap-16 lg:pl-[50%] text-xl md:text-4xl lg:text-4xl 2xl:text-6xl">
           {categories.map((category) => (
             <Link
               href={GetCtUrl(category)}
-              className="block whitespace-nowrap relative pt-32 opacity-30 transition-opacity hover:opacity-100 uppercase border-b group overflow-hidden leading-none"
+              className="block whitespace-nowrap relative opacity-30 transition-opacity hover:opacity-100 uppercase border-b group overflow-hidden leading-none"
               key={GetCtName(category)}
             >
               <span className=" inline-block whitespace-nowrap w-[3em] mr-2 text-center relative -left-[3em] font-[10] opacity-30 group-hover:left-0 transition-all ">
@@ -606,183 +596,13 @@ function WorksSection({
   );
 }
 
-type timelineType = { year: string; name: string };
-
-function TimeLine({
-  data,
-  lastData,
-  lastUse = false,
-}: {
-  data: timelineType[];
-  lastData?: timelineType;
-  lastUse?: boolean;
-}) {
-  if (!lastData)
-    lastData = {
-      year: `${new Date().getFullYear()}.${new Date().getMonth()}.`,
-      name: "NOW",
-    };
-  const hrBg = "bg-secondary";
-  const svgFill = "fill-secondary";
-  return (
-    <ul className="timeline timeline-vertical ml-[-100%] pl-[10em]">
-      {data.map((d, idx) => (
-        <li key={d.name} className="">
-          {idx !== 0 && <hr className={hrBg} />}
-          <div className="timeline-start">{d.year}</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              className={"w-5 h-5 " + svgFill}
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box text-neutral border-0">
-            {d.name}
-          </div>
-          {((lastUse && idx == data.length - 1) ||
-            (!lastUse && idx != data.length - 1)) && (
-            <hr className={idx == data.length - 1 ? `` : hrBg} />
-          )}
-        </li>
-      ))}
-      {lastUse && (
-        <li>
-          <hr />
-          <div className="timeline-start">{lastData.year}</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              className="w-5 h-5 fill-secondary"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box text-neutral border-0">
-            {lastData.name}
-          </div>
-        </li>
-      )}
-    </ul>
-  );
-}
-
-type skillType = { name: React.ReactNode; progress: number };
-
-const testSkill: skillType[] = [
-  { name: "Maya", progress: 80 },
-  { name: "Unreal Engine 5", progress: 50 },
-  { name: "Photoshop", progress: 50 },
-];
-
-const defaultColors = [
-  "progress",
-  "progress-primary",
-  "progress-secondary",
-  "progress-accent",
-  "progress-info",
-  "progress-success",
-  "progress-warning",
-  "progress-error",
-];
-
-function SkillTable({
-  skills,
-  headUse = false,
-  colors = defaultColors,
-}: {
-  skills?: skillType[];
-  headUse?: boolean;
-  colors?: string[];
-}) {
-  if (!skills) skills = testSkill;
-  return (
-    <div className="overflow-x-auto">
-      <table className="table border-t border-b">
-        {headUse && (
-          <thead>
-            <tr>
-              <th></th>
-              <th>프로그램</th>
-              <th>숙련도</th>
-            </tr>
-          </thead>
-        )}
-        <tbody>
-          {/* row 1 */}
-          {skills.map((skill, idx) => (
-            <tr key={skill.name + "_" + idx} className="text-lg">
-              {/** <th>{String(idx + 1).padStart(2, "0")}</th> */}
-              <td>{skill.name}</td>
-              <td className="w-1/2">
-                <progress
-                  className={`progress w-full ${colors[idx % colors.length]}`}
-                  value={skill.progress}
-                  max="100"
-                ></progress>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-export function RadialProgress({
-  skills,
-  colors,
-  progressTextUse,
-}: {
-  skills: skillType[];
-  colors?: string[];
-  progressTextUse?: boolean;
-}) {
-  const col = colors || ["text-secondary", "text-accent", "text-neutral"];
-
-  return skills.map((skill, idx) => (
-    <div
-      key={idx}
-      className={"radial-progress " + col[idx % col.length]}
-      style={{
-        //@ts-ignore
-        "--value": skill.progress,
-        "--size": "12rem",
-        "--thickness": "1rem",
-      }}
-      role="progressbar"
-    >
-      <p className="text-center px-8 pt-1 text-base-100">
-        <span className=" font-bold text-xl">{skill.name}</span>
-        {progressTextUse && (
-          <>
-            <br />
-            {skill.progress + "%"}
-          </>
-        )}
-      </p>
-    </div>
-  ));
-}
-
 export function TagOl({
   data,
-  parentClassName = "flex flex-row flex-wrap items-center gap-3",
-  childColorClassName = "bg-neutral fill-neutral hover:bg-accent hover:fill-accent",
+  parentClassName = "flex flex-wrap gap-3 flex-row items-center",
+  childColorClassName = "text-base-content stroke stroke-base-content fill-none hover:text-accent hover:stroke-accent",
   showCount = false,
   selectedChild = "",
-  selectedChildClass = "",
+  selectedChildClass = "bg-accent fill-none text-base-100",
 }: {
   data: string[];
   parentClassName?: string;
@@ -795,20 +615,20 @@ export function TagOl({
   return (
     <ol className={parentClassName}>
       {data.map((tag) => (
-        <li
-          key={tag}
-          className={
-            "leading-snug " + (tag == selectedChild && selectedChildClass)
-          }
-        >
+        <li key={tag} className={"leading-snug "}>
           <Link
             href={getTagUrl(tag)}
             className={
-              "z-[1] decoration-clone relative break-keep pb-1 pt-[0.3rem] px-3 w-auto transition-colors" +
+              "relative whitespace-nowrap w-auto transition-colors py-1 pr-2 my-px rounded-tl-full rounded-bl-full" +
               " " +
-              childColorClassName
+              (tag == selectedChild ? selectedChildClass : childColorClassName)
             }
           >
+            <Icons.tag
+              width={20}
+              height={20}
+              className="inline-block h-[1em] -m-px mr-0 stroke-2 align-[-0.05em]"
+            />
             {tag}
             {showCount && (
               <span className="text-xs align-top pl-1">
@@ -819,15 +639,6 @@ export function TagOl({
                 )}
               </span>
             )}
-            <svg
-              className=" absolute top-0 left-[100%] block h-[100%] w-[.5em] origin-top-right"
-              width={"100%"}
-              height={"100%"}
-              viewBox="0 0 10 10"
-              preserveAspectRatio="none"
-            >
-              <path d="M0 0 L 10 5 L 0 10 L 0 0" />
-            </svg>
           </Link>
         </li>
       ))}

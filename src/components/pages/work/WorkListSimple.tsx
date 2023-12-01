@@ -89,10 +89,8 @@ export default function WorkListSimple({
             <TagOl
               data={tags}
               parentClassName="flex flex-row flex-wrap gap-x-2 gap-y-1"
-              childColorClassName="fill-transparent bg-transparent -ml-3 hover:text-accent"
               showCount={false}
               selectedChild={tag || ""}
-              selectedChildClass=" text-accent font-bold"
             />
           </div>
           <div className="border-t border-base-content py-5 w-full">
