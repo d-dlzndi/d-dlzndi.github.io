@@ -146,7 +146,6 @@
     }
 
     blockquote {
-        @apply alert alert-info;
         display: block !important;
         //background: oklch(var(--s));
         //color: oklch(var(--sc));
@@ -156,22 +155,24 @@
 
     & :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
         content: "❝";
+        z-index: -1;
         position: absolute;
         top: -0.5em;
         left: -0.1em;
         font-size: 5em;
         opacity: 0.2;
-        color: oklch(var(--b1));
+        color: oklch(var(--p));
     }
 
     & :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
         content: "❞";
+        z-index: -1;
         position: absolute;
         bottom: -0.6em;
         right: 0.2em;
         font-size: 5em;
         opacity: 0.2;
-        color: oklch(var(--b1));
+        color: oklch(var(--p));
     }
 
     strong {

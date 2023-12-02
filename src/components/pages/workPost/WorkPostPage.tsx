@@ -73,7 +73,7 @@ export default function WorkPostPage({
               </Link>
               <div className="w-full pb-8">
                 <h1
-                  className=" font-extrabold break-keep text-4xl w-3/4 text-[var(--post-color)]"
+                  className=" font-extrabold break-keep text-4xl lg:text-5xl 2xl:text-6xl w-3/4 text-[var(--post-color)]"
                   dangerouslySetInnerHTML={{
                     __html: titleEnter(post.title),
                   }}
@@ -82,7 +82,7 @@ export default function WorkPostPage({
               <div className="flex flex-col lg:flex-row gap-5 ">
                 {post.description && (
                   <div className="border-t border-[var(--post-color)]  py-5 w-full">
-                    <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                    <h4 className="text-xs mb-2 text-[var(--post-color)] lg:text-sm 2xl:text-base">
                       DESCRIPTION
                     </h4>
                     <div
@@ -95,7 +95,7 @@ export default function WorkPostPage({
                   </div>
                 )}
                 <div className="border-t border-[var(--post-color)]  py-5 w-full">
-                  <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                  <h4 className="text-xs mb-2 text-[var(--post-color)] lg:text-sm 2xl:text-base">
                     CATEGORY
                   </h4>
                   <p>
@@ -109,18 +109,18 @@ export default function WorkPostPage({
                 </div>
                 {post.tag && (
                   <div className="border-t border-[var(--post-color)]  py-5 w-full">
-                    <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                    <h4 className="text-xs mb-2 text-[var(--post-color)] lg:text-sm 2xl:text-base">
                       TAG
                     </h4>
                     <TagOl
                       data={post.tag}
-                      parentClassName="py-1 text-sm flex flex-row gap-3 gap-x-4 flex-wrap"
-                      childColorClassName={`fill-transparent text-base-100 hover:bg-accent hover:fill-accent transition-opacity`}
+                      parentClassName="py-1 flex flex-row gap-3 gap-x-4 flex-wrap"
+                      childColorClassName={`fill-[var(--post-color)] text-base-100 hover:bg-accent hover:fill-accent`}
                     />
                   </div>
                 )}
                 <div className="border-t border-[var(--post-color)]  py-5 w-full">
-                  <h4 className="text-xs mb-2 text-[var(--post-color)]">
+                  <h4 className="text-xs mb-2 text-[var(--post-color)] lg:text-sm 2xl:text-base">
                     DATE
                   </h4>
                   <p>

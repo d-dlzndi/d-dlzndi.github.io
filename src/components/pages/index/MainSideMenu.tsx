@@ -10,11 +10,14 @@ import { Icons } from "@/components/common/Icons/Icons";
 import MenuButton from "@/components/animation/pixelTransition/Header";
 import styles from "./mainSideMenu.module.scss";
 import useWindowSize from "@/hooks/useWindowSize";
+import { usePathname } from "next/navigation";
+import DecoLine from "@/components/common/DecoLine";
 
 type positionType = "left" | "right";
 const pos: positionType = "right";
 
 export default function MainSideMenu() {
+  const pathname = usePathname();
   const [show, setShow] = useState(false);
   const toggleShow = () => {
     setShow((s) => !s);
@@ -82,7 +85,7 @@ export default function MainSideMenu() {
         </div>
       </div>
       <div
-        className={`fixed z-[45] w-full max-w-[1920px] h-0 top-0 left-[50%] -translate-x-1/2 mix-blend-exclusion invert bg-base-100`}
+        className={`fixed z-[45] w-full max-w-[1920px] h-0 top-0 left-[50%] -translate-x-1/2 mix-blend-exclusion invert bg-white`}
       >
         <FramerMagnetic
           className={`absolute rounded-full top-7 left-10 pointer-events-auto`}
@@ -97,11 +100,18 @@ export default function MainSideMenu() {
         >
           <ol className="flex gap-8 text-primary">
             {_navigation.map((url, idx) => (
-              <li
-                key={url.name}
-                className={`uppercase w-24 text-center font-bold hover:font-black text-lg`}
-              >
-                <Link href={url.url || "/"}>{url.name}</Link>
+              <li key={url.name} className={`w-24 text-center`}>
+                <Link
+                  href={url.url || "/"}
+                  className={`uppercase font-bold hover:font-black text-lg relative`}
+                >
+                  {url.name}
+                  {(pathname == url.url ||
+                    (url.href == "/work" &&
+                      pathname.indexOf(url.url || "") >= 0)) && (
+                    <DecoLine className={``} />
+                  )}
+                </Link>
               </li>
             ))}
           </ol>
