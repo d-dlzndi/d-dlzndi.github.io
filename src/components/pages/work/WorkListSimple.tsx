@@ -59,7 +59,7 @@ export default function WorkListSimple({
       <div className="flex flex-col items-center px-4 lg:p-10 mt-56 mb-[10em] min-h-screen">
         <div className="flex flex-col lg:flex-row gap-5 mb-40">
           <div className="border-t border-base-content py-5 w-full">
-            <h4 className="text-xs mb-2 xl:text-sm 2xl:text-base">WORK</h4>
+            <h4 className="text-xs mb-2 xl:text-sm 2xl:text-base">FILTER</h4>
             <p className="xl:text-lg 2xl:text-xl">{title}</p>
           </div>
           <div className="border-t border-base-content py-5 w-full">

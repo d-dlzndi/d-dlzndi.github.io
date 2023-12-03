@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1001 238.19">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.13em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-5 {
+        font-family: SUIT-Heavy, SUIT;
+        font-size: 115px;
+        font-weight: 800;
+      }
+
+      .cls-5, .cls-6 {
+        fill: none;
+        stroke: #000;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <text class="cls-5" transform="translate(1.24 100.09)"><tspan class="cls-9" x="0" y="0">TH</tspan><tspan class="cls-2" x="159.39" y="0">A</tspan><tspan class="cls-7" x="259.78" y="0">N</tspan><tspan x="359.49" y="0">K </tspan><tspan class="cls-3" x="477.82" y="0">Y</tspan><tspan class="cls-4" x="559.93" y="0">O</tspan><tspan class="cls-8" x="657.91" y="0">U</tspan><tspan class="cls-1" x="0" y="110">FO</tspan><tspan x="162.61" y="110">R </tspan><tspan class="cls-9" x="273.93" y="110">RE</tspan><tspan class="cls-2" x="429.18" y="110">AD</tspan><tspan x="613.75" y="110">I</tspan><tspan class="cls-2" x="645.95" y="110">N</tspan><tspan class="cls-8" x="742.21" y="110">G!</tspan></text>
+    <rect class="cls-6" x=".5" y="8.3" width="1000" height="211"/>
+  </g>
+</svg>

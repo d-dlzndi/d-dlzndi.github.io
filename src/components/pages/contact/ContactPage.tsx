@@ -2,6 +2,7 @@ import { LandingBox } from "../index/LandingPage";
 import { Icons } from "@/components/common/Icons/Icons";
 
 const contactTitle = "CONTACT";
+const contactDescription = `늘 열려있는 연락처입니다. \n이메일 연락을 선호합니다.`;
 const urlData = [
   {
     title: "Email",
@@ -33,13 +34,8 @@ export default function AboutPage() {
           <div className="border-t border-base-content pt-4 font-light">
             {contactTitle}
           </div>
-          <div className="flex-[3] pt-8 text-base opacity-30 w-2/3 break-keep">
-            국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다.
-            국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의
-            임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여
-            집회된다. 대통령후보자가 1인일 때에는 그 득표수가 선거권자 총수의
-            3분의 1 이상이 아니면 대통령으로 당선될 수 없다. 국회의원은 국회에서
-            직무상 행한 발언과 표결에 관하여 국회외에서 책임을 지지 아니한다.
+          <div className="flex-[3] pt-8 text-base opacity-30 w-2/3 break-keep whitespace-pre-wrap">
+            {contactDescription}
           </div>
         </div>
         <div className="flex-[6] flex flex-col font-light">
@@ -58,7 +54,7 @@ export default function AboutPage() {
                     className="text-primary hover:underline"
                   >
                     {data.text}
-                    <Icons.arrowUpRight
+                    <Icons.link
                       className="inline-block align-top"
                       width={20}
                       height={20}

@@ -7,6 +7,7 @@ import { SkillTable } from "./SkillTable";
 import { RadialProgress } from "./RadialProgress";
 import { TimeLine } from "./TimeLine";
 import { TagOl, LandingBox } from "./LandingPage";
+import Link from "next/link";
 
 export function AboutMePage() {
   const { allPosts } = useWorkPosts();
@@ -66,7 +67,7 @@ export function AboutMePage() {
     },
     {
       sub: "2D + 3D",
-      title: "DESIGN",
+      title: "Design",
       data: ["Graphic-Design", "Digital-Sculpting"],
       style: "bg-neutral text-neutral-content",
     },
@@ -75,6 +76,29 @@ export function AboutMePage() {
   const educationData = [
     { name: "화정고등학교 졸업", year: "2019.02." },
     { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
+  ];
+
+  const experienceData = [
+    {
+      title: "스마일게이트 온라인 게임잼 Episode.01 최우수상 수상",
+      desc: `2020.07.24.`,
+    },
+    {
+      title: "게임제작 경진대회 GIGDC2021 대학부 금상 수상",
+      desc: `2021.04.01.`,
+    },
+    {
+      title: "세이브더칠드런 아동학대 예방 영상물 공모전 참가",
+      desc: `2022.10.31.`,
+    },
+    {
+      title: "강원대학교 도서관 브이로그 공모전 참가",
+      desc: `2022.11.15.`,
+    },
+    {
+      title: "한국콘텐츠진흥원 2023 대한민국 게임잼 대상 수상",
+      desc: `2023.08.11.`,
+    },
   ];
 
   const aboutData: aboutType[] = [
@@ -97,20 +121,21 @@ export function AboutMePage() {
                   key={idx}
                   className="flex flex-1 -my-2 sm:my-0 sm:-mx-2 shrink-0 flex-col items-center"
                 >
-                  <div
+                  <Link
+                    href={`#${data.title}`}
                     className={
-                      " rounded-full mix-blend-screen w-[100%] xl:w-[15em] xl:h-[15em] text-center py-12 sm:py-24 " +
+                      " transition-transform hover:scale-105 active:scale-90 rounded-full mix-blend-screen w-[100%] xl:w-[15em] xl:h-[15em] text-center py-12 sm:py-24 " +
                       data.style
                     }
                   >
                     <p>
-                      <span className="opacity-50">{data.sub}</span>
+                      <span className="opacity-70">{data.sub}</span>
                       <br />
                       <span className=" xl:text-xl 2xl:text-2xl uppercase font-black">
                         {data.title}
                       </span>
                     </p>
-                  </div>
+                  </Link>
                   <div className=" hidden sm:block mr-[1em] mt-4 pt-4 border-t w-3/4">
                     <TagOl
                       parentClassName="flex flex-col flex-wrap gap-3"
@@ -158,41 +183,25 @@ export function AboutMePage() {
     },
     {
       title: "Education",
-      textContent: <TimeLine data={educationData} />,
+      textContent: (
+        <div className="w-full overflow-clip ">
+          <TimeLine
+            data={educationData}
+            className={` ml-[-100%] pl-[10em] break-keep text-base`}
+          />
+        </div>
+      ),
     },
     {
       title: "experience",
       textContent: (
         <ol className=" list-disc flex flex-col gap-7">
-          {[
-            {
-              title: "스마일게이트 온라인 게임잼 Episode.01 최우수상 수상",
-              desc: `2020.07.24.`,
-            },
-            {
-              title: "게임제작 경진대회 GIGDC2021 대학부 금상 수상",
-              desc: `2021.04.01.`,
-            },
-            {
-              title: "세이브더칠드런 아동학대 예방 영상물 공모전 참가",
-              desc: `2022.10.31.`,
-            },
-            {
-              title: "강원대학교 도서관 브이로그 공모전 참가",
-              desc: `2022.11.15.`,
-            },
-            {
-              title: "한국콘텐츠진흥원 2023 대한민국 게임잼 대상 수상",
-              desc: `2023.08.11.`,
-            },
-          ]
-            .reverse()
-            .map((data) => (
-              <li key={data.title}>
-                <h4 className="text-lg">{data.title}</h4>
-                <p className="opacity-50 text-sm">{data.desc}</p>
-              </li>
-            ))}
+          {experienceData.reverse().map((data) => (
+            <li key={data.title}>
+              <h4 className="text-lg">{data.title}</h4>
+              <p className="opacity-50 text-sm">{data.desc}</p>
+            </li>
+          ))}
         </ol>
       ),
     },
@@ -231,7 +240,9 @@ export function AboutMePage() {
           />
         </div>
         <div className=" xl:w-3/4 mt-20 md:mt-40 xl:mt-[50vh] ">
-          <h1 className="pl-10 font-bold text-9xl text-secondary">ABOUT ME</h1>
+          <h1 id={"About"} className="pl-10 font-bold text-9xl text-secondary">
+            ABOUT ME
+          </h1>
           <div className="pt-20 flex gap-3 justify-stretch flex-col md:flex-row">
             <div className="flex-1"></div>
             <div className="flex-[2]">
@@ -292,14 +303,15 @@ export function AboutMePage() {
                 >
                   <div className="absolute top-0 left-0 xl:left-5 w-full xl:w-[calc(100%-1.25em)] h-px bg-secondary" />
                   <motion.h4
+                    id={cont.title}
                     custom={1}
                     variants={variants}
                     initial={"start"}
                     whileInView={"end"}
                     viewport={{ once: true }}
-                    className="flex-[1] shrink-0 font-extrabold uppercase text-3xl text-secondary"
+                    className=" scroll-mt-20 flex-[1] shrink-0 font-extrabold uppercase text-3xl text-secondary"
                   >
-                    {cont.title}
+                    <Link href={`#${cont.title}`}>{cont.title}</Link>
                   </motion.h4>
                   <div className="flex-[3] shrink-0 flex flex-col xl:items-end">
                     {cont.textContent && (

@@ -3,10 +3,12 @@ export type timelineType = { year: string; name: string };
 
 export function TimeLine({
   data,
+  className,
   lastData,
   lastUse = false,
 }: {
   data: timelineType[];
+  className?: string;
   lastData?: timelineType;
   lastUse?: boolean;
 }) {
@@ -18,7 +20,7 @@ export function TimeLine({
   const hrBg = "bg-secondary";
   const svgFill = "fill-secondary";
   return (
-    <ul className="timeline timeline-vertical ml-[-100%] pl-[10em]">
+    <ul className={`timeline timeline-vertical ${className}`}>
       {data.map((d, idx) => (
         <li key={d.name} className="">
           {idx !== 0 && <hr className={hrBg} />}
@@ -36,7 +38,7 @@ export function TimeLine({
               />
             </svg>
           </div>
-          <div className="timeline-end timeline-box text-neutral border-0">
+          <div className="timeline-end timeline-box text-base-content border-0">
             {d.name}
           </div>
           {((lastUse && idx == data.length - 1) ||
@@ -62,7 +64,7 @@ export function TimeLine({
               />
             </svg>
           </div>
-          <div className="timeline-end timeline-box text-neutral border-0">
+          <div className="timeline-end timeline-box text-base-content border-0">
             {lastData.name}
           </div>
         </li>

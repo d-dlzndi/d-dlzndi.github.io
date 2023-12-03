@@ -73,7 +73,7 @@ export default function LandingPage(params: any) {
                 }}
                 //@ts-ignore
                 style={{ "--post-color": post.color }}
-                className="group flex-1 flex flex-col justify-between pt-5 border-t border-[var(--post-color)] h-auto"
+                className="group flex-1 flex flex-col justify-between pt-5 border-t border-[var(--post-color)] h-auto cursor-pointer"
                 onClick={() => {
                   console.log("악!");
                 }}
@@ -246,7 +246,10 @@ export function WorksSection({
   return (
     <LandingBox className={` bg-base-content text-base-100 `}>
       <div className="p-4 lg:p-10 my-[25vh]">
-        <h1 className="relative font-bolc text-primary text-9xl uppercase flex gap-3">
+        <h1
+          id={title}
+          className="relative scroll-mt-20 font-bolc text-primary text-9xl uppercase flex gap-3"
+        >
           <motion.span
             initial={{ opacity: 0, translateY: 50 }}
             whileInView={{ opacity: 1, translateY: 0 }}

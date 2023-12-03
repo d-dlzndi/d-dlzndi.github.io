@@ -1,4 +1,4 @@
-import { usePathname, useSearchParams } from "next/navigation";
+"use client";
 import { useEffect, useState } from "react";
 
 type windowSizeType = {
@@ -19,45 +19,41 @@ type windowSizeType = {
  */
 export default function useWindowSize() {
   const isClient = typeof window === "object";
-  const pathname = usePathname(); // 라우터가 변경되었을 때도 작동되어야 하므로 추가.
-  const params = useSearchParams();
 
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState<windowSizeType>({
     window: {
-      width: 1,
-      height: 1,
+      width: 0,
+      height: 0,
     },
     body: {
-      width: 1,
-      height: 1,
+      width: 0,
+      height: 0,
     },
   });
 
+  // only execute all the code below in client side
+  // Handler to call on window resize
+  function handleResize() {
+    // Set window width/height to state
+    setWindowSize({
+      window: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      },
+      body: {
+        width: document.body.offsetWidth,
+        height: document.body.offsetHeight,
+      },
+    });
+  }
+
   useEffect(() => {
     if (!isClient) return;
-
-    // only execute all the code below in client side
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        window: {
-          width: window.innerWidth,
-          height: window.innerHeight,
-        },
-        body: {
-          width: document.body.offsetWidth,
-          height: document.body.offsetHeight,
-        },
-      });
-    }
-
-    const evtList = ["resize", "scroll"]; // 굉장히 비효율적인데 언젠가 수정하기...
+    const evtList = ["resize"];
 
     // Add event listener
-    //window.addEventListener("resize", handleResize);
     evtList.forEach(function (evt) {
       window.addEventListener(evt, handleResize);
     });
@@ -67,12 +63,29 @@ export default function useWindowSize() {
 
     // Remove event listener on cleanup
     return () => {
-      //window.removeEventListener("resize", handleResize);
       evtList.forEach(function (evt) {
         window.removeEventListener(evt, handleResize);
       });
     };
-  }, [pathname, params, isClient]); // Empty array ensures that effect is only run on mount
+  }, [isClient]); // Empty array ensures that effect is only run on mount
+
+  useEffect(() => {
+    if (!document.body) return;
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(document.body);
+    return () => resizeObserver.disconnect(); // clean up
+  }, []);
+
+  useEffect(() => {
+    if (!document.body) return;
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(document.body);
+    return () => resizeObserver.disconnect(); // clean up
+  }, []);
 
   return windowSize;
 }

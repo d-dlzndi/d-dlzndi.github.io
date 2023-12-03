@@ -32,15 +32,13 @@ export default function FixedFooter({
         style={{
           height: height,
           minHeight: height,
-          backgroundColor: "black",
         }}
       />
       <motion.div
         className=" w-screen fixed bottom-0 left-0 right-0 overflow-hidden"
         style={{
           height: totalHeight,
-          maxHeight: height,
-        }} // test color
+        }}
       >
         <div
           className=" absolute w-full h-full bottom-0 left-0 right-0"
