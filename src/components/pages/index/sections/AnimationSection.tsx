@@ -9,7 +9,6 @@ import { AnimationData } from "./SectionDatas";
 import useCustomRouter from "@/hooks/useCustomRouter";
 import { useState } from "react";
 import styles from "./animSection.module.css";
-import Youtube, { YouTubeProps } from "react-youtube";
 import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
 
