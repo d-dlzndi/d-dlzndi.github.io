@@ -49,6 +49,7 @@ export const WorkPost = defineDocumentType(() => ({
     award: { type: "list", of: AwardData },
     url: { type: "string" },
     color: { type: "string" },
+    video: { type: "string" },
     draft: { type: "boolean", default: false },
   },
   computedFields: {

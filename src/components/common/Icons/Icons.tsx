@@ -20,6 +20,7 @@ import {
   HashtagIcon,
   ArrowsRightLeftIcon,
   ArrowsUpDownIcon,
+  CursorArrowRippleIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
@@ -66,6 +67,7 @@ export const Icons = {
   tag: (props: IconProps) => <TagIcon {...props} fill={undefined} />,
   arrowsSwap: (props: IconProps) => <ArrowsRightLeftIcon {...props} />,
   arrowsSort: (props: IconProps) => <ArrowsUpDownIcon {...props} />,
+  cursorRipple: (props: IconProps) => <CursorArrowRippleIcon {...props} />,
 };
 
 export const BrandIcons = {

@@ -1,0 +1,16 @@
+"use client";
+
+import { WorksSection } from "./WorksSection";
+import { ThankData } from "./SectionDatas";
+
+export function ThankSection() {
+  return (
+    <WorksSection
+      title={ThankData.title}
+      svg_widthclass={`aspect-w-10 aspect-h-2`}
+      Title_svg={ThankData.titleSvg}
+      categories={ThankData.category}
+      description={ThankData.description}
+    ></WorksSection>
+  );
+}

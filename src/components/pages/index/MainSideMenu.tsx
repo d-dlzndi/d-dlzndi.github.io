@@ -15,6 +15,7 @@ import DecoLine from "@/components/common/DecoLine";
 
 type positionType = "left" | "right";
 const pos: positionType = "right";
+const TITLE = "PORTFOLIO";
 
 export default function MainSideMenu() {
   const pathname = usePathname();
@@ -61,6 +62,7 @@ export default function MainSideMenu() {
                       url={url}
                       idx={idx}
                       key={url.name}
+                      pathname={pathname}
                       onClick={() => setShow(false)}
                     />
                   ))}
@@ -74,13 +76,16 @@ export default function MainSideMenu() {
           )}
         </AnimatePresence>
         <div
-          className={`block lg:hidden absolute top-5 ${pos}-5 pointer-events-auto`}
+          className={`block lg:hidden absolute top-0 right-0 pointer-events-auto`}
         >
           <button
             onClick={() => toggleShow()}
-            className="btn btn-primary p-5 w-16 h-16"
+            className="btn btn-primary rounded-none p-5 w-16 h-16"
           >
-            <MenuButton menuIsActive={show} className=" top-[.6rem]" />
+            <MenuButton
+              menuIsActive={show}
+              className=" top-[.6rem] right-[.1rem]"
+            />
           </button>
         </div>
       </div>
@@ -88,11 +93,11 @@ export default function MainSideMenu() {
         className={`fixed z-[45] w-full max-w-[1920px] h-0 top-0 left-[50%] -translate-x-1/2 mix-blend-exclusion invert bg-white`}
       >
         <FramerMagnetic
-          className={`absolute rounded-full top-7 left-10 pointer-events-auto`}
+          className={`absolute rounded-full top-5 left-4 lg:top-7 lg:left-10 pointer-events-auto`}
           max={10}
         >
           <Link href="/portfolio" className=" text-2xl font-black text-primary">
-            PORTFOLIO
+            {TITLE}
           </Link>
         </FramerMagnetic>
         <nav
@@ -100,7 +105,7 @@ export default function MainSideMenu() {
         >
           <ol className="flex gap-8 text-primary">
             {_navigation.map((url, idx) => (
-              <li key={url.name} className={`w-24 text-center`}>
+              <li key={url.name} className={`w-24 text-center relative`}>
                 <Link
                   href={url.url || "/"}
                   className={`uppercase font-bold hover:font-black text-lg relative`}
@@ -147,11 +152,13 @@ function SvgCurveBackground() {
   return (
     <svg
       className={
-        styles.svgCurve +
-        " fill-primary pointer-events-none " +
+        " absolute top-0 fill-primary pointer-events-none " +
         (pos == "left" ? "" : "-scale-x-100")
       }
       style={{
+        width: "100px",
+        height: "100vh",
+        stroke: "none",
         right: pos == "left" ? "-99px" : "none",
         left: pos == "left" ? "none" : "-99px",
       }}
@@ -170,10 +177,12 @@ function SvgCurveBackground() {
 function MenuTextAnimation({
   url,
   idx,
+  pathname,
   onClick,
 }: {
   url: urlType;
   idx: number;
+  pathname: string;
   onClick: () => void;
 }) {
   return (
@@ -192,9 +201,14 @@ function MenuTextAnimation({
       }}
       onClick={onClick}
     >
-      <Link href={url.url || "/"} className="text-5xl w-full block relative">
-        <Icons.arrowRight width={30} height={30} className="inline-block " />{" "}
-        {url.name}
+      <Link href={url.url || "/"} className="text-5xl w-full block uppercase">
+        <span className="inline-block relative z-[1]">
+          {url.name}
+          {(pathname == url.url ||
+            (url.href == "/work" && pathname.indexOf(url.url || "") >= 0)) && (
+            <DecoLine className={``} />
+          )}
+        </span>
       </Link>
     </motion.li>
   );

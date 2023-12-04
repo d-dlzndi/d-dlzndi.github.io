@@ -12,7 +12,8 @@ import getTimeDiff from "@/utils/getTimeDiff";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import SvgCurveLoader from "@/components/animation/svg-curve-loader";
 import ScrollShowImage from "@/components/common/mdx/ScrollShowImage";
-import { LandingBox, TagOl } from "../index/LandingPage";
+import { LandingBox } from "../index/LandingPage";
+import { TagOl } from "../index/comp/TagOl";
 
 const mdxComponents = {
   img: ScrollShowImage,

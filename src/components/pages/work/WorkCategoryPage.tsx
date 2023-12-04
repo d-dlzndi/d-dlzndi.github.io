@@ -7,7 +7,8 @@ import { GalleryList } from "../workList/GalleryList";
 import { motion } from "framer-motion";
 import { Icons } from "@/components/common/Icons/Icons";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { LandingBox, TagOl } from "../index/LandingPage";
+import { LandingBox } from "../index/LandingPage";
+import { TagOl } from "../index/comp/TagOl";
 import { useState } from "react";
 
 const CATEGORY_ALL = "All";
