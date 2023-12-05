@@ -71,6 +71,8 @@ const useWorkPosts = ({ category, tag }: Props = {}) => {
   return {
     allPosts: basePosts,
     filterPosts,
+    postsByCategory,
+    postsByTag,
     categories,
     tags,
     getCategoryUrl,

@@ -7,10 +7,10 @@ import Link from "next/link";
 import { Icons } from "@/components/common/Icons/Icons";
 import { AnimationData } from "./SectionDatas";
 import useCustomRouter from "@/hooks/useCustomRouter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./animSection.module.css";
-import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
+import CustomReactPlayer from "@/components/common/CustomReactPlayer";
 
 export function AnimationSection() {
   const { allPosts } = useWorkPosts();
@@ -23,30 +23,48 @@ export function AnimationSection() {
       Title_svg={AnimationData.titleSvg}
       categories={AnimationData.category}
     >
-      <div className="flex flex-col items-center gap-20">
+      <div
+        className={`flex flex-col items-center gap-20 ${styles.all} snap-y snap-proximity`}
+      >
         {allPosts
           .filter((p) => p.category == "Animation")
           .slice(0, 3)
-          .sort((a, b) => (a.title == AnimationData.firstPost ? -1 : 0))
+          .sort((a, _) => (a.title == AnimationData.firstPost ? -1 : 0))
           .map((post) => (
-            <div
+            <motion.div
               key={post.title}
+              initial={{ opacity: 0, translateY: 50 }}
+              whileInView={{ opacity: 1, translateY: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.5, 1, 0.89, 1] }}
               //@ts-ignore
               style={{ "--post-color": post.color }}
-              className=" group w-full max-w-screen-xl relative"
+              className={` snap-center w-full max-w-screen-xl relative flex flex-col ${styles.box}`}
             >
-              <div className="w-full aspect-w-16 aspect-h-9 relative">
+              <div
+                className={`w-full aspect-w-16 aspect-h-9 relative ${styles.imgbox}`}
+              >
                 <SlideShowImg imglist={post.imageList} video={post.video} />
               </div>
               <div
                 onClick={(e) => {
                   push(post.url || "/");
                 }}
-                className={
-                  "group cursor-pointer flex flex-col gap-3 pt-4 border-t-4 border-[var(--post-color)] bg-base-content "
-                }
+                className={`group cursor-pointer flex flex-col gap-3 pt-4 border-t-4 border-[var(--post-color)] relative bg-base-content ${styles.textbox}`}
               >
-                <h1 className="text-2xl font-extrabold">{post.title}</h1>
+                <h3
+                  className={`text-2xl font-extrabold break-keep group-hover:text-[var(--post-color)] transition-colors w-5/6 leading-tight ${styles.title}`}
+                >
+                  {post.title.replaceAll("〈", "\n〈")}
+                </h3>
+                {post.description && (
+                  <div
+                    className=" opacity-50 w-3/4 break-keep"
+                    dangerouslySetInnerHTML={{
+                      __html: post.description?.html || "",
+                    }}
+                  />
+                )}
                 {post.tag && (
                   <div
                     onClick={(e) => {
@@ -55,32 +73,22 @@ export function AnimationSection() {
                   >
                     <TagOl
                       data={post.tag}
-                      parentClassName="flex flex-row flex-wrap gap-2"
+                      parentClassName="flex flex-row flex-wrap gap-2 text-sm"
                       childColorClassName=" fill-[var(--post-color)] hover:fill-accent hover:bg-accent"
                     />
                   </div>
                 )}
-                {post.description && (
-                  <div
-                    className=" opacity-50"
-                    dangerouslySetInnerHTML={{
-                      __html: post.description?.html || "",
-                    }}
-                  />
-                )}
-                <Link
-                  href={post.url || "/"}
-                  className={"block font-extrabold text-[var(--post-color)]"}
+                <div
+                  className={`absolute top-0 right-3 opacity-0 group-hover:opacity-100 transition-opacity`}
                 >
-                  MORE
-                  <Icons.arrowRight
-                    width={20}
-                    height={20}
-                    className=" align-sub stroke-current hidden group-hover:inline-block"
+                  <Icons.arrowUpRight
+                    width={40}
+                    height={40}
+                    className="inline-block stroke-[var(--post-color)]"
                   />
-                </Link>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
       </div>
     </WorksSection>
@@ -94,7 +102,7 @@ export function SlideShowImg({
   imglist: any[];
   video?: string;
 }) {
-  const [select, setSelect] = useState({ before: imglist.length - 1, now: 0 });
+  const [select, setSelect] = useState({ before: imglist.length, now: 0 });
   const setNow = (now: number) => {
     setSelect({
       before: select.now,
@@ -102,7 +110,7 @@ export function SlideShowImg({
     });
   };
   const setNext = () => {
-    setNow(select.now + 1 >= imglist.length - 1 ? 0 : select.now + 1);
+    setNow(select.now + 1 > imglist.length - 1 ? 0 : select.now + 1);
   };
   const setPrev = () => {
     setNow(select.now - 1 < 0 ? imglist.length - 1 : select.now - 1);
@@ -128,44 +136,26 @@ export function SlideShowImg({
           onHoverEnd={() => {
             if (idx == 0) setVideoPlaying(false);
           }}
-          className={`${getCommonClass(idx)} bg-[var(--post-color)]`}
+          onClick={() => {
+            if (idx == 0) setVideoPlaying((p) => !p);
+          }}
+          className={`${getCommonClass(
+            idx
+          )} bg-[var(--post-color)] select-none `}
         >
           {idx == 0 && (
             <>
               <div
                 className={`hidden lg:block absolute top-0 left-0 w-full h-full pointer-events-none`}
               >
-                <ReactPlayer
-                  url={video}
-                  width={"100%"}
-                  height={"100%"}
-                  playing={videoPlaying}
-                  loop
-                  muted
-                  config={{
-                    youtube: {
-                      playerVars: {
-                        autoplay: 0,
-                        controls: 0,
-                        showinfo: 0,
-                        rel: 0,
-                        fs: 0,
-                        color: "white",
-                        modestbranding: 1,
-                      },
-                    },
-                    vimeo: {
-                      // https://github.com/CookPete/react-player
-                    },
-                  }}
-                />
+                <CustomReactPlayer video={video} videoPlaying={videoPlaying} />
               </div>
               <p
-                className={`absolute hidden lg:block z-[1] top-5 right-5  bg-[var(--post-color)] pt-1 px-5 rounded-2xl w-auto h-auto text-center ${
-                  videoPlaying ? "opacity-0" : "opacity-100"
-                } transition-all`}
+                className={`absolute hidden lg:block z-[1] bg-[var(--post-color)] pt-2 px-5 top-5 right-5 rounded-2xl w-auto h-auto text-center ${
+                  videoPlaying ? "opacity-0" : "animate-pulse"
+                } transition-all ${styles.hoverMe}`}
               >
-                <span className={`animate-pulse`}>
+                <span className={``}>
                   HOVER ME!
                   <Icons.cursorRipple
                     width={40}
@@ -182,25 +172,55 @@ export function SlideShowImg({
             alt={img.alt}
             width={1280}
             height={720}
+            priority={true}
             className={` absolute top-0 left-0 w-full h-full transition-opacity object-cover pointer-events-none ${
               videoPlaying ? "lg:opacity-0" : "opacity-100"
             }`}
           />
         </motion.div>
       ))}
-      <ol className="absolute left-full top-0 flex flex-col px-5 gap-2">
-        {imglist.map((_, idx) => (
-          <li
-            key={idx}
-            onClick={() => setNow(idx)}
-            className={`cursor-pointer transition-all ${
-              idx == select.now ? "text-[var(--post-color)]" : "opacity-30"
-            }`}
+      <div
+        className={`absolute top-0 left-0 w-full h-full z-20 pointer-events-none`}
+      >
+        <div
+          className={`join join-vertical rounded-none absolute bottom-0 right-0 pointer-events-auto ${styles.btnbox}`}
+        >
+          <button
+            onClick={() => setPrev()}
+            className="btn btn-ghost hover:border-[var(--post-color)] bg-[var(--post-color)] join-item "
           >
-            {String(idx).padStart(2, "0")}
-          </li>
-        ))}
-      </ol>
+            <Icons.arrowUp width={30} height={30} className="stroke-current" />
+          </button>
+          <button
+            onClick={() => setNext()}
+            className="btn btn-ghost hover:border-[var(--post-color)] bg-[var(--post-color)] join-item "
+          >
+            <Icons.arrowDown
+              width={30}
+              height={30}
+              className="stroke-current"
+            />
+          </button>
+        </div>
+        <ol
+          className={`pointer-events-auto leading-none flex absolute w-fit right-1 xl:right-0 z-20 xl:left-full top-1 xl:top-0 flex-col gap-1 xl:px-5 xl:gap-3 ${styles.slidenav}`}
+        >
+          {imglist.map((_, idx) => (
+            <li
+              key={idx}
+              onClick={() => setNow(idx)}
+              className={`w-3 h-3 tooltip tooltip-left inline-block transition-all hover:opacity-100 border-[var(--post-color)] ${
+                idx == select.now
+                  ? "bg-[var(--post-color)] cursor-default xl:tooltip-open"
+                  : "border opacity-30 cursor-pointer"
+              }`}
+              data-tip={`${String(idx).padStart(2, "0")} \n${_.alt}`}
+            >
+              <span className="hidden">{String(idx).padStart(2, "0")}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
     </>
   );
 }

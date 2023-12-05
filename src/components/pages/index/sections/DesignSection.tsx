@@ -46,9 +46,9 @@ function DesignInner() {
   };
 
   return (
-    <div className="left-1/2 -translate-x-1/2 w-screen -my-5 lg:-my-20 group lg:-skew-x-12 lg:-rotate-12 relative xl:bottom-20">
+    <div className="left-1/2 -translate-x-1/2 w-screen group lg:-skew-x-12 lg:-rotate-12 relative xl:bottom-20">
       <button
-        className="flex z-[5] absolute top-[90%] right-5 lg:right-20 2xl:right-44 w-16 h-16 lg:w-28 lg:h-28 rounded-full place-items-center hover:scale-95 active:scale-90 hover:stroke-secondary-content hover:bg-secondary transition-all stroke-secondary border border-secondary"
+        className="flex z-[5] absolute top-[90%] right-5 lg:right-20 2xl:right-44 w-16 h-16 lg:w-28 lg:h-28 rounded-full place-items-center hover:scale-95 active:scale-90 stroke-secondary-content bg-secondary hover:bg-transparent transition-all hover:stroke-secondary border border-secondary"
         onClick={() => setClickCount(clickCount + 1)}
       >
         <Icons.chevronDoubleRight
@@ -120,6 +120,7 @@ const DesignSectionImgBox = () => {
               alt={img.alt}
               width={100}
               height={100}
+              priority={true}
               className={`w-full h-full object-cover`}
             />
             <Link

@@ -46,8 +46,8 @@ export function ProgrammingSection() {
             >
               <span className="opacity-0 text-2xl text-[var(--post-color)] group-hover:opacity-100 transition-opacity absolute top-3 right-1">
                 <Icons.arrowUpRight
-                  width={30}
-                  height={30}
+                  width={40}
+                  height={40}
                   className="inline-block stroke-[var(--post-color)] stroke-2"
                 />
               </span>
@@ -56,7 +56,7 @@ export function ProgrammingSection() {
               </span>
               <div className="flex flex-col sm:flex-row sm:gap-5 xl:flex-col xl:gap-0 relative h-auto mt-8">
                 <div className="flex-1">
-                  <h4 className="text-xl xl:text-2xl font-extrabold mb-3 break-keep">
+                  <h4 className="group-hover:text-[var(--post-color)] transition-colors text-xl xl:text-2xl font-extrabold mb-3 break-keep">
                     {post.title}
                   </h4>
                   <p className="w-2/3 break-keep text-base opacity-50">

@@ -14,20 +14,21 @@ export function HiPage() {
   useEffect(() => {
     if (isInView) {
       const commonEase = [0, 0.55, 0.45, 1];
+      const startDelay = 1.5;
       animate(
         "svg:nth-child(1)",
-        { strokeDashoffset: 0 },
-        { delay: 2, duration: 2, ease: [0, 0.55, 0.45, 1] }
+        { opacity: 1 },
+        { delay: 0.5, duration: 2, ease: [0, 0.55, 0.45, 1] }
       );
       animate(
         "svg:nth-child(2)",
         { strokeDashoffset: 0 },
-        { delay: 1, duration: 2, ease: [0, 0.55, 0.45, 1] }
+        { delay: startDelay, duration: 2, ease: [0, 0.55, 0.45, 1] }
       );
       animate(
         "svg:nth-child(3)",
         { strokeDashoffset: 0 },
-        { delay: 1.5, duration: 2, ease: [0, 0.55, 0.45, 1] }
+        { delay: startDelay + 0.9, duration: 2, ease: [0, 0.55, 0.45, 1] }
       );
     }
   }, [isInView]);
@@ -43,7 +44,7 @@ export function HiPage() {
         <SvgTitle
           width={width}
           height={height}
-          style={{ strokeDasharray: 100, strokeDashoffset: 100 }}
+          style={{ strokeDasharray: 100, strokeDashoffset: 100, opacity: 0 }}
           className={`fill-primary w-full h-full`}
         />
         <SvgTitle_Deco1

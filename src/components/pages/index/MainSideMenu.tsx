@@ -103,20 +103,26 @@ export default function MainSideMenu() {
         <nav
           className={`hidden lg:block absolute top-8 right-8 pointer-events-auto `}
         >
-          <ol className="flex gap-8 text-primary">
+          <ol className="flex gap-12 text-primary">
             {_navigation.map((url, idx) => (
-              <li key={url.name} className={`w-24 text-center relative`}>
-                <Link
-                  href={url.url || "/"}
-                  className={`uppercase font-bold hover:font-black text-lg relative`}
-                >
-                  {url.name}
-                  {(pathname == url.url ||
-                    (url.href == "/work" &&
-                      pathname.indexOf(url.url || "") >= 0)) && (
-                    <DecoLine className={``} />
-                  )}
-                </Link>
+              <li
+                key={url.name}
+                style={{ width: `${url.name.length * 0.9}em` }}
+                className="text-right"
+              >
+                <FramerMagnetic max={10} className={`!inline-blockrelative`}>
+                  <Link
+                    href={url.url || "/"}
+                    className={`uppercase font-bold hover:font-black transition-all text-lg relative`}
+                  >
+                    {url.name}
+                    {(pathname == url.url ||
+                      (url.href == "/work" &&
+                        pathname.indexOf(url.url || "") >= 0)) && (
+                      <DecoLine className={``} />
+                    )}
+                  </Link>
+                </FramerMagnetic>
               </li>
             ))}
           </ol>

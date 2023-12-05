@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from "react";
 
 export default function SvgCurveLoader({
   children,
-  colorName = "oklch(var(--p))"
+  colorName = "oklch(var(--p))",
 }: {
   children: React.ReactNode;
-  colorName?: string
+  colorName?: string;
 }) {
   const loader = useRef<any>(null);
   const path = useRef<any>(null);
@@ -34,10 +34,13 @@ export default function SvgCurveLoader({
 
     if (loader)
       loader.current.style.top =
-        easeOutQuad(elapsed, 0, -loaderHeight() - 1, duration) + "px";
+        easeOutQuad(elapsed, 0, -loaderHeight() - 50, duration) + "px";
 
     if (elapsed < duration) {
       requestAnimationFrame(animate);
+    } else {
+      // 종료 시
+      if (loader) loader.current.style.display = "none";
     }
   };
 
@@ -74,7 +77,11 @@ export default function SvgCurveLoader({
   return (
     <>
       {children}
-      <div ref={loader} className={styles.loader} style={{backgroundColor: divClass, fill: colorName}}>
+      <div
+        ref={loader}
+        className={styles.loader}
+        style={{ backgroundColor: divClass, fill: colorName }}
+      >
         <svg>
           <path ref={path}></path>
         </svg>

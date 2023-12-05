@@ -2,20 +2,51 @@
 import useWorkPosts from "@/hooks/useWorkPosts";
 import Link from "next/link";
 import { useAnimate, useInView } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LandingBox } from "../LandingPage";
+import styles from "./WorksSection.module.css";
 
 export type workSectionCategoryType =
   | string
   | { href: string; name: string; more: string }
   | { category: string; name: string; more: string };
 
+/**
+   * 
+  const [scope, animate] = useAnimate();
+
+  const isInView = useInView(scope, { once: false });
+
+  const strokeLength = 600;
+  useEffect(() => {
+    if (isInView) {
+      const enterAnimation = async () => {
+        await animate(
+          "svg",
+          { strokeDashoffset: 1, opacity: 1 },
+          { delay: 0, duration: 2, ease: [0.33, 1, 0.68, 1] }
+        );
+      };
+      enterAnimation();
+    } else {
+      const exitAnimation = async () => {
+        await animate(
+          "svg",
+          { strokeDashoffset: 600, opacity: 0 },
+          { delay: 0, duration: 0.1, ease: [0.33, 1, 0.68, 1] }
+        );
+      };
+      exitAnimation();
+    }
+  }, [isInView]);
+   */
+
 export function WorksSection({
   children,
   title,
   Title_svg,
   svg_widthclass = "aspect-h-1 aspect-w-10",
-  description = `국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다.국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의 시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여 집회된다.`,
+  description,
   categories = [],
 }: {
   children?: React.ReactNode;
@@ -25,16 +56,18 @@ export function WorksSection({
   description?: string;
   categories?: workSectionCategoryType[];
 }) {
-  const [scope, animate] = useAnimate();
-  const isInView = useInView(scope);
-
+  const svgTitleRef = useRef(null);
+  const isInView = useInView(svgTitleRef, { once: false });
+  const [svgClass, setSvgClass] = useState("");
+  const strokeLength = 600;
+  const [svgStrokeLength, setSvgStrokeLength] = useState(strokeLength);
   useEffect(() => {
     if (isInView) {
-      animate(
-        "svg",
-        { strokeDashoffset: 0, opacity: 1 },
-        { delay: 0, duration: 2, ease: [0.33, 1, 0.68, 1] }
-      );
+      setSvgClass(styles.in_view);
+      setSvgStrokeLength(0);
+    } else {
+      setSvgClass("");
+      setSvgStrokeLength(strokeLength);
     }
   }, [isInView]);
 
@@ -53,16 +86,14 @@ export function WorksSection({
     return category.more;
   };
 
-  const strokeLength = 600;
-
   return (
     <LandingBox
       className={`bg-base-content text-base-100 overflow-y-auto overflow-x-hidden`}
     >
       <div className="p-4 md:p-10 my-[10vh] sm:my-[15vh] md:my-[20vh]">
         <h1
+          ref={svgTitleRef}
           id={title}
-          ref={scope}
           className={
             "relative scroll-mt-20 origin-bottom-left w-full max-w-screen-xl " +
             svg_widthclass
@@ -72,9 +103,9 @@ export function WorksSection({
           <Title_svg
             style={{
               strokeDasharray: strokeLength,
-              strokeDashoffset: strokeLength,
+              strokeDashoffset: svgStrokeLength,
             }}
-            className={` opacity-0 w-full h-full stroke-none md:stroke-primary fill-primary md:fill-none ml-[-5px]`}
+            className={`${styles.svg_title} ${svgClass} w-full h-full stroke-none md:stroke-primary fill-primary md:fill-none ml-[-5px]`}
           />
         </h1>
         {description && (

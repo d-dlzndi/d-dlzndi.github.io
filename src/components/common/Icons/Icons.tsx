@@ -3,7 +3,6 @@ import {
   MicrophoneIcon,
   HomeIcon,
   ArrowUturnLeftIcon,
-  AtSymbolIcon,
   TagIcon,
 } from "@heroicons/react/24/solid";
 
@@ -21,10 +20,14 @@ import {
   ArrowsRightLeftIcon,
   ArrowsUpDownIcon,
   CursorArrowRippleIcon,
+  PhoneIcon,
+  AtSymbolIcon,
+  ArrowUpIcon,
+  ArrowDownIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
-import GithubIcon from "@/assets/svg/github-mark.svg";
+import GithubIcon from "@/assets/svg/github.svg";
 import MayaIcon from "@/assets/svg/maya.svg";
 import AsepriteIcon from "@/assets/svg/aseprite.svg";
 import UnityIcon from "@/assets/svg/unity.svg";
@@ -56,6 +59,8 @@ export const Icons = {
   gallery: (props: IconProps) => <Squares2X2Icon {...props} />,
   arrowRight: (props: IconProps) => <ArrowRightIcon {...props} />,
   arrowLeft: (props: IconProps) => <ArrowLeftIcon {...props} />,
+  arrowUp: (props: IconProps) => <ArrowUpIcon {...props} />,
+  arrowDown: (props: IconProps) => <ArrowDownIcon {...props} />,
   chevronDoubleUp: (props: IconProps) => <ChevronDoubleUpIcon {...props} />,
   chevronDoubleRight: (props: IconProps) => (
     <ChevronDoubleRightIcon {...props} stroke={undefined} />
@@ -68,6 +73,7 @@ export const Icons = {
   arrowsSwap: (props: IconProps) => <ArrowsRightLeftIcon {...props} />,
   arrowsSort: (props: IconProps) => <ArrowsUpDownIcon {...props} />,
   cursorRipple: (props: IconProps) => <CursorArrowRippleIcon {...props} />,
+  phone: (props: IconProps) => <PhoneIcon {...props} />,
 };
 
 export const BrandIcons = {

@@ -1,5 +1,4 @@
 "use client";
-import useDimensions from "@/hooks/useDimensions";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -14,14 +13,13 @@ export default function FramerMagnetic({
 }) {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const dime = useDimensions(ref);
   const MAX = max;
 
   const mouseMove = (e: any) => {
     const { clientX, clientY } = e;
-    const { width, height, left, top } = dime;
-    const x = clientX - (left + width / 2);
-    const y = clientY - (top + height / 2);
+    const bounds = e.target.getBoundingClientRect();
+    const x = clientX - (bounds.left + bounds.width / 2);
+    const y = clientY - (bounds.top + bounds.height / 2);
     setPosition({
       x: Math.max(Math.min(x, MAX), -MAX),
       y: Math.max(Math.min(y, MAX), -MAX),
@@ -39,6 +37,7 @@ export default function FramerMagnetic({
       style={{
         width: "fit-content",
         height: "fit-content",
+        transformOrigin: "top left",
       }}
       className={className}
       ref={ref}

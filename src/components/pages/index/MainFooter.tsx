@@ -1,6 +1,8 @@
 import FixedFooter from "@/components/animation/fixedFooter";
 import { Icons } from "@/components/common/Icons/Icons";
 import Link from "next/link";
+import { Data as contactData } from "../contact/ContactDatas";
+import FramerMagnetic from "@/components/animation/Magnetic";
 
 export function MainFooter() {
   const h = "30vh";
@@ -17,50 +19,42 @@ export function MainFooter() {
 }
 
 export function FooterContents() {
-  type contactType = {
-    href: string;
-    tooltip: string;
-    icon: any;
-  };
-  const contacts: contactType[] = [
-    {
-      href: "mailto:sksoyks@naver.com",
-      tooltip: "Email",
-      icon: Icons.email,
-    },
-    {
-      href: "https://github.com/d-dlzndi",
-      tooltip: "Github",
-      icon: Icons.github,
-    },
-  ];
   return (
     <>
       <aside>
-        <p className="">
-          <a
-            href="/portfolio"
-            className="fill-secondary hover:animate-spin inline-block origin-center transition-all"
-          >
-            <Icons.logo width={50} height={50} />
-          </a>
-        </p>
-        <p className="font-bold">Copyright SEO © 2023 - All right reserved</p>
-      </aside>
-      <nav>
-        <div className="grid grid-flow-col gap-4">
-          {contacts.map((icon, idx) => (
+        <div className="">
+          <FramerMagnetic max={10} className="">
             <a
-              key={icon.tooltip}
-              href={icon.href}
-              target="_blank"
-              className="tooltip"
-              data-tip={icon.tooltip}
+              href="/portfolio"
+              className="fill-secondary group inline-block origin-center transition-all"
             >
-              <icon.icon className={"fill-base-100"} width={24} height={24} />
+              <Icons.logo width={50} height={50} />
             </a>
-          ))}
+          </FramerMagnetic>
         </div>
+        <p className="font-bold uppercase">{contactData.copyright}</p>
+      </aside>
+      <nav className="grid grid-flow-col gap-4 relative">
+        {contactData.urls.map((url, idx) => (
+          <FramerMagnetic key={url.title} max={5} className="">
+            <a
+              href={url.url}
+              target="_blank"
+              className="tooltip p-2 block"
+              data-tip={url.title}
+            >
+              <url.icon
+                className={
+                  url.iconType == "fill"
+                    ? "fill-base-100"
+                    : "fill-none stroke-base-100"
+                }
+                width={24}
+                height={24}
+              />
+            </a>
+          </FramerMagnetic>
+        ))}
       </nav>
     </>
   );

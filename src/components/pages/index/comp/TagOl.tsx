@@ -18,7 +18,14 @@ export function TagOl({
   selectedChild?: string;
   selectedChildClass?: string;
 }) {
-  const { getTagUrl, allPosts } = useWorkPosts();
+  const { allPosts, postsByTag, getTagUrl } = useWorkPosts();
+
+  const getTagLength = (tag: string) => {
+    if (tag && Object.keys(postsByTag).includes(tag))
+      return postsByTag[tag].length;
+    else return allPosts.length;
+  };
+
   return (
     <ol className={parentClassName}>
       {data.map((tag) => (
@@ -38,12 +45,8 @@ export function TagOl({
             />
             {tag}
             {showCount && (
-              <span className="text-xs align-top pl-1">
-                {allPosts.reduce(
-                  (count, post) =>
-                    post.tag?.includes(tag) ? count + 1 : count,
-                  0
-                )}
+              <span className="text-xs align-top pl-1 opacity-30">
+                {getTagLength(tag)}
               </span>
             )}
           </Link>
