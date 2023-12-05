@@ -5,6 +5,7 @@ import SvgTitle_Deco1 from "@/assets/svg/index/title_deco1.svg";
 import SvgTitle_Deco2 from "@/assets/svg/index/title_deco2.svg";
 import { useEffect } from "react";
 import { LandingBox } from "../LandingPage";
+import Image from "next/image";
 
 export function HiPage() {
   const [scope, animate] = useAnimate();
@@ -37,6 +38,14 @@ export function HiPage() {
     <LandingBox
       className={`h-screen bg-base-100 bg-[url('/img/index/bg.jpg')] bg-cover bg-fixed bg-blend-color-burn`}
     >
+      <Image
+        src={"/img/index/bg.jpg"}
+        alt={"background"}
+        width={1280}
+        height={720}
+        priority={true}
+        className="hidden"
+      />
       <div
         ref={scope}
         className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full xl:w-1/3 max-w-2xl`}

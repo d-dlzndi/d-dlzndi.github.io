@@ -147,6 +147,7 @@ export function AboutMePage() {
               className={` w-full h-full object-cover `}
               width={1200}
               height={800}
+              priority={true}
             />
           </span>
         </div>
