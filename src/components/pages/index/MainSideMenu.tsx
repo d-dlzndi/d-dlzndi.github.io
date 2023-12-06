@@ -1,7 +1,10 @@
 "use client";
 
 import FramerMagnetic from "@/components/animation/Magnetic";
-import _navigation, { urlType } from "../../../app/portfolio/_navigation";
+import _navigation, {
+  getNavigationData,
+  urlType,
+} from "../../../app/portfolio/_navigation";
 import Link from "next/link";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useState } from "react";
@@ -117,7 +120,7 @@ export default function MainSideMenu() {
                   >
                     {url.name}
                     {(pathname == url.url ||
-                      (url.href == "/work" &&
+                      (url.href == getNavigationData("Work").href &&
                         pathname.indexOf(url.url || "") >= 0)) && (
                       <DecoLine className={``} />
                     )}

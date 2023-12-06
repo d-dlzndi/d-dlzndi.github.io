@@ -24,6 +24,8 @@ import {
   AtSymbolIcon,
   ArrowUpIcon,
   ArrowDownIcon,
+  SpeakerXMarkIcon,
+  SpeakerWaveIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
@@ -74,6 +76,8 @@ export const Icons = {
   arrowsSort: (props: IconProps) => <ArrowsUpDownIcon {...props} />,
   cursorRipple: (props: IconProps) => <CursorArrowRippleIcon {...props} />,
   phone: (props: IconProps) => <PhoneIcon {...props} />,
+  speakerX: (props: IconProps) => <SpeakerXMarkIcon {...props} />,
+  speakerWave: (props: IconProps) => <SpeakerWaveIcon {...props} />,
 };
 
 export const BrandIcons = {

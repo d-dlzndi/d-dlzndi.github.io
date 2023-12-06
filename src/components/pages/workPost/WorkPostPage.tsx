@@ -46,15 +46,18 @@ export default function WorkPostPage({
   if (!post) return notFound();
   return (
     <SvgCurveLoader colorName={postColor}>
-      <LandingBox className={"!bg-base-content !text-base-100"}>
+      <LandingBox
+        className={"!bg-base-content !text-base-100"}
+        childClassName={" min-h-screen"}
+      >
         <div
           //@ts-ignore
           style={{ "--post-color": postColor }}
-          className="mx-auto max-w-screen-2xl w-full relative flex flex-col justify-center items-center gap-20 px-4 xl:px-10 py-20 z-10 isolate"
+          className="mx-auto max-w-screen-2xl w-full mt-56 relative flex flex-col justify-center items-center gap-20 px-4 xl:px-10 py-20 z-10 isolate"
         >
           <article
             id={post.slug}
-            className=" flex flex-col pt-[20vh] place-items-center gap-5 w-full relative"
+            className=" flex flex-col place-items-center gap-5 w-full relative"
           >
             <header className="w-full relative mb-10">
               <div className="text-sm breadcrumbs opacity-20 hover:opacity-70 transition-opacity absolute -top-12 left-0">

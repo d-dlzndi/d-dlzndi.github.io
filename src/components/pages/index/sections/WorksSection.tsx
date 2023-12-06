@@ -90,7 +90,7 @@ export function WorksSection({
     <LandingBox
       className={`bg-base-content text-base-100 overflow-y-auto overflow-x-hidden`}
     >
-      <div className="p-4 md:p-10 my-[10vh] sm:my-[15vh] md:my-[20vh]">
+      <div className="p-4 md:p-10 my-[15vh] md:my-[20vh] xl:my-[25vh]">
         <h1
           ref={svgTitleRef}
           id={title}

@@ -48,7 +48,7 @@ export function HiPage() {
       />
       <div
         ref={scope}
-        className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full xl:w-1/3 max-w-2xl`}
+        className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 max-w-2xl`}
       >
         <SvgTitle
           width={width}

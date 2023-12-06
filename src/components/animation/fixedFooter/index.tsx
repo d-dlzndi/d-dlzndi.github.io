@@ -33,15 +33,16 @@ export default function FixedFooter({
           height: height,
           minHeight: height,
         }}
+        className="hidden xl:block"
       />
       <motion.div
-        className=" w-screen fixed bottom-0 left-0 right-0 overflow-hidden"
+        className=" w-screen bottom-0 left-0 right-0 xl:fixed xl:overflow-hidden"
         style={{
           height: totalHeight,
         }}
       >
         <div
-          className=" absolute w-full h-full bottom-0 left-0 right-0"
+          className=" xl:absolute w-full h-full bottom-0 left-0 right-0"
           style={{ minHeight: height }}
         >
           {children}

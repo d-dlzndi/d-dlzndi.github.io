@@ -5,6 +5,7 @@ import SvgT_Programming from "@/assets/svg/index/t_programming.svg";
 import SvgT_About from "@/assets/svg/index/t_aboutMe.svg";
 import { workSectionCategoryType } from "./WorksSection";
 import { CATEGORY_ALL } from "../../workList/CategoryList";
+import _navigation, { getNavigationData } from "@/app/portfolio/_navigation";
 
 type sectionDataType = {
   title: string;
@@ -29,19 +30,19 @@ const AboutData = {
     {
       sub: "3D + 2D",
       title: "Animation",
-      data: ["Animation"],
+      categories: ["Animation"],
       style: "bg-secondary text-secondary-content",
     },
     {
       sub: "WEB + GAME",
       title: "Programming",
-      data: ["Programming"],
+      categories: ["Programming"],
       style: "bg-base-300 text-secondary-content",
     },
     {
       sub: "2D + 3D",
       title: "Design",
-      data: ["Graphic-Design", "Digital-Sculpting"],
+      categories: ["Graphic-Design", "Digital-Sculpting"],
       style: "bg-neutral text-neutral-content",
     },
   ],
@@ -96,7 +97,7 @@ const AboutData = {
 
 const AnimationData: sectionDataType = {
   title: `Animation`,
-  description: `저는 움직이지 않는 것에 생명력을 불어넣는 작업을 좋아합니다. 지금까지 3D 애니메이션, 2D 애니메이션, 모션 그래픽 분야를 시도해봤고, 그 과정에서 영상 편집과 연출을 배웠습니다. 이를 토대로 더 풍부한 역동성을 재현해보고 싶습니다.`,
+  description: `저는 움직이지 않는 것에 생명력을 불어넣는 작업을 좋아합니다. 3D 애니메이션, 2D 애니메이션, 모션 그래픽 분야를 시도해보며, 그 과정에서 영상 편집과 연출 기술을 쌓아왔습니다. 이를 토대로 더 풍부한 역동성을 재현해보고 싶습니다.`,
   titleSvg: SvgT_Animation,
   category: ["Animation"],
   firstPost: "철로 이루어진 꽃",
@@ -111,17 +112,21 @@ const ProgrammingData: sectionDataType = {
 
 const DesignData: sectionDataType = {
   title: `Design`,
-  description: `대학에선 2차원, 3차원을 넘나들며 다양한 디자인 작업을 접해봤습니다. 2D에선 타이포그라피와 인포 그래픽, 3D에선 공간 디자인과 캐릭터 스컬핑을 위주로 진행했습니다.`,
+  description: `대학에선 2차원, 3차원을 넘나들며 다양한 디자인 작업을 접해봤습니다. 2D에선 타이포그라피와 인포 그래픽, 3D에선 공간 디자인과 캐릭터 스컬핑이 주된 관심사였습니다. 관객과 사용자로 하여금 어떻게 보여질 수 있을지 늘 고민합니다.`,
   titleSvg: SvgT_Design,
   category: ["Digital-Sculpting", "Graphic-Design"],
 };
 
 const ThankData: sectionDataType = {
   title: `Thank you for reading!`,
-  description: `긴 글 읽어 주셔서 감사합니다! \n혹시 더 자세히 보고 싶으신가요?`,
+  description: `긴 글 읽어 주셔서 감사합니다! \n저와 함께 일하고 싶으시다면 연락주세요. 이 홈페이지에서 더 많은 제 작업물을 열람하실 수도 있습니다.`,
   titleSvg: SvgT_Thank,
   category: [
-    { name: "CONTACT", href: "/portfolio/contact", more: "SEND" },
+    {
+      name: "CONTACT",
+      href: getNavigationData("Contact").url,
+      more: "SEND",
+    },
     { name: "WORKS", category: CATEGORY_ALL, more: "ALL" },
   ],
 };

@@ -2,17 +2,24 @@ import { Icons } from "@/components/common/Icons/Icons";
 
 const baseUrl = "/portfolio";
 
-export type urlType = { name: string; href: string; url?: string; icon: any };
+type NameType = "About" | "Work" | "Contact";
+export type urlType = { name: NameType; href: string; url: string; icon: any };
 
 const urls: urlType[] = [
-  { name: "About", href: "", icon: Icons.home },
-  { name: "Work", href: "/work", icon: Icons.mic },
-  { name: "Contact", href: "/contact", icon: Icons.link },
+  { name: "About", href: "", icon: Icons.home, url: "" },
+  { name: "Work", href: "/work", icon: Icons.mic, url: "" },
+  { name: "Contact", href: "/contact", icon: Icons.link, url: "" },
 ];
 
-export default urls.map(
+const data = urls.map(
   (url): urlType => ({
     ...url,
     url: (url.href = baseUrl + url.href),
   })
 );
+
+export function getNavigationData(name: NameType) {
+  return data.find((n) => n.name == name) || data[0];
+}
+
+export default data;

@@ -5,7 +5,7 @@ import { Data as contactData } from "../contact/ContactDatas";
 import FramerMagnetic from "@/components/animation/Magnetic";
 
 export function MainFooter() {
-  const h = "30vh";
+  const h = "40vh";
   return (
     <FixedFooter height={h}>
       <div

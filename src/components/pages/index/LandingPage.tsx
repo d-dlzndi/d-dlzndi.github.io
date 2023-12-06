@@ -23,13 +23,19 @@ export default function LandingPage(params: any) {
 export function LandingBox({
   children,
   className,
+  childClassName,
 }: {
   children: React.ReactNode;
   className: any;
+  childClassName?: any;
 }) {
   return (
     <div className={" w-screen flex justify-center items-center " + className}>
-      <div className="w-screen h-full max-w-[1920px] relative">{children}</div>
+      <div
+        className={"w-screen h-full max-w-[1920px] relative " + childClassName}
+      >
+        {children}
+      </div>
     </div>
   );
 }

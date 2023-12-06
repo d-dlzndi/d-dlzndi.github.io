@@ -27,7 +27,9 @@ export function AnimationSection() {
         className={`flex flex-col items-center gap-20 ${styles.all} snap-y snap-proximity`}
       >
         {allPosts
-          .filter((p) => p.category == "Animation")
+          .filter((p) =>
+            (AnimationData.category as string[]).includes(p.category)
+          )
           .slice(0, 3)
           .sort((a, _) => (a.title == AnimationData.firstPost ? -1 : 0))
           .map((post) => (
@@ -124,6 +126,17 @@ export function SlideShowImg({
   };
 
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoMuted, setVideoMuted] = useState(true);
+  const isVideo = (idx: number) => {
+    return idx == 0;
+  };
+
+  useEffect(() => {
+    if (isVideo(select.now) == false) {
+      setVideoPlaying(false);
+      setVideoMuted(true);
+    }
+  }, [select]);
 
   return (
     <>
@@ -131,37 +144,70 @@ export function SlideShowImg({
         <motion.div
           key={img.src}
           onHoverStart={() => {
-            if (idx == 0) setVideoPlaying(true);
+            if (isVideo(idx)) setVideoPlaying(true);
           }}
           onHoverEnd={() => {
-            if (idx == 0) setVideoPlaying(false);
+            if (isVideo(idx)) setVideoPlaying(false);
           }}
           onClick={() => {
-            if (idx == 0) setVideoPlaying((p) => !p);
+            if (isVideo(idx)) setVideoMuted((p) => !p);
           }}
           className={`${getCommonClass(
             idx
           )} bg-[var(--post-color)] select-none `}
         >
-          {idx == 0 && (
+          {isVideo(idx) && (
             <>
               <div
-                className={`hidden lg:block absolute top-0 left-0 w-full h-full pointer-events-none`}
+                className={`hidden xl:block absolute top-0 left-0 w-full h-full  `}
               >
-                <CustomReactPlayer video={video} videoPlaying={videoPlaying} />
+                <div className={`w-full h-full pointer-events-none`}>
+                  <CustomReactPlayer
+                    video={video}
+                    videoPlaying={videoPlaying}
+                    muted={videoMuted}
+                  />
+                </div>
               </div>
               <p
-                className={`absolute hidden lg:block z-[1] bg-[var(--post-color)] pt-2 px-5 top-5 right-5 rounded-2xl w-auto h-auto text-center ${
-                  videoPlaying ? "opacity-0" : "animate-pulse"
-                } transition-all ${styles.hoverMe}`}
+                className={`absolute hidden xl:block z-[2] top-5 right-5 w-auto h-auto text-center ${styles.hoverMe}`}
               >
-                <span className={``}>
+                <span
+                  className={`bg-[var(--post-color)] block p-3 pt-2 rounded-2xl pointer-events-auto cursor-pointer ${
+                    !videoPlaying ? "opacity-0" : "opacity-50 hover:opacity-100"
+                  } transition-all`}
+                >
+                  {videoMuted ? (
+                    <Icons.speakerX
+                      width={20}
+                      height={20}
+                      strokeWidth={0.8}
+                      className={`stroke-base-100 inline-block `}
+                    />
+                  ) : (
+                    <Icons.speakerWave
+                      width={20}
+                      height={20}
+                      strokeWidth={0.8}
+                      className={`stroke-base-100 inline-block `}
+                    />
+                  )}
+                </span>
+              </p>
+              <p
+                className={`absolute hidden xl:block z-[1] top-5 right-5 w-auto h-auto  ${styles.hoverMe}`}
+              >
+                <span
+                  className={`pt-2 px-5 rounded-2xl block bg-[var(--post-color)] transition-all ${
+                    videoPlaying ? "opacity-0" : "animate-pulse"
+                  }`}
+                >
                   HOVER ME!
                   <Icons.cursorRipple
-                    width={40}
-                    height={40}
+                    width={30}
+                    height={30}
                     strokeWidth={0.8}
-                    className={`stroke-base-100 inline-block `}
+                    className={`stroke-base-100 inline-block align-[-.7em] ml-1 -mr-1 `}
                   />
                 </span>
               </p>
@@ -174,7 +220,7 @@ export function SlideShowImg({
             height={720}
             priority={true}
             className={` absolute top-0 left-0 w-full h-full transition-opacity object-cover pointer-events-none ${
-              videoPlaying ? "lg:opacity-0" : "opacity-100"
+              videoPlaying ? "xl:opacity-0" : "opacity-100"
             }`}
           />
         </motion.div>
@@ -203,13 +249,13 @@ export function SlideShowImg({
           </button>
         </div>
         <ol
-          className={`pointer-events-auto leading-none flex absolute w-fit right-1 xl:right-0 z-20 xl:left-full top-1 xl:top-0 flex-col gap-1 xl:px-5 xl:gap-3 ${styles.slidenav}`}
+          className={`pointer-events-auto leading-none flex flex-row xl:flex-col absolute w-fit right-1 xl:right-0 z-20 xl:left-full top-1 xl:top-0 gap-1 xl:px-5 xl:gap-3 ${styles.slidenav}`}
         >
           {imglist.map((_, idx) => (
             <li
               key={idx}
               onClick={() => setNow(idx)}
-              className={`w-3 h-3 tooltip tooltip-left inline-block transition-all hover:opacity-100 border-[var(--post-color)] ${
+              className={`w-3 h-3 tooltip inline-block transition-all hover:opacity-100 border-[var(--post-color)] ${
                 idx == select.now
                   ? "bg-[var(--post-color)] cursor-default xl:tooltip-open"
                   : "border opacity-30 cursor-pointer"

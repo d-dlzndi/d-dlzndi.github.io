@@ -39,7 +39,7 @@ export function ProgrammingSection() {
               }}
               //@ts-ignore
               style={{ "--post-color": post.color }}
-              className="group relative flex-1 flex flex-col justify-between pt-5 border-t border-[var(--post-color)] h-auto cursor-pointer"
+              className="group relative flex-1 shrink-0 w-full flex flex-col justify-between pt-5 border-t border-[var(--post-color)] h-auto cursor-pointer"
               onClick={(e) => {
                 push(post.url || "/");
               }}
@@ -70,7 +70,7 @@ export function ProgrammingSection() {
                     >
                       <TagOl
                         data={post.tag}
-                        parentClassName={`flex flex-row gap-3 mt-6 text-sm`}
+                        parentClassName={`flex flex-row flex-wrap gap-3 mt-6 text-sm`}
                         childColorClassName={`text-base-100 fill-[var(--post-color)] stroke hover:bg-accent hover:stroke-transparent hover:fill-accent`}
                       />
                     </div>

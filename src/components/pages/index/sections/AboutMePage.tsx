@@ -10,6 +10,7 @@ import { LandingBox } from "../LandingPage";
 import { TagOl } from "../comp/TagOl";
 import Link from "next/link";
 import { AboutData as d } from "./SectionDatas";
+import { useMemo } from "react";
 
 export function AboutMePage() {
   const { allPosts } = useWorkPosts();
@@ -19,6 +20,22 @@ export function AboutMePage() {
     textContent?: JSX.Element;
     content?: JSX.Element;
   };
+
+  const tagsByCategory = useMemo<string[][]>(() => {
+    return d.abilityData.map((data) => {
+      return Array.from(
+        new Set(
+          allPosts.reduce(
+            (list, post) =>
+              post.tag != undefined && data.categories.includes(post.category)
+                ? [...list, ...post.tag]
+                : list,
+            [] as string[]
+          )
+        )
+      ).sort();
+    });
+  }, [allPosts]);
 
   const aboutData: aboutType[] = [
     {
@@ -57,24 +74,7 @@ export function AboutMePage() {
                 <TagOl
                   parentClassName="flex flex-col flex-wrap gap-3"
                   childColorClassName="text-base-100 fill-accent hover:bg-accent hover:text-base-100"
-                  data={...Array.from(
-                    new Set(
-                      data.data.reduce(
-                        (datalist, category) => [
-                          ...datalist,
-                          ...allPosts.reduce(
-                            (list, post) =>
-                              post.tag != undefined &&
-                              post.category === category
-                                ? [...list, ...post.tag]
-                                : list,
-                            [] as string[]
-                          ),
-                        ],
-                        [] as string[]
-                      )
-                    )
-                  ).sort()}
+                  data={tagsByCategory[idx]}
                 />
               </div>
             </div>

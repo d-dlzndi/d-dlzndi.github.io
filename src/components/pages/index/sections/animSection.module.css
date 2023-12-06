@@ -143,4 +143,10 @@
   .box:nth-child(1) .slidenav {
     margin-top: 11rem;
   }
+
+  /******** 2  *******/
+
+  .box:nth-child(2) .textbox {
+    margin-top: 10rem;
+  }
 }
