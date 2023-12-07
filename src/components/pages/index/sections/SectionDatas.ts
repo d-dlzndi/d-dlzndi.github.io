@@ -24,8 +24,8 @@ const AboutData = {
     eng_name: "Seo Yun Kim",
     list: ["2001. 01. 29.", "+82 010-2923-8734", "sksoyks@naver.com"],
   },
-  keywords: ["도전적인", "끈질긴", "호기심이 많은", "경청하는", "늘 상상하는"],
-  abilityText: `저의 좌우명은 <code class="w-auto inline-block font-bold rounded-md bg-secondary italic text-secondary-content px-2">0보다 0.1이 낫다</code> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히기를 즐깁니다.`,
+  keywords: ["경청하는", "늘 상상하는", "호기심이 많은", "끈질긴", "도전적인"],
+  abilityText: `저의 좌우명은 <code class="w-auto inline-block font-bold rounded-md bg-secondary italic text-secondary-content px-2">0보다 0.1이 낫다</code> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
   abilityData: [
     {
       sub: "3D + 2D",
@@ -105,7 +105,7 @@ const AnimationData: sectionDataType = {
 
 const ProgrammingData: sectionDataType = {
   title: `Programming`,
-  description: `처음 코딩을 시작했던 계기는 단순히 개인 블로그의 오류를 해결하기 위해서였습니다. 하지만 이제는 즐겁기 때문에 코딩을 배우고 있습니다. 여러 가지 분야에 도전하고 있지만, 그중 제일 자신 있는 건 프론트엔드와 게임 개발입니다.`,
+  description: `처음 코딩을 시작했던 계기는 단순히 개인 블로그의 오류를 해결하기 위해서였습니다. 하지만, 이제는 코딩을 하면 즐겁기 때문에 배우고 있습니다. 여러 가지 분야에 도전하고 있지만, 그중 제일 자신 있는 건 프론트엔드와 게임 개발입니다.`,
   titleSvg: SvgT_Programming,
   category: ["Programming"],
 };
