@@ -54,7 +54,6 @@ export default function SvgCurveLoader({
   };
 
   const loaderHeight = () => {
-    if (!loader.current) return 0;
     const loaderBounds = loader.current.getBoundingClientRect();
     return loaderBounds.height;
   };
