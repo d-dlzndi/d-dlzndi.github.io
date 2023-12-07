@@ -97,7 +97,7 @@ const AboutData = {
 
 const AnimationData: sectionDataType = {
   title: `Animation`,
-  description: `저는 움직이지 않는 것에 생명력을 불어넣는 작업을 좋아합니다. 3D 애니메이션, 2D 애니메이션, 모션 그래픽 분야를 시도해보며, 그 과정에서 영상 편집과 연출 기술을 쌓아왔습니다. 이를 토대로 더 풍부한 역동성을 재현해보고 싶습니다.`,
+  description: `저는 움직이지 않는 것에 생명력을 불어넣는 작업을 좋아합니다. 3D 애니메이션, 2D 애니메이션, 모션 그래픽 분야를 시도하며, 그 과정에서 영상 편집과 연출 기술을 쌓아왔습니다. 이를 토대로 더 풍부한 역동성을 재현하고 싶습니다.`,
   titleSvg: SvgT_Animation,
   category: ["Animation"],
   firstPost: "철로 이루어진 꽃",
@@ -105,21 +105,21 @@ const AnimationData: sectionDataType = {
 
 const ProgrammingData: sectionDataType = {
   title: `Programming`,
-  description: `처음 코딩을 시작했던 계기는 단순히 개인 블로그의 오류를 해결하기 위해서였습니다. 하지만 이제는 하면 즐겁기 때문에 코딩을 합니다. 여러 가지 분야에 도전하고 있지만, 그중 제일 자신 있는 건 프론트엔드와 게임 개발입니다.`,
+  description: `처음 코딩을 시작했던 계기는 단순히 개인 블로그의 오류를 해결하기 위해서였습니다. 하지만 이제는 즐겁기 때문에 코딩을 배우고 있습니다. 여러 가지 분야에 도전하고 있지만, 그중 제일 자신 있는 건 프론트엔드와 게임 개발입니다.`,
   titleSvg: SvgT_Programming,
   category: ["Programming"],
 };
 
 const DesignData: sectionDataType = {
   title: `Design`,
-  description: `대학에선 2차원, 3차원을 넘나들며 다양한 디자인 작업을 접해봤습니다. 2D에선 타이포그라피와 인포 그래픽, 3D에선 공간 디자인과 캐릭터 스컬핑이 주된 관심사였습니다. 관객과 사용자로 하여금 어떻게 보여질 수 있을지 늘 고민합니다.`,
+  description: `대학에선 2차원, 3차원을 넘나들며 다양한 디자인 작업을 접해봤습니다. 2D에선 타이포그라피와 인포 그래픽, 3D에선 공간 디자인과 캐릭터 스컬핑이 주된 관심사였습니다. 관객과 사용자에게 어떻게 느껴질 수 있을지 늘 고민합니다.`,
   titleSvg: SvgT_Design,
   category: ["Digital-Sculpting", "Graphic-Design"],
 };
 
 const ThankData: sectionDataType = {
   title: `Thank you for reading!`,
-  description: `긴 글 읽어 주셔서 감사합니다! \n저와 함께 일하고 싶으시다면 연락주세요. 이 홈페이지에서 더 많은 제 작업물을 열람하실 수도 있습니다.`,
+  description: `긴 글 읽어 주셔서 감사합니다! \n저와 함께 일하고 싶으시다면 연락주세요. \n이 홈페이지에서 더 많은 작업물을 열람하실 수도 있습니다.`,
   titleSvg: SvgT_Thank,
   category: [
     {

@@ -53,7 +53,7 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
                 />
               </div>
               <div className="hidden xl:block flex-[2] shrink-0 relative">
-                <div className="pointer-events-none opacity-0 group-hover:opacity-100 z-[1] transition-all max-w-none w-full absolute top-6 left-0 -translate-y-1/2 2xl:scale-110 shadow-2xl">
+                <div className="pointer-events-none opacity-0 group-hover:opacity-100 z-[1] transition-all max-w-none w-full absolute top-6 left-0 -translate-y-1/3 2xl:scale-110 shadow-2xl bg-[var(--post-color)]">
                   <Img
                     src={post.image}
                     width={400}

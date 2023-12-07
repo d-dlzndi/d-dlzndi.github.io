@@ -39,7 +39,7 @@ export default function FramerMagnetic({
         height: "fit-content",
         transformOrigin: "top left",
       }}
-      className={className}
+      className={"" + className}
       ref={ref}
       onMouseMove={mouseMove}
       onMouseLeave={mouseLeave}

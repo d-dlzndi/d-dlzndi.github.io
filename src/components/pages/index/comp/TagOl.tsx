@@ -45,7 +45,7 @@ export function TagOl({
             />
             {tag}
             {showCount && (
-              <span className="text-xs align-top pl-1 opacity-30">
+              <span className="text-xs align-text-top pl-1 opacity-30">
                 {getTagLength(tag)}
               </span>
             )}

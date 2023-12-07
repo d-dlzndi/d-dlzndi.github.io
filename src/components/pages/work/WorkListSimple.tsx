@@ -75,7 +75,7 @@ export default function WorkListSimple({
               title: "CATEGORY",
               className: "",
               children: (
-                <ul className=" text-xl xl:text-2xl flex flex-col gap-1 uppercase font-normal">
+                <ul className=" text-xl leading-none -mt-px xl:text-2xl flex flex-col gap-1 uppercase font-normal">
                   {[CATEGORY_ALL, ...categories].map((ct, idx) => (
                     <li key={ct + "_" + idx}>
                       <Link
@@ -103,7 +103,7 @@ export default function WorkListSimple({
               children: (
                 <TagOl
                   data={tags}
-                  parentClassName="xl:text-lg flex flex-row flex-wrap gap-x-4 gap-y-3"
+                  parentClassName="xl:text-lg flex mt-[0.6rem] flex-row flex-wrap gap-x-4 gap-y-3"
                   childColorClassName="fill-none stroke-accent hover:fill-accent hover:stroke-none hover:text-accent"
                   showCount={true}
                   selectedChild={tag || ""}
@@ -114,7 +114,7 @@ export default function WorkListSimple({
               title: "VIEW",
               className: "",
               children: (
-                <div id="work-btn-set" className=" flex gap-2">
+                <div id="work-btn-set" className=" mt-[0.6rem] flex gap-2">
                   <button onClick={() => toggleMode()}>
                     <Icons.gallery
                       width={24}

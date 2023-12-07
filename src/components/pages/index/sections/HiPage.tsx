@@ -15,7 +15,7 @@ export function HiPage() {
   useEffect(() => {
     if (isInView) {
       const commonEase = [0, 0.55, 0.45, 1];
-      const startDelay = 1.5;
+      const startDelay = 1;
       animate(
         "svg:nth-child(1)",
         { opacity: 1 },

@@ -54,7 +54,7 @@
   top: 0;
   text-align: left;
 
-  transition: top 0.5s cubic-bezier(0, 0.55, 0.45, 1), opacity 0.5s linear;
+  transition: opacity 0.5s linear;
 }
 
 .work-thumb .work-thumb-text.bg {

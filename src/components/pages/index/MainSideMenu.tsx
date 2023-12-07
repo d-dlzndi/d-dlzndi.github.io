@@ -99,9 +99,9 @@ export default function MainSideMenu() {
           className={`absolute rounded-full top-5 left-4 lg:top-7 lg:left-10 pointer-events-auto`}
           max={10}
         >
-          <Link href="/portfolio" className=" text-2xl font-black text-primary">
+          <a href="/portfolio" className=" text-2xl font-black text-primary">
             {TITLE}
-          </Link>
+          </a>
         </FramerMagnetic>
         <nav
           className={`hidden lg:block absolute top-8 right-8 pointer-events-auto `}

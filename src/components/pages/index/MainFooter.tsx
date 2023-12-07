@@ -3,6 +3,7 @@ import { Icons } from "@/components/common/Icons/Icons";
 import Link from "next/link";
 import { Data as contactData } from "../contact/ContactDatas";
 import FramerMagnetic from "@/components/animation/Magnetic";
+import ScrollTopButton from "../../common/button/ScrollTopButton";
 
 export function MainFooter() {
   const h = "40vh";
@@ -24,12 +25,13 @@ export function FooterContents() {
       <aside>
         <div className="">
           <FramerMagnetic max={10} className="">
-            <a
-              href="/portfolio"
-              className="fill-secondary group inline-block origin-center transition-all"
-            >
-              <Icons.logo width={50} height={50} />
-            </a>
+            <ScrollTopButton>
+              <Icons.logo
+                width={50}
+                height={50}
+                className="fill-secondary group inline-block origin-center transition-all"
+              />
+            </ScrollTopButton>
           </FramerMagnetic>
         </div>
         <p className="font-bold uppercase">{contactData.copyright}</p>

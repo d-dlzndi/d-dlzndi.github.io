@@ -118,11 +118,15 @@ export function SlideShowImg({
     setNow(select.now - 1 < 0 ? imglist.length - 1 : select.now - 1);
   };
   const getCommonClass = (idx: number) => {
+    const state = getIdxState(idx);
     return `absolute top-0 left-0 w-full h-full transition-opacity ${
-      idx == select.now && "z-[2] opacity-100"
-    } ${idx == select.before && "z-[1]"} ${
-      idx != select.now && idx != select.before && "opacity-0"
-    }`;
+      state == "now" && "z-[2] opacity-100"
+    } ${state == "before" && "z-[1]"} ${state == "default" && "opacity-0"}`;
+  };
+  const getIdxState = (idx: number): "now" | "before" | "default" => {
+    if (idx == select.now) return "now";
+    else if (idx == select.before) return "before";
+    return "default";
   };
 
   const [videoPlaying, setVideoPlaying] = useState(false);
@@ -154,7 +158,7 @@ export function SlideShowImg({
           }}
           className={`${getCommonClass(
             idx
-          )} bg-[var(--post-color)] select-none `}
+          )} bg-[var(--post-color)] select-none overflow-hidden`}
         >
           {isVideo(idx) && (
             <>
@@ -219,9 +223,9 @@ export function SlideShowImg({
             width={1280}
             height={720}
             priority={true}
-            className={` absolute top-0 left-0 w-full h-full transition-opacity object-cover pointer-events-none ${
+            className={` absolute top-0 left-0 w-full h-full transition-all  object-cover pointer-events-none ${
               videoPlaying ? "xl:opacity-0" : "opacity-100"
-            }`}
+            } ${getIdxState(idx) == "now" ? "scale-100" : "scale-105"}`}
           />
         </motion.div>
       ))}

@@ -1,4 +1,6 @@
+//@ts-nocheck
 import mediumZoom, { Zoom } from "medium-zoom";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function ZoomImage({
@@ -19,7 +21,17 @@ export default function ZoomImage({
 
   useEffect(() => {
     zoom?.update({ background });
-  }, [background]);
+  });
 
-  return <img ref={ref} src={src} alt={alt} {...props} />;
+  // return <Image src={src || ""} alt={alt || ""} {...props} />;
+  return (
+    <Image
+      ref={ref}
+      width={1920}
+      height={1080}
+      src={src || ""}
+      alt={alt || ""}
+      {...props}
+    />
+  );
 }

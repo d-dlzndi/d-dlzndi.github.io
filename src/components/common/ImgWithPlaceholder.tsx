@@ -47,6 +47,7 @@ export default function Img(params: { [key: string]: any }) {
         currentTarget.src = nullImg.src;
       }}
       quality={90}
+      priority={true}
       placeholder={!data.base64 ? "empty" : "blur"}
       blurDataURL={data.base64 || params.src}
       style={{ backgroundColor: "#ffffff80" }}

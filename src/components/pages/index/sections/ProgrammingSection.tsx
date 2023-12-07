@@ -20,7 +20,7 @@ export function ProgrammingSection() {
       categories={ProgrammingData.category}
     >
       <div className="flex flex-col xl:flex-row items-stretch justify-end gap-5">
-        <div className="flex-1 hidden xl:block"></div>
+        <div className="flex-1 hidden 2xl:block"></div>
         {allPosts
           .filter((p) =>
             (ProgrammingData.category as string[]).includes(p.category)

@@ -109,7 +109,7 @@ export default function WorkPostPage({
                       <p>
                         <Link
                           href={getCategoryUrl(post.category)}
-                          className=" font-bold uppercase hover:text-primary transition-all"
+                          className=" font-bold uppercase hover:text-primary transition-all mt-1"
                         >
                           {post.category.replaceAll("-", " ")}
                         </Link>
@@ -121,7 +121,7 @@ export default function WorkPostPage({
                     children: (
                       <TagOl
                         data={post.tag || []}
-                        parentClassName="py-1 flex flex-row gap-3 gap-x-4 flex-wrap"
+                        parentClassName="py-1 flex flex-row gap-3 gap-x-4 flex-wrap -mt-[0.1rem]"
                         childColorClassName={`fill-[var(--post-color)] text-base-100 hover:bg-accent hover:fill-accent`}
                       />
                     ),

@@ -179,3 +179,18 @@
         font-weight: 800 !important;
     }
 }
+
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+@media (min-width: #{$breakpoint-2xl}) {
+    .prose {
+        img {
+            max-width: $breakpoint-2xl !important;
+        }
+
+        iframe {
+            max-width: $breakpoint-2xl !important;
+        }
+    }
+}
