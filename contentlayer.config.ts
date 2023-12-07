@@ -25,16 +25,6 @@ const AwardData = defineNestedType(() => ({
 
 export type ImageData = { src: string; alt: string };
 
-/*
-const ImageData = defineNestedType(() => ({
-  name: "ImageData",
-  fields: {
-    src: { type: "string", required: true },
-    alt: { type: "string", required: true },
-  },
-}));
-*/
-
 export const WorkPost = defineDocumentType(() => ({
   name: "WorkPost",
   filePathPattern: `./**/*.mdx`,
