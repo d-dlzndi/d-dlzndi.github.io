@@ -1,6 +1,6 @@
 1:HL["https://d-dlzndi.github.io/_next/static/media/155ce652bb9cca31-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-2:HL["https://d-dlzndi.github.io/_next/static/css/46ed1b0624fc1f4f.css","style",{"crossOrigin":""}]
-0:["zM8eKusRUXrHHD96ic6LM",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/46ed1b0624fc1f4f.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+2:HL["https://d-dlzndi.github.io/_next/static/css/bf1f78849be04343.css","style",{"crossOrigin":""}]
+0:["jswHIZU1NT_MSEQe9LF-g",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/bf1f78849be04343.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:I[6954,[],""]
 6:I[7264,[],""]
 7:I[3619,["545","static/chunks/545-7f5ed91133d3a327.js","929","static/chunks/929-ac615abe30587643.js","160","static/chunks/app/not-found-78d2e1ffe6f867e5.js"],""]
