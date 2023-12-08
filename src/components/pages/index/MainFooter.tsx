@@ -1,7 +1,7 @@
 import FixedFooter from "@/components/animation/fixedFooter";
 import { Icons } from "@/components/common/Icons/Icons";
 import Link from "next/link";
-import { Data as contactData } from "../contact/ContactDatas";
+import { Data as contactData } from "../../../libs/ContactDatas";
 import FramerMagnetic from "@/components/animation/Magnetic";
 import ScrollTopButton from "../../common/button/ScrollTopButton";
 

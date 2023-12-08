@@ -14,10 +14,6 @@ export default function Index() {
             className="inline-block align-baseline"
           />
         </a>
-        <br />
-        <br />
-        <br />
-        and more...?
       </div>
     </>
   );

@@ -1,9 +1,9 @@
 import { Post } from "contentlayer/generated";
-import { PageWrapper } from "../../common/PageWrapper";
+import { PageWrapper } from "../PageWrapper";
 import usePosts from "@/hooks/usePosts";
 import { notFound } from "next/navigation";
 
-import styles from "../../styles/about.module.css";
+import styles from "./about.module.css";
 import LinkImgUrl from "@/assets/svg/link.svg";
 
 export default function AboutPage() {

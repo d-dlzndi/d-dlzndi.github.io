@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { CategoryList } from "./CategoryList";
-import { GalleryList } from "./GalleryList";
+import { GalleryList } from "../../pages/work/list/GalleryList";
 import { LineList } from "./LineList";
 
 export default function ScreenWorkList() {
@@ -48,8 +48,8 @@ export default function ScreenWorkList() {
         </div>
       </div>
       <div className=" min-h-[100px] lg:pb-[10vh]">
-          {mode == "list" && <LineList posts={posts} />}
-          {mode == "gallery" && <GalleryList posts={posts} />}
+        {mode == "list" && <LineList posts={posts} />}
+        {mode == "gallery" && <GalleryList posts={posts} />}
       </div>
     </>
   );

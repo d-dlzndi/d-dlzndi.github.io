@@ -14,7 +14,7 @@ import MenuButton from "@/components/animation/pixelTransition/Header";
 import styles from "./mainSideMenu.module.scss";
 import useWindowSize from "@/hooks/useWindowSize";
 import { usePathname } from "next/navigation";
-import DecoLine from "@/components/common/DecoLine";
+import DecoLine from "@/components/common/design/DecoLine";
 
 type positionType = "left" | "right";
 const pos: positionType = "right";

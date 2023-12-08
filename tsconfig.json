@@ -24,7 +24,13 @@
       "contentlayer/generated": ["./.contentlayer/generated"] // contentLayer
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.js", "api/*.js",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.js",
+    "api/*.js",
     ".contentlayer/generated" // contentLayer
   ],
   "exclude": ["node_modules"]

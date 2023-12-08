@@ -1,10 +1,10 @@
 "use client";
 import { Icons } from "@/components/common/Icons/Icons";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { WorkPost } from "contentlayer/generated";
-import Date from "@/components/common/Date";
+import Date from "@/components/common/design/Date";
 import styles from "./lineList.module.css";
 import useWorkPosts from "@/hooks/useWorkPosts";
 

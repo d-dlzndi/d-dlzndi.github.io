@@ -1,45 +1,49 @@
 import { LandingBox } from "../index/LandingPage";
 import { Icons } from "@/components/common/Icons/Icons";
-import { Data as d } from "./ContactDatas";
+import { Data as d } from "../../../libs/ContactDatas";
+import { SimpleFlexBox } from "../work/SimpleFlexBox";
 
 export default function AboutPage() {
   return (
     <LandingBox className={""}>
-      <div className="mt-56 p-4 md:p-10 mb-52 flex flex-col lg:flex-row gap-5 text-2xl lg:text-4xl ">
-        <div className="flex-[2] ">
-          <div className="border-t border-base-content pt-4 font-light">
-            {d.title}
-          </div>
-          <div className="flex-[3] pt-8 pb-14 text-base opacity-30 w-2/3 break-keep whitespace-pre-wrap">
-            {d.description}
-          </div>
-        </div>
-        <div className="flex-[6] flex flex-col font-light">
-          {d.urls.map((data, idx) => {
-            return (
-              <div
-                key={idx}
-                className=" pt-4 pb-20 last:border-b flex flex-col md:flex-row place-items-stretch border-t border-base-content"
-              >
-                <div className="flex-[2] pb-4">{data.title}</div>
-                <div className="flex-[4] font-bold">
-                  <a
-                    href={data.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="text-primary hover:underline"
-                  >
-                    {data.text}
-                    <Icons.link
-                      className="inline-block align-top"
-                      width={20}
-                      height={20}
-                    />
-                  </a>
-                </div>
-              </div>
-            );
-          })}
+      <div className=" flex flex-col lg:flex-row place-items-stretch min-h-screen">
+        <div className="flex-1 min-h-[14rem] bg-secondary bg-[url(/img/index/bg.jpg)] bg-cover lg:bg-fixed bg-center bg-blend-exclusion saturate-[1.5]"></div>
+        <div className="flex-1 lg:mt-56 p-4 md:p-10 flex flex-col">
+          <SimpleFlexBox
+            className="!flex-col !mb-0"
+            commonChildClassName=" border-base-content text-4xl"
+            datas={[
+              {
+                title: d.title,
+                className: "!border-0 !pt-0",
+                children: (
+                  <div className="text-xl break-keep whitespace-pre-wrap">
+                    {d.description}
+                  </div>
+                ),
+              },
+              ...d.urls.map((data) => ({
+                title: data.title,
+                children: (
+                  <>
+                    <a
+                      href={data.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="text-primary hover:underline font-bold"
+                    >
+                      {data.text}
+                      <Icons.link
+                        className="inline-block align-top"
+                        width={20}
+                        height={20}
+                      />
+                    </a>
+                  </>
+                ),
+              })),
+            ]}
+          />
         </div>
       </div>
     </LandingBox>

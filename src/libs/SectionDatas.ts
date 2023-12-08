@@ -3,8 +3,8 @@ import SvgT_Design from "@/assets/svg/index/t_design.svg";
 import SvgT_Animation from "@/assets/svg/index/t_animation.svg";
 import SvgT_Programming from "@/assets/svg/index/t_programming.svg";
 import SvgT_About from "@/assets/svg/index/t_aboutMe.svg";
-import { workSectionCategoryType } from "./WorksSection";
-import { CATEGORY_ALL } from "../../workList/CategoryList";
+import { workSectionCategoryType } from "../components/pages/index/sections/WorksSection";
+import { CATEGORY_ALL } from "../components/legacy/workList/CategoryList";
 import _navigation, { getNavigationData } from "@/app/portfolio/_navigation";
 
 type sectionDataType = {

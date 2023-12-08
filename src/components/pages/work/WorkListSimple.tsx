@@ -2,13 +2,14 @@
 import useWorkPosts from "@/hooks/useWorkPosts";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { GalleryList } from "../workList/GalleryList";
+import { GalleryList } from "./list/GalleryList";
 import { Icons } from "@/components/common/Icons/Icons";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { LandingBox } from "../index/LandingPage";
 import { TagOl } from "../index/comp/TagOl";
-import DecoLine from "@/components/common/DecoLine";
-import { LineList } from "./LineList";
+import DecoLine from "@/components/common/design/DecoLine";
+import { LineList } from "./list/LineList";
+import { SimpleFlexBox } from "./SimpleFlexBox";
 
 const CATEGORY_ALL = "All";
 
@@ -75,7 +76,7 @@ export default function WorkListSimple({
               title: "CATEGORY",
               className: "",
               children: (
-                <ul className=" text-xl leading-none -mt-px xl:text-2xl flex flex-col gap-1 uppercase font-normal">
+                <ul className=" text-xl leading-none -mt-px xl:text-2xl flex flex-col gap-2 xl:gap-1 uppercase font-normal">
                   {[CATEGORY_ALL, ...categories].map((ct, idx) => (
                     <li key={ct + "_" + idx}>
                       <Link
@@ -103,7 +104,7 @@ export default function WorkListSimple({
               children: (
                 <TagOl
                   data={tags}
-                  parentClassName="xl:text-lg flex mt-[0.6rem] flex-row flex-wrap gap-x-4 gap-y-3"
+                  parentClassName="xl:text-lg flex mt-[0.6rem] flex-row flex-wrap gap-x-4 gap-y-3 font-medium"
                   childColorClassName="fill-none stroke-accent hover:fill-accent hover:stroke-none hover:text-accent"
                   showCount={true}
                   selectedChild={tag || ""}
@@ -147,43 +148,5 @@ export default function WorkListSimple({
         </div>
       </div>
     </LandingBox>
-  );
-}
-
-type simpleChildType = {
-  title: string;
-  className?: string;
-  children: React.ReactNode;
-};
-
-export function SimpleFlexBox({
-  className,
-  commonChildClassName = "border-base-content",
-  commonTitleClassName = "",
-  datas,
-}: {
-  className?: string;
-  commonChildClassName?: string;
-  commonTitleClassName?: string;
-  datas: simpleChildType[];
-}) {
-  return (
-    <div
-      className={`flex flex-col lg:flex-row gap-5 mb-16 lg:mb-28 ${className}`}
-    >
-      {datas.map((data) => (
-        <div
-          key={data.title}
-          className={`border-t py-5 w-full ${commonChildClassName} ${data.className}`}
-        >
-          <h4
-            className={`text-xs mb-2 xl:text-sm 2xl:text-base ${commonTitleClassName}`}
-          >
-            {data.title}
-          </h4>
-          {data.children}
-        </div>
-      ))}
-    </div>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { WorkPost } from "contentlayer/generated";
-import sw from "@/styles/worklist.module.css";
-import { WorkImage } from "@/components/legacy/page/WorkPage";
+import sw from "./worklist.module.css";
+import { WorkImage } from "./WorkImage";
 
 export function GalleryList({ posts }: { posts: WorkPost[] }) {
   return (

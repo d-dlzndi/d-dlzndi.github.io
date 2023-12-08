@@ -2,13 +2,13 @@
 import useWorkPosts, { WORK_URL } from "@/hooks/useWorkPosts";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { LineList } from "../workList/LineList";
-import { GalleryList } from "../workList/GalleryList";
+import { LineList } from "./workList/LineList";
+import { GalleryList } from "../pages/work/list/GalleryList";
 import { motion } from "framer-motion";
 import { Icons } from "@/components/common/Icons/Icons";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { LandingBox } from "../index/LandingPage";
-import { TagOl } from "../index/comp/TagOl";
+import { LandingBox } from "../pages/index/LandingPage";
+import { TagOl } from "../pages/index/comp/TagOl";
 import { useState } from "react";
 
 const CATEGORY_ALL = "All";

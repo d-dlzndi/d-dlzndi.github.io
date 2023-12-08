@@ -1,6 +1,6 @@
 import { WorkPost } from "contentlayer/generated";
 import { Icons } from "@/components/common/Icons/Icons";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import Link from "next/link";
 
 export function Next_PrevPosts({

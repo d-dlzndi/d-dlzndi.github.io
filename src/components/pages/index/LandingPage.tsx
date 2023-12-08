@@ -2,7 +2,7 @@ import { DesignSection } from "./sections/DesignSection";
 import { AboutMePage } from "./sections/AboutMePage";
 import { ProgrammingSection } from "./sections/ProgrammingSection";
 import { AnimationSection } from "./sections/AnimationSection";
-import { HiPage } from "./sections/HiPage";
+import { HiPage } from "./HiPage";
 import { ThankSection } from "./sections/ThankSection";
 
 export default function LandingPage(params: any) {

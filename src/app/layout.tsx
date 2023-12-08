@@ -4,10 +4,10 @@ import "highlight.js/styles/github-dark-dimmed.min.css";
 
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "SEO'S",
+  title: "_",
   // description: "새내기 디자이너의 포트폴리오 사이트",
   generator: "Next.js",
-  applicationName: "SEO'S",
+  applicationName: "KSY",
   referrer: "no-referrer",
   // keywords: ["Next.js", "React", "JavaScript"],
   // authors: [{ name: "Seo Yun Kim", url: "https://d-dlzndi.github.io" }],

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Date from "@/components/common/Date";
+import Date from "@/components/common/design/Date";
 import { WorkPost } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import useWorkPosts, { WORK_URL } from "@/hooks/useWorkPosts";

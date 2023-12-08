@@ -1,7 +1,7 @@
 "use client";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import Link from "next/link";
-import { useAnimate, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { LandingBox } from "../LandingPage";
 import styles from "./WorksSection.module.css";
@@ -10,36 +10,6 @@ export type workSectionCategoryType =
   | string
   | { href: string; name: string; more: string }
   | { category: string; name: string; more: string };
-
-/**
-   * 
-  const [scope, animate] = useAnimate();
-
-  const isInView = useInView(scope, { once: false });
-
-  const strokeLength = 600;
-  useEffect(() => {
-    if (isInView) {
-      const enterAnimation = async () => {
-        await animate(
-          "svg",
-          { strokeDashoffset: 1, opacity: 1 },
-          { delay: 0, duration: 2, ease: [0.33, 1, 0.68, 1] }
-        );
-      };
-      enterAnimation();
-    } else {
-      const exitAnimation = async () => {
-        await animate(
-          "svg",
-          { strokeDashoffset: 600, opacity: 0 },
-          { delay: 0, duration: 0.1, ease: [0.33, 1, 0.68, 1] }
-        );
-      };
-      exitAnimation();
-    }
-  }, [isInView]);
-   */
 
 export function WorksSection({
   children,
@@ -105,7 +75,7 @@ export function WorksSection({
               strokeDasharray: strokeLength,
               strokeDashoffset: svgStrokeLength,
             }}
-            className={`${styles.svg_title} ${svgClass} w-full h-full stroke-none md:stroke-primary fill-primary md:fill-none ml-[-5px]`}
+            className={`${styles.svg_title} ${svgClass} w-full h-full stroke-none md:stroke-primary fill-primary md:fill-none ml-[-11px] lg:ml-[-5px] stroke-2 xl:stroke-1`}
           />
         </h1>
         {description && (

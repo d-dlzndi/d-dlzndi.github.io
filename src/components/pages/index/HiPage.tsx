@@ -4,7 +4,7 @@ import SvgTitle from "@/assets/svg/index/title_text.svg";
 import SvgTitle_Deco1 from "@/assets/svg/index/title_deco1.svg";
 import SvgTitle_Deco2 from "@/assets/svg/index/title_deco2.svg";
 import { useEffect } from "react";
-import { LandingBox } from "../LandingPage";
+import { LandingBox } from "./LandingPage";
 import Image from "next/image";
 
 export function HiPage() {

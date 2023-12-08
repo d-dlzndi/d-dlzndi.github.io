@@ -1,4 +1,4 @@
-import ScreenWorkList from "@/components/pages/workList/ScreenWorkList";
+import ScreenWorkList from "@/components/legacy/workList/ScreenWorkList";
 
 export default function DefaultWorkPage({
   children,

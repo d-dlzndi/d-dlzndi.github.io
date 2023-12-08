@@ -1,16 +1,16 @@
 "use client";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import { WorksSection } from "../sections/WorksSection";
 import { TagOl } from "../comp/TagOl";
 import Link from "next/link";
 import { Icons } from "@/components/common/Icons/Icons";
-import { AnimationData } from "./SectionDatas";
+import { AnimationData } from "../../../../libs/SectionDatas";
 import useCustomRouter from "@/hooks/useCustomRouter";
 import { useEffect, useState } from "react";
 import styles from "./animSection.module.css";
 import { motion } from "framer-motion";
-import CustomReactPlayer from "@/components/common/CustomReactPlayer";
+import CustomReactPlayer from "@/components/common/design/CustomReactPlayer";
 
 export function AnimationSection() {
   const { allPosts } = useWorkPosts();
@@ -81,7 +81,7 @@ export function AnimationSection() {
                   </div>
                 )}
                 <div
-                  className={`absolute top-0 right-3 opacity-0 group-hover:opacity-100 transition-opacity`}
+                  className={`absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity`}
                 >
                   <Icons.arrowUpRight
                     width={40}
@@ -154,11 +154,11 @@ export function SlideShowImg({
             if (isVideo(idx)) setVideoPlaying(false);
           }}
           onClick={() => {
-            if (isVideo(idx)) setVideoMuted((p) => !p);
+            if (isVideo(idx)) setVideoPlaying((p) => !p);
           }}
           className={`${getCommonClass(
             idx
-          )} bg-[var(--post-color)] select-none overflow-hidden`}
+          )} bg-black select-none overflow-hidden`}
         >
           {isVideo(idx) && (
             <>
@@ -175,25 +175,31 @@ export function SlideShowImg({
               </div>
               <p
                 className={`absolute hidden xl:block z-[2] top-5 right-5 w-auto h-auto text-center ${styles.hoverMe}`}
+                onClick={(e) => {
+                  if (isVideo(idx)) {
+                    e.stopPropagation();
+                    setVideoMuted((p) => !p);
+                  }
+                }}
               >
                 <span
-                  className={`bg-[var(--post-color)] block p-3 pt-2 rounded-2xl pointer-events-auto cursor-pointer ${
+                  className={`bg-[var(--post-color)] block p-3 rounded-2xl pointer-events-auto cursor-pointer ${
                     !videoPlaying ? "opacity-0" : "opacity-50 hover:opacity-100"
                   } transition-all`}
                 >
                   {videoMuted ? (
                     <Icons.speakerX
-                      width={20}
-                      height={20}
+                      width={24}
+                      height={24}
                       strokeWidth={0.8}
-                      className={`stroke-base-100 inline-block `}
+                      className={`stroke-base-100 `}
                     />
                   ) : (
                     <Icons.speakerWave
-                      width={20}
-                      height={20}
+                      width={24}
+                      height={24}
                       strokeWidth={0.8}
-                      className={`stroke-base-100 inline-block `}
+                      className={`stroke-base-100 `}
                     />
                   )}
                 </span>
@@ -202,7 +208,7 @@ export function SlideShowImg({
                 className={`absolute hidden xl:block z-[1] top-5 right-5 w-auto h-auto  ${styles.hoverMe}`}
               >
                 <span
-                  className={`pt-2 px-5 rounded-2xl block bg-[var(--post-color)] transition-all ${
+                  className={`pt-1 px-5 rounded-2xl block bg-[var(--post-color)] transition-all ${
                     videoPlaying ? "opacity-0" : "animate-pulse"
                   }`}
                 >

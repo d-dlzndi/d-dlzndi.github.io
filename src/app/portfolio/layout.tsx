@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     default: "SEO'S PORTFOLIO",
   },
   description: "새내기 디자이너의 포트폴리오 사이트",
+  applicationName: "SEO'S PORTFOLIO",
   // keywords: ["Next.js", "React", "JavaScript"],
   // authors: [{ name: "Seo Yun Kim", url: "https://d-dlzndi.github.io" }],
   // creator: "Seo Yun Kim",

@@ -1,5 +1,5 @@
 "use client";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import { Icons } from "@/components/common/Icons/Icons";
 import { motion } from "framer-motion";
@@ -8,7 +8,7 @@ import { WorksSection } from "./WorksSection";
 import Link from "next/link";
 import SvgT_Design from "@/assets/svg/index/t_design.svg";
 import { default as SeedRandom } from "seedrandom";
-import { DesignData } from "./SectionDatas";
+import { DesignData } from "../../../../libs/SectionDatas";
 
 export function DesignSection() {
   return (
@@ -106,13 +106,13 @@ const DesignSectionImgBox = () => {
           <div
             key={img.src}
             className={
-              "inline-block max-w-[50vw] w-80 aspect-w-16 aspect-h-9 relative even:ml-[-50%] shadow-2xl group-hover:scale-105 " +
+              "inline-block max-w-[50vw] w-80 aspect-w-16 aspect-h-9 relative even:ml-[-50%] shadow-2xl hover:scale-105 " +
               "odd:last:relative odd:last:top-[calc(100%+1rem)] odd:last:right-[50%] shadow-md shadow-black"
             }
             style={{
               //@ts-ignore
               "--post-color": img.color,
-              transitionDuration: "1s",
+              transitionDuration: ".8s",
             }}
           >
             <Img

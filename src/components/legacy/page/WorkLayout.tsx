@@ -1,5 +1,5 @@
-import { PageWrapper } from "@/components/common/PageWrapper";
-import CategoryList from "../../dataList/CategoryList";
+import { PageWrapper } from "@/components/legacy/PageWrapper";
+import CategoryList from "../dataList/CategoryList";
 
 export default function WorkLayout({
   children,

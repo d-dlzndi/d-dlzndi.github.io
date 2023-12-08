@@ -4,8 +4,8 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icons } from "@/components/common/Icons/Icons";
 import { WorkPost } from "contentlayer/generated";
-import Date from "@/components/common/Date";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Date from "@/components/common/design/Date";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 
 export function LineList({ posts }: { posts: WorkPost[] }) {
   const { getCategoryUrl } = useWorkPosts();

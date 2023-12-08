@@ -1,5 +1,5 @@
 "use client";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import { Icons } from "@/components/common/Icons/Icons";
 import { motion, Variants } from "framer-motion";
@@ -9,7 +9,7 @@ import { TimeLine } from "../comp/TimeLine";
 import { LandingBox } from "../LandingPage";
 import { TagOl } from "../comp/TagOl";
 import Link from "next/link";
-import { AboutData as d } from "./SectionDatas";
+import { AboutData as d } from "@/libs/SectionDatas";
 import { useMemo } from "react";
 
 export function AboutMePage() {
@@ -138,9 +138,9 @@ export function AboutMePage() {
   return (
     <LandingBox className={`bg-primary text-base-100`}>
       <div className="flex flex-col xl:flex-row place-items-stretch min-h-screen md:px-10 md:py-20">
-        <div className=" h-96 xl:h-auto xl:w-1/4 relative ">
+        <div className=" h-96 xl:h-auto xl:w-1/4 2xl:w-1/3 relative ">
           <span
-            className={`sticky block top-0 w-full h-full xl:max-h-screen object-cover grayscale contrast-50`}
+            className={`sticky xl:z-[49] block top-0 w-full h-full xl:max-h-screen object-cover grayscale contrast-50 transition-all hover:filter-none`}
           >
             <Img
               src={d.mainImg}
@@ -152,15 +152,18 @@ export function AboutMePage() {
           </span>
         </div>
         <div className="px-4 md:px-0 xl:w-3/4 mt-20 md:mt-40 xl:mt-[50vh] ">
-          <h1 id={"About"} className="pl-10 w-full aspect-w-10 aspect-h-1">
+          <h1
+            id={"About"}
+            className="pl-10 w-full aspect-w-10 aspect-h-1 -ml-1 md:-ml-3 lg:-ml-4 xl:ml-0"
+          >
             <span className="hidden">ABOUT ME</span>
             <d.titleSvg
-              className={` fill-secondary sm:stroke-secondary sm:fill-none`}
+              className={` fill-secondary sm:stroke-secondary sm:fill-none stroke-2 lg:stroke-1`}
             />
           </h1>
           <div className="pt-12 md:pt-20 flex gap-3 justify-stretch flex-col md:flex-row">
             <div className="flex-1"></div>
-            <div className="flex-[5] flex flex-col min-[420px]:flex-row gap-10 min-[420px]:gap-3">
+            <div className="flex-[7] 2xl:flex-[5] flex flex-col min-[420px]:flex-row gap-10 min-[420px]:gap-3">
               <div className="flex-[2]">
                 <motion.p
                   variants={variants}
@@ -216,9 +219,9 @@ export function AboutMePage() {
                   initial={"start"}
                   whileInView={"end"}
                   viewport={{ once: true }}
-                  className="2xl:w-[83%] xl:pl-[17%] xl:flex-row relative pt-14 flex flex-col shrink-0 gap-8 md:gap-3"
+                  className="2xl:w-[83%] xl:pl-[13.5%] xl:pr-[9%] 2xl:pl-[17.5%] 2xl:pr-0 xl:flex-row relative pt-14 flex flex-col shrink-0 gap-8 md:gap-3"
                 >
-                  <div className="absolute top-0 left-0 xl:left-5 w-full 2xl:w-[calc(100%-1.25em)] h-px bg-secondary" />
+                  <div className="absolute top-0 left-0 xl:left-5 w-full min-[1900px]:w-[calc(100%-1.25rem)] h-px bg-secondary" />
                   <motion.h4
                     id={cont.title}
                     custom={1}

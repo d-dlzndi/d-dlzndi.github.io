@@ -1,12 +1,12 @@
 "use client";
-import Img from "@/components/common/ImgWithPlaceholder";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import { Icons } from "@/components/common/Icons/Icons";
 import { motion } from "framer-motion";
 import { WorksSection } from "./WorksSection";
 import { TagOl } from "../comp/TagOl";
 import useCustomRouter from "@/hooks/useCustomRouter";
-import { ProgrammingData } from "./SectionDatas";
+import { ProgrammingData } from "../../../../libs/SectionDatas";
 
 export function ProgrammingSection() {
   const { allPosts } = useWorkPosts();

@@ -1,7 +1,7 @@
 "use client";
 
 import { WorksSection } from "./WorksSection";
-import { ThankData } from "./SectionDatas";
+import { ThankData } from "../../../../libs/SectionDatas";
 
 export function ThankSection() {
   return (

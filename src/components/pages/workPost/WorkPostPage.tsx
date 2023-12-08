@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Date from "@/components/common/Date";
+import Date from "@/components/common/design/Date";
 import { WorkPost } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import useWorkPosts, { WORK_URL } from "@/hooks/useWorkPosts";
@@ -14,7 +14,7 @@ import SvgCurveLoader from "@/components/animation/svg-curve-loader";
 import ScrollShowImage from "@/components/common/mdx/ScrollShowImage";
 import { LandingBox } from "../index/LandingPage";
 import { TagOl } from "../index/comp/TagOl";
-import { SimpleFlexBox } from "../work/WorkListSimple";
+import { SimpleFlexBox } from "../work/SimpleFlexBox";
 
 const mdxComponents = {
   img: ScrollShowImage,

@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./IntroImageSlide.module.css";
-import ImgWithPlaceholder from "../common/ImgWithPlaceholder";
+import ImgWithPlaceholder from "../../common/design/ImgWithPlaceholder";
 import useCustomRouter from "@/hooks/useCustomRouter";
 import { ImageData } from "@/../contentlayer.config";
 import useImgPreview from "@/hooks/useImgPreview";

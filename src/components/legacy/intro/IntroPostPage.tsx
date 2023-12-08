@@ -1,11 +1,10 @@
 import Link from "next/link";
-import AwardList from "@/components/dataList/AwardList";
-import ProgramList from "@/components/dataList/ProgramList";
-import Date from "@/components/common/Date";
-import IntroImageSlide from "./IntroImageSlide";
-import MouseFollowBox from "../common/effect/MouseFollowBox";
+import AwardList from "@/components/legacy/dataList/AwardList";
+import ProgramList from "@/components/legacy/dataList/ProgramList";
+import Date from "@/components/common/design/Date";
+import MouseFollowBox from "@/components/animation/MouseFollowBox/MouseFollowBox";
 import { WorkPost } from "contentlayer/generated";
-import NotFound from "../../app/not-found";
+import NotFound from "@/app/not-found";
 import useWorkPosts from "@/hooks/useWorkPosts";
 import HtmlRemover from "@/utils/htmlRemover";
 
@@ -21,7 +20,9 @@ export default function IntroPostPage({ post }: { post?: WorkPost }) {
     <article className="w-screen h-screen flex justify-center px-10">
       <div className="relative w-screen max-w-[var(--width)] h-screen flex flex-row justify-stretch gap-10">
         <div className="flex-1 relative basis-0">
-          <IntroImageSlide imageArray={post.imageList.slice(0, 8)} />
+          {/**
+           <IntroImageSlide imageArray={post.imageList.slice(0, 8)} />
+           */}
           <div
             className="absolute top-20 left-[65%] font-bold text-4xl z-10 pointer-events-none"
             style={{ textShadow: "1px 2px var(--background)" }}

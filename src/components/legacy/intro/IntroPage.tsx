@@ -1,6 +1,6 @@
 import { Post } from "contentlayer/generated";
-import ImgWithPlaceholder from "../common/ImgWithPlaceholder";
-import SlideShowText from "../common/textEffect/SlideShowText";
+import ImgWithPlaceholder from "@/components/common/design/ImgWithPlaceholder";
+import SlideShowText from "@/components/animation/textEffect/SlideShowText";
 
 export default function IntroPage({ post }: { post: Post }) {
   return (

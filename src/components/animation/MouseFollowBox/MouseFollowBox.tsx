@@ -8,7 +8,7 @@ import {
   useVelocity,
 } from "framer-motion";
 import { getRelativeCoordinates } from "@/utils/mouseEvent";
-import TextCircle from "../textCircle/TextCircle";
+import TextCircle from "../../common/textCircle/TextCircle";
 
 export default function MouseFollowBox({
   children,
