@@ -68,6 +68,39 @@ const useWorkPosts = ({ category, tag }: Props = {}) => {
     return { pathname: WORK_URL, query: { tag: tag } };
   };
 
+  const getImgBase64 = (post: WorkPost, src?: string): string | undefined => {
+    const target = post.imageList.find((img: any) => img.src == src);
+    if (!target) return undefined;
+    return target.base64;
+  };
+
+  const getImgSize = (
+    post: WorkPost,
+    src?: string
+  ): { height: number; width: number } | undefined => {
+    const target = post.imageList.find((img: any) => img.src == src);
+    if (!target) return undefined;
+    return target.size;
+  };
+
+  const findImgBySrc = (src: string) => {
+    return basePosts
+      .find((post) => post.imageList.find((img: any) => img.src == src))
+      ?.imageList.find((img: any) => img.src == src);
+  };
+
+  const getImgBase64BySrc = (src: string): string | undefined => {
+    const target = findImgBySrc(src);
+    if (!target) return undefined;
+    return target.base64;
+  };
+
+  const getImgSizeBySrc = (src: string): string | undefined => {
+    const target = findImgBySrc(src);
+    if (!target) return undefined;
+    return target.size;
+  };
+
   return {
     allPosts: basePosts,
     filterPosts,
@@ -77,6 +110,10 @@ const useWorkPosts = ({ category, tag }: Props = {}) => {
     tags,
     getCategoryUrl,
     getTagUrl,
+    getImgBase64,
+    getImgSize,
+    getImgBase64BySrc,
+    getImgSizeBySrc,
   };
 };
 

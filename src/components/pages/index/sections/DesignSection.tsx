@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import React, { useMemo, useRef, useState } from "react";
 import { WorksSection } from "./WorksSection";
 import Link from "next/link";
-import SvgT_Design from "@/assets/svg/index/t_design.svg";
 import { default as SeedRandom } from "seedrandom";
 import { DesignData } from "../../../../libs/SectionDatas";
 
@@ -75,18 +74,20 @@ function DesignInner() {
 }
 
 const DesignSectionImgBox = () => {
-  const { allPosts } = useWorkPosts();
+  const { allPosts, getImgBase64, getImgSize } = useWorkPosts();
   const shuffleImgs = useMemo<any[]>(() => {
     return allPosts.reduce((list, post) => {
       if ((DesignData.category as string[]).includes(post.category)) {
-        const newlist = post.imageList.reduce((lst: any[], data: any) => {
+        const newlist = post.imageList.reduce((lst: any[], imgData: any) => {
           return [
             ...lst,
             {
-              ...data,
+              ...imgData,
               title: post.title,
               url: post.url || "/",
               color: post.color || "oklch(var(--p))",
+              base64: getImgBase64(post, imgData.src),
+              size: getImgSize(post, imgData.src),
             },
           ];
         }, [] as any[]);
@@ -100,7 +101,7 @@ const DesignSectionImgBox = () => {
     <>
       {shuffleImgs
         .sort((a, b) => {
-          return SeedRandom(b.src + a.alt)() - 0.5;
+          return SeedRandom(a.src + b.alt)() - 0.5;
         })
         .map((img) => (
           <div
@@ -118,8 +119,9 @@ const DesignSectionImgBox = () => {
             <Img
               src={img.src}
               alt={img.alt}
-              width={100}
-              height={100}
+              base64={img.base64}
+              width={70}
+              height={40}
               priority={true}
               className={`w-full h-full object-cover`}
             />

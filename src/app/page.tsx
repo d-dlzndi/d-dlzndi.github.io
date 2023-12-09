@@ -1,4 +1,5 @@
 import { Icons } from "@/components/common/Icons/Icons";
+import Img from "@/components/common/design/ImgWithPlaceholder";
 import Link from "next/link";
 import Script from "next/script";
 
@@ -13,6 +14,7 @@ export default function Index() {
             height={40}
             className="inline-block align-baseline"
           />
+          <Img src={"/3.jpg"} width={200} height={200} />
         </a>
       </div>
     </>

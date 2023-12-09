@@ -23,7 +23,7 @@ export default function Layout(props: {
 }) {
   return (
     <>
-      <div className="w-screen flex flex-wrap flex-col justify-center items-center">
+      <div className="w-screen flex flex-wrap flex-col justify-center items-center bg-primary">
         <div className="w-full min-h-screen">{props.children}</div>
         <MainFooter />
       </div>

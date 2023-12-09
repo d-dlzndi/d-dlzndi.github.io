@@ -8,7 +8,7 @@ import Date from "@/components/common/design/Date";
 import Img from "@/components/common/design/ImgWithPlaceholder";
 
 export function LineList({ posts }: { posts: WorkPost[] }) {
-  const { getCategoryUrl } = useWorkPosts();
+  const { getCategoryUrl, getImgBase64, getImgSize } = useWorkPosts();
   return (
     <motion.ul layout layoutRoot>
       <AnimatePresence>
@@ -58,7 +58,9 @@ export function LineList({ posts }: { posts: WorkPost[] }) {
                     src={post.image}
                     width={400}
                     height={400}
+                    size={getImgSize(post, post.image)}
                     className={` w-full h-full object-cover`}
+                    base64={getImgBase64(post, post.image)}
                   />
                 </div>
               </div>

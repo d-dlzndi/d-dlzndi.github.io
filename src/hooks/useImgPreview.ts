@@ -1,7 +1,5 @@
-import { ImageData } from "contentlayer.config";
-
 export default function useImgPreview() {
-  const getImg = (param: string): ImageData => JSON.parse(decodeURI(param));
+  const getImg = (param: string) => JSON.parse(decodeURI(param));
 
   const getProp = ({ src, alt }: { src: string; alt: string }) => ({
     pathname: "/preview",

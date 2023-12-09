@@ -19,7 +19,7 @@ import { DefaultFont } from "@/styles/Fonts";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className="scroll-smooth">
+    <html lang="ko" className="scroll-smooth bg-primary">
       <head />
       <body
         className={DefaultFont.className + " bg-base-100"}

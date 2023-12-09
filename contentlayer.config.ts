@@ -5,6 +5,7 @@ import {
   makeSource,
 } from "contentlayer/source-files";
 import path from "path";
+import getBase64 from "./src/utils/getBase64";
 import getImgInMd from "./src/utils/getImgInMd";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
@@ -23,7 +24,12 @@ const AwardData = defineNestedType(() => ({
   },
 }));
 
-export type ImageData = { src: string; alt: string };
+type ImageDataType = {
+  src: string;
+  alt: string;
+  base64: undefined | any;
+  size: undefined | { width: number; height: number };
+};
 
 export const WorkPost = defineDocumentType(() => ({
   name: "WorkPost",
@@ -58,14 +64,50 @@ export const WorkPost = defineDocumentType(() => ({
     },
     imageList: {
       type: "list",
-      resolve: (post) =>
-        [
+      resolve: async (post) => {
+        const allList = [
           { src: post.image, alt: post.title },
           ...getImgInMd(post.body.raw),
-        ].reduce((list, img) => {
-          if (list.find((value) => value.src == img.src)) return list;
-          else return [...list, img];
-        }, [] as { src: string; alt: string }[]),
+        ].reduce(
+          (list, img) =>
+            list && !list.find((v) => v.src == img.src) // && img.src.indexOf("http") < 0
+              ? [...list, img]
+              : list,
+          [] as ImageDataType[]
+        );
+        return Promise.allSettled(
+          allList.map((img) => {
+            return getBase64(img.src);
+          })
+        ).then((results) => {
+          const base64List = results.map((r) =>
+            r.status == "fulfilled"
+              ? {
+                  base64: r.value?.base64 || undefined,
+                  size: r.value?.img
+                    ? {
+                        height: r.value?.img.height,
+                        width: r.value?.img.width,
+                      }
+                    : undefined,
+                }
+              : {
+                  base64: undefined,
+                  size: undefined,
+                }
+          );
+          console.log(
+            post.title,
+            base64List.length,
+            allList.length,
+            typeof base64List[0].base64
+          );
+          return allList.reduce(
+            (list, img, idx) => [...list, { ...img, ...base64List[idx] }],
+            [] as ImageDataType[]
+          );
+        });
+      },
     },
   },
 }));

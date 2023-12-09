@@ -6,7 +6,7 @@ import { SimpleFlexBox } from "../work/SimpleFlexBox";
 export default function AboutPage() {
   return (
     <LandingBox className={""}>
-      <div className=" flex flex-col lg:flex-row place-items-stretch min-h-screen">
+      <div className=" flex flex-col lg:flex-row place-items-stretch min-h-screen bg-base-100">
         <div className="flex-1 min-h-[14rem] bg-secondary bg-[url(/img/index/bg.jpg)] bg-cover lg:bg-fixed bg-center bg-blend-exclusion saturate-[1.5]"></div>
         <div className="flex-1 lg:mt-56 p-4 md:p-10 flex flex-col">
           <SimpleFlexBox

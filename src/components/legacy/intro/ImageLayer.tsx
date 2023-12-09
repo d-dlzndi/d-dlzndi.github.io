@@ -3,7 +3,6 @@
 import styles from "./IntroImageSlide.module.css";
 import ImgWithPlaceholder from "../../common/design/ImgWithPlaceholder";
 import useCustomRouter from "@/hooks/useCustomRouter";
-import { ImageData } from "@/../contentlayer.config";
 import useImgPreview from "@/hooks/useImgPreview";
 
 export default function ImageLayer({
@@ -14,7 +13,7 @@ export default function ImageLayer({
   style,
   onClickEvent = false,
 }: {
-  imageUrls: ImageData[];
+  imageUrls: any[];
   className: (imgIdx: number) => string;
   width: number;
   height: number;

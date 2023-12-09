@@ -44,7 +44,7 @@ export function HiPage() {
         width={1280}
         height={720}
         priority={true}
-        className="hidden"
+        className="opacity-5 w-px h-px"
       />
       <div
         ref={scope}

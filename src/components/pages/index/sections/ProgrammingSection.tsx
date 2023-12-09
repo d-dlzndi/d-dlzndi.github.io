@@ -9,7 +9,7 @@ import useCustomRouter from "@/hooks/useCustomRouter";
 import { ProgrammingData } from "../../../../libs/SectionDatas";
 
 export function ProgrammingSection() {
-  const { allPosts } = useWorkPosts();
+  const { allPosts, getImgBase64 } = useWorkPosts();
   const { push } = useCustomRouter();
 
   return (
@@ -29,7 +29,7 @@ export function ProgrammingSection() {
           .map((post, idx) => (
             <motion.div
               key={post.title}
-              initial={{ opacity: 0, translateX: 30 }}
+              initial={{ opacity: 0.1, translateX: 30 }}
               whileInView={{ opacity: 1, translateX: 0 }}
               viewport={{ once: true }}
               transition={{
@@ -81,6 +81,7 @@ export function ProgrammingSection() {
                     src={post.image}
                     width={200}
                     height={200}
+                    base64={getImgBase64(post, post.image)}
                     style={{ transitionDuration: "1s" }}
                     className={`object-cover w-full h-full scale-105 group-hover:scale-100 transition-transform`}
                   />

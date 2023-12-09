@@ -80,7 +80,7 @@ export default function SvgCurveLoader({
       {children}
       <div
         ref={loader}
-        className={styles.loader}
+        className={styles.loader + ` hidden`}
         style={{ backgroundColor: divClass, fill: colorName }}
       >
         <svg>

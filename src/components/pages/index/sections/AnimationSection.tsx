@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import styles from "./animSection.module.css";
 import { motion } from "framer-motion";
 import CustomReactPlayer from "@/components/common/design/CustomReactPlayer";
+import { WorkPost } from "contentlayer/generated";
 
 export function AnimationSection() {
   const { allPosts } = useWorkPosts();
@@ -35,7 +36,7 @@ export function AnimationSection() {
           .map((post) => (
             <motion.div
               key={post.title}
-              initial={{ opacity: 0, translateY: 50 }}
+              initial={{ opacity: 0.1, translateY: 50 }}
               whileInView={{ opacity: 1, translateY: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.5, 1, 0.89, 1] }}
@@ -46,7 +47,7 @@ export function AnimationSection() {
               <div
                 className={`w-full aspect-w-16 aspect-h-9 relative ${styles.imgbox}`}
               >
-                <SlideShowImg imglist={post.imageList} video={post.video} />
+                <SlideShowImg post={post} />
               </div>
               <div
                 onClick={(e) => {
@@ -97,13 +98,11 @@ export function AnimationSection() {
   );
 }
 
-export function SlideShowImg({
-  imglist,
-  video,
-}: {
-  imglist: any[];
-  video?: string;
-}) {
+export function SlideShowImg({ post }: { post: WorkPost }) {
+  const imglist = post.imageList;
+  const video = post.video;
+  const { getImgBase64 } = useWorkPosts();
+
   const [select, setSelect] = useState({ before: imglist.length, now: 0 });
   const setNow = (now: number) => {
     setSelect({
@@ -144,6 +143,7 @@ export function SlideShowImg({
 
   return (
     <>
+      {/* @ts-ignore */}
       {imglist.map((img, idx) => (
         <motion.div
           key={img.src}
@@ -228,7 +228,7 @@ export function SlideShowImg({
             alt={img.alt}
             width={1280}
             height={720}
-            priority={true}
+            base64={getImgBase64(post, img.src)}
             className={` absolute top-0 left-0 w-full h-full transition-all  object-cover pointer-events-none ${
               videoPlaying ? "xl:opacity-0" : "opacity-100"
             } ${getIdxState(idx) == "now" ? "scale-100" : "scale-105"}`}
@@ -261,6 +261,7 @@ export function SlideShowImg({
         <ol
           className={`pointer-events-auto leading-none flex flex-row xl:flex-col absolute w-fit right-1 xl:right-0 z-20 xl:left-full top-1 xl:top-0 gap-1 xl:px-5 xl:gap-3 ${styles.slidenav}`}
         >
+          {/* @ts-ignore */}
           {imglist.map((_, idx) => (
             <li
               key={idx}
