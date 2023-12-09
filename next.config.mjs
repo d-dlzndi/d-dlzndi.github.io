@@ -1,12 +1,11 @@
 // @ts-check
-const { withContentlayer } = require("next-contentlayer");
-// import withPlaiceholder from "@plaiceholder/next";
-// const { withPlaiceholder } = require("@plaiceholder/next");
+import { withContentlayer } from "next-contentlayer";
+import withPlaiceholder from "@plaiceholder/next";
 
-const isProd = process.env.NODE_ENV === "production"; // 프로덕션 모드인지
+const isProd = process.env.NODE_ENV === "production";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withContentlayer({
   output: "export",
   reactStrictMode: true,
   swcMinify: false, // contentLayer
@@ -21,6 +20,6 @@ const nextConfig = {
     });
     return config;
   },
-};
+});
 
-module.exports = withContentlayer(nextConfig);
+export default isProd ? withPlaiceholder(nextConfig) : nextConfig;

@@ -1,5 +1,5 @@
 import { DesignSection } from "./sections/DesignSection";
-import { AboutMePage } from "./sections/AboutMePage";
+import { AboutMePage } from "./AboutMePage";
 import { ProgrammingSection } from "./sections/ProgrammingSection";
 import { AnimationSection } from "./sections/AnimationSection";
 import { HiPage } from "./HiPage";

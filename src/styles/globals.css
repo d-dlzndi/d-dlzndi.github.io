@@ -1,6 +1,4 @@
-:root {
-  --asdf: "";
-  /*
+/*
 --background: #fffff2;
   --gray: #41D3BD;
   --color: #791E94;
@@ -38,7 +36,6 @@
   --color: #3D415C;
   --accent: #0000F5;
   */
-}
 
 * {
   -webkit-font-smoothing: antialiased;

@@ -23,16 +23,17 @@ export default function Img(params: { [key: string]: any }) {
 
   useEffect(() => {
     let active = true;
-    // load();
+    load();
     return () => {
       active = false;
     };
     async function load() {
-      //const { base64, img } = await getBase64(params.src, 10);
+      const { base64, img } = await getBase64(params.src, 10);
+      console.log(img, base64);
       if (!active) {
         return;
       }
-      //setData({ base64, img });
+      setData({ base64, img });
     }
   }, [params.src]);
 
