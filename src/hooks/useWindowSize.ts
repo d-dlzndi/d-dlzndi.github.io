@@ -55,7 +55,7 @@ export default function useWindowSize() {
 
     // Add event listener
     evtList.forEach(function (evt) {
-      window.addEventListener(evt, handleResize);
+      window.addEventListener(evt, handleResize, { passive: true });
     });
 
     // Call handler right away so state gets updated with initial window size
@@ -68,15 +68,6 @@ export default function useWindowSize() {
       });
     };
   }, [isClient]); // Empty array ensures that effect is only run on mount
-
-  useEffect(() => {
-    if (!document.body) return;
-    const resizeObserver = new ResizeObserver(() => {
-      handleResize();
-    });
-    resizeObserver.observe(document.body);
-    return () => resizeObserver.disconnect(); // clean up
-  }, []);
 
   useEffect(() => {
     if (!document.body) return;

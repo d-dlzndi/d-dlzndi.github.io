@@ -17,10 +17,7 @@ export const metadata: Metadata = {
   // creator: "Seo Yun Kim",
 };
 
-export default function Layout(props: {
-  children: React.ReactNode;
-  header: React.ReactNode;
-}) {
+export default function Layout(props: { children: React.ReactNode }) {
   return (
     <>
       <div className="w-screen flex flex-wrap flex-col justify-center items-center bg-primary">
@@ -29,29 +26,5 @@ export default function Layout(props: {
       </div>
       <MainSideMenu />
     </>
-  );
-}
-
-export function MainNavigation() {
-  return (
-    <nav className=" w-screen h-[10vh] bg-black text-white">
-      <ul className=" w-full h-full flex flex-row justify-stretch items-stretch flex-nowrap">
-        {_navigation.map((nav, idx) => (
-          <li key={nav.name} className=" text-7xl w-full text-center">
-            <Link href={nav.url || "/"}>
-              {nav.name}
-              <nav.icon className=" w-10 h-10 inline-block" />
-            </Link>
-          </li>
-        ))}
-        <li>
-          <input
-            type="checkbox"
-            value="synthwave"
-            className="toggle theme-controller"
-          />
-        </li>
-      </ul>
-    </nav>
   );
 }

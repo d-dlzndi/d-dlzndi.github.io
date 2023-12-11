@@ -9,6 +9,8 @@ export default function SvgCurveLoader({
   children: React.ReactNode;
   colorName?: string;
 }) {
+  return <>{children}</>;
+  /*
   const loader = useRef<any>(null);
   const path = useRef<any>(null);
   const initialCurve = 200;
@@ -18,6 +20,8 @@ export default function SvgCurveLoader({
   useEffect(() => {
     setDivClass("");
     setPath(initialCurve);
+    requestAnimationFrame(animate);
+    
     setTimeout(() => {
       requestAnimationFrame(animate);
     }, 500);
@@ -80,7 +84,7 @@ export default function SvgCurveLoader({
       {children}
       <div
         ref={loader}
-        className={styles.loader + ` hidden`}
+        className={styles.loader + ` `}
         style={{ backgroundColor: divClass, fill: colorName }}
       >
         <svg>
@@ -89,4 +93,5 @@ export default function SvgCurveLoader({
       </div>
     </>
   );
+  */
 }

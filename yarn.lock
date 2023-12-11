@@ -1646,6 +1646,11 @@
     micromark-util-character "^1.1.0"
     micromark-util-symbol "^1.0.1"
 
+"@studio-freight/lenis@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.npmjs.org/@studio-freight/lenis/-/lenis-1.0.29.tgz"
+  integrity sha512-z/qS8ato5m2wlxQREYj5iALcxMrhhm06vEiLqYzLI+3HmpPzPscmJ8cXNiay4bj692vOot2hyTA3WP++AQVoKA==
+
 "@svgr/babel-plugin-add-jsx-attribute@8.0.0":
   version "8.0.0"
   resolved "https://registry.npmjs.org/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-8.0.0.tgz"

@@ -30,7 +30,7 @@ export default function useDimensions(targetRef: MutableRefObject<any>) {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
     handleResize();
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);

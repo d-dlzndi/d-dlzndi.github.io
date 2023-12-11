@@ -17,9 +17,9 @@ export function GalleryList({ posts }: { posts: WorkPost[] }) {
             layout
             key={post.slug}
             viewport={{ once: true }}
-            initial={{ opacity: 0.5, top: 20 }}
+            initial={{ opacity: 0.1, top: 20 }}
             whileInView={{ opacity: 1, top: 0 }}
-            exit={{ opacity: 0.5, top: -20, transition: { duration: 0.3 } }}
+            exit={{ opacity: 0, top: -20, transition: { duration: 0.3 } }}
             transition={{
               delay: idx % 2 == 0 ? 0.2 : 0.3,
               duration: 1,

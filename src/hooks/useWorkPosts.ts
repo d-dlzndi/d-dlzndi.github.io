@@ -95,7 +95,9 @@ const useWorkPosts = ({ category, tag }: Props = {}) => {
     return target.base64;
   };
 
-  const getImgSizeBySrc = (src: string): string | undefined => {
+  const getImgSizeBySrc = (
+    src: string
+  ): { width: number; height: number } | undefined => {
     const target = findImgBySrc(src);
     if (!target) return undefined;
     return target.size;

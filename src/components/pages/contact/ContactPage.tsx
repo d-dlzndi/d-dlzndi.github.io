@@ -5,10 +5,10 @@ import { SimpleFlexBox } from "../work/SimpleFlexBox";
 
 export default function AboutPage() {
   return (
-    <LandingBox className={""}>
-      <div className=" flex flex-col lg:flex-row place-items-stretch min-h-screen bg-base-100">
-        <div className="flex-1 min-h-[14rem] bg-secondary bg-[url(/img/index/bg.jpg)] bg-cover lg:bg-fixed bg-center bg-blend-exclusion saturate-[1.5]"></div>
-        <div className="flex-1 lg:mt-56 p-4 md:p-10 flex flex-col">
+    <LandingBox className={"bg-base-100 relative"}>
+      <div className=" flex flex-col lg:flex-row place-items-stretch min-h-screen ">
+        <div className=" 2xl:my-20 2xl:ml-9 2xl:z-[46] flex-1 min-h-[14rem] bg-secondary bg-[url(/img/index/bg.jpg)] bg-cover lg:bg-fixed bg-center bg-blend-exclusion saturate-[1.5]"></div>
+        <div className="flex-1 lg:mt-56 my-20 md:m-0 p-4 md:p-10 flex flex-col">
           <SimpleFlexBox
             className="!flex-col !mb-0"
             commonChildClassName=" border-base-content text-4xl"
