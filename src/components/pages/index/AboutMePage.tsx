@@ -58,17 +58,19 @@ export function AboutMePage() {
               <Link
                 href={`#${data.title}`}
                 className={
-                  " transition-transform hover:scale-105 active:scale-90 rounded-[100%] mix-blend-screen w-[100%] xl:w-[15em] xl:h-[15em] text-center py-12 sm:py-24 " +
+                  " transition-transform hover:scale-105 active:scale-90 rounded-[100%] mix-blend-screen w-full xl:aspect-w-1 xl:aspect-h-1 text-center py-12 sm:py-24 " +
                   data.style
                 }
               >
-                <p>
-                  <span className="opacity-70">{data.sub}</span>
-                  <br />
-                  <span className="text-xl xl:text-2xl uppercase font-black">
-                    {data.title}
-                  </span>
-                </p>
+                <div className="w-full h-full relative">
+                  <p className="relative md:top-1/2 md:-translate-y-1/2">
+                    <span className="opacity-70">{data.sub}</span>
+                    <br />
+                    <span className="text-xl xl:text-base 2xl:text-xl uppercase font-black">
+                      {data.title}
+                    </span>
+                  </p>
+                </div>
               </Link>
               <div className=" hidden sm:block mr-[1em] mt-4 pt-4 border-t w-3/4">
                 <TagOl
@@ -110,7 +112,7 @@ export function AboutMePage() {
     {
       title: "Experience",
       textContent: (
-        <ol className="ml-5 xl:ml-0 list-disc flex flex-col-reverse gap-7">
+        <ol className="ml-5 xl:ml-0 list-disc flex flex-col gap-7">
           {d.experienceData.map((data) => (
             <li key={data.title}>
               <h4 className="text-lg break-keep leading-tight">{data.title}</h4>

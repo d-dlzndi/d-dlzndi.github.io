@@ -92,7 +92,41 @@ const AboutData = {
       title: "한국콘텐츠진흥원 2023 대한민국 게임잼 대상 수상",
       desc: `2023.08.11.`,
     },
-  ],
+  ].reverse(),
+};
+
+type abilityDataType = {
+  sub: string;
+  title: string;
+  categories: string[];
+  style: string;
+};
+
+const IntroData: sectionDataType = {
+  title: `asdf`,
+  description: `어쩌고저쩌고`,
+  titleSvg: SvgT_Thank,
+  category: [],
+  abilityData: [
+    {
+      sub: "3D + 2D",
+      title: "Animation",
+      categories: ["Animation"],
+      style: "bg-primary text-primary-content",
+    },
+    {
+      sub: "WEB + GAME",
+      title: "Programming",
+      categories: ["Programming"],
+      style: "bg-base-300 text-secondary-content",
+    },
+    {
+      sub: "2D + 3D",
+      title: "Design",
+      categories: ["Graphic-Design", "Digital-Sculpting"],
+      style: "bg-neutral text-neutral-content",
+    },
+  ] as abilityDataType[],
 };
 
 const AnimationData: sectionDataType = {
@@ -131,4 +165,11 @@ const ThankData: sectionDataType = {
   ],
 };
 
-export { AboutData, AnimationData, ProgrammingData, DesignData, ThankData };
+export {
+  AboutData,
+  IntroData,
+  AnimationData,
+  ProgrammingData,
+  DesignData,
+  ThankData,
+};

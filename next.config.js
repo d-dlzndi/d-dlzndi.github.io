@@ -41,9 +41,12 @@ module.exports = async (phase, { defaultConfig }) => {
   const withContentlayer = createContentlayerPlugin({});
   const withPlaiceholder = await (async () => {
     const ph = await import("@plaiceholder/next");
-    console.log(ph.default);
     return ph.default;
   })();
 
-  return withPlaiceholder(withContentlayer(nextConfig));
+  if (isProd) {
+    console.log(withPlaiceholder);
+    return withPlaiceholder(withContentlayer(nextConfig));
+  }
+  return withContentlayer(nextConfig);
 };

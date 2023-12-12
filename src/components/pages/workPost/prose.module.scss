@@ -44,11 +44,13 @@
     }
 
     hr {
-        @apply divider;
         border: 0;
         height: 1px;
         opacity: 0.3;
-        margin: 4rem 0;
+        margin: 6rem auto;
+        background: oklch(var(--b1) / 0.3);
+        width: 1px;
+        height: 8rem;
     }
 
     li::marker {
@@ -126,6 +128,8 @@
         & > * {
             width: 0 !important;
             flex: 1 0 auto !important;
+            place-self: stretch;
+            object-fit: cover;
         }
     }
 

@@ -31,7 +31,7 @@ export function SkillTable({
   if (!skills) skills = testSkill;
   return (
     <div className="overflow-x-auto">
-      <table className="table border-t border-b">
+      <table className="table border-t border-b border-[oklch(var(--b1)/0.2)]">
         {headUse && (
           <thead>
             <tr>
@@ -44,7 +44,10 @@ export function SkillTable({
         <tbody>
           {/* row 1 */}
           {skills.map((skill, idx) => (
-            <tr key={skill.name + "_" + idx} className="text-lg">
+            <tr
+              key={skill.name + "_" + idx}
+              className="text-lg border-[oklch(var(--b1)/0.2)]"
+            >
               {/** <th>{String(idx + 1).padStart(2, "0")}</th> */}
               <td>{skill.name}</td>
               <td className="w-1/2">

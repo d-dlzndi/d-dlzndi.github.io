@@ -15,6 +15,7 @@ export function WorksSection({
   children,
   title,
   Title_svg,
+  landingClassName = "bg-base-content text-base-100",
   svg_widthclass = "aspect-h-1 aspect-w-10",
   description,
   categories = [],
@@ -22,6 +23,7 @@ export function WorksSection({
   children?: React.ReactNode;
   title: string;
   Title_svg: any;
+  landingClassName?: string;
   svg_widthclass?: string;
   description?: string;
   categories?: workSectionCategoryType[];
@@ -58,7 +60,7 @@ export function WorksSection({
 
   return (
     <LandingBox
-      className={`bg-base-content text-base-100 overflow-y-auto overflow-x-hidden`}
+      className={`${landingClassName} overflow-y-auto overflow-x-hidden`}
     >
       <div className="p-4 md:p-10 my-[15vh] md:my-[20vh] xl:my-[25vh]">
         <h1
