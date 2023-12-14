@@ -24,9 +24,7 @@ export function AnimationSection() {
       Title_svg={AnimationData.titleSvg}
       categories={AnimationData.category}
     >
-      <div
-        className={`flex flex-col items-center gap-20 ${styles.all} snap-y snap-proximity`}
-      >
+      <div className={`flex flex-col items-center gap-24 ${styles.all}`}>
         {allPosts
           .filter((p) =>
             (AnimationData.category as string[]).includes(p.category)
@@ -53,7 +51,7 @@ export function AnimationSection() {
                 onClick={(e) => {
                   push(post.url || "/");
                 }}
-                className={`group cursor-pointer flex flex-col gap-3 pt-4 border-t-4 border-[var(--post-color)] relative bg-base-content ${styles.textbox}`}
+                className={`group cursor-pointer flex flex-col gap-4 pt-6 border-t border-[var(--post-color)] relative bg-base-content ${styles.textbox}`}
               >
                 <h3
                   className={`text-2xl font-extrabold break-keep group-hover:text-[var(--post-color)] transition-colors w-5/6 leading-tight ${styles.title}`}
@@ -158,7 +156,7 @@ export function SlideShowImg({ post }: { post: WorkPost }) {
           }}
           className={`${getCommonClass(
             idx
-          )} bg-black select-none overflow-hidden`}
+          )} bg-black select-none overflow-hidden group`}
         >
           {isVideo(idx) && (
             <>
@@ -212,7 +210,11 @@ export function SlideShowImg({ post }: { post: WorkPost }) {
                     videoPlaying ? "opacity-0" : "animate-pulse"
                   }`}
                 >
-                  HOVER ME!
+                  <span className="group-hover:inline-block hidden">CLICK</span>
+                  <span className="group-hover:hidden inline-block">
+                    HOVER
+                  </span>{" "}
+                  ME!
                   <Icons.cursorRipple
                     width={30}
                     height={30}
@@ -229,8 +231,8 @@ export function SlideShowImg({ post }: { post: WorkPost }) {
             width={1280}
             height={720}
             base64={getImgBase64(post, img.src)}
-            className={` absolute top-0 left-0 w-full h-full transition-all  object-cover pointer-events-none ${
-              videoPlaying ? "xl:opacity-0" : "opacity-100"
+            className={` absolute top-0 left-0 w-full h-full transition-all object-cover pointer-events-none ${
+              isVideo(idx) ? "group-hover:opacity-0" : "opacity-100"
             } ${getIdxState(idx) == "now" ? "scale-100" : "scale-105"}`}
           />
         </motion.div>

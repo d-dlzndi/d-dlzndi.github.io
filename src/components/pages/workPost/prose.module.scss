@@ -134,7 +134,13 @@
     }
 
     mark {
-        background: linear-gradient(to top, oklch(var(--a) / 0.4) 50%, transparent 52%);
+        color: oklch(var(--sc));
+        // text-shadow: 0.08em 0.08em 0 oklch(var(--bc));
+        // background: linear-gradient(to top, oklch(var(--p) / 0.5) 20%, transparent 25%);
+        background: oklch(var(--s));
+        padding: 0.1em 0.3em;
+        margin: 0 0.1em;
+        font-weight: bolder;
     }
 
     span {
@@ -184,14 +190,23 @@
     }
 
     code {
-        border: 1px solid oklch(var(--p) / 0.5);
-        color: oklch(var(--pc));
+        // box-shadow: 0.05em 0.05em 0.4em oklch(var(--s) / 0.3);
+        border: 0.15em solid oklch(var(--a) / 0.2);
+        border-top: 0;
+        border-bottom: 0;
+        color: oklch(var(--a));
         position: relative;
-        bottom: 0.1em;
-        padding: 0.3em 0.4em;
-        padding-top: 0.35em;
+        bottom: 0.05em;
+        padding: 0.2em 0.4em;
+        padding-top: 0.3em;
+        border-radius: 0.2em;
         margin: 0 0.1em;
-        border-radius: 0.5em;
+        font-size: 0.9em;
+
+        &::before,
+        &::after {
+            content: none;
+        }
     }
 }
 

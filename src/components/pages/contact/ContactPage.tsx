@@ -11,7 +11,7 @@ export default function AboutPage() {
         <div className="flex-1 lg:mt-56 my-20 md:m-0 p-4 md:p-10 flex flex-col">
           <SimpleFlexBox
             className="!flex-col !mb-0"
-            commonChildClassName=" border-base-content text-4xl"
+            commonChildClassName=" border-base-content text-3xl md:text-4xl"
             datas={[
               {
                 title: d.title,

@@ -101,7 +101,7 @@ export function AboutMePage() {
     {
       title: "Education",
       textContent: (
-        <div className="w-full overflow-clip ">
+        <div className="w-full overflow-clip">
           <TimeLine
             data={d.educationData}
             className={` ml-[-100%] pl-[10em] break-keep text-base`}
@@ -142,7 +142,7 @@ export function AboutMePage() {
       <div className="flex flex-col xl:flex-row place-items-stretch min-h-screen md:px-10 md:py-20">
         <div className=" h-96 xl:h-auto xl:w-1/4 2xl:w-1/3 relative ">
           <span
-            className={`sticky xl:z-[49] block top-0 w-full h-full xl:max-h-screen object-cover grayscale contrast-50 transition-all hover:filter-none`}
+            className={`sticky xl:z-[49] block top-0 w-full h-full xl:max-h-screen object-cover grayscale contrast-50 transition-all`}
           >
             <Img
               src={d.mainImg}

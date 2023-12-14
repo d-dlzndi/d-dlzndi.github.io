@@ -159,7 +159,7 @@ const ThankData: sectionDataType = {
     {
       name: "CONTACT",
       href: getNavigationData("Contact").url,
-      more: "SEND",
+      more: "NOW",
     },
     { name: "WORKS", category: CATEGORY_ALL, more: "ALL" },
   ],
