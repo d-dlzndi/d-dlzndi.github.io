@@ -4,6 +4,7 @@ import {
   HomeIcon,
   ArrowUturnLeftIcon,
   TagIcon,
+  PlayIcon,
 } from "@heroicons/react/24/solid";
 
 import {
@@ -78,6 +79,7 @@ export const Icons = {
   phone: (props: IconProps) => <PhoneIcon {...props} />,
   speakerX: (props: IconProps) => <SpeakerXMarkIcon {...props} />,
   speakerWave: (props: IconProps) => <SpeakerWaveIcon {...props} />,
+  play: (props: IconProps) => <PlayIcon {...props} />,
 };
 
 export const BrandIcons = {

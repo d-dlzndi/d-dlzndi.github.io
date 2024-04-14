@@ -29,7 +29,7 @@ export function WorksSection({
   categories?: workSectionCategoryType[];
 }) {
   const svgTitleRef = useRef(null);
-  const isInView = useInView(svgTitleRef, { once: false });
+  const isInView = useInView(svgTitleRef, { once: true });
   const [svgClass, setSvgClass] = useState("");
   const strokeLength = 600;
   const [svgStrokeLength, setSvgStrokeLength] = useState(strokeLength);

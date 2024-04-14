@@ -3,6 +3,8 @@ import SvgT_Design from "@/assets/svg/index/t_design.svg";
 import SvgT_Animation from "@/assets/svg/index/t_animation.svg";
 import SvgT_Programming from "@/assets/svg/index/t_programming.svg";
 import SvgT_About from "@/assets/svg/index/t_aboutMe.svg";
+import SvgT_FX from "@/assets/svg/index/t_fx.svg";
+import SvgT_VFX from "@/assets/svg/index/t_vfx.svg";
 import { workSectionCategoryType } from "../components/pages/index/sections/WorksSection";
 import { CATEGORY_ALL } from "../components/legacy/workList/CategoryList";
 import _navigation, { getNavigationData } from "@/app/portfolio/_navigation";
@@ -28,9 +30,9 @@ const AboutData = {
   abilityText: `저의 좌우명은 <code class="w-auto inline-block font-bold rounded-md bg-secondary italic text-secondary-content px-2">0보다 0.1이 낫다</code> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
   abilityData: [
     {
-      sub: "3D + 2D",
+      sub: "FX + 3D + 2D",
       title: "Animation",
-      categories: ["Animation"],
+      categories: ["Animation", "FX"],
       style: "bg-secondary text-secondary-content",
     },
     {
@@ -47,6 +49,14 @@ const AboutData = {
     },
   ],
   skills: [
+    {
+      name: "Houdini",
+      progress: 60,
+    },
+    {
+      name: "Nuke",
+      progress: 40,
+    },
     {
       name: "Maya",
       progress: 80,
@@ -103,8 +113,8 @@ type abilityDataType = {
 };
 
 const IntroData: sectionDataType = {
-  title: `asdf`,
-  description: `어쩌고저쩌고`,
+  title: `Intro`,
+  description: `자개소개`,
   titleSvg: SvgT_Thank,
   category: [],
   abilityData: [
@@ -127,6 +137,13 @@ const IntroData: sectionDataType = {
       style: "bg-neutral text-neutral-content",
     },
   ] as abilityDataType[],
+};
+
+const FXData: sectionDataType = {
+  title: `FX`,
+  description: `현재 Houdini를 활용한 FX 이펙트를 공부하고 있습니다. 그와 함께, Nuke에도 도전하고 있습니다. 앞으로도 꾸준히 즐겁게 배워가는 것이 목표입니다.`,
+  titleSvg: SvgT_FX,
+  category: ["FX"],
 };
 
 const AnimationData: sectionDataType = {
@@ -168,6 +185,7 @@ const ThankData: sectionDataType = {
 export {
   AboutData,
   IntroData,
+  FXData,
   AnimationData,
   ProgrammingData,
   DesignData,

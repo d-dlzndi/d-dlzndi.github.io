@@ -5,6 +5,7 @@ import { AnimationSection } from "./sections/AnimationSection";
 import { HiPage } from "./HiPage";
 import { ThankSection } from "./sections/ThankSection";
 import { IntroSection } from "./sections/IntroduceSection";
+import { FXSection } from "./sections/FXSection";
 
 export default function LandingPage(params: any) {
   return (
@@ -12,6 +13,7 @@ export default function LandingPage(params: any) {
       <HiPage />
       <AboutMePage />
       <div>
+        <FXSection />
         <AnimationSection />
         <ProgrammingSection />
         <DesignSection />

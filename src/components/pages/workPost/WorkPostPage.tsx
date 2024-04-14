@@ -15,6 +15,8 @@ import ScrollShowImage from "@/components/common/mdx/ScrollShowImage";
 import { LandingBox } from "../index/LandingPage";
 import { TagOl } from "../index/comp/TagOl";
 import { SimpleFlexBox } from "../work/SimpleFlexBox";
+import CustomReactPlayer from "@/components/common/design/CustomReactPlayer";
+import React from "react";
 
 const mdxComponents = {
   img: ScrollShowImage,
@@ -166,6 +168,21 @@ export default function WorkPostPage({
             <div
               className={`${prose.prose} prose md:prose-lg 2xl:prose-xl max-w-screen-md overflow-visible prose-headings:!text-[var(--post-color)] prose-headings:uppercase`}
             >
+              {post.videos &&
+                post.videos
+                  .filter((video) => video.autoPost)
+                  .map((video, idx) => (
+                    <React.Fragment key={video._id}>
+                      <h4 className="text-center">{video.name}</h4>
+                      <CustomReactPlayer
+                        video={video.url}
+                        videoPlaying={false}
+                        muted={false}
+                        controls={true}
+                      />
+                    </React.Fragment>
+                  ))}
+              {post.videos && <hr />}
               <MDXContent components={mdxComponents} />
             </div>
           </article>

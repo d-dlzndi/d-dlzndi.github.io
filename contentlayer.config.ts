@@ -24,6 +24,15 @@ const AwardData = defineNestedType(() => ({
   },
 }));
 
+const VideoData = defineNestedType(() => ({
+  name: "VideoData",
+  fields: {
+    name: { type: "string", required: true },
+    url: { type: "string", required: true },
+    autoPost: { type: "boolean" },
+  },
+}));
+
 type ImageDataType = {
   src: string;
   alt: string;
@@ -46,6 +55,7 @@ export const WorkPost = defineDocumentType(() => ({
     url: { type: "string" },
     color: { type: "string" },
     video: { type: "string" },
+    videos: { type: "list", of: VideoData },
     draft: { type: "boolean", default: false },
   },
   computedFields: {
