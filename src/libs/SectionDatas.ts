@@ -54,16 +54,16 @@ const AboutData = {
       progress: 60,
     },
     {
-      name: "Nuke",
-      progress: 40,
-    },
-    {
       name: "Maya",
       progress: 80,
     },
     {
       name: "Unreal Engine",
       progress: 50,
+    },
+    {
+      name: "Nuke",
+      progress: 40,
     },
     { name: "ZBrush", progress: 70 },
     { name: "Substance Painter", progress: 50 },

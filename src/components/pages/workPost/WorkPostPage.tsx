@@ -166,7 +166,7 @@ export default function WorkPostPage({
               />
             </header>
             <div
-              className={`${prose.prose} prose md:prose-lg 2xl:prose-xl max-w-screen-md overflow-visible prose-headings:!text-[var(--post-color)] prose-headings:uppercase`}
+              className={`${prose.prose} prose md:prose-lg 2xl:prose-xl max-w-screen-md overflow-visible prose-headings:!text-[var(--post-color)] prose-headings:uppercase w-full`}
             >
               {post.videos &&
                 post.videos

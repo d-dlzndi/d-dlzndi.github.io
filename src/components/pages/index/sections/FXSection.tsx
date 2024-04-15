@@ -52,7 +52,7 @@ function FXInnerSection() {
   }, [postList]);
 
   return (
-    <div className="flex-col xl:flex-row items-stretch justify-end gap-1 xl:gap-7 grid grid-flow-row grid-cols-1 xl:grid-cols-2">
+    <div className="flex-col xl:flex-row items-stretch justify-end gap-7 md:gap-1 xl:gap-7 grid grid-flow-row grid-cols-1 md:grid-cols-2">
       {allVideoList.slice(0, 6).map((vdata, idx) => (
         <FXPlayer
           post={vdata.post}
@@ -72,7 +72,11 @@ function FXPlayer({ post, video }: { post: WorkPost; video: VideoData }) {
 
   return (
     <motion.div
-      className="w-full"
+      style={{
+        //@ts-ignore
+        "--post-color": post.color,
+      }}
+      className={`w-full`}
       initial={{ opacity: 0.1, translateY: 0 }} //50
       whileInView={{ opacity: 1, translateY: 0 }}
       // viewport={{ once: true }}
@@ -93,23 +97,31 @@ function FXPlayer({ post, video }: { post: WorkPost; video: VideoData }) {
         setVideoPlaying((p) => !p);
       }}
     >
-      <div className={`w-full relative cursor-pointer group overflow-hidden `}>
+      <div className={`w-full relative cursor-pointer group `}>
         <div
-          className={`w-full h-full aspect-w-16 aspect-h-9 pointer-events-none ${
-            videoPlaying ? "scale-100" : "scale-105"
-          } transition-transform bg-black`}
+          className={`w-full h-full aspect-w-16 aspect-h-9 pointer-events-none overflow-hidden border transition-colors border-base-content `}
+          style={{ borderColor: videoPlaying ? "" : "var(--post-color)" }}
         >
-          <CustomReactPlayer
-            video={video.url}
-            videoPlaying={videoPlaying}
-            muted={true}
-          />
+          <div
+            className={`${
+              videoPlaying ? "scale-100" : "scale-105"
+            } transition-transform bg-black`}
+          >
+            <CustomReactPlayer
+              video={video.url}
+              videoPlaying={videoPlaying}
+              muted={true}
+            />
+          </div>
         </div>
         <div
           className={`absolute top-5 left-0 w-max max-w-[70%] h-max group-hover:opacity-20 transition-opacity group-hover:hover:opacity-100`}
         >
           <Link href={post.url || "/"}>
-            <span className="px-4 py-1 bg-base-content break-keep box-decoration-clone">
+            <span
+              className="px-4 py-1 bg-base-content break-keep box-decoration-clone"
+              style={{ color: "var(--post-color)" }}
+            >
               {post.title}
             </span>
             <br />
@@ -121,7 +133,10 @@ function FXPlayer({ post, video }: { post: WorkPost; video: VideoData }) {
           </Link>
         </div>
         <div
-          className={`md:absolute top-auto left-auto bottom-5 right-0 md:w-max h-max pt-3 group-hover:opacity-100 md:opacity-0 transition-opacity text-right`}
+          className={`md:absolute top-auto left-auto bottom-5 right-0 md:w-max h-max pt-3 ${
+            videoPlaying ? "md:opacity-0" : "md:opacity-100"
+          } transition-opacity text-right`}
+          style={{ color: "var(--post-color)" }}
         >
           <Link
             href={video.url || "/"}
