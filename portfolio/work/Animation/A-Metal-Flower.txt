@@ -1,18 +1,18 @@
 1:HL["https://d-dlzndi.github.io/_next/static/media/155ce652bb9cca31-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-2:HL["https://d-dlzndi.github.io/_next/static/css/39df3bfecd10c4ab.css","style",{"crossOrigin":""}]
-0:["9NkmyMjHfCCoyuy-yMJ4k",[[["",{"children":["portfolio",{"children":["work",{"children":[["category","Animation","d"],{"children":[["slug","A-Metal-Flower","d"],{"children":["__PAGE__?{\"category\":\"Animation\",\"slug\":\"A-Metal-Flower\"}",{}]}]}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/39df3bfecd10c4ab.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+2:HL["https://d-dlzndi.github.io/_next/static/css/ef093c0285fc7d8a.css","style",{"crossOrigin":""}]
+0:["HHfLvQ7CrEIoGif6aViHW",[[["",{"children":["portfolio",{"children":["work",{"children":[["category","Animation","d"],{"children":[["slug","A-Metal-Flower","d"],{"children":["__PAGE__?{\"category\":\"Animation\",\"slug\":\"A-Metal-Flower\"}",{}]}]}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/ef093c0285fc7d8a.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:HL["https://d-dlzndi.github.io/_next/static/css/6c42d47fab01350a.css","style",{"crossOrigin":""}]
 6:HL["https://d-dlzndi.github.io/_next/static/css/70c9fef297790110.css","style",{"crossOrigin":""}]
 7:I[6954,[],""]
 8:I[7264,[],""]
 9:I[3619,["515","static/chunks/515-babb7eead97a212b.js","929","static/chunks/929-ac615abe30587643.js","160","static/chunks/app/not-found-c9ca97d3505740dd.js"],""]
 a:I[6476,["625","static/chunks/app/portfolio/template-ce54033be5770d11.js"],""]
-c:I[1842,["515","static/chunks/515-babb7eead97a212b.js","317","static/chunks/317-9bf7c924003f1893.js","964","static/chunks/964-f8656014e1f3b3f3.js","929","static/chunks/929-ac615abe30587643.js","304","static/chunks/304-e62442ef06ba4ea8.js","650","static/chunks/app/portfolio/work/%5Bcategory%5D/%5Bslug%5D/page-89c754babe194985.js"],""]
+c:I[1842,["515","static/chunks/515-babb7eead97a212b.js","317","static/chunks/317-9bf7c924003f1893.js","964","static/chunks/964-f8656014e1f3b3f3.js","929","static/chunks/929-ac615abe30587643.js","304","static/chunks/304-0c9cb526d240e09f.js","650","static/chunks/app/portfolio/work/%5Bcategory%5D/%5Bslug%5D/page-89c754babe194985.js"],""]
 12:I[3196,["515","static/chunks/515-babb7eead97a212b.js","317","static/chunks/317-9bf7c924003f1893.js","929","static/chunks/929-ac615abe30587643.js","514","static/chunks/app/portfolio/layout-83d89d9cbbf73c46.js"],""]
 13:I[5248,["515","static/chunks/515-babb7eead97a212b.js","317","static/chunks/317-9bf7c924003f1893.js","929","static/chunks/929-ac615abe30587643.js","514","static/chunks/app/portfolio/layout-83d89d9cbbf73c46.js"],""]
 14:I[71,["515","static/chunks/515-babb7eead97a212b.js","317","static/chunks/317-9bf7c924003f1893.js","929","static/chunks/929-ac615abe30587643.js","514","static/chunks/app/portfolio/layout-83d89d9cbbf73c46.js"],""]
 15:I[5281,["515","static/chunks/515-babb7eead97a212b.js","317","static/chunks/317-9bf7c924003f1893.js","929","static/chunks/929-ac615abe30587643.js","514","static/chunks/app/portfolio/layout-83d89d9cbbf73c46.js"],""]
-d:T830,
+d:T977,
 <iframe src="https://player.vimeo.com/video/892320648?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" title="A Metal Flower"></iframe>
 
 > 고철로 꽃을 만들며 살아가는 로봇은 어느 날 살아있는 꽃과 마주한다.
@@ -26,7 +26,7 @@ d:T830,
 
 ![poster](/img/work/A-Metal-Flower/Poster.png)
 
-졸업 작품. 출품작 기준 `7분 42초`.
+졸업 작품. 출품작 기준 `9분 00초`.
 
 구상은 2022년 10월부터, 제작은 2023년 2월부터 6월까지 진행했습니다.
 
@@ -89,6 +89,44 @@ d:T830,
 
 ---
 
+## Credit
+
+감독
+김서윤
+
+모델링
+김서윤
+
+애니메이션
+김서윤
+
+환경 레이아웃
+김서윤
+
+라이팅 & 렌더링
+김서윤
+
+사운드 & 편집
+김서윤
+
+연출 보조
+김서현
+
+지도 교수
+김호
+
+고마운 분들
+엄마 & 아빠
+탁도연
+김준혁
+이지안
+최수미
+박은기
+전다온
+문예빈
+
+---
+
 ## Photo
 
 <img
@@ -96,63 +134,90 @@ d:T830,
   className="auto"
   src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7bLqA%2FbtskiT1WlXV%2FkqhLf4XGIkEf6ocE7opft1%2Fimg.png"
 />
-e:T1ea5,var Component=(()=>{var d=Object.create;var l=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var b=(a,n)=>()=>(n||a((n={exports:{}}).exports,n),n.exports),k=(a,n)=>{for(var r in n)l(a,r,{get:n[r],enumerable:!0})},o=(a,n,r,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let i of g(n))!u.call(a,i)&&i!==r&&l(a,i,{get:()=>n[i],enumerable:!(c=m(n,i))||c.enumerable});return a};var f=(a,n,r)=>(r=a!=null?d(p(a)):{},o(n||!a||!a.__esModule?l(r,"default",{value:a,enumerable:!0}):r,a)),w=a=>o(l({},"__esModule",{value:!0}),a);var h=b((x,t)=>{t.exports=_jsx_runtime});var F={};k(F,{default:()=>A,frontmatter:()=>M});var e=f(h()),M={title:"\uCCA0\uB85C \uC774\uB8E8\uC5B4\uC9C4 \uAF43",startDate:"2023-02-01 GMT+9",date:"2023-06-30 GMT+9",tag:["Maya","Unreal Engine","Substance Painter","After Effect","Photoshop","Premiere Pro","3D Animating"],image:"/img/work/A-Metal-Flower/Poster.png",color:"#B86539",description:"\uC878\uC5C5 \uC791\uD488\uC73C\uB85C \uC9C4\uD589\uD55C \uB2E8\uD3B8 \uC560\uB2C8\uBA54\uC774\uC158 \uC81C\uC791 \uD504\uB85C\uC81D\uD2B8. \uC2A4\uD1A0\uB9AC\uBCF4\uB4DC\uBD80\uD130 \uB80C\uB354\uB9C1\uAE4C\uC9C0 3D \uC560\uB2C8\uBA54\uC774\uC158\uC758 \uC804 \uACFC\uC815\uC744 1\uC778\uC73C\uB85C \uC791\uC5C5\uD588\uC2B5\uB2C8\uB2E4.",video:"https://vimeo.com/892320648?share=copy"};function s(a){let n=Object.assign({blockquote:"blockquote",p:"p",br:"br",hr:"hr",h3:"h3",a:"a",span:"span",img:"img",code:"code",h2:"h2",h4:"h4",ul:"ul",li:"li"},a.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)("iframe",{src:"https://player.vimeo.com/video/892320648?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479",allow:"autoplay; fullscreen; picture-in-picture",title:"A Metal Flower"}),`
-`,(0,e.jsxs)(n.blockquote,{children:[`
-`,(0,e.jsxs)(n.p,{children:["\uACE0\uCCA0\uB85C \uAF43\uC744 \uB9CC\uB4E4\uBA70 \uC0B4\uC544\uAC00\uB294 \uB85C\uBD07\uC740 \uC5B4\uB290 \uB0A0 \uC0B4\uC544\uC788\uB294 \uAF43\uACFC \uB9C8\uC8FC\uD55C\uB2E4.",(0,e.jsx)(n.br,{}),`
-`,"\uADF8\uAC00 \uC54C\uACE0 \uC788\uC5C8\uB358 \uC5B4\uB5A4 \uC21C\uB9AC\uB3C4, \uBC95\uCE59\uB3C4, \uC774\uCE58\uB3C4, \uC2DC\uB4E4\uC5B4 \uAC00\uB294 \uC0DD\uD654 \uACC1\uC5D0\uC120 \uBB34\uC6A9\uC9C0\uBB3C\uC774 \uB41C\uB2E4.",(0,e.jsx)(n.br,{}),`
-`,"\uACB0\uAD6D \uB208\uC55E\uAE4C\uC9C0 \uCC3E\uC544\uC628 \uAF43\uC758 \uC8FD\uC74C.",(0,e.jsx)(n.br,{}),`
+e:T2475,var Component=(()=>{var d=Object.create;var l=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var u=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),k=(e,n)=>{for(var a in n)l(e,a,{get:n[a],enumerable:!0})},h=(e,n,a,c)=>{if(n&&typeof n=="object"||typeof n=="function")for(let i of p(n))!b.call(e,i)&&i!==a&&l(e,i,{get:()=>n[i],enumerable:!(c=m(n,i))||c.enumerable});return e};var f=(e,n,a)=>(a=e!=null?d(g(e)):{},h(n||!e||!e.__esModule?l(a,"default",{value:e,enumerable:!0}):a,e)),w=e=>h(l({},"__esModule",{value:!0}),e);var t=u((x,o)=>{o.exports=_jsx_runtime});var F={};k(F,{default:()=>A,frontmatter:()=>N});var r=f(t()),N={title:"\uCCA0\uB85C \uC774\uB8E8\uC5B4\uC9C4 \uAF43",startDate:"2023-02-01 GMT+9",date:"2023-06-30 GMT+9",tag:["Maya","Unreal Engine","Substance Painter","After Effect","Photoshop","Premiere Pro","3D Animating"],image:"/img/work/A-Metal-Flower/Poster.png",color:"#B86539",description:"\uC878\uC5C5 \uC791\uD488\uC73C\uB85C \uC9C4\uD589\uD55C \uB2E8\uD3B8 \uC560\uB2C8\uBA54\uC774\uC158 \uC81C\uC791 \uD504\uB85C\uC81D\uD2B8. \uC2A4\uD1A0\uB9AC\uBCF4\uB4DC\uBD80\uD130 \uB80C\uB354\uB9C1\uAE4C\uC9C0 3D \uC560\uB2C8\uBA54\uC774\uC158\uC758 \uC804 \uACFC\uC815\uC744 1\uC778\uC73C\uB85C \uC791\uC5C5\uD588\uC2B5\uB2C8\uB2E4.",video:"https://vimeo.com/892320648?share=copy"};function s(e){let n=Object.assign({blockquote:"blockquote",p:"p",br:"br",hr:"hr",h3:"h3",a:"a",span:"span",img:"img",code:"code",h2:"h2",h4:"h4",ul:"ul",li:"li"},e.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)("iframe",{src:"https://player.vimeo.com/video/892320648?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479",allow:"autoplay; fullscreen; picture-in-picture",title:"A Metal Flower"}),`
+`,(0,r.jsxs)(n.blockquote,{children:[`
+`,(0,r.jsxs)(n.p,{children:["\uACE0\uCCA0\uB85C \uAF43\uC744 \uB9CC\uB4E4\uBA70 \uC0B4\uC544\uAC00\uB294 \uB85C\uBD07\uC740 \uC5B4\uB290 \uB0A0 \uC0B4\uC544\uC788\uB294 \uAF43\uACFC \uB9C8\uC8FC\uD55C\uB2E4.",(0,r.jsx)(n.br,{}),`
+`,"\uADF8\uAC00 \uC54C\uACE0 \uC788\uC5C8\uB358 \uC5B4\uB5A4 \uC21C\uB9AC\uB3C4, \uBC95\uCE59\uB3C4, \uC774\uCE58\uB3C4, \uC2DC\uB4E4\uC5B4 \uAC00\uB294 \uC0DD\uD654 \uACC1\uC5D0\uC120 \uBB34\uC6A9\uC9C0\uBB3C\uC774 \uB41C\uB2E4.",(0,r.jsx)(n.br,{}),`
+`,"\uACB0\uAD6D \uB208\uC55E\uAE4C\uC9C0 \uCC3E\uC544\uC628 \uAF43\uC758 \uC8FD\uC74C.",(0,r.jsx)(n.br,{}),`
 `,"\uBAA8\uB4E0 \uAC83\uC744 \uD3EC\uAE30\uD558\uACE0 \uB3CC\uC544\uC120 \uC21C\uAC04, \uB9C8\uCE68\uB0B4 \uB85C\uBD07\uC740 \uCCA0\uB85C\uC368 \uAF43\uC744 \uC774\uB8E8\uC5B4 \uB0B8\uB2E4."]}),`
 `]}),`
-`,(0,e.jsx)(n.hr,{}),`
-`,(0,e.jsxs)(n.h3,{id:"main-poster",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#main-poster",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Main Poster"]}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/Poster.png",alt:"poster"})}),`
-`,(0,e.jsxs)(n.p,{children:["\uC878\uC5C5 \uC791\uD488. \uCD9C\uD488\uC791 \uAE30\uC900 ",(0,e.jsx)(n.code,{children:"7\uBD84 42\uCD08"}),"."]}),`
-`,(0,e.jsx)(n.p,{children:"\uAD6C\uC0C1\uC740 2022\uB144 10\uC6D4\uBD80\uD130, \uC81C\uC791\uC740 2023\uB144 2\uC6D4\uBD80\uD130 6\uC6D4\uAE4C\uC9C0 \uC9C4\uD589\uD588\uC2B5\uB2C8\uB2E4."}),`
-`,(0,e.jsxs)(n.p,{children:["\uB514\uB809\uD305, \uC2A4\uD1A0\uB9AC\uBCF4\uB4DC, \uCE90\uB9AD\uD130 \uB514\uC790\uC778, \uC8FC\uC694 \uAC00\uAD6C \uBC0F \uC18C\uD488 \uB514\uC790\uC778, \uBAA8\uB378\uB9C1, \uD14D\uC2A4\uCC98\uB9C1, \uB9AC\uAE45, \uC560\uB2C8\uBA54\uC774\uD305, \uBC30\uACBD \uBC30\uCE58, \uB77C\uC774\uD305, \uB80C\uB354\uB9C1 \uB4F1 ",(0,e.jsx)("mark",{children:"\uC804\uCCB4 \uACFC\uC815"}),"\uC744 1\uC778\uC73C\uB85C \uC791\uC5C5\uD588\uC2B5\uB2C8\uB2E4."]}),`
-`,(0,e.jsx)(n.hr,{}),`
-`,(0,e.jsxs)(n.h3,{id:"thumbnail",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#thumbnail",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Thumbnail"]}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t1.png",alt:"thumbnail"})}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t2.png",alt:"thumbnail"})}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t3.png",alt:"thumbnail"})}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t4.png",alt:"thumbnail"})}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t5.png",alt:"thumbnail"})}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t6.png",alt:"thumbnail"})}),`
-`,(0,e.jsx)(n.hr,{}),`
-`,(0,e.jsxs)(n.h3,{id:"character",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#character",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Character"]}),`
-`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:"/img/work/A-Metal-Flower/Character.jpg",alt:"Character"})}),`
-`,(0,e.jsx)(n.hr,{}),`
-`,(0,e.jsxs)(n.h2,{id:"programs",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#programs",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Programs"]}),`
-`,(0,e.jsxs)(n.h4,{id:"modeling--rigging--animating",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#modeling--rigging--animating",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Modeling & Rigging & Animating"]}),`
-`,(0,e.jsxs)(n.ul,{children:[`
-`,(0,e.jsxs)(n.li,{children:["Maya",(0,e.jsx)(n.br,{}),`
-`,"(Plugin: ",(0,e.jsx)(n.a,{href:"https://www.animationstudios.com.au/advanced-skeleton",rel:"noopener noreferrer",target:"_blank",children:"Advanced Skeleton"}),")"]}),`
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h3,{id:"main-poster",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#main-poster",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Main Poster"]}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/Poster.png",alt:"poster"})}),`
+`,(0,r.jsxs)(n.p,{children:["\uC878\uC5C5 \uC791\uD488. \uCD9C\uD488\uC791 \uAE30\uC900 ",(0,r.jsx)(n.code,{children:"9\uBD84 00\uCD08"}),"."]}),`
+`,(0,r.jsx)(n.p,{children:"\uAD6C\uC0C1\uC740 2022\uB144 10\uC6D4\uBD80\uD130, \uC81C\uC791\uC740 2023\uB144 2\uC6D4\uBD80\uD130 6\uC6D4\uAE4C\uC9C0 \uC9C4\uD589\uD588\uC2B5\uB2C8\uB2E4."}),`
+`,(0,r.jsxs)(n.p,{children:["\uB514\uB809\uD305, \uC2A4\uD1A0\uB9AC\uBCF4\uB4DC, \uCE90\uB9AD\uD130 \uB514\uC790\uC778, \uC8FC\uC694 \uAC00\uAD6C \uBC0F \uC18C\uD488 \uB514\uC790\uC778, \uBAA8\uB378\uB9C1, \uD14D\uC2A4\uCC98\uB9C1, \uB9AC\uAE45, \uC560\uB2C8\uBA54\uC774\uD305, \uBC30\uACBD \uBC30\uCE58, \uB77C\uC774\uD305, \uB80C\uB354\uB9C1 \uB4F1 ",(0,r.jsx)("mark",{children:"\uC804\uCCB4 \uACFC\uC815"}),"\uC744 1\uC778\uC73C\uB85C \uC791\uC5C5\uD588\uC2B5\uB2C8\uB2E4."]}),`
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h3,{id:"thumbnail",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#thumbnail",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Thumbnail"]}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t1.png",alt:"thumbnail"})}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t2.png",alt:"thumbnail"})}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t3.png",alt:"thumbnail"})}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t4.png",alt:"thumbnail"})}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t5.png",alt:"thumbnail"})}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/t6.png",alt:"thumbnail"})}),`
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h3,{id:"character",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#character",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Character"]}),`
+`,(0,r.jsx)(n.p,{children:(0,r.jsx)(n.img,{src:"/img/work/A-Metal-Flower/Character.jpg",alt:"Character"})}),`
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h2,{id:"programs",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#programs",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Programs"]}),`
+`,(0,r.jsxs)(n.h4,{id:"modeling--rigging--animating",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#modeling--rigging--animating",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Modeling & Rigging & Animating"]}),`
+`,(0,r.jsxs)(n.ul,{children:[`
+`,(0,r.jsxs)(n.li,{children:["Maya",(0,r.jsx)(n.br,{}),`
+`,"(Plugin: ",(0,r.jsx)(n.a,{href:"https://www.animationstudios.com.au/advanced-skeleton",rel:"noopener noreferrer",target:"_blank",children:"Advanced Skeleton"}),")"]}),`
 `]}),`
-`,(0,e.jsxs)(n.h4,{id:"texturing",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#texturing",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Texturing"]}),`
-`,(0,e.jsxs)(n.ul,{children:[`
-`,(0,e.jsx)(n.li,{children:"Substance Painter"}),`
+`,(0,r.jsxs)(n.h4,{id:"texturing",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#texturing",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Texturing"]}),`
+`,(0,r.jsxs)(n.ul,{children:[`
+`,(0,r.jsx)(n.li,{children:"Substance Painter"}),`
 `]}),`
-`,(0,e.jsxs)(n.h4,{id:"rendering",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#rendering",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Rendering"]}),`
-`,(0,e.jsxs)(n.ul,{children:[`
-`,(0,e.jsx)(n.li,{children:"Unreal Engine 5"}),`
+`,(0,r.jsxs)(n.h4,{id:"rendering",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#rendering",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Rendering"]}),`
+`,(0,r.jsxs)(n.ul,{children:[`
+`,(0,r.jsx)(n.li,{children:"Unreal Engine 5"}),`
 `]}),`
-`,(0,e.jsxs)(n.h4,{id:"post-processing",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#post-processing",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Post-Processing"]}),`
-`,(0,e.jsxs)(n.ul,{children:[`
-`,(0,e.jsx)(n.li,{children:"After Effect"}),`
-`,(0,e.jsx)(n.li,{children:"Premiere Pro"}),`
-`,(0,e.jsx)(n.li,{children:"Photoshop"}),`
+`,(0,r.jsxs)(n.h4,{id:"post-processing",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#post-processing",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Post-Processing"]}),`
+`,(0,r.jsxs)(n.ul,{children:[`
+`,(0,r.jsx)(n.li,{children:"After Effect"}),`
+`,(0,r.jsx)(n.li,{children:"Premiere Pro"}),`
+`,(0,r.jsx)(n.li,{children:"Photoshop"}),`
 `]}),`
-`,(0,e.jsx)(n.hr,{}),`
-`,(0,e.jsxs)(n.h2,{id:"assets",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#assets",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Assets"]}),`
-`,(0,e.jsxs)(n.ul,{children:[`
-`,(0,e.jsx)(n.li,{children:"PolyHaven"}),`
-`,(0,e.jsx)(n.li,{children:"Megascan"}),`
-`,(0,e.jsx)(n.li,{children:"Quixel Bridge"}),`
-`,(0,e.jsx)(n.li,{children:"Rural Australia in Environments - UE Marketplace"}),`
-`,(0,e.jsx)(n.li,{children:"Blue Dot Session (\uC74C\uC6D0 \uC720\uB8CC \uB77C\uC774\uC13C\uC2A4 \uAD6C\uB9E4)"}),`
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h2,{id:"assets",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#assets",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Assets"]}),`
+`,(0,r.jsxs)(n.ul,{children:[`
+`,(0,r.jsx)(n.li,{children:"PolyHaven"}),`
+`,(0,r.jsx)(n.li,{children:"Megascan"}),`
+`,(0,r.jsx)(n.li,{children:"Quixel Bridge"}),`
+`,(0,r.jsx)(n.li,{children:"Rural Australia in Environments - UE Marketplace"}),`
+`,(0,r.jsx)(n.li,{children:"Blue Dot Session (\uC74C\uC6D0 \uC720\uB8CC \uB77C\uC774\uC13C\uC2A4 \uAD6C\uB9E4)"}),`
 `]}),`
-`,(0,e.jsx)(n.hr,{}),`
-`,(0,e.jsxs)(n.h2,{id:"photo",children:[(0,e.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#photo",children:(0,e.jsx)(n.span,{className:"icon icon-link"})}),"Photo"]}),`
-`,(0,e.jsx)("img",{alt:"\uC878\uC5C5 \uC804\uC2DC \uC0AC\uC9C4",className:"auto",src:"https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7bLqA%2FbtskiT1WlXV%2FkqhLf4XGIkEf6ocE7opft1%2Fimg.png"})]})}function N(a={}){let{wrapper:n}=a.components||{};return n?(0,e.jsx)(n,Object.assign({},a,{children:(0,e.jsx)(s,a)})):s(a)}var A=N;return w(F);})();
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h2,{id:"credit",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#credit",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Credit"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uAC10\uB3C5",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uC724"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uBAA8\uB378\uB9C1",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uC724"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uC560\uB2C8\uBA54\uC774\uC158",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uC724"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uD658\uACBD \uB808\uC774\uC544\uC6C3",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uC724"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uB77C\uC774\uD305 & \uB80C\uB354\uB9C1",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uC724"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uC0AC\uC6B4\uB4DC & \uD3B8\uC9D1",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uC724"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uC5F0\uCD9C \uBCF4\uC870",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC11C\uD604"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uC9C0\uB3C4 \uAD50\uC218",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uD638"]}),`
+`,(0,r.jsxs)(n.p,{children:["\uACE0\uB9C8\uC6B4 \uBD84\uB4E4",(0,r.jsx)(n.br,{}),`
+`,"\uC5C4\uB9C8 & \uC544\uBE60",(0,r.jsx)(n.br,{}),`
+`,"\uD0C1\uB3C4\uC5F0",(0,r.jsx)(n.br,{}),`
+`,"\uAE40\uC900\uD601",(0,r.jsx)(n.br,{}),`
+`,"\uC774\uC9C0\uC548",(0,r.jsx)(n.br,{}),`
+`,"\uCD5C\uC218\uBBF8",(0,r.jsx)(n.br,{}),`
+`,"\uBC15\uC740\uAE30",(0,r.jsx)(n.br,{}),`
+`,"\uC804\uB2E4\uC628",(0,r.jsx)(n.br,{}),`
+`,"\uBB38\uC608\uBE48"]}),`
+`,(0,r.jsx)(n.hr,{}),`
+`,(0,r.jsxs)(n.h2,{id:"photo",children:[(0,r.jsx)(n.a,{className:"anchor","aria-label":"anchor",href:"#photo",children:(0,r.jsx)(n.span,{className:"icon icon-link"})}),"Photo"]}),`
+`,(0,r.jsx)("img",{alt:"\uC878\uC5C5 \uC804\uC2DC \uC0AC\uC9C4",className:"auto",src:"https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7bLqA%2FbtskiT1WlXV%2FkqhLf4XGIkEf6ocE7opft1%2Fimg.png"})]})}function M(e={}){let{wrapper:n}=e.components||{};return n?(0,r.jsx)(n,Object.assign({},e,{children:(0,r.jsx)(s,e)})):s(e)}var A=M;return w(F);})();
 ;return Component;f:Tfe0,var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var u=(a,r)=>()=>(r||a((r={exports:{}}).exports,r),r.exports),M=(a,r)=>{for(var n in r)s(a,n,{get:r[n],enumerable:!0})},o=(a,r,n,i)=>{if(r&&typeof r=="object"||typeof r=="function")for(let c of m(r))!_.call(a,c)&&c!==n&&s(a,c,{get:()=>r[c],enumerable:!(i=p(r,c))||i.enumerable});return a};var D=(a,r,n)=>(n=a!=null?h(d(a)):{},o(r||!a||!a.__esModule?s(n,"default",{value:a,enumerable:!0}):n,a)),k=a=>o(s({},"__esModule",{value:!0}),a);var t=u((f,l)=>{l.exports=_jsx_runtime});var b={};M(b,{default:()=>w,frontmatter:()=>C});var e=D(t()),C={title:"\uB9C8\uBC95\uC0AC\uC758 \uC81C\uC790, \uB85C\uC774",startDate:"2022-09-18 GMT+9",date:"2022-12-22 GMT+9",tag:["ZBrush","Marvelous Designer","Maya"],image:"/img/work/Model-Character-SD/zbrush_chara_3.png",description:"\uC0AC\uB77C\uC9C4 \uC2A4\uC2B9\uB2D8\uC744 \uCC3E\uB294 \uC5B4\uB9B0 \uB9C8\uBC95\uC0AC\uB77C\uB294 \uCEE8\uC149\uC73C\uB85C \uC9C4\uD589\uB41C \uCE90\uB9AD\uD130 \uBAA8\uB378\uB9C1 \uD504\uB85C\uC81D\uD2B8.",color:"#A1E5D0"};function g(a){let r=Object.assign({p:"p",img:"img",h2:"h2",a:"a",span:"span",code:"code",hr:"hr"},a.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(r.p,{children:(0,e.jsx)(r.img,{src:"/img/work/Model-Character-SD/zbrush_00.jpg",alt:"concept img"})}),`
 `,(0,e.jsxs)(r.h2,{id:"concept",children:[(0,e.jsx)(r.a,{className:"anchor","aria-label":"anchor",href:"#concept",children:(0,e.jsx)(r.span,{className:"icon icon-link"})}),"Concept"]}),`
 `,(0,e.jsxs)(r.p,{children:[(0,e.jsx)("mark",{children:"\uCC45 \uD55C \uAD8C\uC744 \uB450\uACE0 \uC0AC\uB77C\uC9C4 \uC2A4\uC2B9\uB2D8\uC744 \uCC3E\uB294 \uC5B4\uB9B0 \uB9C8\uBC95\uC0AC"}),"\uB77C\uB294 \uCEE8\uC149\uC73C\uB85C \uC9C4\uD589\uB41C \uCE90\uB9AD\uD130 \uBAA8\uB378\uB9C1 \uD504\uB85C\uC81D\uD2B8."]}),`
