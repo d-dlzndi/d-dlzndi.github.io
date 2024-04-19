@@ -8,7 +8,6 @@ import { RadialProgress } from "./comp/RadialProgress";
 import { TimeLine } from "./comp/TimeLine";
 import { LandingBox } from "./LandingPage";
 import { TagOl } from "./comp/TagOl";
-import Link from "next/link";
 import { AboutData as d } from "@/libs/SectionDatas";
 import { useMemo } from "react";
 
@@ -55,7 +54,7 @@ export function AboutMePage() {
               key={idx}
               className="flex flex-1 -my-2 sm:my-0 sm:-mx-2 shrink-0 flex-col items-center"
             >
-              <Link
+              <a
                 href={`#${data.linkCategory}`}
                 className={
                   " transition-transform hover:scale-105 active:scale-90 rounded-[100%] mix-blend-screen w-full xl:aspect-w-1 xl:aspect-h-1 text-center py-12 sm:py-24 " +
@@ -71,7 +70,7 @@ export function AboutMePage() {
                     </span>
                   </p>
                 </div>
-              </Link>
+              </a>
               <div className=" hidden sm:block mr-[1em] mt-4 pt-4 border-t w-3/4">
                 <TagOl
                   parentClassName="flex flex-col flex-wrap gap-3"
@@ -233,7 +232,7 @@ export function AboutMePage() {
                     viewport={{ once: true }}
                     className=" scroll-mt-20 flex-[1] block shrink-0 font-extrabold uppercase text-3xl text-secondary mb-4"
                   >
-                    <Link href={`#${cont.title}`}>{cont.title}</Link>
+                    <a href={`#${cont.title}`}>{cont.title}</a>
                   </motion.h4>
                   <div className="flex-[3] shrink-0 flex flex-col xl:items-end">
                     {cont.textContent && (

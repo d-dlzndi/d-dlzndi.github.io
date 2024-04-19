@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import { LandingBox } from "./LandingPage";
 import Image from "next/image";
 import { Icons } from "@/components/common/Icons/Icons";
-import Link from "next/link";
 
 const commonEase = [0, 0.55, 0.45, 1];
 const startDelay = 1;
@@ -76,10 +75,10 @@ export function HiPage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.5 }}
         viewport={{ once: true }}
-        transition={{ delay: startDelay + 2 }}
+        transition={{ delay: startDelay + 1.5 }}
         className={`absolute left-0 bottom-10 w-full text-center font-light text-sm transition-all hover:scale-105 hover:text-accent`}
       >
-        <Link href={`#About`} className={`block`}>
+        <a href={`#About`} className={`block`}>
           SCROLL
           <br />
           <Icons.chevronDoubleDown
@@ -87,7 +86,7 @@ export function HiPage() {
             width={30}
             height={30}
           />
-        </Link>
+        </a>
       </motion.div>
     </LandingBox>
   );
