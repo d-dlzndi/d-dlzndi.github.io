@@ -34,7 +34,7 @@ const urlData: urlDataType[] = [
   {
     title: "Github",
     text: "github.com/d-dlzndi",
-    url: "https://github.com/d-dlzndi",
+    url: "https://github.com/d-dlzndi/d-dlzndi.github.io",
     icon: Icons.github,
     iconType: "fill",
   },

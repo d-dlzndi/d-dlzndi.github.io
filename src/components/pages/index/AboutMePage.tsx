@@ -56,7 +56,7 @@ export function AboutMePage() {
               className="flex flex-1 -my-2 sm:my-0 sm:-mx-2 shrink-0 flex-col items-center"
             >
               <Link
-                href={`#${data.title}`}
+                href={`#${data.linkCategory}`}
                 className={
                   " transition-transform hover:scale-105 active:scale-90 rounded-[100%] mix-blend-screen w-full xl:aspect-w-1 xl:aspect-h-1 text-center py-12 sm:py-24 " +
                   data.style

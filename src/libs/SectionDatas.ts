@@ -17,6 +17,14 @@ type sectionDataType = {
   [key: string]: any;
 };
 
+type abilityDataType = {
+  sub: string;
+  title: string;
+  linkCategory: string;
+  categories: string[];
+  style: string;
+};
+
 const AboutData = {
   title: "About Me",
   titleSvg: SvgT_About,
@@ -32,22 +40,25 @@ const AboutData = {
     {
       sub: "FX + 3D + 2D",
       title: "Animation",
-      categories: ["Animation", "FX"],
+      linkCategory: "FX",
+      categories: ["FX", "Animation"],
       style: "bg-secondary text-secondary-content",
     },
     {
       sub: "WEB + GAME",
       title: "Programming",
+      linkCategory: "Programming",
       categories: ["Programming"],
       style: "bg-base-300 text-secondary-content",
     },
     {
       sub: "2D + 3D",
       title: "Design",
+      linkCategory: "Design",
       categories: ["Graphic-Design", "Digital-Sculpting"],
       style: "bg-neutral text-neutral-content",
     },
-  ],
+  ] as abilityDataType[],
   skills: [
     {
       name: "Houdini",
@@ -76,11 +87,11 @@ const AboutData = {
     { name: "TypeScript", progress: 40 },
     { name: "C#", progress: 60 },
     { name: "Python", progress: 50 },
-  ],
+  ] as { name: string; progress: number }[],
   educationData: [
     { name: "화정고등학교 졸업", year: "2019.02." },
     { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
-  ],
+  ] as { name: string; year: string }[],
   experienceData: [
     {
       title: "스마일게이트 온라인 게임잼 Episode.01 최우수상 수상",
@@ -102,41 +113,7 @@ const AboutData = {
       title: "한국콘텐츠진흥원 2023 대한민국 게임잼 대상 수상",
       desc: `2023.08.11.`,
     },
-  ].reverse(),
-};
-
-type abilityDataType = {
-  sub: string;
-  title: string;
-  categories: string[];
-  style: string;
-};
-
-const IntroData: sectionDataType = {
-  title: `Intro`,
-  description: `자개소개`,
-  titleSvg: SvgT_Thank,
-  category: [],
-  abilityData: [
-    {
-      sub: "3D + 2D",
-      title: "Animation",
-      categories: ["Animation"],
-      style: "bg-primary text-primary-content",
-    },
-    {
-      sub: "WEB + GAME",
-      title: "Programming",
-      categories: ["Programming"],
-      style: "bg-base-300 text-secondary-content",
-    },
-    {
-      sub: "2D + 3D",
-      title: "Design",
-      categories: ["Graphic-Design", "Digital-Sculpting"],
-      style: "bg-neutral text-neutral-content",
-    },
-  ] as abilityDataType[],
+  ].reverse() as { title: string; desc: string }[],
 };
 
 const FXData: sectionDataType = {
@@ -184,7 +161,6 @@ const ThankData: sectionDataType = {
 
 export {
   AboutData,
-  IntroData,
   FXData,
   AnimationData,
   ProgrammingData,

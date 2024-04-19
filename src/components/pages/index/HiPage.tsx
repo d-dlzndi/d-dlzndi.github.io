@@ -1,11 +1,16 @@
 "use client";
-import { useAnimate, useInView } from "framer-motion";
+import { useAnimate, useInView, motion } from "framer-motion";
 import SvgTitle from "@/assets/svg/index/title_text.svg";
 import SvgTitle_Deco1 from "@/assets/svg/index/title_deco1.svg";
 import SvgTitle_Deco2 from "@/assets/svg/index/title_deco2.svg";
 import { useEffect } from "react";
 import { LandingBox } from "./LandingPage";
 import Image from "next/image";
+import { Icons } from "@/components/common/Icons/Icons";
+import Link from "next/link";
+
+const commonEase = [0, 0.55, 0.45, 1];
+const startDelay = 1;
 
 export function HiPage() {
   const [scope, animate] = useAnimate();
@@ -14,8 +19,6 @@ export function HiPage() {
 
   useEffect(() => {
     if (isInView) {
-      const commonEase = [0, 0.55, 0.45, 1];
-      const startDelay = 1;
       animate(
         "svg:nth-child(1)",
         { opacity: 1 },
@@ -69,6 +72,23 @@ export function HiPage() {
           className={`absolute top-0 left-0 z-[-1] stroke-secondary w-full h-full`}
         />
       </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.5 }}
+        viewport={{ once: true }}
+        transition={{ delay: startDelay + 2 }}
+        className={`absolute left-0 bottom-10 w-full text-center font-light text-sm transition-all hover:scale-105 hover:text-accent`}
+      >
+        <Link href={`#About`} className={`block`}>
+          SCROLL
+          <br />
+          <Icons.chevronDoubleDown
+            className={`inline-block`}
+            width={30}
+            height={30}
+          />
+        </Link>
+      </motion.div>
     </LandingBox>
   );
 }

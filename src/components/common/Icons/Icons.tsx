@@ -27,6 +27,7 @@ import {
   ArrowDownIcon,
   SpeakerXMarkIcon,
   SpeakerWaveIcon,
+  ChevronDoubleDownIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
@@ -68,6 +69,7 @@ export const Icons = {
   chevronDoubleRight: (props: IconProps) => (
     <ChevronDoubleRightIcon {...props} stroke={undefined} />
   ),
+  chevronDoubleDown: (props: IconProps) => <ChevronDoubleDownIcon {...props} />,
   email: (props: IconProps) => <AtSymbolIcon {...props} />,
   github: (props: IconProps) => <GithubIcon {...props} />,
   arrowUpRight: (props: IconProps) => <ArrowUpRightIcon {...props} />,
