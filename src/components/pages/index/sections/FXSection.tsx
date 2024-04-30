@@ -88,7 +88,7 @@ function FXPlayer({ post, video }: { post: WorkPost; video: VideoData }) {
         setVideoPlaying(false);
       }}
       onHoverStart={() => {
-        setVideoPlaying(false);
+        // setVideoPlaying(false);
       }}
       onHoverEnd={() => {
         // setVideoPlaying(true);
