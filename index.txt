@@ -1,6 +1,6 @@
 1:HL["https://d-dlzndi.github.io/_next/static/media/155ce652bb9cca31-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["https://d-dlzndi.github.io/_next/static/css/2fff4138654bfcdc.css","style",{"crossOrigin":""}]
-0:["rxrTsKql4UMrs8W3V0reY",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/2fff4138654bfcdc.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+0:["21c_eia5e3FPk47OkfHqC",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://d-dlzndi.github.io/_next/static/css/2fff4138654bfcdc.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:I[6954,[],""]
 6:I[7264,[],""]
 7:I[3619,["620","static/chunks/620-3c630c9d1c398d5c.js","929","static/chunks/929-ac615abe30587643.js","160","static/chunks/app/not-found-9a7294731e6ed726.js"],""]
