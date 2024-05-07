@@ -89,8 +89,8 @@ const AboutData = {
     { name: "Python", progress: 50 },
   ] as { name: string; progress: number }[],
   educationData: [
-    { name: "화정고등학교 졸업", year: "2019.02." },
     { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
+    { name: "화정고등학교 졸업", year: "2019.02." },
   ] as { name: string; year: string }[],
   experienceData: [
     {
