@@ -2,6 +2,7 @@ import SvgCurveLoader from "@/components/animation/svg-curve-loader";
 import WorkListSimple from "@/components/pages/work/WorkListSimple";
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "WORK",
 };
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 export default function MainWorkPage() {
   return (
     <SvgCurveLoader>
-      <WorkListSimple />
+      <Suspense>
+        <WorkListSimple />
+      </Suspense>
     </SvgCurveLoader>
   );
 }

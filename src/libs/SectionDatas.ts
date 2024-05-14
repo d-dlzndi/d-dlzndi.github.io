@@ -6,7 +6,7 @@ import SvgT_About from "@/assets/svg/index/t_aboutMe.svg";
 import SvgT_FX from "@/assets/svg/index/t_fx.svg";
 import SvgT_VFX from "@/assets/svg/index/t_vfx.svg";
 import { workSectionCategoryType } from "../components/pages/index/sections/WorksSection";
-import { CATEGORY_ALL } from "../components/legacy/workList/CategoryList";
+import { CATEGORY_ALL } from "../components/common/design/CategoryList";
 import _navigation, { getNavigationData } from "@/app/portfolio/_navigation";
 
 type sectionDataType = {

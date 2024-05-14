@@ -1,9 +1,0 @@
-.titleLink {
-    position: inherit;
-}
-
-.titleLink a::after {
-    content: "↗";
-    vertical-align: super;
-    font-size: .6em;
-}

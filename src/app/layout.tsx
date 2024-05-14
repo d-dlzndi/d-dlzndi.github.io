@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   // creator: "Seo Yun Kim",
 };
 
-import HomeLayout from "@/components/legacy/page/HomeLayout";
 import { DefaultFont } from "@/styles/Fonts";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
