@@ -29,7 +29,8 @@ const VideoData = defineNestedType(() => ({
   fields: {
     name: { type: "string", required: true },
     url: { type: "string", required: true },
-    autoPost: { type: "boolean" },
+    autoPost: { type: "boolean", default: true },
+    uploadIndex: { type: "boolean", default: false },
   },
 }));
 

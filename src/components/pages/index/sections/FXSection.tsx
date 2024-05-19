@@ -40,10 +40,11 @@ function FXInnerSection() {
       if (post.videos) {
         return [
           ...list,
-          ...post.videos?.reduce(
-            (vlist, video) => [...vlist, { video: video, post: post }],
-            [] as videoPostData[]
-          ),
+          ...post.videos?.reduce((vlist, video) => {
+            if (video.uploadIndex == true)
+              return [...vlist, { video: video, post: post }];
+            return vlist;
+          }, [] as videoPostData[]),
         ];
       } else {
         return list;
@@ -133,9 +134,7 @@ function FXPlayer({ post, video }: { post: WorkPost; video: VideoData }) {
           </Link>
         </div>
         <div
-          className={`md:absolute top-auto left-auto bottom-5 right-0 md:w-max h-max pt-3 ${
-            videoPlaying ? "md:opacity-0" : "md:opacity-100"
-          } transition-opacity text-right`}
+          className={`md:absolute top-auto left-auto bottom-0 right-0 md:w-max h-max pt-2 md:opacity-0 group-hover:md:opacity-100 transition-opacity text-right bg-base-content`}
           style={{ color: "var(--post-color)" }}
         >
           <Link
