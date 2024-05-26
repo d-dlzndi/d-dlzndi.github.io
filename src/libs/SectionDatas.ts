@@ -55,7 +55,7 @@ const AboutData = {
       sub: "2D + 3D",
       title: "Design",
       linkCategory: "Design",
-      categories: ["Graphic-Design", "Digital-Sculpting"],
+      categories: ["Graphic-Design", "Modeling"],
       style: "bg-neutral text-neutral-content",
     },
   ] as abilityDataType[],
@@ -118,7 +118,7 @@ const AboutData = {
 
 const FXData: sectionDataType = {
   title: `FX`,
-  description: `현재 Houdini를 활용한 FX 이펙트를 공부하고 있습니다. 그와 함께, Nuke에도 도전하고 있습니다. 앞으로도 꾸준히 즐겁게 배워가는 것이 목표입니다.`,
+  description: `2024년 1월부터 Houdini를 활용한 FX 이펙트를 공부하고 있습니다. 그와 함께, Nuke에도 도전하고 있습니다. 앞으로도 꾸준히 즐겁게 배워가는 것이 목표입니다.`,
   titleSvg: SvgT_FX,
   category: ["FX"],
 };
@@ -142,7 +142,7 @@ const DesignData: sectionDataType = {
   title: `Design`,
   description: `대학에선 2차원, 3차원을 넘나들며 다양한 디자인 작업을 접해봤습니다. 2D에선 타이포그라피와 인포 그래픽, 3D에선 공간 디자인과 캐릭터 스컬핑이 주된 관심사였습니다. 관객과 사용자에게 어떻게 느껴질 수 있을지 늘 고민합니다.`,
   titleSvg: SvgT_Design,
-  category: ["Digital-Sculpting", "Graphic-Design"],
+  category: ["Modeling", "Graphic-Design"],
 };
 
 const ThankData: sectionDataType = {

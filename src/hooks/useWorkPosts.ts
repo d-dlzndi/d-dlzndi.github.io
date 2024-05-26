@@ -55,7 +55,9 @@ const useWorkPosts = ({ category, tag }: Props = {}) => {
       .sort((prev, next) => {
         const nextPosts = next[1];
         const prevPosts = prev[1];
-        return nextPosts.length - prevPosts.length; // 글의 개수 순으로 반환
+        const compareLength = nextPosts.length - prevPosts.length;
+        if (compareLength == 0) return prev[0].localeCompare(next[0]);
+        else return compareLength; // 글의 개수 순으로 반환
       })
       .map(([tag]) => tag);
   }, [postsByTag]);
