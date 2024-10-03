@@ -8,7 +8,7 @@
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 
 // url 타입
-import type { UrlObject, URLSearchParams } from "url";
+import { UrlObject, URLSearchParams } from "url";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -86,7 +86,7 @@ const customRouter = (
 // Custom Hooks
 const useCustomRouter = () => {
   // 현재 URL에 있는 쿼리값을 파싱하기 위한 메소드
-  const { forEach }: URLSearchParams = useSearchParams();
+  const searchParams = useSearchParams(); // { forEach }: URLSearchParams =
   // pathname도 같이 사용하기 위해서 사용
   const pathname: string = usePathname();
   // 원래 useRouter에값을 반환하기 위해 기존의 값은 이름 변경
@@ -108,7 +108,7 @@ const useCustomRouter = () => {
         | (string | number)[];
     } = {};
 
-    forEach((initialValue, key) => {
+    searchParams.forEach<URLSearchParams>((initialValue, key) => {
       const value = initialValue.toString();
       // 중복된 키값이 있을 경우, 하나의 키에 배열로 담아서 반환
       if (Object.keys(params).includes(key)) {
