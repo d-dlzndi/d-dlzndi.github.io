@@ -28,6 +28,7 @@ import {
   SpeakerXMarkIcon,
   SpeakerWaveIcon,
   ChevronDoubleDownIcon,
+  LightBulbIcon,
 } from "@heroicons/react/24/outline";
 
 import LogoIcon from "@/assets/svg/logo.svg";
@@ -82,6 +83,7 @@ export const Icons = {
   speakerX: (props: IconProps) => <SpeakerXMarkIcon {...props} />,
   speakerWave: (props: IconProps) => <SpeakerWaveIcon {...props} />,
   play: (props: IconProps) => <PlayIcon {...props} />,
+  blog: (props: IconProps) => <LightBulbIcon {...props} />,
 };
 
 export const BrandIcons = {

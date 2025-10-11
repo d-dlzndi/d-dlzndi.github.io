@@ -5,8 +5,8 @@ const year = date.getFullYear();
 
 const contactTitle = "CONTACT";
 const contactDescription = `늘 열려있는 연락처입니다.`;
-const copyright = `Seo Yun Kim © ${year} - All right reserved`;
-// Copyright Seo Yun Kim © 2023 - All right reserved
+const copyright = `KIM Seoyun © ${year} - All right reserved`;
+// Copyright KIM Seoyun © 2023 - All right reserved
 
 type urlDataType = {
   title: string;
@@ -19,22 +19,22 @@ type urlDataType = {
 const urlData: urlDataType[] = [
   {
     title: "Email",
-    text: "sksoyks@naver.com",
-    url: "mailto:sksoyks@naver.com",
+    text: "d.dlzndi@gmail.com",
+    url: "mailto:d.dlzndi@gmail.com",
     icon: Icons.email,
     iconType: "stroke",
   },
   {
-    title: "Tel",
-    text: "+82 010-2923-8734",
-    url: "tel:01029238734",
-    icon: Icons.phone,
-    iconType: "fill",
+    title: "Blog",
+    text: "d-dl.tistory.com",
+    url: "https://d-dl.tistory.com/",
+    icon: Icons.blog,
+    iconType: "stroke",
   },
   {
     title: "Github",
     text: "github.com/d-dlzndi",
-    url: "https://github.com/d-dlzndi/d-dlzndi.github.io",
+    url: "https://github.com/d-dlzndi",
     icon: Icons.github,
     iconType: "fill",
   },

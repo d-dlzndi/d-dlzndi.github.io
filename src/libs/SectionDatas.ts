@@ -31,8 +31,8 @@ const AboutData = {
   mainImg: "/img/index/profile.jpg",
   profile: {
     name: "김서윤",
-    eng_name: "Seo Yun Kim",
-    list: ["2001. 01. 29.", "+82 010-2923-8734", "sksoyks@naver.com"],
+    eng_name: "KIM Seoyun",
+    list: ["2001. 01. 29.", "d.dlzndi@gmail.com"],
   },
   keywords: ["경청하는", "늘 상상하는", "호기심이 많은", "끈질긴", "도전적인"],
   abilityText: `저의 좌우명은 <code class="w-auto inline-block font-bold rounded-md bg-secondary italic text-secondary-content px-2">0보다 0.1이 낫다</code> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
