@@ -63,10 +63,8 @@ export function HiPage() {
         className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 max-w-2xl`}
       >
       <div
-        width={width}
-        height={height}
         style={{ strokeDasharray: 500, strokeDashoffset: 500, fillOpacity: 0 }}
-        className={`${styles.main_title_svg} stroke-primary fill-primary w-full h-full`}
+        className={`${styles.main_title_svg} stroke-primary fill-primary w-[${width}px] h-[${height}px] max-w-full max-h-full`}
         dangerouslySetInnerHTML={{ __html: svgContent }}
       />
         {/* <SvgTitle
