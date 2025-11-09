@@ -74,7 +74,7 @@ export function AnimationSection() {
                   >
                     <TagOl
                       data={post.tag}
-                      parentClassName="flex flex-row flex-wrap gap-2 text-sm"
+                      parentClassName="flex flex-row flex-wrap gap-2 text-sm lg:text-xs 2xl:text-sm"
                       childColorClassName="fill-base-300 hover:fill-secondary hover:bg-secondary hover:text-base-content"
                     />
                   </div>
@@ -238,39 +238,43 @@ export function SlideShowImg({ post }: { post: WorkPost }) {
         </motion.div>
       ))}
       <div
-        className={`absolute top-0 left-0 w-full h-full z-20 pointer-events-none`}
+        className={`absolute top-0 left-0 w-full h-full z-20 pointer-events-none mix-blend-hard-light xl:mix-blend-normal`}
       >
         <div
-          className={`join join-vertical rounded-none absolute bottom-0 right-0 pointer-events-auto ${styles.btnbox}`}
+          className={`join join-horizontal xl:join-vertical rounded-none absolute bottom-0 right-0 pointer-events-auto ${styles.btnbox}`}
         >
           <button
             onClick={() => setPrev()}
-            className="btn btn-ghost hover:border-[var(--post-color)] bg-[var(--post-color)] join-item "
+            className="btn btn-ghost border-[var(--post-color)] text-[var(--post-color)] hover:bg-[var(--post-color)] hover:text-base-100 join-item "
           >
-            <Icons.arrowUp width={30} height={30} className="stroke-current" />
+            <Icons.arrowUp 
+              width={30} 
+              height={30} 
+              className="stroke-current -rotate-90 xl:rotate-0 " 
+            />
           </button>
           <button
             onClick={() => setNext()}
-            className="btn btn-ghost hover:border-[var(--post-color)] bg-[var(--post-color)] join-item "
+            className="btn btn-ghost border-[var(--post-color)] text-[var(--post-color)] hover:bg-[var(--post-color)] hover:text-base-100 join-item "
           >
             <Icons.arrowDown
               width={30}
               height={30}
-              className="stroke-current"
+              className="stroke-current -rotate-90 xl:rotate-0 "
             />
           </button>
         </div>
         <ol
-          className={`pointer-events-auto leading-none flex flex-row xl:flex-col absolute w-fit right-1 xl:right-0 z-20 xl:left-full top-1 xl:top-0 gap-1 xl:px-5 xl:gap-3 ${styles.slidenav}`}
+          className={`pointer-events-auto leading-none flex flex-row xl:flex-col absolute w-fit right-1 xl:right-0 z-20 xl:left-full top-1 xl:top-0 gap-1 xl:px-5 xl:gap-1 ${styles.slidenav}`}
         >
           {/* @ts-ignore */}
           {imglist.map((_, idx) => (
             <li
               key={idx}
               onClick={() => setNow(idx)}
-              className={`w-3 h-3 tooltip inline-block transition-all border border-neutral ${
+              className={`w-3 h-3 xl:h-2 tooltip inline-block transition-all border border-neutral ${
                 idx == select.now
-                  ? "bg-neutral cursor-default xl:tooltip-open"
+                  ? " cursor-default bg-neutral xl:tooltip-open"
                   : " cursor-pointer"
               }`}
               data-tip={`${String(idx).padStart(2, "0")} \n${_.alt}`}
