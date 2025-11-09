@@ -52,6 +52,7 @@ const useWorkPosts = ({ category, tag }: Props = {}) => {
 
   const tags = useMemo<string[]>(() => {
     return Object.entries(postsByTag)
+      .reverse()
       .sort((prev, next) => {
         const nextPosts = next[1];
         const prevPosts = prev[1];

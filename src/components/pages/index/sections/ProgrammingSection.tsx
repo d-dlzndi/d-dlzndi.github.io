@@ -70,8 +70,8 @@ export function ProgrammingSection() {
                     >
                       <TagOl
                         data={post.tag}
-                        parentClassName={`flex flex-row flex-wrap gap-3 mt-6 text-sm`}
-                        childColorClassName={`text-base-100 fill-[var(--post-color)] stroke hover:bg-accent hover:stroke-transparent hover:fill-accent`}
+                        parentClassName={`flex flex-row flex-wrap gap-3 mt-6 text-sm pr-4`}
+                        childColorClassName={`text-base-100 fill-base-300 stroke hover:bg-secondary hover:stroke-transparent hover:fill-none hover:text-base-content`}
                       />
                     </div>
                   )}

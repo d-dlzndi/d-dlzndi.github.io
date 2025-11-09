@@ -51,7 +51,7 @@ export function AnimationSection() {
                 onClick={(e) => {
                   push(post.url || "/");
                 }}
-                className={`group cursor-pointer flex flex-col gap-4 pt-6 border-t border-[var(--post-color)] relative bg-base-content ${styles.textbox}`}
+                className={`group cursor-pointer flex flex-col gap-4 pt-4 border-t border-[var(--post-color)] relative bg-base-content xl:pt-0 ${styles.textbox}`}
               >
                 <h3
                   className={`text-2xl font-extrabold break-keep group-hover:text-[var(--post-color)] transition-colors w-5/6 leading-tight ${styles.title}`}
@@ -75,7 +75,7 @@ export function AnimationSection() {
                     <TagOl
                       data={post.tag}
                       parentClassName="flex flex-row flex-wrap gap-2 text-sm"
-                      childColorClassName=" fill-[var(--post-color)] hover:fill-accent hover:bg-accent"
+                      childColorClassName="fill-base-300 hover:fill-secondary hover:bg-secondary hover:text-base-content"
                     />
                   </div>
                 )}
@@ -268,10 +268,10 @@ export function SlideShowImg({ post }: { post: WorkPost }) {
             <li
               key={idx}
               onClick={() => setNow(idx)}
-              className={`w-3 h-3 tooltip inline-block transition-all hover:opacity-100 border-[var(--post-color)] ${
+              className={`w-3 h-3 tooltip inline-block transition-all border border-neutral ${
                 idx == select.now
-                  ? "bg-[var(--post-color)] cursor-default xl:tooltip-open"
-                  : "border opacity-30 cursor-pointer"
+                  ? "bg-neutral cursor-default xl:tooltip-open"
+                  : " cursor-pointer"
               }`}
               data-tip={`${String(idx).padStart(2, "0")} \n${_.alt}`}
             >

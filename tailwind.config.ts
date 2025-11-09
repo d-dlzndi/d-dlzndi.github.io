@@ -41,8 +41,8 @@ const config: Config = {
         mytheme: {
           primary: "#1924F4", // #4541F6
           secondary: "#F0CC34",
-          accent: "#E86358",
-          neutral: "#081F5C",
+          accent: "#E86358", 
+          neutral: "#313233", // #081F5C
           "base-100": "#EFEEEA",
           info: "#F2C94D",
           success: "#bae6fd",

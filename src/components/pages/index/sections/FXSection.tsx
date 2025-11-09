@@ -116,26 +116,26 @@ function FXPlayer({ post, video }: { post: WorkPost; video: VideoData }) {
           </div>
         </div>
         <div
-          className={`absolute top-5 left-0 w-max max-w-[70%] h-max group-hover:opacity-20 transition-opacity group-hover:hover:opacity-100`}
+          className={`absolute top-5 left-0 w-max max-w-[70%] h-max opacity-0 group-hover:opacity-100 transition-opacity group-hover:hover:text-secondary`}
         >
           <Link href={post.url || "/"}>
-            <span
-              className="px-4 py-1 bg-base-content break-keep box-decoration-clone"
-              style={{ color: "var(--post-color)" }}
-            >
-              {post.title}
-            </span>
-            <br />
             <h5
               className={`px-4 py-1 bg-base-content text-2xl font-bold w-auto inline-block break-keep box-decoration-clone`}
             >
               {video.name}
             </h5>
+            <br />
+            <span
+              className="px-4 py-1 bg-base-content break-keep box-decoration-clone text-gray-400"
+              //style={{ color: "var(--post-color)" }}
+            >
+              {post.title}
+            </span>
           </Link>
         </div>
         <div
           className={`md:absolute top-auto left-auto bottom-0 right-0 md:w-max h-max pt-2 md:opacity-0 group-hover:md:opacity-100 transition-opacity text-right bg-base-content`}
-          style={{ color: "var(--post-color)" }}
+          // style={{ color: "var(--post-color)" }}
         >
           <Link
             href={video.url || "/"}

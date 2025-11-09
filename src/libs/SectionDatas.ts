@@ -35,7 +35,7 @@ const AboutData = {
     list: ["2001. 01. 29.", "d.dlzndi@gmail.com"],
   },
   keywords: ["경청하는", "늘 상상하는", "호기심이 많은", "끈질긴", "도전적인"],
-  abilityText: `저의 좌우명은 <code class="w-auto inline-block font-bold rounded-md bg-secondary italic text-secondary-content px-2">0보다 0.1이 낫다</code> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
+  abilityText: `저의 좌우명은 <span class="w-auto inline-block font-bold rounded-md bg-secondary text-secondary-content px-2">0보다 0.1이 낫다</span> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
   abilityData: [
     {
       sub: "FX + 3D + 2D",
@@ -49,14 +49,14 @@ const AboutData = {
       title: "Programming",
       linkCategory: "Programming",
       categories: ["Programming"],
-      style: "bg-base-300 text-secondary-content",
+      style: "bg-primary text-primary-content",
     },
     {
       sub: "2D + 3D",
       title: "Design",
       linkCategory: "Design",
       categories: ["Graphic-Design", "Modeling"],
-      style: "bg-neutral text-neutral-content",
+      style: "bg-base-100 text-base-content",
     },
   ] as abilityDataType[],
   skills: [
@@ -89,9 +89,24 @@ const AboutData = {
     { name: "Python", progress: 50 },
   ] as { name: string; progress: number }[],
   educationData: [
-    { name: "강원대학교 영상디자인전공 졸업", year: "2024.02." },
-    { name: "화정고등학교 졸업", year: "2019.02." },
-  ] as { name: string; year: string }[],
+    { name: "강원대학교 영상디자인전공 졸업", year: "2024.02.", priority: 0 },
+    {
+      name: "한국콘텐츠진흥원 2023 대한민국 게임잼 대상 수상",
+      year: `2023.08.`,
+      priority: 1,
+    },
+    {
+      name: "게임제작 경진대회 GIGDC2021 대학부 금상 수상",
+      year: `2021.04.`,
+      priority: 1,
+    },
+    {
+      name: "스마일게이트 온라인 게임잼 Episode.01 최우수상 수상",
+      year: `2020.07.`,
+      priority: 1,
+    },
+    { name: "화정고등학교 졸업", year: "2019.02.", priority: 0, },
+  ] as { name: string; year: string; priority: number; }[],
   experienceData: [
     {
       title: "스마일게이트 온라인 게임잼 Episode.01 최우수상 수상",

@@ -105,7 +105,7 @@ export default function WorkListSimple({
                 <TagOl
                   data={tags}
                   parentClassName="xl:text-lg flex mt-[0.6rem] flex-row flex-wrap gap-x-4 gap-y-3 font-medium"
-                  childColorClassName="fill-none stroke-accent hover:fill-accent hover:stroke-none hover:text-accent"
+                  childColorClassName="fill-none stroke-secondary hover:fill-secondary hover:stroke-none"
                   showCount={true}
                   selectedChild={tag || ""}
                 />

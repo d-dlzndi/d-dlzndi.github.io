@@ -57,12 +57,12 @@ export function AboutMePage() {
               <a
                 href={`#${data.linkCategory}`}
                 className={
-                  " transition-transform hover:scale-105 active:scale-90 rounded-[100%] mix-blend-screen w-full xl:aspect-w-1 xl:aspect-h-1 text-center py-12 sm:py-24 " +
+                  " transition-transform hover:scale-105 active:scale-90 rounded-[100%] mix-blend-difference w-full xl:aspect-w-1 xl:aspect-h-1 text-center sm:aspect-none " + " " +
                   data.style
                 }
               >
-                <div className="w-full h-full relative">
-                  <p className="relative md:top-1/2 md:-translate-y-1/2">
+                <div className="py-24">
+                  <p className="relative top-1/2 xl:-translate-y-1/2">
                     <span className="opacity-70">{data.sub}</span>
                     <br />
                     <span className="text-xl xl:text-base 2xl:text-xl uppercase font-black">
@@ -74,7 +74,7 @@ export function AboutMePage() {
               <div className=" hidden sm:block mr-[1em] mt-4 pt-4 border-t w-3/4">
                 <TagOl
                   parentClassName="flex flex-col flex-wrap gap-3"
-                  childColorClassName="text-base-100 fill-accent hover:bg-accent hover:text-base-100"
+                  childColorClassName="text-base-content fill-secondary hover:bg-secondary"
                   data={tagsByCategory[idx]}
                 />
               </div>
@@ -83,44 +83,44 @@ export function AboutMePage() {
         </div>
       ),
     },
+    // {
+    //   title: "Skill",
+    //   content: (
+    //     <>
+    //       <div className="flex justify-around flex-wrap md:flex-nowrap gap-3 pb-8">
+    //         <RadialProgress
+    //           skills={d.skills.slice(0, 3)}
+    //           colors={["text-primary"]}
+    //         />
+    //       </div>
+    //       <SkillTable skills={d.skills.slice(3)} colors={["progress-info"]} />
+    //     </>
+    //   ),
+    // },
     {
-      title: "Skill",
-      content: (
-        <>
-          <div className="flex justify-around flex-wrap md:flex-nowrap gap-3 pb-8">
-            <RadialProgress
-              skills={d.skills.slice(0, 3)}
-              colors={["text-secondary"]}
-            />
-          </div>
-          <SkillTable skills={d.skills.slice(3)} colors={["progress-info"]} />
-        </>
-      ),
-    },
-    {
-      title: "Education",
+      title: "Experience", // Education > Experience
       textContent: (
         <div className="w-full overflow-clip">
           <TimeLine
             data={d.educationData}
-            className={` ml-[-100%] pl-[10em] break-keep text-base`}
+            className={`ml-[-100%] pl-[10em] break-keep text-base`}
           />
         </div>
       ),
     },
-    {
-      title: "Experience",
-      textContent: (
-        <ol className="ml-5 xl:ml-0 list-disc flex flex-col gap-7">
-          {d.experienceData.map((data) => (
-            <li key={data.title}>
-              <h4 className="text-lg break-keep leading-tight">{data.title}</h4>
-              <p className="opacity-50 text-sm">{data.desc}</p>
-            </li>
-          ))}
-        </ol>
-      ),
-    },
+    // {
+    //   title: "Experience",
+    //   textContent: (
+    //     <ol className="ml-5 xl:ml-0 list-disc flex flex-col gap-7">
+    //       {d.experienceData.map((data) => (
+    //         <li key={data.title}>
+    //           <h4 className="text-lg break-keep leading-tight">{data.title}</h4>
+    //           <p className="opacity-50 text-sm">{data.desc}</p>
+    //         </li>
+    //       ))}
+    //     </ol>
+    //   ),
+    // },
   ];
 
   const variants: Variants = {
@@ -137,11 +137,11 @@ export function AboutMePage() {
   };
 
   return (
-    <LandingBox className={`bg-primary text-base-100`}>
+    <LandingBox className={`bg-base-300`}>
       <div className="flex flex-col xl:flex-row place-items-stretch min-h-screen md:px-10 md:py-20">
         <div className=" h-96 xl:h-auto xl:w-1/4 2xl:w-1/3 relative ">
           <span
-            className={`sticky xl:z-[49] block top-0 w-full h-full xl:max-h-screen object-cover grayscale contrast-50 transition-all`}
+            className={`sticky block top-0 w-full h-full xl:max-h-screen object-cover grayscale contrast-50 transition-all`}
           >
             <Img
               src={d.mainImg}
@@ -159,7 +159,7 @@ export function AboutMePage() {
           >
             <span className="hidden">ABOUT ME</span>
             <d.titleSvg
-              className={` fill-secondary sm:stroke-secondary sm:fill-none stroke-2 lg:stroke-1`}
+              className={` fill-primary sm:stroke-primary sm:fill-none stroke-2 lg:stroke-1`}
             />
           </h1>
           <div className="pt-12 md:pt-20 flex gap-3 justify-stretch flex-col md:flex-row">
@@ -176,16 +176,16 @@ export function AboutMePage() {
                     {d.profile.name}
                   </span>
                   <br />
-                  <span className=" text-xl">{d.profile.eng_name}</span>
+                  <span className=" text-xl font-semibold">{d.profile.eng_name}</span>
                 </motion.p>
-                <div className="opacity-60">
+                <div className="font-medium">
                   <motion.p
                     variants={variants}
                     initial={"start"}
                     whileInView={"end"}
                     viewport={{ once: true }}
                     custom={2}
-                    className="pt-5 font-light"
+                    className="pt-5 font-medium"
                   >
                     {d.profile.list.map((str) => (
                       <span key={str}>
@@ -196,11 +196,11 @@ export function AboutMePage() {
                   </motion.p>
                 </div>
               </div>
-              <div className="flex-[2] md:flex-[3] text-xl flex flex-col opacity-30 gap-2 place-items-start">
+              <div className="flex-[2] md:flex-[3] text-xl flex flex-col opacity-50 gap-2 place-items-start font-light">
                 {d.keywords.map((s, idx) => (
-                  <span key={idx} className=" inline-block -skew-x-12">
+                  <span key={idx} className=" inline-block">
                     <Icons.sharp
-                      width={20}
+                      width={17}
                       height={20}
                       className=" fill-current inline-block"
                       style={{ verticalAlign: "-.12em" }}
@@ -222,7 +222,7 @@ export function AboutMePage() {
                   viewport={{ once: true }}
                   className="2xl:w-[83%] xl:pl-[13.5%] xl:pr-[9%] 2xl:pl-[17.5%] 2xl:pr-0 xl:flex-row relative pt-14 flex flex-col shrink-0 gap-8 md:gap-3"
                 >
-                  <div className="absolute top-0 left-0 xl:left-5 w-full min-[1900px]:w-[calc(100%-1.25rem)] h-px bg-secondary" />
+                  <div className="absolute top-0 left-0 xl:left-5 w-full min-[1900px]:w-[calc(100%-1.25rem)] h-px bg-primary" />
                   <motion.h4
                     id={cont.title}
                     custom={1}
@@ -230,7 +230,7 @@ export function AboutMePage() {
                     initial={"start"}
                     whileInView={"end"}
                     viewport={{ once: true }}
-                    className=" scroll-mt-20 flex-[1] block shrink-0 font-extrabold uppercase text-3xl text-secondary mb-4"
+                    className=" scroll-mt-20 flex-[1] block shrink-0 font-extrabold uppercase text-3xl text-primary mb-4"
                   >
                     <a href={`#${cont.title}`}>{cont.title}</a>
                   </motion.h4>

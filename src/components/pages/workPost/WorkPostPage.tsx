@@ -124,7 +124,7 @@ export default function WorkPostPage({
                       <TagOl
                         data={post.tag || []}
                         parentClassName="py-1 flex flex-row gap-3 gap-x-4 flex-wrap -mt-[0.1rem]"
-                        childColorClassName={`fill-[var(--post-color)] text-base-100 hover:bg-accent hover:fill-accent`}
+                        childColorClassName={`fill-base-300 text-base-100 hover:bg-secondary hover:fill-secondary hover:text-base-content`}
                       />
                     ),
                   },

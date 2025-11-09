@@ -6,10 +6,10 @@ import { Icons } from "@/components/common/Icons/Icons";
 export function TagOl({
   data,
   parentClassName = "flex flex-wrap gap-3 flex-row items-center",
-  childColorClassName = "text-base-content stroke stroke-base-content fill-none hover:text-accent hover:stroke-accent",
+  childColorClassName = "text-base-content stroke stroke-base-content fill-none hover:text-secondary hover:stroke-secondary",
   showCount = false,
   selectedChild = "",
-  selectedChildClass = "bg-accent fill-none text-base-100",
+  selectedChildClass = "bg-secondary fill-none",
 }: {
   data: string[];
   parentClassName?: string;

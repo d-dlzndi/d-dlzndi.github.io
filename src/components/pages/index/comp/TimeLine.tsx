@@ -1,5 +1,5 @@
 "use client";
-export type timelineType = { year: string; name: string };
+export type timelineType = { year: string; name: string; priority?: number; };
 
 export function TimeLine({
   data,
@@ -17,8 +17,8 @@ export function TimeLine({
       year: `${new Date().getFullYear()}.${new Date().getMonth()}.`,
       name: "NOW",
     };
-  const hrBg = "bg-secondary";
-  const svgFill = "fill-secondary";
+  const hrBg = "bg-neutral";
+  // const svgFill = "fill-secondary";
   return (
     <ul className={`timeline timeline-vertical ${className}`}>
       {data.map((d, idx) => (
@@ -29,7 +29,11 @@ export function TimeLine({
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
-              className={"w-5 h-5 " + svgFill}
+              className={`w-5 h-5 ${
+                d.priority && d.priority > 0 
+                ? "fill-primary"
+                : "fill-base-content"
+              }`}
             >
               <path
                 fillRule="evenodd"
@@ -38,7 +42,11 @@ export function TimeLine({
               />
             </svg>
           </div>
-          <div className="timeline-end timeline-box text-base-content border-0">
+          <div className={`timeline-end timeline-box border-0 ${
+            d.priority && d.priority > 0
+            ? "text-primary"
+            : ""
+            }`}>
             {d.name}
           </div>
           {((lastUse && idx == data.length - 1) ||
@@ -64,7 +72,11 @@ export function TimeLine({
               />
             </svg>
           </div>
-          <div className="timeline-end timeline-box text-base-content border-0">
+          <div className={`timeline-end timeline-box border-0 ${
+              lastData.priority && lastData.priority > 0
+              ? ""
+              : ""
+            }`}>
             {lastData.name}
           </div>
         </li>
