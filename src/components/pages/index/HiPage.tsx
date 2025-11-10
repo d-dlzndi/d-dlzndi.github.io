@@ -48,7 +48,7 @@ export function HiPage() {
 
   return (
     <LandingBox
-      className={`h-screen min-h-[100dvh] bg-base-100 bg-[url('/img/index/bg.jpg')] bg-cover bg-scroll bg-blend-color-burn bg-origin-border `}
+      className={`h-screen min-h-[100dvh] bg-base-100 bg-[url('/img/index/bg.jpg')] bg-cover bg-fixed max-md:bg-local bg-blend-color-burn bg-origin-border `}
     >
       <Image
         src={"/img/index/bg.jpg"}
