@@ -48,7 +48,7 @@ export function HiPage() {
 
   return (
     <LandingBox
-      className={`h-screen min-h-[100dvh] bg-base-100 bg-[url('/img/index/bg.jpg')] bg-cover bg-fixed bg-blend-color-burn`}
+      className={`h-screen min-h-[100dvh] bg-base-100 bg-[url('/img/index/bg.jpg')] bg-cover bg-scroll bg-blend-color-burn bg-origin-border `}
     >
       <Image
         src={"/img/index/bg.jpg"}
@@ -56,7 +56,7 @@ export function HiPage() {
         width={1280}
         height={720}
         priority={true}
-        className="opacity-5 w-px h-px"
+        className="opacity-0 w-px h-px"
       />
       <div
         ref={scope}
