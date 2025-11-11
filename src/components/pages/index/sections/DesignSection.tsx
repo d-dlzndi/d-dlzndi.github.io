@@ -97,16 +97,16 @@ const DesignSectionImgBox = () => {
     }, [] as any[]);
   }, [allPosts]);
 
-  const getDateString = () => {
-    const date = new Date();
-    return date.toLocaleTimeString()
-  }
+  // const getDateString = () => {
+  //   const date = new Date();
+  //   return date.toLocaleTimeString()
+  // }
 
   return (
     <>
       {shuffleImgs
         .sort((a, b) => {
-          return SeedRandom(a.src + b.alt + getDateString())();
+          return SeedRandom(a.src + b.alt)() - 0.5;
         })
         .map((img) => (
           <div
