@@ -35,7 +35,7 @@ const AboutData = {
     list: ["2001. 01. 29.", "d.dlzndi@gmail.com"],
   },
   keywords: ["경청하는", "늘 상상하는", "호기심이 많은", "끈질긴", "도전적인"],
-  abilityText: `저의 좌우명은 <span class="w-auto inline-block font-bold rounded-md bg-secondary text-secondary-content px-2">0보다 0.1이 낫다</span> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
+  abilityText: `저의 좌우명은 <span class="w-auto inline-block font-bold bg-secondary text-secondary-content px-2">0보다 0.1이 낫다</span> 입니다.<br /><br />비록 당장의 결과물에선 눈에 띄지 않더라도, 늘 더 나은 방안이 있을지 고민합니다. 할 수 없는 일로써 미리 선 그어두는 것을 지양하고, 할 수 있는 일의 경계를 넓히는 것을 즐깁니다.`,
   abilityData: [
     {
       sub: "FX + 3D + 2D",
@@ -89,21 +89,22 @@ const AboutData = {
     { name: "Python", progress: 50 },
   ] as { name: string; progress: number }[],
   educationData: [
+    { name: "FX 파트로 영상 회사 입사 후 현재 재직중", year: "2024.06.", priority: 1 },
     { name: "강원대학교 영상디자인전공 졸업", year: "2024.02.", priority: 0 },
     {
       name: "한국콘텐츠진흥원 2023 대한민국 게임잼 대상 수상",
       year: `2023.08.`,
-      priority: 1,
+      priority: 2,
     },
     {
       name: "게임제작 경진대회 GIGDC2021 대학부 금상 수상",
       year: `2021.04.`,
-      priority: 1,
+      priority: 2,
     },
     {
       name: "스마일게이트 온라인 게임잼 Episode.01 최우수상 수상",
       year: `2020.07.`,
-      priority: 1,
+      priority: 2,
     },
     { name: "화정고등학교 졸업", year: "2019.02.", priority: 0, },
   ] as { name: string; year: string; priority: number; }[],
@@ -133,7 +134,7 @@ const AboutData = {
 
 const FXData: sectionDataType = {
   title: `FX`,
-  description: `2024년 1월부터 Houdini를 활용한 FX 이펙트를 공부하고 있습니다. 그와 함께, Nuke에도 도전하고 있습니다. 앞으로도 꾸준히 즐겁게 배워가는 것이 목표입니다.`,
+  description: `2024년 1월부터 Houdini를 활용한 FX 이펙트를 공부해왔습니다. 그와 함께, Nuke에도 도전하고 있습니다. 앞으로도 꾸준히 즐겁게 배워가는 것이 목표입니다.`,
   titleSvg: SvgT_FX,
   category: ["FX"],
 };
@@ -148,7 +149,7 @@ const AnimationData: sectionDataType = {
 
 const ProgrammingData: sectionDataType = {
   title: `Programming`,
-  description: `처음 코딩을 시작했던 계기는 단순히 개인 블로그의 오류를 해결하기 위해서였습니다. 하지만, 이제는 코딩을 하면 즐겁기 때문에 배우고 있습니다. 여러 가지 분야에 도전하고 있지만, 그중 제일 자신 있는 건 프론트엔드와 게임 개발입니다.`,
+  description: `처음 코딩을 시작했던 계기는 개인 블로그의 오류를 해결하기 위해서였습니다. 하지만, 이제는 코딩을 하면 즐겁기 때문에 배우고 있습니다. 여러 가지 분야에 도전하고 있지만, 그중 제일 자신 있는 건 프론트엔드와 게임 개발입니다.`,
   titleSvg: SvgT_Programming,
   category: ["Programming"],
 };

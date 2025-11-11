@@ -1,5 +1,11 @@
 "use client";
-export type timelineType = { year: string; name: string; priority?: number; };
+export type timelineType = { year: string; name: string; priority: number; };
+/*
+priority :
+0 ; 흰배경 검은글자 검은아이콘
+1 ; 노란배경 검은글자 검은아이콘
+2 ; 흰배경 파란글자 파란아이콘
+*/
 
 export function TimeLine({
   data,
@@ -16,8 +22,9 @@ export function TimeLine({
     lastData = {
       year: `${new Date().getFullYear()}.${new Date().getMonth()}.`,
       name: "NOW",
+      priority: 1
     };
-  const hrBg = "bg-neutral";
+  const hrBg = "bg-neutral opacity-50";
   // const svgFill = "fill-secondary";
   return (
     <ul className={`timeline timeline-vertical ${className}`}>
@@ -30,9 +37,9 @@ export function TimeLine({
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               className={`w-5 h-5 ${
-                d.priority && d.priority > 0 
-                ? "fill-primary"
-                : "fill-base-content"
+                d.priority == 2  ? "fill-primary" : 
+                d.priority == 1 ? "fill-base-content" :
+                "fill-base-content"
               }`}
             >
               <path
@@ -43,9 +50,9 @@ export function TimeLine({
             </svg>
           </div>
           <div className={`timeline-end timeline-box border-0 ${
-            d.priority && d.priority > 0
-            ? "text-primary"
-            : ""
+            d.priority == 2 ? "text-primary" :
+            d.priority == 1 ? "bg-secondary" :
+            ""
             }`}>
             {d.name}
           </div>
@@ -73,9 +80,9 @@ export function TimeLine({
             </svg>
           </div>
           <div className={`timeline-end timeline-box border-0 ${
-              lastData.priority && lastData.priority > 0
-              ? ""
-              : ""
+              lastData.priority == 2 ? "text-primary" :
+              lastData.priority == 1 ? "bg-secondary" :
+              ""
             }`}>
             {lastData.name}
           </div>
