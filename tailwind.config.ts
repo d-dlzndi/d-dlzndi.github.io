@@ -61,5 +61,13 @@ const config: Config = {
       },
     ],
   },
+  safelist: [
+    "collapse",
+    "collapse-arrow",
+    "collapse-title",
+    "collapse-content",
+    "peer",
+    "peer-checked:opacity-20",
+  ]
 };
 export default config;
