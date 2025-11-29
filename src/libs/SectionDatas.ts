@@ -144,7 +144,7 @@ const AnimationData: sectionDataType = {
   description: `저는 움직이지 않는 것에 생명력을 불어넣는 작업을 좋아합니다. 3D 애니메이션, 2D 애니메이션, 모션 그래픽 분야를 시도하며, 그 과정에서 영상 편집과 연출 기술을 쌓아왔습니다. 이를 토대로 더 풍부한 역동성을 재현하고 싶습니다.`,
   titleSvg: SvgT_Animation,
   category: ["Animation"],
-  firstPost: "철로 이루어진 꽃",
+  firstPost: "애니메이션 〈철로 이루어진 꽃〉",
 };
 
 const ProgrammingData: sectionDataType = {
